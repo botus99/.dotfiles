@@ -1,2 +1,2 @@
 # .dotfiles
-my yadm-managed dotfiles
+my dotfiles
