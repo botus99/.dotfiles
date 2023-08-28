@@ -25,7 +25,10 @@ Here's what I'm currently working on:
 
 - [ ] Fix Waybar configuration issue where the bar height changes sometimes                                # totally my fault, I'm sure
 - [ ] Add configs for Flatpak applications
+- [ ] Find a lightweight browser to supplement Librewolf
+
+Not as important stuff that I am considering:
+
 - [ ] Figure out if I want to stick with / switch away from kitty or alacritty
 - [ ] Figure out if I want to stick with / switch away from VSCodium or Gedit
 - [ ] Figure out if I want to stick with / switch away from Thunderbird or Evolution
-- [ ] Find a lightweight browser to supplement Librewolf
