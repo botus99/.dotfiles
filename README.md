@@ -4,7 +4,7 @@ Welcome to my truly 🌟cromulent🌟 dotfiles, meticulously crafted to optimize
 
 ## Applications Used
 
-Great sports teams have great players that work well together and have complimenting strengths. Linux setups are no different. Prepare to be dazzled by this lineup of applications that form the backbone of this Debian setup:
+Great sports teams have great players that work well together and have complimenting strengths. Linux setups are no different. Prepare to be leveled by this lineup of applications for this Debian setup:
 
 - Sway
 - Waybar
