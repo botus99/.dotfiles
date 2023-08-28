@@ -34,6 +34,16 @@ echo -e "\033[36m Downloading Wallpapers \033[0m"
 cd ~
 git clone https://github.com/botus99/.wallpapers.git
 
+### download & install plymouth themes
+echo -e "\033[36m Downloading Themes for Plymouth \033[0m"
+cd $gitstuff
+git clone https://github.com/adi1090x/plymouth-themes.git 
+sudo apt install plymouth
+mv $gitstuff/plymouth-themes/Pack_3/owl /usr/share/plymouth/themes/owl
+mv $gitstuff/plymouth-themes/Pack_4/red_loader /usr/share/plymouth/themes/red_loader
+sudo git clone https://github.com/krishnan793/PlymouthTheme-Cat.git /usr/share/plymouth/themes/PlymouthTheme-Cat
+sudo plymouth-set-default-theme PlymouthTheme-Cat -R
+
 ### dotfile installation
 echo -e "\033[36m Downloading Dotfiles \033[0m"
 cd ~
