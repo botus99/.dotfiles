@@ -1,0 +1,27 @@
+image=~/.wallpapers/red/017.webp
+font=Mononoki Nerd Font Mono
+
+clock
+effect-vignette=0.5:0.5
+fade-in=0.5
+show-failed-attempts
+indicator-radius=120
+indicator-thickness=12
+ring-color=e01b24
+ring-clear-color=e01b24
+ring-ver-color=26a269
+ring-wrong-color=f66151
+separator-color=e01b24
+line-uses-ring
+inside-color=002b3685
+inside-clear-color=002b3685
+inside-ver-color=002b3685
+inside-wrong-color=002b3685
+text-color=e5a50a
+text-caps-lock-color=e5a50a
+text-clear-color=e5a50a
+text-ver-color=26a269
+text-wrong-color=f66151
+key-hl-color=eee8d5
+bs-hl-color=d33682
+ignore-empty-password
