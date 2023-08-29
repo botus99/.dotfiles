@@ -24,7 +24,7 @@ Although a work in progress, I hope that they can offer inspiration for your own
 Here's what I'm currently working on:
 
 - [ ] Add prompts at certain points in the script
-- [ ] Add more stuff that I use (FirefoxPWA, shell-color-scripts, ly...)
+- [ ] Add more stuff that I use (FirefoxPWA, shell-color-scripts, plymouth, ly...)
 - [ ] Add configs for Flatpak applications
 - [ ] Find a lightweight browser to supplement Librewolf
 - [ ] Fix Waybar configuration issue where the bar height changes sometimes                                # totally my fault, I'm sure
