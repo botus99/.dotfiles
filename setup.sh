@@ -22,9 +22,15 @@ echo -e "\033[36m Installing Dependencies \033[0m"
 sudo apt install nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-recommended aria2 bash-completion exa lolcat nano -y
 ### start using nala
 nala --install-completion bash
-sudo nala install sway swayidle swaybg swaylock wayland-utils wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty btop cmatrix ffmpeg optipng mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf neofetch pulsemixer python3 pipx tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full build-essential libpam0g-dev libxcb-xkb-dev
+sudo nala install sway swayidle swaybg swaylock wayland-utils wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty btop cmatrix ffmpeg optipng mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf neofetch pulsemixer python3 pipx tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full build-essential libpam0g-dev libxcb-xkb-dev debian-archive-keyring curl gpg apt-transport-https 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install com.github.tchx84.Flatseal com.vscodium.codium io.gitlab.librewolf-community org.mozilla.Thunderbird
+
+### import GPG key & enable repository for Firefox Progressive Web Apps extension
+curl -fsSL https://packagecloud.io/filips/FirefoxPWA/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/firefoxpwa-keyring.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/firefoxpwa-keyring.gpg] https://packagecloud.io/filips/FirefoxPWA/any any main" | sudo tee /etc/apt/sources.list.d/firefoxpwa.list > /dev/null
+sudo nala update
+sudo nala install firefoxpwa
 
 ### install python apps
 pipx install streamrip
