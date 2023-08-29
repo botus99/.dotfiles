@@ -36,7 +36,7 @@ sudo nala install firefoxpwa
 pipx install streamrip 
 
 ### install rust apps
-cargo install mfp
+#cargo install mfp
 
 ### download & install wallpapers
 echo -e "\033[36m Downloading Wallpapers \033[0m"
