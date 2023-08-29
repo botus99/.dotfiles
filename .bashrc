@@ -73,6 +73,7 @@ xterm*|rxvt*)
 esac
 
 # enable color support of ls and also add handy aliases
+# moved all to .bash_aliases, leaving this here for posterity
 #if [ -x /usr/bin/dircolors ]; then
 #    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 #    alias ls='exa --header --color=always --group-directories-first --icons'
@@ -127,4 +128,4 @@ export LESSHISTFILE=$XDG_STATE_HOME/less/history
 export ICEAUTHORITY=$XDG_CACHE_HOME/ICEauthority
 export WINEPREFIX=$XDG_DATA_HOME/wine
 
-source /home/george/.bash_completions/nala.sh
+source ~/.bash_completions/nala.sh
