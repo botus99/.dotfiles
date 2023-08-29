@@ -33,7 +33,8 @@ sudo nala update
 sudo nala install firefoxpwa
 
 ### install python apps
-pipx install streamrip mfp
+pipx install streamrip 
+pipx install mfp --include-deps
 
 ### download & install wallpapers
 echo -e "\033[36m Downloading Wallpapers \033[0m"
