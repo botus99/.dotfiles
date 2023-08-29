@@ -37,6 +37,7 @@ pipx install streamrip
 
 ### install rust apps
 #cargo install mfp
+cargo install code-radio-cli
 
 ### download & install wallpapers
 echo -e "\033[36m Downloading Wallpapers \033[0m"
