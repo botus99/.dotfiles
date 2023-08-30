@@ -19,7 +19,7 @@ git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 ### bare nessessities
 echo -e "\033[36m Installing Dependencies \033[0m"
 ### start with some basics...
-sudo apt install nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-recommended aria2 bash-completion exa lolcat nano -y
+sudo apt install nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion exa lolcat nano -y
 ### start using nala
 nala --install-completion bash
 sudo nala install sway swayidle swaybg swaylock wayland-utils wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty btop cmatrix ffmpeg optipng webp libasound2-dev python3-pkgconfig libssl-dev mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf neofetch pulsemixer python3 pip pipx cargo tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full build-essential libpam0g-dev libxcb-xkb-dev debian-archive-keyring curl gpg apt-transport-https 
@@ -72,6 +72,9 @@ ln -s $HOME/.dotfiles/.config/btop ~/.config
 #cd $gitstuff && git clone https://gitlab.com/thelinuxcast/scripts.git
 #cd $scripts
 #sudo cp *.sh weather.py /usr/local/bin
+
+### create user directories in home folder
+xdg-user-dirs-update
 
 ### success message
 echo -e "Alllllllllrighty then!!! Looks like we're good here. Just restart me now and we can start the party! Woooooo!!!!"
