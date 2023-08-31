@@ -22,7 +22,7 @@ echo -e "\033[36m Installing Dependencies \033[0m"
 sudo apt install nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion exa lolcat micro nano -y
 ### start using nala
 nala --install-completion bash
-sudo nala install sway swayidle swaybg swaylock wayland-utils wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty btop cmatrix shotwell ostree appstream-util exiv2 gstreamer1.0-alsa ffmpeg optipng webp libasound2-dev python3-i3ipc python3-geopy python3-pkgconfig libssl-dev libgtk-3-dev libcairo2-dev libglib2.0-dev mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf neofetch pulsemixer python3 pip pipx cargo tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full build-essential libpam0g-dev libxcb-xkb-dev debian-archive-keyring curl gpg apt-transport-https 
+sudo nala install bat ripgrep duf sway swayidle swaybg swaylock wayland-utils wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty btop cmatrix shotwell ostree appstream-util exiv2 gstreamer1.0-alsa ffmpeg optipng webp libasound2-dev python3-i3ipc python3-geopy python3-pkgconfig libssl-dev libgtk-3-dev libcairo2-dev libglib2.0-dev mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf neofetch pulsemixer python3 pip pipx cargo tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full build-essential libpam0g-dev libxcb-xkb-dev debian-archive-keyring curl gpg apt-transport-https 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install com.github.tchx84.Flatseal com.vscodium.codium io.gitlab.librewolf-community org.mozilla.Thunderbird
 
