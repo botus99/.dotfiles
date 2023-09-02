@@ -27,9 +27,14 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 
-# set PATH so it includes user's private bin if it exists
+# set PATH so it includes user's cargo bin if it exists
 if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# set PATH so it includes user's cargo bin if it exists
+if [ -d "/var/lib/flatpak/exports/share/" ] ; then
+    PATH="/var/lib/flatpak/exports/share/:$PATH"
 fi
 
 export GTK_THEME_NAME="Matcha-dark-aliz"
@@ -40,7 +45,3 @@ export FONT_NAME="Mononoki 10"
 export COLOR_SCHEME="prefer-dark"
 #export QT_STYLE_OVERRIDE="kvantum-dark"
 #export QT_QPA_PLATFORMTHEME="qt6ct"
-
-# Created by `pipx` on 2023-02-05 18:07:48
-#export PATH="$HOME/.local/bin:PATH"
-#export PATH="$HOME/.cargo/bin:PATH"
