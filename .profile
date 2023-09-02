@@ -26,6 +26,12 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 export GTK_THEME_NAME="Matcha-dark-aliz"
 export ICON_THEME_NAME="Vimix Ruby dark"
 export CURSOR_THEME_NAME="ArcDusk-cursors"
@@ -36,5 +42,5 @@ export COLOR_SCHEME="prefer-dark"
 #export QT_QPA_PLATFORMTHEME="qt6ct"
 
 # Created by `pipx` on 2023-02-05 18:07:48
-export PATH="$HOME/.local/bin"
-export PATH="$HOME/.cargo/bin/"
+#export PATH="$HOME/.local/bin:PATH"
+#export PATH="$HOME/.cargo/bin:PATH"

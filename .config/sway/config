@@ -28,7 +28,7 @@ include /etc/sway/config-vars.d/*
 ###################
 
 
-font pango:MononokiNerd``Font 12
+font pango:MononokiNerdFont 12
 
 
 ######################
