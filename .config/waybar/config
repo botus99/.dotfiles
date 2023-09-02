@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-center": ["sway/window", "custom/weather"],
-    "modules-right": ["mpd", "idle_inhibitor", "tray", "pulseaudio", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock"],
+    "modules-right": ["mpd", "idle_inhibitor", "tray", "pulseaudio", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock", "custom/notification"],
     // Modules configuration
     "sway/workspaces": {
     //     "disable-scroll": true,
@@ -185,5 +185,12 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    {
+    "custom/notification": {
+        "spacing": 10
+        "format-icons": {
+            "default": ""
+    }
     }
 }

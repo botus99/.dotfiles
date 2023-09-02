@@ -440,3 +440,15 @@ label:focus {
     border-bottom: 2px solid #00ff96;
     color: #ffffff;
 }
+#custom-notification {
+	margin-top: 8px;
+	margin-left: 8px;
+	margin-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 8px;
+	border-radius: 26px;
+	transition: none;
+	color: #ffffff;
+	background: #282a36;
+}
