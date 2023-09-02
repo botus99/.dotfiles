@@ -16,7 +16,7 @@
   font-size: 1.25rem;
   color: @foreground;
   letter-spacing: 2px;
-  font: bold 1em Megrim;
+  font: bold 1em MononokiNerdFont;
 }
 .widget-mpris-subtitle {
   font-size: 1em;
