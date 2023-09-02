@@ -14,11 +14,11 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi -S drun -i -I -m -M fuzzy -G -t kitty --lines=7 -p ""
+set $menu wofi -S drun -i -I -m -M fuzzy -G -t alacritty --lines=7 -p ""
 
 include /etc/sway/config-vars.d/*
 
@@ -28,7 +28,7 @@ include /etc/sway/config-vars.d/*
 ###################
 
 
-font pango:Mononoki Nerd Font Mono 12
+font pango:MononokiNerd``Font 12
 
 
 ######################
@@ -42,7 +42,7 @@ default_border pixel 3
 #smart_gaps on
 default_floating_border normal
 #hide_edge_borders smart
-gaps inner 8
+gaps inner 10
 #gaps outer 10
 
 # border colors
@@ -66,7 +66,8 @@ title_align center
 
 
 # Default wallpaper
-output * bg ~/.wallpapers/wallpapers-main/050.jpg fill
+#output * bg ~/.wallpapers/wallpapers-main/050.jpg fill
+output * bg ~/.wallpapers/minimalist/958080.jpg fill
 #
 # Example configuration:
 #
@@ -95,12 +96,12 @@ exec swayidle -w \
 ####################
 
 
-   input "2:14:SynPS/2_Synaptics_TouchPad" {
-       dwt enabled
-       tap enabled
-       natural_scroll enabled
-       middle_emulation enabled
-   }
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -272,22 +273,22 @@ bindsym $mod+r mode "resize"
 ### GNOME / GTK SETTINGS ###
 ############################
 
-
-set $gnome-schema org.gnome.desktop.interface
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Matcha-dark-aliz'
-    gsettings set $gnome-schema icon-theme 'Vimix-Ruby-dark'
-    gsettings set $gnome-schema cursor-theme 'ArcDusk-cursors'
-    gsettings set $gnome-schema font-name 'Iosevka Nerd Font 10'
-    gsettings set $gnome-schema monospace-font-name 'Mononoki Nerd Font Mono 10'
-    gsettings set $gnome-schema color-scheme 'prefer-dark'
-    #gsettings set org.gnome.desktop.wm.preferences 'Matcha-dark-aliz'
-}
-
-exec_always import-gsettings \
-    gtk-theme:gtk-theme-name \
-    icon-theme:gtk-icon-theme-name \
-    cursor-theme:gtk-cursor-theme-name
+# unset previous gtk settings per nwg-look's readme
+#set $gnome-schema org.gnome.desktop.interface
+#exec_always {
+#    gsettings set $gnome-schema gtk-theme 'Matcha-dark-aliz'
+#    gsettings set $gnome-schema icon-theme 'Vimix-Ruby-dark'
+#    gsettings set $gnome-schema cursor-theme 'ArcDusk-cursors'
+#    gsettings set $gnome-schema font-name 'Iosevka Nerd Font 10'
+#    gsettings set $gnome-schema monospace-font-name 'Mononoki Nerd Font Mono 10'
+#    gsettings set $gnome-schema color-scheme 'prefer-dark'
+#    #gsettings set org.gnome.desktop.wm.preferences 'Matcha-dark-aliz'
+#}
+#
+#exec_always import-gsettings \
+#    gtk-theme:gtk-theme-name \
+#    icon-theme:gtk-icon-theme-name \
+#    cursor-theme:gtk-cursor-theme-name
 
 # gtk app problem solver from JustAGuyLinux
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY WAYSOCK
@@ -327,14 +328,14 @@ exec waybar -c ~/.config/waybar/config
 # Launch Keyring
 exec systemctl --user import-environment 
 exec systemctl --user start graphical-session.target
-exec gnome-keyring-daemon --components=ssh\,secrets\,pkcs11 --start
-exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
-exec eval $(gnome-keyring-daemon --start)
+#exec gnome-keyring-daemon --components=ssh\,secrets\,pkcs11 --start
+#exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+#exec eval $(gnome-keyring-daemon --start)
 exec export SSH_AUTH_SOCK
 
 # Launch Policy Kit
-exec_always /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-#exec_always /usr/lib/polkit-1/polkit-agent-helper-1
+#exec_always /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec_always /usr/lib/polkit-1/polkit-agent-helper-1
 
 # Change color temperature at night (TEMP disabled, no wayland support)
 #exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
@@ -348,17 +349,24 @@ exec_always /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 #################
 
 
+# Notification Daemon
+exec swaync
+
+# Toggle control center
+bindsym $mod+Shift+n exec swaync-client -t -sw
+
 xwayland enable
 # workspace_layout stacking	#default|stacking|tabbed
 titlebar_padding 3
 
-exec mako
+exec meteo-qt
 exec swaymsg "workspace number 1; exec /opt/piavpn/bin/pia-client"
 exec swaymsg "workspace number 2; exec flatpak run io.gitlab.librewolf-community"
 exec swaymsg "workspace number 3; exec flatpak run com.vscodium.codium"
 # exec swaymsg "workspace number 5; exec xdg-open http://192.168.1.221:1338"
 exec swaymsg "workspace number 6; exec flatpak run org.gnome.Evolution"
 exec swaymsg "workspace number 7; exec pcmanfm"
-exec swaymsg "workspace number 9; exec alacritty -e btop"
-exec swaymsg "workspace number 1; exec kitty"
+exec swaymsg "workspace number 7; exec flatpak run io.github.shiftey.Desktop"
+exec swaymsg "workspace number 0; exec alacritty -e btop"
+exec swaymsg "workspace number 1; exec alacritty"
 exec swaymsg "workspace number 1"

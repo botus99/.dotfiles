@@ -32,8 +32,9 @@ export CURSOR_THEME_NAME="ArcDusk-cursors"
 export FONT_NAME="Iosevka 10"
 export FONT_NAME="Mononoki 10"
 export COLOR_SCHEME="prefer-dark"
-export QT_STYLE_OVERRIDE="kvantum-dark"
-export QT_QPA_PLATFORMTHEME="qt6ct"
+#export QT_STYLE_OVERRIDE="kvantum-dark"
+#export QT_QPA_PLATFORMTHEME="qt6ct"
 
 # Created by `pipx` on 2023-02-05 18:07:48
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin"
+export PATH="$HOME/.cargo/bin/"

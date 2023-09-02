@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -109,7 +109,7 @@ if ! shopt -oq posix; then
 fi
 
 # Created by `pipx` on 2023-02-05 18:07:48
-export PATH="$PATH:/home/george/.local/bin:/home/george/.cargo/bin"
+export PATH="$PATH:~/.local/bin:~/.cargo/bin"
 eval "$(register-python-argcomplete pipx)"
 export XDG_RUNTIME_DIR=/run/user/1000
 

@@ -2,7 +2,7 @@
     border: none;
     border-radius: 3px;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "Mononoki Nerd Font Mono" , Roboto, Helvetica, Arial, sans-serif;
+    font-family: "MononokiNerdFont", sans-serif;
     font-size: 12.5px;
 }
 
@@ -31,7 +31,7 @@ window#waybar.solo {
 }
 */
 
-window#waybar.termite {
+window#waybar.alacritty {
     background-color: #3F3F3F;
 }
 
