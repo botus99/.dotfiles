@@ -1,7 +1,7 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 24, // Waybar height (to be removed for auto height)
+    "height": 32, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 1, // Gaps between modules (4px default)
     // Choose the order of the modules
@@ -105,7 +105,7 @@
         "format": "{}",
         "tooltip": true,
         "interval": 1800,
-        "exec": "home/george/.config/waybar/scripts/wttr.py",
+        "exec": "~/.config/waybar/scripts/wttr.py",
         "return-type": "json"
     },
     "cpu": {
@@ -187,7 +187,23 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/notification": {
-        "spacing": 10,
-        "format-icons": ""
-    }
+        "tooltip": true,
+        "format": "{icon}",
+        "format-icons": {
+          "notification": "",
+          "none": "",
+          "dnd-notification": "",
+          "dnd-none": "",
+          "inhibited-notification": "",
+          "inhibited-none": "",
+          "dnd-inhibited-notification": "",
+          "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+      }
 }
