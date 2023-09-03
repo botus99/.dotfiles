@@ -39,7 +39,7 @@ sudo nala install -y bat ripgrep duf npm golang sway swayidle swaybg swaylock sw
 
 ### install flatpak & use flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install com.github.tchx84.Flatseal com.vscodium.codium io.gitlab.librewolf-community org.mozilla.Thunderbird io.github.shiftey.Desktop org.gnome.Evolution
+sudo flatpak install com.github.tchx84.Flatseal com.vscodium.codium io.gitlab.librewolf-community io.github.shiftey.Desktop org.gnome.Evolution
 
 ### import GPG key & enable repository for Firefox Progressive Web Apps extension
 curl -fsSL https://packagecloud.io/filips/FirefoxPWA/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/firefoxpwa-keyring.gpg > /dev/null

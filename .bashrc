@@ -122,6 +122,9 @@ plugins=(
 
 source "$OSH"/oh-my-bash.sh
 
+# Added from original .bashrc
+source ~/.bash_completions/nala.sh
+
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
 
