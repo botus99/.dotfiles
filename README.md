@@ -1,6 +1,6 @@
 # .dotfiles
 
-Welcome to my truly 🌟cromulent🌟 dotfiles, meticulously crafted to optimize your Debian system!
+Welcome to my dotfiles, meticulously assembled to make your Debian system truly ✨ cromulent 🎉🥂🎊
 
 ## Applications Used
 
@@ -10,14 +10,11 @@ Great sports teams have great players that work well together and have complimen
 - Waybar
 - PCManFM
 - Alacritty
-- Kitty
 - LibreWolf
 - VSCodium
-- Gedit
 - Evolution
-- Thunderbird
 
-Although a work in progress, I hope that they can offer inspiration for your own personalized experience. Please note that not everything currently works as I continue to ascend towards perfection, and your setup may introduce some twists and turns along the way. So, brace yourself for these barely mediocre dotfiles!
+Although a potentially endless work in progress, I hope that they can offer inspiration for your own personalized experience. Please note that not everything currently works as intended on my setup yet, and your setup may introduce some unexpexted behavior. So, brace yourself for these mediocre dotfiles!
 
 ## To-Do List
 
