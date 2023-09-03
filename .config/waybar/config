@@ -24,7 +24,7 @@
             "7": "",
             "8": "",
             "9": "",
-            "10": "",
+            "0": "",
             "urgent": "",
             "focused": "",
             "default": "󱠦"
@@ -113,11 +113,11 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% 󰍛"
     },
     "temperature": {
         // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp2_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
