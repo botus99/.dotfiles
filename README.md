@@ -29,6 +29,6 @@ Here's what I'm currently working on:
 
 Not as important stuff that I am considering:
 
+- [x] Figure out if I want to stick with / switch away from Thunderbird or Evolution
 - [ ] Figure out if I want to stick with / switch away from kitty or alacritty
 - [ ] Figure out if I want to stick with / switch away from VSCodium or Gedit
-- [ ] Figure out if I want to stick with / switch away from Thunderbird or Evolution
