@@ -57,6 +57,9 @@ cd shell-color-scripts
 sudo make install
 cd ~
 
+### install alacritty themes
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+
 ### install ly display manager
 cd $gitstuff
 git clone --recurse-submodules https://github.com/fairyglade/ly
