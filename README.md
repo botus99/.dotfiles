@@ -24,10 +24,11 @@ Although a work in progress, I hope that they can offer inspiration for your own
 Here's what I'm currently working on:
 
 - [x] Add more stuff that I use (FirefoxPWA, shell-color-scripts, plymouth, ly...)
+- [ ] Add even more stuff that I use (stylepak, nwg-look...)
+- [ ] Add ricing stuff (Matcha-gtk-theme, ArcDusk-Cursors, vimix-icon-theme)
 - [ ] Add prompts at certain points in the script
 - [ ] Add configs for Flatpak applications
 - [ ] Find a lightweight browser to supplement Librewolf
-- [ ] Fix Waybar configuration issue where the bar height changes sometimes                                # totally my fault, I'm sure
 
 Not as important stuff that I am considering:
 

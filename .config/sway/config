@@ -66,8 +66,8 @@ title_align center
 
 
 # Default wallpaper
-#output * bg ~/.wallpapers/wallpapers-main/050.jpg fill
-output * bg ~/.wallpapers/minimalist/958080.jpg fill
+output * bg ~/.wallpapers/minimalist/954228.jpg fill
+#output * bg ~/.wallpapers/minimalist/958080.jpg fill
 #
 # Example configuration:
 #
