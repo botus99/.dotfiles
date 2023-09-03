@@ -1,12 +1,19 @@
 image=~/.wallpapers/minimalist/mountains_and_sunset.jpg
-font=MononokiNerdFont Regular
+font=MononokiNerdFont
 
 clock
+timestr=%R
+datestr=%a, %e of %B
+screenshots
 effect-vignette=0.5:0.5
+
+indicator
+indicator-radius=240
+indicator-thickness=20
+indicator-caps-lock
+
 fade-in=0.5
 show-failed-attempts
-indicator-radius=120
-indicator-thickness=12
 ring-color=e01b24
 ring-clear-color=e01b24
 ring-ver-color=26a269

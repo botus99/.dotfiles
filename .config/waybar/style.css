@@ -9,7 +9,7 @@
 window#waybar {
     /* background: @theme_base_color; */
     /* Use this one to match GTK theme */
-    background-color: rgba(24, 24, 24, 0.333);
+    background-color: rgba(24, 24, 24, 0.5);
     border-bottom: 0px solid @unfocused_borders;
     color: @theme_text_color;
     transition-property: background;
@@ -57,6 +57,7 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
+    border: 1px;
     box-shadow: inset 0 -3px #ffffff;
 }
 
@@ -72,6 +73,8 @@ button:hover {
 
 #workspaces button {
     padding: 0 0.4em;
+    margin-top: 0px;
+    margin-bottom: 0px;
     background-color: transparent;
     color: #ffffff;
     /* Use box-shadow instead of border so the text isn't offset */
@@ -80,17 +83,23 @@ button:hover {
 
 #workspaces button:hover {
     padding: 0 0.4em;
-    background: rgba(96, 96, 96, 0.5);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background: rgba(96, 96, 96, 0.56);
 }
 
 #workspaces button.focused {
     padding: 0 0.4em;
+    margin-top: 0px;
+    margin-bottom: 0px;
     background-color: #64727D;
     box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
     padding: 0 0.4em;
+    margin-top: 0px;
+    margin-bottom: 0px;
     background-color: #f66151;
 }
 
@@ -359,12 +368,26 @@ label:focus {
 #idle_inhibitor {
     margin-bottom: 8px;
     background-color: #2d3436;
+    margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 8px;
+	padding-right: 13px;
+	margin-bottom: 8px;
+	border-radius: 26px;
+
 }
 
 #idle_inhibitor.activated {
     margin-bottom: 8px;
     background-color: #ecf0f1;
     color: #2d3436;
+    margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 8px;
+	padding-right: 13px;
+	margin-bottom: 8px;
+	border-radius: 26px;
+
 }
 
 #mpd {
@@ -442,8 +465,8 @@ label:focus {
 #custom-notification {
 	margin-top: 8px;
 	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 14px;
+	padding-left: 8px;
+	padding-right: 13px;
 	margin-bottom: 8px;
 	border-radius: 26px;
 	transition: none;
