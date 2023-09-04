@@ -33,7 +33,9 @@ sudo apt install -y nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-re
 
 ### install oh-my-bash
 echo -e "\033[36m ٩(ˊᗜˋ*)و 🌰 Installing oh-my-bash 🌰 \033[0m"
-bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
+bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
+### original, more interactive script
+#bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 
 ### switch Firefox to latest version
 echo -e "\033[36m ٩(ˊᗜˋ*)و 🦊 Upgrading Firefox Version 🦊 \033[0m"
@@ -100,6 +102,43 @@ sudo plymouth-set-default-theme PlymouthTheme-Cat -R
 sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/PlymouthTheme-Cat/PlymouthTheme-Cat.plymouth 100
 sudo update-alternatives --config default.plymouth
 sudo update-initramfs -u
+
+### download & install Matcha-dark-aliz
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Matcha-dark-aliz theme 📥 \033[0m"
+cd $gitstuff
+git clone https://github.com/vinceliuice/Matcha-gtk-theme.git
+cd Matcha-gtk-theme
+sudo ./install.sh --color dark --theme aliz --libadwaita
+./install.sh --color dark --theme aliz --libadwaita
+cd ~
+
+### download & install Vimix Ruby icons
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Vimix Ruby icons 📥 \033[0m"
+cd $gitstuff
+git clone https://github.com/vinceliuice/vimix-icon-theme.git
+cd vimix-icon-theme
+sudo ./install.sh ruby
+./install.sh ruby
+cd ~
+
+### download & install nwg-look
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing nwg-look 📥 \033[0m"
+cd $gitstuff
+git clone https://github.com/nwg-piotr/nwg-look.git
+cd nwg-look
+make build
+sudo make install
+cd ~
+
+### download & install stylepak
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing stylepak 📥 \033[0m"
+cd $gitstuff
+git clone https://github.com/refi64/stylepak.git
+cd stylepak
+### [insert part where stylepak installs theme as flatpak]
+sudo ./stylepak install-system
+./stylepak install-user
+cd ~
 
 ### dotfile installation
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Dotfiles 📥 \033[0m"
