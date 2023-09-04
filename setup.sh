@@ -140,6 +140,14 @@ sudo ./stylepak install-system
 ./stylepak install-user
 cd ~
 
+### download & install termv
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing termv 📥 \033[0m"
+cd $gitstuff
+git clone https://github.com/Roshan-R/termv.git
+cd termv
+sudo make install
+cd ~
+
 ### dotfile installation
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Dotfiles 📥 \033[0m"
 cd ~
