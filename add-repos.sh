@@ -26,8 +26,8 @@ if [[ $debian_version == *"Bookworm"* ]]; then
     echo "deb http://http.us.debian.org/debian/ sid main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list
     echo "deb-src http://http.us.debian.org/debian/ sid main contrib non-free non-free-firmware" | sudo tee -a /etc/apt/sources.list
     
-    echo "deb http://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware updates" | sudo tee -a /etc/apt/sources.list
-    echo "deb-src http://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware updates" | sudo tee -a /etc/apt/sources.list
+    echo "deb http://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware" | sudo tee -a /etc/apt/sources.list
+    echo "deb-src http://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware" | sudo tee -a /etc/apt/sources.list
     
     # Update package lists
     sudo nala update

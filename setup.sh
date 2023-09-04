@@ -148,6 +148,16 @@ cd termv
 sudo make install
 cd ~
 
+### download & install 
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing glow 📥 \033[0m"
+cd $gitstuff
+git clone https://github.com/charmbracelet/glow.git
+cd glow
+go build
+sudo cp ./glow /usr/bin/glow
+rm ./glow
+cd ~
+
 ### dotfile installation
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Dotfiles 📥 \033[0m"
 cd ~
