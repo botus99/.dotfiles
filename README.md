@@ -1,6 +1,7 @@
 # .dotfiles
 
 ｡*ﾟ.*.｡(っ ᐛ )っ HELLO!!!
+
 👋🤗 Welcome to my dotfiles, meticulously assembled to make your Debian Sid system truly ✨ cromulent 🎉🥂🎊
 
 ## Applications Used
