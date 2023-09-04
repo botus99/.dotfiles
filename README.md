@@ -25,6 +25,7 @@ Here's what I'm currently working on:
 - [x] Add ricing stuff (Matcha-gtk-theme, ArcDusk-Cursors, vimix-icon-theme)
 - [ ] Add prompts at certain points in the script
 - [ ] Add configs for Flatpak applications
+- [ ] Tweak swaync widgets further
 - [ ] Find a lightweight browser to supplement Librewolf
 
 Not as important stuff that I am considering:
