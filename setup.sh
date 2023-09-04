@@ -13,9 +13,11 @@ mkdir .my-scripts
 
 ### install nerd-fonts
 cd $gitstuff
-echo -e "\033[36m Installing Nerd Fonts \033[0m"
-echo -e "\033[36m this might take a while... \033[0m"
+echo -e "\033[36m 📥 Downloading Nerd Fonts 📥 \033[0m"
+echo -e "\033[36m (⸝⸝ᴗ﹏ᴗ⸝⸝) ᶻ 𝗓 𐰁 this might take a while... \033[0m"
+echo -e "\033[36m ( ͡° ͜ʖ ͡°)🔪( ͠° ͟ʖ ͡°) please do not kill me \033[0m"
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+echo -e "\033[36m ٩(ˊᗜˋ*)و 🛠️ Installing Nerd Fonts 🛠️ \033[0m"
 cd nerd-fonts
 ./install.sh Iosevka
 ./install.sh Monofur
@@ -24,15 +26,17 @@ cd ~
 sudo ln -s ~/.local/share/fonts/NerdFonts/ /usr/share/fonts/
 
 ### bare nessessities
-echo -e "\033[36m Installing Dependencies \033[0m"
+echo -e "\033[36m ٩(ˊᗜˋ*)و 🛠️ Installing Dependencies 🛠️ \033[0m"
 
 ### start with some basics...
 sudo apt install -y nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion exa lolcat micro nano
 
 ### install oh-my-bash
+echo -e "\033[36m ٩(ˊᗜˋ*)و 🌰 Installing oh-my-bash 🌰 \033[0m"
 bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 
 ### switch Firefox to latest version
+echo -e "\033[36m ٩(ˊᗜˋ*)و 🦊 Upgrading Firefox Version 🦊 \033[0m"
 sudo nala remove -y firefox-esr
 sudo nala install -y firefox
 
@@ -61,6 +65,7 @@ cd ~
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
 ### install ly display manager
+echo -e "\033[36m 🐍 ٩(ˊᗜˋ*)و Installing Ly Display Manager 🐍 \033[0m"
 cd $gitstuff
 git clone --recurse-submodules https://github.com/fairyglade/ly
 cd ly
@@ -70,19 +75,21 @@ sudo systemctl enable ly.service
 cd ~
 
 ### install python apps
+echo -e "\033[36m 🐍 ٩(ˊᗜˋ*)و Installing Python Apps 🐍 \033[0m"
 pipx install streamrip 
 
 ### install rust apps
+echo -e "\033[36m 🦀 ٩(ˊᗜˋ*)و Installing Rust Apps 🦀 \033[0m"
 cargo install mfp --locked
 cargo install code-radio-cli
 
-### download & install wallpapers
-echo -e "\033[36m Downloading Wallpapers \033[0m"
+### download wallpapers
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Wallpapers 📥 \033[0m"
 cd ~
 git clone https://github.com/botus99/.wallpapers.git
 
 ### download & install plymouth themes
-echo -e "\033[36m Downloading Themes for Plymouth \033[0m"
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Themes for Plymouth 📥 \033[0m"
 cd $gitstuff
 git clone https://github.com/adi1090x/plymouth-themes.git 
 mv $gitstuff/plymouth-themes/pack_3/owl /usr/share/plymouth/themes/owl
@@ -95,20 +102,23 @@ sudo update-alternatives --config default.plymouth
 sudo update-initramfs -u
 
 ### dotfile installation
-echo -e "\033[36m Downloading Dotfiles \033[0m"
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Dotfiles 📥 \033[0m"
 cd ~
 git clone https://github.com/botus99/.dotfiles.git
-echo -e "\033[36m Installing Dotfiles \033[0m"
+echo -e "\033[36m 🛠️ ٩(ˊᗜˋ*)و Installing Dotfiles 🛠️ \033[0m"
 #cd $dotfiles
 ln -s $HOME/.dotfiles/.config/alacritty ~/.config
 ln -s $HOME/.dotfiles/.config/btop ~/.config
+ln -s $HOME/.dotfiles/.config/gtk-3.0 ~/.config
 ln -s $HOME/.dotfiles/.config/kitty ~/.config
+rm -r ~/.config/neofetch && ln -s $HOME/.dotfiles/.config/neofetch ~/.config
+ln -s $HOME/.dotfiles/.config/nwg-look ~/.config
+ln -s $HOME/.dotfiles/.config/pcmanfm ~/.config
+ln -s $HOME/.dotfiles/.config/privateinternetaccess ~/.config
 ln -s $HOME/.dotfiles/.config/sway ~/.config
 ln -s $HOME/.dotfiles/.config/swaync ~/.config
 ln -s $HOME/.dotfiles/.config/swaylock ~/.config
 ln -s $HOME/.dotfiles/.config/waybar ~/.config
-ln -s $HOME/.dotfiles/.config/wofi ~/.config
-#rm -r ~/.config/neofetch && ln -s $HOME/.dotfiles/.config/neofetch ~/.config
 
 #cd $gitstuff && git clone https://gitlab.com/thelinuxcast/scripts.git
 #cd $scripts
@@ -118,4 +128,6 @@ ln -s $HOME/.dotfiles/.config/wofi ~/.config
 xdg-user-dirs-update
 
 ### success message
-echo -e "Alllllllllrighty then!!! Looks like we're good here. Just restart me now and we can start the party! Woooooo!!!!"
+echo -e "(੭˃ᴗ˂)੭ OOOOOOOOOO YEAHHHHHH!!! "
+echo -e "d-(´▽｀)-b Looks like we're good here "
+echo -e "Restart me now & we can start the party! ( ˘ ³˘)♥︎ Woooooo!!!! 🎉🎊💦"
