@@ -1,10 +1,11 @@
 # .dotfiles
 
-Welcome to my dotfiles, meticulously assembled to make your Debian Sid system truly ✨ cromulent 🎉🥂🎊
+｡*ﾟ.*.｡(っ ᐛ )っ HELLO!!!
+👋🤗 Welcome to my dotfiles, meticulously assembled to make your Debian Sid system truly ✨ cromulent 🎉🥂🎊
 
 ## Applications Used
 
-Great sports teams have great players that work well together and have complimenting strengths. Linux setups are no different. Prepare to be leveled by this lineup of applications for this Debian setup:
+😎🏆 Great sports teams have great players that work well together and have complimenting strengths. ⚙️🐧 Linux setups are no different. Prepare to be leveled by this lineup of applications for this Debian setup 🤸🏻 :
 
 - Sway
 - Waybar
@@ -14,7 +15,7 @@ Great sports teams have great players that work well together and have complimen
 - VSCodium
 - Evolution
 
-Although a personal work,  I hope it can serve as a source of inspiration for your own unique setup 🦄. Keep in mind that there may be unexpected behaviors when you set it up on your hardware. This repository was created using an Intel Core2Duo 🥔 at 1080p resolution 🖥️🐒. Its scalability to other resolutions is uncertain... but don't let that stop you from giving it a try! With a little bit of tweaking, you can customize it to fit your needs 🏆🛠️. So, brace yourself for these mediocre dotfiles!
+👨‍🎨🤓 Although this is a personal work,  I hope that it can serve as a source of inspiration for your own unique setup 🦄. Keep in mind that there may be unexpected behaviors when you set it up on your hardware. This repository was created using an Intel Core2Duo CPU 🥔 at 1080p resolution 🖥️🐒. Its scalability to other resolutions is uncertain... 🎱 but don't let that stop you from giving it a try! 👀💪 With a little bit of tweaking, you can customize it to fit your needs 🏆🛠️. So, brace yourself for these mediocre dotfiles! 🙌🎉✨
 
 ## To-Do List
 
