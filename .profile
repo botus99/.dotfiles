@@ -37,11 +37,11 @@ if [ -d "/var/lib/flatpak/exports/share/" ] ; then
     PATH="/var/lib/flatpak/exports/share/:$PATH"
 fi
 
-export GTK_THEME_NAME="Matcha-dark-aliz"
-export ICON_THEME_NAME="Vimix Ruby dark"
-export CURSOR_THEME_NAME="ArcDusk-cursors"
-export FONT_NAME="Iosevka 10"
-export FONT_NAME="Mononoki 10"
-export COLOR_SCHEME="prefer-dark"
+#export GTK_THEME_NAME="Matcha-dark-aliz"
+#export ICON_THEME_NAME="Vimix Ruby dark"
+#export CURSOR_THEME_NAME="ArcDusk-cursors"
+#export FONT_NAME="Iosevka 10"
+#export FONT_NAME="Mononoki 10"
+#export COLOR_SCHEME="prefer-dark"
 #export QT_STYLE_OVERRIDE="kvantum-dark"
 #export QT_QPA_PLATFORMTHEME="qt6ct"
