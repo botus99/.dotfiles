@@ -122,6 +122,15 @@ sudo ./install.sh ruby
 ./install.sh ruby
 cd ~
 
+### download & install ArcDusk-Cursors
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing ArcDusk-Cursors 📥 \033[0m"
+cd $gitstuff
+git clone https://github.com/yeyushengfan258/ArcDusk-Cursors.git
+cd ArcDusk-Cursors
+sudo ./install.sh
+./install.sh
+cd ~
+
 ### download & install nwg-look
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing nwg-look 📥 \033[0m"
 cd $gitstuff
