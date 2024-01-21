@@ -38,9 +38,10 @@ sudo apt install -y nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-re
 #bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 
 ### switch Firefox to latest version
-echo -e "\033[36m ٩(ˊᗜˋ*)و 🦊 Upgrading Firefox Version 🦊 \033[0m"
-sudo nala remove -y firefox-esr
-sudo nala install -y firefox
+### note: only do this if you are on Debian Sid
+#echo -e "\033[36m ٩(ˊᗜˋ*)و 🦊 Upgrading Firefox Version 🦊 \033[0m"
+#sudo nala remove -y firefox-esr
+#sudo nala install -y firefox
 
 ### start using nala
 nala --install-completion bash
