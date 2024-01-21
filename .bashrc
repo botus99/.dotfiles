@@ -109,23 +109,23 @@ if ! shopt -oq posix; then
 fi
 
 # Created by `pipx` on 2023-02-05 18:07:48
-export PATH="$PATH:~/.local/bin:~/.cargo/bin"
-eval "$(register-python-argcomplete pipx)"
-export XDG_RUNTIME_DIR=/run/user/1000
-
+#export PATH="$PATH:~/.local/bin:~/.cargo/bin"
+#eval "$(register-python-argcomplete pipx)"
+#export XDG_RUNTIME_DIR=/run/user/1000
+#
 # added 2023-06-06 - xdg-ninja inpired additions
-export XDG_DATA_DIRS=/usr/local/share/:/usr/share/:/var/lib/flatpak/exports/share
-export XDG_CONFIG_DIRS=/usr/local/share/:/usr/share/
-export XDG_DATA_HOME=$HOME/.local/share:/var/lib/flatpak/exports/share
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_STATE_HOME=$HOME/.local/state
-export XDG_CACHE_HOME=$HOME/.cache
-export GNUPGHOME=$XDG_DATA_HOME/gnupg
-export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc
-export XCURSOR_PATH=$XDG_DATA_HOME/icons:/usr/share/icons
-export KDEHOME=$XDG_CONFIG_HOME/kde
-export LESSHISTFILE=$XDG_STATE_HOME/less/history
-export ICEAUTHORITY=$XDG_CACHE_HOME/ICEauthority
-export WINEPREFIX=$XDG_DATA_HOME/wine
-
-source ~/.bash_completions/nala.sh
+#export XDG_DATA_DIRS=/usr/local/share/:/usr/share/:/var/lib/flatpak/exports/share
+#export XDG_CONFIG_DIRS=/usr/local/share/:/usr/share/
+#export XDG_DATA_HOME=$HOME/.local/share:/var/lib/flatpak/exports/share
+#export XDG_CONFIG_HOME=$HOME/.config
+#export XDG_STATE_HOME=$HOME/.local/state
+#export XDG_CACHE_HOME=$HOME/.cache
+#export GNUPGHOME=$XDG_DATA_HOME/gnupg
+#export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc
+#export XCURSOR_PATH=$XDG_DATA_HOME/icons:/usr/share/icons
+#export KDEHOME=$XDG_CONFIG_HOME/kde
+#export LESSHISTFILE=$XDG_STATE_HOME/less/history
+#export ICEAUTHORITY=$XDG_CACHE_HOME/ICEauthority
+#export WINEPREFIX=$XDG_DATA_HOME/wine
+#
+#source ~/.bash_completions/nala.sh
