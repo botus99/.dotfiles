@@ -1,15 +1,20 @@
 #!/bin/bash
 ### run as user, not root
-### Inspired by... https://gitlab.com/thelinuxcast/scripts/-/blob/master/setup.sh?ref_type=heads
+### Inspired by... https://gitlab.com/thelinuxcast/scripts/-/blob/master/setup.sh
 
+### set variables for commonly refered to directories
 dotfiles="$HOME/.dotfiles"
 gitstuff="$HOME/.git-stuff"
 scripts="$HOME/.my-scripts"
 
+### create directories needed for scripts and stuff
 cd ~
 mkdir .dotfiles
 mkdir .git-stuff
 mkdir .my-scripts
+
+### create user directories in home folder
+xdg-user-dirs-update
 
 ### install nerd-fonts
 cd $gitstuff
@@ -190,9 +195,6 @@ ln -s $HOME/.dotfiles/.config/waybar ~/.config
 #cd $gitstuff && git clone https://gitlab.com/thelinuxcast/scripts.git
 #cd $scripts
 #sudo cp *.sh weather.py /usr/local/bin
-
-### create user directories in home folder
-xdg-user-dirs-update
 
 ### success message
 echo -e "(੭˃ᴗ˂)੭ OOOOOOOOOO YEAHHHHHH!!! "
