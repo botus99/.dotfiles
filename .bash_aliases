@@ -78,12 +78,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# automatically install with sudo priveleges
-alias apt-get='sudo apt-get'
-alias apt='sudo apt'
-alias nala='sudo nala'
-alias snap='sudo snap'
-
 # folders sorted by size
 alias foldersizesort='du -sh * |sort -h'
 
