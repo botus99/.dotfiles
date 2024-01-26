@@ -24,9 +24,16 @@ echo -e "\033[36m ( ͡° ͜ʖ ͡°)🔪( ͠° ͟ʖ ͡°) please do not kill me \
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 echo -e "\033[36m ٩(ˊᗜˋ*)و 🛠️ Installing Nerd Fonts 🛠️ \033[0m"
 cd nerd-fonts
-./install.sh Iosevka
-./install.sh Monofur
+
+# my favorite sans-serif font in firefox
+./install.sh CodeNewRoman 
+
+# my favorite font for basically everything
 ./install.sh Mononoki
+
+# I like these for various things here and there
+./install.sh CascadiaCode DaddyTimeMono DejaVuSansMono FantasqueSansMono Iosevka JetBrainsMono Monofur OpenDyslexic
+
 cd ~
 sudo ln -s ~/.local/share/fonts/NerdFonts/ /usr/share/fonts/
 
