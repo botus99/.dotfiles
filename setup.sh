@@ -170,7 +170,7 @@ cd termv
 sudo make install
 cd ~
 
-### download & install 
+### download & install glow
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing glow 📥 \033[0m"
 cd $gitstuff
 git clone https://github.com/charmbracelet/glow.git
