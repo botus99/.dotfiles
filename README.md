@@ -2,7 +2,7 @@
 
 ｡*ﾟ.*.｡(っ ᐛ )っ HELLO!!!
 
-Welcome to my dotfiles, meticulously and specifically assembled to make your Debian Sid system 💀 truly cromulent! 🎉🥂
+Welcome to my dotfiles, meticulously and specifically assembled to make your Debian system truly cromulent! 🎉🥂
 
 You may or may not love the way that I have everything set up, but, at a minimum, I hope that this dotfiles repo can serve as a source of inspiration for your own unique setup 🦄.
 
