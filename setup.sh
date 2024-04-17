@@ -57,7 +57,7 @@ sudo apt install -y nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-re
 
 ### start using nala
 nala --install-completion bash
-sudo nala install -y gawk jq fzf bat cava ripgrep duf jpegoptim jpegqs npm golang sway swayidle swaybg swaylock sway-notification-center playerctl wayland-utils meteo-qt qt5-image-formats-plugins qt5-qmltooling-plugins python3-genshi pulseaudio pavumeter pavucontrol paprefs screenfetch wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty netselect-apt btop cmatrix shotwell ostree appstream-util exiv2 gstreamer1.0-alsa ffmpeg optipng webp libasound2-dev python3-i3ipc python3-geopy python3-pkgconfig libssl-dev libgtk-3-dev libcairo2-dev libglib2.0-dev mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf neofetch pulsemixer python3 pip pipx cargo tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full plymouth plymouth-themes build-essential libpam0g-dev libxcb-xkb-dev debian-archive-keyring curl gpg apt-transport-https 
+sudo nala install -y gawk jq fzf bat cava ripgrep duf jpegoptim jpegqs npm golang sway swayidle swaybg swaylock sway-notification-center playerctl wayland-utils meteo-qt qt5-image-formats-plugins qt5-qmltooling-plugins python3-genshi pulseaudio pavumeter pavucontrol paprefs screenfetch wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty netselect-apt btop cmatrix shotwell ostree appstream-util exiv2 gstreamer1.0-alsa ffmpeg webp libasound2-dev python3-i3ipc python3-geopy python3-pkgconfig libssl-dev libgtk-3-dev libcairo2-dev libglib2.0-dev mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf neofetch pulsemixer python3 pip pipx cargo tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full plymouth plymouth-themes build-essential libpam0g-dev libxcb-xkb-dev debian-archive-keyring curl gpg apt-transport-https 
 
 ### install flatpak & use flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -91,12 +91,18 @@ cd ~
 
 ### install python apps
 echo -e "\033[36m 🐍 ٩(ˊᗜˋ*)و Installing Python Apps 🐍 \033[0m"
+pipx install ffmpeg-normalize
+pipx install future
+pipx install jellyfin-tools
+pipx install plexapi
+pipx install protontricks
 pipx install streamrip 
 
 ### install rust apps
 echo -e "\033[36m 🦀 ٩(ˊᗜˋ*)و Installing Rust Apps 🦀 \033[0m"
 cargo install mfp --locked
 cargo install code-radio-cli
+cargo install oxipng --locked
 
 ### download wallpapers
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Wallpapers 📥 \033[0m"
