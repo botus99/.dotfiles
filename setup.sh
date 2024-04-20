@@ -25,22 +25,21 @@ git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 echo -e "\033[36m ٩(ˊᗜˋ*)و 🛠️ Installing Nerd Fonts 🛠️ \033[0m"
 cd nerd-fonts
 
-# my favorite sans-serif font in firefox
+### my favorite sans-serif font in firefox
 ./install.sh CodeNewRoman 
 
-# my favorite font for basically everything
+### my favorite font for basically everything
 ./install.sh Mononoki
 
-# I like these for various things here and there
+### I like these for various things here and there
 ./install.sh CascadiaCode DaddyTimeMono DejaVuSansMono FantasqueSansMono Iosevka JetBrainsMono Monofur OpenDyslexic
 
+### link user fonts to a directory accessible by all users and groups
 cd ~
 sudo ln -s ~/.local/share/fonts/NerdFonts/ /usr/share/fonts/
 
-### bare nessessities
+### start with some bare nessessities...
 echo -e "\033[36m ٩(ˊᗜˋ*)و 🛠️ Installing Dependencies 🛠️ \033[0m"
-
-### start with some basics...
 sudo apt install -y nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion eza lolcat micro nano
 
 ### install oh-my-bash
@@ -50,7 +49,7 @@ sudo apt install -y nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-re
 #bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 
 ### switch Firefox to latest version
-### note: only do this if you are on Debian Sid
+### note: only do this if you are on Debian Sid/Testing
 #echo -e "\033[36m ٩(ˊᗜˋ*)و 🦊 Upgrading Firefox Version 🦊 \033[0m"
 #sudo nala remove -y firefox-esr
 #sudo nala install -y firefox
@@ -100,8 +99,8 @@ pipx install streamrip
 
 ### install rust apps
 echo -e "\033[36m 🦀 ٩(ˊᗜˋ*)و Installing Rust Apps 🦀 \033[0m"
-cargo install mfp --locked
 cargo install code-radio-cli
+cargo install mfp --locked
 cargo install oxipng --locked
 
 ### download wallpapers
@@ -204,10 +203,6 @@ ln -s $HOME/.dotfiles/.config/sway ~/.config
 ln -s $HOME/.dotfiles/.config/swaync ~/.config
 ln -s $HOME/.dotfiles/.config/swaylock ~/.config
 ln -s $HOME/.dotfiles/.config/waybar ~/.config
-
-#cd $gitstuff && git clone https://gitlab.com/thelinuxcast/scripts.git
-#cd $scripts
-#sudo cp *.sh weather.py /usr/local/bin
 
 ### success message
 echo -e "(੭˃ᴗ˂)੭ OOOOOOOOOO YEAHHHHHH!!! "
