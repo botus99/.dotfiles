@@ -1,3 +1,5 @@
+#[ -f $HOME/.bashrc  ] && . $HOME/.profile
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -73,20 +75,24 @@ xterm*|rxvt*)
 esac
 
 # enable color support of ls and also add handy aliases
-# moved all to .bash_aliases, leaving this here for posterity
-#if [ -x /usr/bin/dircolors ]; then
-#    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-#    alias ls='exa --header --color=always --group-directories-first --icons'
-#    alias dir='dir --color=auto'
-#    alias vdir='vdir --color=auto'
-#
-#    alias grep='grep --color=auto'
-#    alias fgrep='fgrep --color=auto'
-#    alias egrep='egrep --color=auto'
-#fi
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    #alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
+fi
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+#alias ll='ls -l'
+#alias la='ls -A'
+#alias l='ls -CF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -108,24 +114,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Created by `pipx` on 2023-02-05 18:07:48
-#export PATH="$PATH:~/.local/bin:~/.cargo/bin"
-#eval "$(register-python-argcomplete pipx)"
-#export XDG_RUNTIME_DIR=/run/user/1000
-#
-# added 2023-06-06 - xdg-ninja inpired additions
-#export XDG_DATA_DIRS=/usr/local/share/:/usr/share/:/var/lib/flatpak/exports/share
-#export XDG_CONFIG_DIRS=/usr/local/share/:/usr/share/
-#export XDG_DATA_HOME=$HOME/.local/share:/var/lib/flatpak/exports/share
-#export XDG_CONFIG_HOME=$HOME/.config
-#export XDG_STATE_HOME=$HOME/.local/state
-#export XDG_CACHE_HOME=$HOME/.cache
-#export GNUPGHOME=$XDG_DATA_HOME/gnupg
-#export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc
-#export XCURSOR_PATH=$XDG_DATA_HOME/icons:/usr/share/icons
-#export KDEHOME=$XDG_CONFIG_HOME/kde
-#export LESSHISTFILE=$XDG_STATE_HOME/less/history
-#export ICEAUTHORITY=$XDG_CACHE_HOME/ICEauthority
-#export WINEPREFIX=$XDG_DATA_HOME/wine
-#
-#source ~/.bash_completions/nala.sh
+# Environment variables added here since loading .profile does not work
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:~/.local/bin:~/.local/share/applications:~/.cargo/bin:/var/lib/flatpak/exports/share"
+export COLOR_SCHEME="prefer-dark"
+
+# Enable zoxide
+eval "$(zoxide init bash)"
