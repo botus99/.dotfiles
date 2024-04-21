@@ -40,7 +40,7 @@ sudo ln -s ~/.local/share/fonts/NerdFonts/ /usr/share/fonts/
 
 ### start with some bare nessessities...
 echo -e "\033[36m ٩(ˊᗜˋ*)و 🛠️ Installing Dependencies 🛠️ \033[0m"
-sudo apt install -y nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion eza lolcat micro nano
+sudo apt install -y nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion eza lolcat micro nano zoxide
 
 ### install oh-my-bash
 #echo -e "\033[36m ٩(ˊᗜˋ*)و 🌰 Installing oh-my-bash 🌰 \033[0m"
