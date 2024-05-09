@@ -1,6 +1,9 @@
-file://~/Documents Documents
-file://~/Downloads Downloads
-file://~/.config .config
-file://~/.git-stuff .git-stuff
-file://~/.my-scripts .my-scripts
-file://~/.wallpapers .wallpapers
+file:///home/george/Documents Documents
+file:///home/george/Downloads Downloads
+file:///home/george/.dotfiles .dotfiles
+file:///home/george/.config .config
+file:///home/george/.git-stuff .git-stuff
+file:///home/george/.my-scripts .my-scripts
+file:///home/george/.wallpapers .wallpapers
+file:///home/george/.var/app .var/app
+file:///home/george/.var/app/com.usebottles.bottles/data/bottles/bottles/master-fader/drive_c/Program%20Files/Steinberg/Vstplugins Vstplugins
