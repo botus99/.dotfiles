@@ -115,8 +115,16 @@ if ! shopt -oq posix; then
 fi
 
 # Environment variables added here since loading .profile does not work
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:~/.local/bin:~/.local/share/applications:~/.cargo/bin:/var/lib/flatpak/exports/share"
-export COLOR_SCHEME="prefer-dark"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$HOME/.local/bin:$HOME/.local/share/applications:$HOME/.cargo/bin:/var/lib/flatpak/exports/share"
 
 # Enable zoxide
 eval "$(zoxide init bash)"
+
+# more environment variables
+export COLOR_SCHEME="prefer-dark"
+
+# xdg stuff
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
