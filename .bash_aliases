@@ -1,5 +1,16 @@
 # update my goods
-alias sa="colorscript -e crunchbang-mini && echo 'Time to upgrade your system? Ok, here goes nothing!' && figlet -tcf smslant 'Debian upgrades' && colorscript -e debian && sudo nala update && sudo nala upgrade -y && figlet -tcf smslant 'Flatpak upgrades' && sudo flatpak update -y && colorscript -e ghosts && figlet -tcf smslant 'Python upgrades' && pipx upgrade-all && figlet -tcf smslant 'Garbage removal' && sudo nala autoremove && sudo nala clean && colorscript -e bars && figlet -tcf smslant 'All done!' && echo 'That was nice, thanks for bringing me up to date!'"
+alias sa="figlet -tcf smslant 'Debian upgrades' \
+&& sudo nala update \
+&& sudo nala upgrade -y \
+&& figlet -tcf smslant 'Flatpak upgrades' \
+&& sudo flatpak update -y \
+&& figlet -tcf smslant 'Python upgrades' \
+&& pipx upgrade-all \
+&& figlet -tcf smslant 'Garbage removal' \
+&& sudo nala autoremove \
+&& sudo nala clean \
+&& figlet -tcf smslant 'All done!' \
+&& echo 'That was nice, thanks for bringing me up to date!'"
 
 # colorize output
 alias dir='dir --color=auto'
