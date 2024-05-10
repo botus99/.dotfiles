@@ -22,6 +22,9 @@ alias egrep='egrep --color=auto'
 # replace 'ps' with 'procs'
 alias ps='procs'
 
+# replace 'cd' with 'z'
+alias cd='z'
+
 # replace 'bat' with 'batcat'
 alias bat='batcat'
 
