@@ -94,6 +94,7 @@ pipx install fart
 pipx install ffmpeg-normalize
 pipx install future
 pipx install jellyfin-tools
+pipx install markdown
 pipx install plexapi
 pipx install protontricks
 pipx install streamrip 
