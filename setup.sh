@@ -90,6 +90,7 @@ cd ~
 
 ### install python apps
 echo -e "\033[36m 🐍 ٩(ˊᗜˋ*)و Installing Python Apps 🐍 \033[0m"
+pipx install fart
 pipx install ffmpeg-normalize
 pipx install future
 pipx install jellyfin-tools
