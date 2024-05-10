@@ -20,11 +20,11 @@ alias cmatrix='cmatrix -asb -u 1 -C red'
 # make yabridgectl easier to type 
 alias yabridgectl='~/.local/share/yabridge/yabridgectl'
 
-# replace 'ls' with 'exa'
-alias ls='exa --header --color=always --group-directories-first --icons'
-alias ll='exa -al --long --header --color=always --group-directories-first --icons'
-alias la='exa -a --header --color=always --group-directories-first --icons'
-alias l='exa -CF -header --color=always --group-directories-first --icons'
+# replace 'ls' with 'eza'
+alias ls='eza --header --git --color=always --icons=always --group-directories-first'
+alias la='eza --header --git --color=always --icons=always --group-directories-first --all'
+alias ll='eza --header --git --color=always --icons=always --group-directories-first --all --long'
+alias l='eza --header --git  --color=always --icons=always --group-directories-first --classify=auto'
 
 # readable output
 alias df='df -h'
