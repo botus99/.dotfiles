@@ -122,6 +122,7 @@ eval "$(zoxide init bash)"
 
 # more environment variables
 export COLOR_SCHEME="prefer-dark"
+export BAT_THEME="gruvbox-dark"
 
 # xdg stuff
 export XDG_DATA_HOME="$HOME/.local/share"
