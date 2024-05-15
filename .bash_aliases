@@ -6,6 +6,10 @@ alias sa="figlet -tcf smslant 'Debian upgrades' \
 && sudo flatpak update -y \
 && figlet -tcf smslant 'Python upgrades' \
 && pipx upgrade-all \
+&& figlet -tcf smslant 'TLDR upgrades' \
+&& tldr -u \
+&& figlet -tcf smslant 'TGPT upgrades' \
+&& tgpt -u \
 && figlet -tcf smslant 'Garbage removal' \
 && sudo nala autoremove \
 && sudo nala clean \
