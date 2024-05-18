@@ -201,6 +201,7 @@ rm -r ~/.config/neofetch && ln -s $HOME/.dotfiles/.config/neofetch ~/.config
 ln -s $HOME/.dotfiles/.config/nwg-look ~/.config
 ln -s $HOME/.dotfiles/.config/pcmanfm ~/.config
 ln -s $HOME/.dotfiles/.config/privateinternetaccess ~/.config
+ln -s $HOME/.dotfiles/.config/rofi ~/.config
 ln -s $HOME/.dotfiles/.config/sway ~/.config
 ln -s $HOME/.dotfiles/.config/swaync ~/.config
 ln -s $HOME/.dotfiles/.config/swaylock ~/.config
