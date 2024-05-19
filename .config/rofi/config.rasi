@@ -1,30 +1,42 @@
+/* I like the Gruvbox Dark color palette, for shame */
+/* I like the Mononoki Nerd Font, suck an egg */
+/* insert future wise-ass remarks here */
+
 * {
+    /* Theme settings */
+    highlight: bold italic;
+    scrollbar: true;
+    /* Font */
     font: "Mononoki Nerd Font 13";
     g-spacing: 10px;
     g-margin: 0;
     b-color: #282828FF;
     fg-color: #EBDBB2FF;
     fgp-color: #928374FF;
-    b-radius: 10px;
-    g-padding: 10px;
+    b-radius: 12px;
+    g-padding: 12px;
     hl-color: #EBDBB2FF;
     hlt-color: #282828FF;
-    alt-color: #1D2021FF;
+    alt-color: #1d2021CC;
     wbg-color: #282828CC;
     w-border: 2px solid;
     w-border-color: #EBDBB2FF;
-    w-padding: 10px;
+    w-padding: 12px;
+    accent-color: #CC241DCC;
 }
 
 configuration {
-    modi: "drun";
+    modi: "window,run,drun";
     show-icons: true;
-    display-drun: " ";
+    display-drun: "   ";
+    display-run: "run";
+    drun-display-format: "{icon} {name}";
+    kb-cancel: "Escape,Alt+F1";
 }
 
 listview {
     columns: 1;
-    lines: 7;
+    lines: 8;
     fixed-height: true;
     fixed-columns: true;
     cycle: false;
@@ -91,11 +103,11 @@ element selected.active {
 }
 
 element selected.normal {
-	background-color: @hl-color;
+	background-color: @fg-color;
 	text-color: @hlt-color;
 }
 
 message {
-    background-color: red;
+    background-color: #CC241DFF;
     border: 0px solid;
 }
