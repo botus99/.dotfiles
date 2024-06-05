@@ -104,7 +104,7 @@ pipx install streamrip
 echo -e "\033[36m 🦀 ٩(ˊᗜˋ*)و Installing Rust Apps 🦀 \033[0m"
 cargo install code-radio-cli
 cargo install mfp --locked
-cargo install oxipng --locked
+cargo install oxipng
 
 ### download wallpapers
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Wallpapers 📥 \033[0m"
