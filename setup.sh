@@ -93,6 +93,7 @@ echo -e "\033[36m 🐍 ٩(ˊᗜˋ*)و Installing Python Apps 🐍 \033[0m"
 pipx install fart
 pipx install ffmpeg-normalize
 pipx install future
+pipx install gruvbox-factory
 pipx install jellyfin-tools
 pipx install markdown
 pipx install plexapi
