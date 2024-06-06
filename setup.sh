@@ -42,12 +42,6 @@ sudo ln -s ~/.local/share/fonts/NerdFonts/ /usr/share/fonts/
 echo -e "\033[36m ٩(ˊᗜˋ*)و 🛠️ Installing Dependencies 🛠️ \033[0m"
 sudo apt install -y nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion eza lolcat micro nano zoxide figlet
 
-### switch Firefox to latest version
-### note: only do this if you are on Debian Sid/Testing
-#echo -e "\033[36m ٩(ˊᗜˋ*)و 🦊 Upgrading Firefox Version 🦊 \033[0m"
-#sudo nala remove -y firefox-esr
-#sudo nala install -y firefox
-
 ### start using nala
 nala --install-completion bash
 sudo nala install -y faker gawk jq fzf bat cava ripgrep duf jpegoptim jpegqs npm golang sway swayidle swaybg swaylock sway-notification-center playerctl wayland-utils meteo-qt qt5-image-formats-plugins qt5-qmltooling-plugins python3-genshi pulseaudio pavumeter pavucontrol paprefs screenfetch wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty netselect-apt btop cmatrix shotwell ostree appstream-util exiv2 gstreamer1.0-alsa ffmpeg mencoder webp libasound2-dev python3-i3ipc python3-geopy python3-pkgconfig libssl-dev libgtk-3-dev libcairo2-dev libglib2.0-dev mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf rofi neofetch pulsemixer python3 pip pipx cargo tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full plymouth plymouth-themes python-is-python3 dos2unix build-essential libpam0g-dev libxcb-xkb-dev debian-archive-keyring curl gpg apt-transport-https 
@@ -55,12 +49,6 @@ sudo nala install -y faker gawk jq fzf bat cava ripgrep duf jpegoptim jpegqs npm
 ### install flatpak & use flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install com.github.tchx84.Flatseal com.vscodium.codium io.gitlab.librewolf-community io.github.shiftey.Desktop com.makemkv.MakeMKV io.github.giantpinkrobots.flatsweep xyz.tytanium.DoorKnocker
-
-### import GPG key & enable repository for Firefox Progressive Web Apps extension
-curl -fsSL https://packagecloud.io/filips/FirefoxPWA/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/firefoxpwa-keyring.gpg > /dev/null
-echo "deb [signed-by=/usr/share/keyrings/firefoxpwa-keyring.gpg] https://packagecloud.io/filips/FirefoxPWA/any any main" | sudo tee /etc/apt/sources.list.d/firefoxpwa.list > /dev/null
-sudo nala update
-sudo nala install -y firefoxpwa
 
 ### install Distrotube's color scripts
 cd $gitstuff
