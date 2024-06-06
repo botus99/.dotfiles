@@ -61,14 +61,14 @@ cd ~
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
 ### install ly display manager
-echo -e "\033[36m 🐍 ٩(ˊᗜˋ*)و Installing Ly Display Manager 🐍 \033[0m"
-cd $gitstuff
-git clone --recurse-submodules https://github.com/fairyglade/ly
-cd ly
-sudo make
-sudo make install installsystemd
-sudo systemctl enable ly.service
-cd ~
+#echo -e "\033[36m 🐍 ٩(ˊᗜˋ*)و Installing Ly Display Manager 🐍 \033[0m"
+#cd $gitstuff
+#git clone --recurse-submodules https://github.com/fairyglade/ly
+#cd ly
+#sudo make
+#sudo make install installsystemd
+#sudo systemctl enable ly.service
+#cd ~
 
 ### install python apps
 echo -e "\033[36m 🐍 ٩(ˊᗜˋ*)و Installing Python Apps 🐍 \033[0m"
