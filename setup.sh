@@ -42,12 +42,6 @@ sudo ln -s ~/.local/share/fonts/NerdFonts/ /usr/share/fonts/
 echo -e "\033[36m ٩(ˊᗜˋ*)و 🛠️ Installing Dependencies 🛠️ \033[0m"
 sudo apt install -y nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion eza lolcat micro nano zoxide figlet
 
-### install oh-my-bash
-#echo -e "\033[36m ٩(ˊᗜˋ*)و 🌰 Installing oh-my-bash 🌰 \033[0m"
-#bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" --unattended
-### original, more interactive script
-#bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
-
 ### switch Firefox to latest version
 ### note: only do this if you are on Debian Sid/Testing
 #echo -e "\033[36m ٩(ˊᗜˋ*)و 🦊 Upgrading Firefox Version 🦊 \033[0m"
