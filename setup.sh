@@ -147,7 +147,7 @@ echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing stylepak 📥 \033[
 cd $gitstuff
 git clone https://github.com/refi64/stylepak.git
 cd stylepak
-### [insert part where stylepak installs theme as flatpak]
+### install current gtk theme for flatpak apps
 sudo ./stylepak install-system
 ./stylepak install-user
 cd ~
