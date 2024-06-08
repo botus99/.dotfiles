@@ -180,7 +180,7 @@ ln -s $HOME/.dotfiles/.config/alacritty ~/.config
 ln -s $HOME/.dotfiles/.config/btop ~/.config
 ln -s $HOME/.dotfiles/.config/gtk-3.0 ~/.config
 ln -s $HOME/.dotfiles/.config/kitty ~/.config
-rm -r ~/.config/neofetch && ln -s $HOME/.dotfiles/.config/neofetch ~/.config
+ln -s $HOME/.dotfiles/.config/fastfetch ~/.config
 ln -s $HOME/.dotfiles/.config/nwg-look ~/.config
 ln -s $HOME/.dotfiles/.config/pcmanfm ~/.config
 ln -s $HOME/.dotfiles/.config/privateinternetaccess ~/.config
