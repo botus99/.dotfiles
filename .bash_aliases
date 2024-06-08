@@ -1,21 +1,21 @@
 # update my goods
-alias sa="figlet -tcf smslant 'Debian upgrades' \
+alias sa="figlet -tf miniwi 'Debian upgrades' \
 && sudo nala update \
 && sudo nala upgrade -y \
-&& figlet -tcf smslant 'Flatpak upgrades' \
+&& figlet -tf miniwi 'Flatpak upgrades' \
 && sudo flatpak update -y \
-&& figlet -tcf smslant 'Python upgrades' \
+&& figlet -tf miniwi 'Python upgrades' \
 && pipx upgrade-all \
-&& figlet -tcf smslant 'Cargo upgrades' \
+&& figlet -tf miniwi 'Cargo upgrades' \
 && cargo-install-update install-update --all \
-&& figlet -tcf smslant 'TLDR upgrades' \
+&& figlet -tf miniwi 'TLDR upgrades' \
 && tldr -u \
-&& figlet -tcf smslant 'TGPT upgrades' \
+&& figlet -tf miniwi 'TGPT upgrades' \
 && tgpt -u \
-&& figlet -tcf smslant 'Garbage removal' \
+&& figlet -tf miniwi 'Garbage removal' \
 && sudo nala autoremove \
 && sudo nala clean \
-&& figlet -tcf smslant 'All done!' \
+&& figlet -tf miniwi 'All done!' \
 && echo 'That was nice, thanks for bringing me up to date!'"
 
 # colorize output
