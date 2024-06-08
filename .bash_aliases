@@ -6,6 +6,8 @@ alias sa="figlet -tcf smslant 'Debian upgrades' \
 && sudo flatpak update -y \
 && figlet -tcf smslant 'Python upgrades' \
 && pipx upgrade-all \
+&& figlet -tcf smslant 'Cargo upgrades' \
+&& cargo-install-update install-update --all \
 && figlet -tcf smslant 'TLDR upgrades' \
 && tldr -u \
 && figlet -tcf smslant 'TGPT upgrades' \
