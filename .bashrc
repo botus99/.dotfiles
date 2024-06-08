@@ -77,15 +77,15 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	# add basic color to ls (commented out because eza takes care of this in the .bash_aliases file)
+    # add basic color to ls (commented out because eza takes care of this in the .bash_aliases file)
     #alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-	# some more ls aliases (commented out for same reason as above)
-	#alias ll='ls -l'
-	#alias la='ls -A'
-	#alias l='ls -CF'
+    # some more ls aliases (commented out for same reason as above)
+    #alias ll='ls -l'
+    #alias la='ls -A'
+    #alias l='ls -CF'
 
     #alias grep='grep --color=auto'
     #alias fgrep='fgrep --color=auto'
