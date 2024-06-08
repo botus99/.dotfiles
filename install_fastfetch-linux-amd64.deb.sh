@@ -17,7 +17,7 @@ wget "${DOWNLOAD_URL}"
 read -p "Do you want to install FastFetch now? [y/N] " answer
 if [[ $answer =~ ^[Yy]$ ]]
 then
-    # Install the package using apt-get to handle dependencies and prompt the user
+    # Install the package using dpkg
     echo "Installing FastFetch..."
     sudo dpkg -i ./fastfetch-linux-amd64.deb
 else
