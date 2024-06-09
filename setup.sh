@@ -84,6 +84,7 @@ pipx install streamrip
 
 ### install rust apps
 echo -e "\033[36m 🦀 ٩(ˊᗜˋ*)و Installing Rust Apps 🦀 \033[0m"
+cargo install bropages
 cargo install code-radio-cli
 cargo install mfp --locked
 cargo install names
