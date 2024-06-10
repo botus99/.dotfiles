@@ -106,3 +106,6 @@ alias fonts-copy='sudo cp -r ~/fonts/* /usr/share/fonts/'
 
 # open the kitty theme selector
 alias kitty-themes='kitty +kitten themes'
+
+# make bro use specified theme
+alias bro='bro --theme gruvbox-dark'
