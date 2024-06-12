@@ -9,9 +9,9 @@ alias sa="figlet -tf miniwi 'Debian upgrades' \
 && figlet -tf miniwi 'Cargo upgrades' \
 && cargo-install-update install-update --all \
 && figlet -tf miniwi 'TLDR upgrades' \
-&& tldr -u \
+&& sudo tldr -u \
 && figlet -tf miniwi 'TGPT upgrades' \
-&& sudo tgpt -u \
+&& tgpt -u \
 && figlet -tf miniwi 'Garbage removal' \
 && sudo nala autoremove \
 && sudo nala clean \
