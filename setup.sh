@@ -164,13 +164,10 @@ cd ~
 
 ### download & install glow
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing glow 📥 \033[0m"
-cd $gitstuff
-git clone https://github.com/charmbracelet/glow.git
-cd glow
-go build
-sudo cp ./glow /usr/bin/glow
-rm ./glow
-cd ~
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
+sudo nala update && sudo nala install glow
 
 ### dotfile installation
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Dotfiles 📥 \033[0m"
@@ -183,6 +180,7 @@ ln -s $HOME/.dotfiles/.config/btop ~/.config
 ln -s $HOME/.dotfiles/.config/gtk-3.0 ~/.config
 ln -s $HOME/.dotfiles/.config/kitty ~/.config
 ln -s $HOME/.dotfiles/.config/fastfetch ~/.config
+ln -s $HOME/.dotfiles/.config/glow ~/.config
 ln -s $HOME/.dotfiles/.config/nwg-look ~/.config
 ln -s $HOME/.dotfiles/.config/pcmanfm ~/.config
 ln -s $HOME/.dotfiles/.config/privateinternetaccess ~/.config
