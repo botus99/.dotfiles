@@ -80,6 +80,7 @@ pipx install jellyfin-tools
 pipx install markdown
 pipx install plexapi
 pipx install protontricks
+pipx install rembg[gpu,cli]
 pipx install streamrip 
 
 ### install rust apps
