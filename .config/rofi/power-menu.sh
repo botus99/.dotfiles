@@ -4,14 +4,10 @@
 ## Github : @adi1090x
 #
 ## Rofi   : Power Menu
-#
-## Available Styles
-#
-## style-1   style-2   style-3   style-4   style-5
 
 # Current Theme
-dir="$HOME/.config/rofi/powermenu/type-5"
-theme='style-1'
+dir="$HOME/.config/rofi"
+theme='power-menu'
 
 # CMDs
 lastlogin="`last $USER | head -n1 | tr -s ' ' | cut -d' ' -f5,6,7`"
