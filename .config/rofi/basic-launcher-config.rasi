@@ -22,7 +22,7 @@
     w-border: 2px solid;
     w-border-color: #EBDBB2FF;
     w-padding: 12px;
-    accent-color: #CC241DCC;
+    accent-color: #FB4934CC;
 }
 
 configuration {
