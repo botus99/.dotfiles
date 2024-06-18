@@ -178,6 +178,7 @@ echo -e "\033[36m 🛠️ ٩(ˊᗜˋ*)و Installing Dotfiles 🛠️ \033[0m"
 #cd $dotfiles
 ln -s $HOME/.dotfiles/.config/alacritty ~/.config
 ln -s $HOME/.dotfiles/.config/btop ~/.config
+ln -s $HOME/.dotfiles/.config/cava ~/.config
 ln -s $HOME/.dotfiles/.config/gtk-3.0 ~/.config
 ln -s $HOME/.dotfiles/.config/kitty ~/.config
 ln -s $HOME/.dotfiles/.config/fastfetch ~/.config
