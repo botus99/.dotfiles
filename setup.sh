@@ -40,11 +40,11 @@ sudo ln -s ~/.local/share/fonts/NerdFonts/ /usr/share/fonts/
 
 ### start with some bare nessessities...
 echo -e "\033[36m ٩(ˊᗜˋ*)و 🛠️ Installing Dependencies 🛠️ \033[0m"
-sudo apt install -y nala fonts-font-awesome fonts-mononoki fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion eza lolcat micro nano zoxide figlet
+sudo apt install -y nala fonts-font-awesome fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion eza lolcat micro nano zoxide figlet
 
 ### start using nala
 nala --install-completion bash
-sudo nala install -y faker gawk jq fzf bat cava ripgrep duf jpegoptim jpegqs npm golang sway swayidle swaybg swaylock sway-notification-center playerctl wayland-utils meteo-qt qt5-image-formats-plugins qt5-qmltooling-plugins python3-genshi pulseaudio pavumeter pavucontrol paprefs screenfetch wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty netselect-apt btop cmatrix shotwell ostree appstream-util exiv2 gstreamer1.0-alsa ffmpeg mencoder webp libasound2-dev python3-i3ipc python3-geopy python3-pkgconfig libssl-dev libgtk-3-dev libcairo2-dev libglib2.0-dev mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf rofi neofetch pulsemixer python3 pip pipx cargo tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full plymouth plymouth-themes python-is-python3 dos2unix build-essential libpam0g-dev libxcb-xkb-dev debian-archive-keyring curl gpg apt-transport-https 
+sudo nala install -y faker gawk jq fzf bat cava ripgrep duf jpegoptim jpegqs npm golang sway swayidle swaybg swaylock sway-notification-center playerctl wayland-utils meteo-qt qt5-image-formats-plugins qt5-qmltooling-plugins python3-genshi pulseaudio pavumeter pavucontrol paprefs wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty netselect-apt btop cmatrix shotwell ostree appstream-util exiv2 gstreamer1.0-alsa ffmpeg mencoder webp libasound2-dev python3-i3ipc python3-geopy python3-pkgconfig libssl-dev libgtk-3-dev libcairo2-dev libglib2.0-dev mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf rofi neofetch pulsemixer python3 pip pipx cargo tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full plymouth plymouth-themes python-is-python3 dos2unix build-essential libpam0g-dev libxcb-xkb-dev debian-archive-keyring curl gpg apt-transport-https 
 
 ### install flatpak & use flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -97,35 +97,56 @@ cd ~
 git clone https://github.com/botus99/.wallpapers.git
 
 ### download & install plymouth themes
-echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Themes for Plymouth 📥 \033[0m"
-cd $gitstuff
-git clone https://github.com/adi1090x/plymouth-themes.git 
-sudo mv $gitstuff/plymouth-themes/pack_3/owl /usr/share/plymouth/themes/owl
-sudo mv $gitstuff/plymouth-themes/pack_4/red_loader /usr/share/plymouth/themes/red_loader
-sudo git clone https://github.com/krishnan793/PlymouthTheme-Cat.git /usr/share/plymouth/themes/PlymouthTheme-Cat
-sudo plymouth-set-default-theme PlymouthTheme-Cat -R
-
-sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/PlymouthTheme-Cat/PlymouthTheme-Cat.plymouth 100
-sudo update-alternatives --config default.plymouth
-sudo update-initramfs -u
+#echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Themes for Plymouth 📥 \033[0m"
+#cd $gitstuff
+#git clone https://github.com/adi1090x/plymouth-themes.git 
+#sudo mv $gitstuff/plymouth-themes/pack_3/owl /usr/share/plymouth/themes/owl
+#sudo mv $gitstuff/plymouth-themes/pack_4/red_loader /usr/share/plymouth/themes/red_loader
+#sudo git clone https://github.com/krishnan793/PlymouthTheme-Cat.git /usr/share/plymouth/themes/PlymouthTheme-Cat
+#sudo plymouth-set-default-theme PlymouthTheme-Cat -R
+#
+#sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/PlymouthTheme-Cat/PlymouthTheme-Cat.plymouth 100
+#sudo update-alternatives --config default.plymouth
+#sudo update-initramfs -u
 
 ### download & install Matcha-dark-aliz
-echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Matcha-dark-aliz theme 📥 \033[0m"
+#echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Matcha-dark-aliz theme 📥 \033[0m"
+#cd $gitstuff
+#git clone https://github.com/vinceliuice/Matcha-gtk-theme.git
+#cd Matcha-gtk-theme
+#sudo ./install.sh --color dark --theme aliz --libadwaita
+#./install.sh --color dark --theme aliz --libadwaita
+#cd ~
+
+### download & install Colloid-Red-Dark-Gruvbox GTK theme
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Colloid-Red-Dark-Gruvbox theme 📥 \033[0m"
 cd $gitstuff
-git clone https://github.com/vinceliuice/Matcha-gtk-theme.git
-cd Matcha-gtk-theme
-sudo ./install.sh --color dark --theme aliz --libadwaita
-./install.sh --color dark --theme aliz --libadwaita
+git clone https://github.com/vinceliuice/Colloid-gtk-theme.git
+cd Colloid-gtk-theme
+sudo ./install.sh --color dark --theme red --libadwaita system --tweaks gruvbox
+./install.sh --color dark --theme red --libadwaita system --tweaks gruvbox
+cd ~
+
+### download and install papirus-icon-theme to ~/.local/share/icons
+wget -qO- https://git.io/papirus-icon-theme-install | env DESTDIR="$HOME/.local/share/icons" sh
+
+### download & install gruvbox-papirus folders
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing gruvbox-papirus-folders 📥 \033[0m"
+cd $gitstuff
+git clone https://github.com/xelser/gruvbox-papirus-folders
+cd gruvbox-papirus-folders
+cp -r src/* $HOME/.local/share/icons/Papirus/
+./papirus-folders -C gruvbox-original-red --theme Papirus
 cd ~
 
 ### download & install Vimix Ruby icons
-echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Vimix Ruby icons 📥 \033[0m"
-cd $gitstuff
-git clone https://github.com/vinceliuice/vimix-icon-theme.git
-cd vimix-icon-theme
-sudo ./install.sh ruby
-./install.sh ruby
-cd ~
+#echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Vimix Ruby icons 📥 \033[0m"
+#cd $gitstuff
+#git clone https://github.com/vinceliuice/vimix-icon-theme.git
+#cd vimix-icon-theme
+#sudo ./install.sh ruby
+#./install.sh ruby
+#cd ~
 
 ### download & install ArcDusk-Cursors
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing ArcDusk-Cursors 📥 \033[0m"
@@ -185,7 +206,6 @@ ln -s $HOME/.dotfiles/.config/fastfetch ~/.config
 ln -s $HOME/.dotfiles/.config/glow ~/.config
 ln -s $HOME/.dotfiles/.config/nwg-look ~/.config
 ln -s $HOME/.dotfiles/.config/pcmanfm ~/.config
-ln -s $HOME/.dotfiles/.config/privateinternetaccess ~/.config
 ln -s $HOME/.dotfiles/.config/rofi ~/.config
 ln -s $HOME/.dotfiles/.config/sway ~/.config
 ln -s $HOME/.dotfiles/.config/swaync ~/.config
