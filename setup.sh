@@ -127,6 +127,12 @@ sudo ./install.sh --color dark --theme red --libadwaita system --tweaks gruvbox
 ./install.sh --color dark --theme red --libadwaita system --tweaks gruvbox
 cd ~
 
+### setup gtk-4.0 links
+ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/assets/ $HOME/.config/gtk-4.0/assets
+ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/gtk.css $HOME/.config/gtk-4.0/gtk.css
+ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/gtk-dark.css $HOME/.config/gtk-4.0/gtk-dark.css
+ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/thumbnail.png $HOME/.config/gtk-4.0/thumbnail.png
+
 ### download and install papirus-icon-theme to ~/.local/share/icons
 wget -qO- https://git.io/papirus-icon-theme-install | env DESTDIR="$HOME/.local/share/icons" sh
 
