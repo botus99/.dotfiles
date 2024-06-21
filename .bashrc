@@ -134,4 +134,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # add truecolor support for the micro text editor
 export MICRO_TRUECOLOR="1"
 
-fastfetch
+# set doom wads directory
+export DOOMWADDIR="$HOME/.wads"
+
+#print fastfetch upon opening the terminal
+fastfetch --config pusheen
