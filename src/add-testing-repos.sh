@@ -37,7 +37,7 @@ if [[ $debian_version == *"Bookworm"* ]]; then
     
     # Update package lists
     sudo nala update
-    sudo nala upgrade --full
+    sudo nala full-upgrade
     sudo nala autoremove
     
     # Say goodbye
