@@ -2,6 +2,8 @@
 alias sa="figlet -tf miniwi 'Debian upgrades' \
 && sudo nala update \
 && sudo nala upgrade -y \
+&& figlet -tf miniwi 'Deb-Get upgrades' \
+&& sudo deb-get upgrade \
 && figlet -tf miniwi 'Flatpak upgrades' \
 && sudo flatpak update -y \
 && figlet -tf miniwi 'Python upgrades' \
@@ -109,3 +111,6 @@ alias kitty-themes='kitty +kitten themes'
 
 # make bro use specified theme
 alias bro='bro --theme gruvbox-dark'
+
+# make cbonsai use my preferred settings
+cbonsai --multiplier 15 --life 100 -S
