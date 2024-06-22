@@ -113,4 +113,4 @@ alias kitty-themes='kitty +kitten themes'
 alias bro='bro --theme gruvbox-dark'
 
 # make cbonsai use my preferred settings
-cbonsai --multiplier 15 --life 100 -S
+alias cbonsai='cbonsai --multiplier 15 --life 100 -S'
