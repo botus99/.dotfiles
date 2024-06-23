@@ -81,6 +81,7 @@ pipx install markdown
 pipx install plexapi
 pipx install protontricks
 pipx install rembg[gpu,cli]
+pipx install sacad
 pipx install streamrip 
 
 ### install rust apps
