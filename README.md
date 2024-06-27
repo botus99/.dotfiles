@@ -19,7 +19,8 @@ Here's what I'm currently working on:
 - [x] Add more stuff that I use (tgpt, shell-color-scripts, plymouth, ly...) 📦🔥😎
 - [x] Add ricing stuff (Colloid-Red-Dark-Gruvbox, ArcDusk-Cursors, Papirus-Dark) 🌈🍚🌺
 - [x] Add even more stuff that I use (stylepak, gruvbox-papirus-folders nwg-look...) 🎀🎨🤩
-- [ ] Add deb-multimedia.org repo 💽
+- [x] Add deb-multimedia.org repo 💽
+- [ ] Add DRD Team Debian repo 💽
 - [ ] Add prompts at certain points in the script 🧐
 - [ ] Add configs for Flatpak applications 🧩
 - [ ] Crossing the line with how many emojis a readme doc really needs 💩
