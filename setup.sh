@@ -91,6 +91,7 @@ cargo install bropages
 cargo install cargo-update
 cargo install cfonts
 cargo install code-radio-cli
+cargo install gifski
 cargo install mfp --locked
 cargo install names
 cargo install oxipng
