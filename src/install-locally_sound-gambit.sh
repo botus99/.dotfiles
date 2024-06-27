@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo apt-get install libsndfile1-dev
 cd $HOME/.git-stuff
 git clone https://github.com/x42/sound-gambit.git
 cd sound-gambit
