@@ -13,12 +13,12 @@
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
-; autosens = 1
-; overshoot = 20
+autosens = 0
+overshoot = 0
 
 # Manual sensitivity in %. If autosens is enabled, this will only be the initial value.
 # 200 means double height. Accepts only non-negative values.
-; sensitivity = 100
+sensitivity = 192
 
 # The number of bars (0-512). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
@@ -41,8 +41,8 @@ bar_width = 1
 # the bandwidth of the visualizer.
 # Note: there is a minimum total bandwidth of 43Mhz x number of bars.
 # Cava will automatically increase the higher cutoff if a too low band is specified.
-; lower_cutoff_freq = 50
-; higher_cutoff_freq = 16000
+lower_cutoff_freq = 30
+higher_cutoff_freq = 18000
 
 
 # Seconds with no input before cava goes to sleep mode. Cava will not perform FFT or drawing and
@@ -208,7 +208,7 @@ mono_option = average
 ; show_idle_bar_heads = 1
 
 # show waveform instead of frequency spectrum, 1 = on, 0 = off
-waveform = 1
+waveform = 0
 
 [color]
 
@@ -227,7 +227,7 @@ waveform = 1
 # Gradient mode, only hex defined colors are supported,
 # background must also be defined in hex or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
-; gradient = 1
+gradient = 1
 ; gradient_count = 8
 ; gradient_color_1 = '#928374' # gray
 ; gradient_color_2 = '#458588' # blue
@@ -263,8 +263,7 @@ waveform = 1
 # Noise reduction, int 0 - 100. default 77
 # the raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth
 # 100 will be very slow and smooth, 0 will be fast but noisy.
-; noise_reduction = 77
-
+noise_reduction = 18
 
 [eq]
 
