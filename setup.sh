@@ -78,6 +78,7 @@ pipx install future
 pipx install gruvbox-factory
 pipx install jellyfin-tools
 pipx install markdown
+pipx install matchering --include-deps
 pipx install plexapi
 pipx install protontricks
 pipx install rembg[gpu,cli]
