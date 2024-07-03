@@ -106,6 +106,9 @@ alias foldersizesort='du -sh * |sort -h'
 # make downloaded fonts available for all users
 alias fonts-copy='sudo cp -r ~/fonts/* /usr/share/fonts/'
 
+# display image in terminal
+alias kitty-pix='kitty +kitten icat'
+
 # open the kitty theme selector
 alias kitty-themes='kitty +kitten themes'
 
