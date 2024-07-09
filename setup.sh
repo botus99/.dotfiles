@@ -80,6 +80,7 @@ pipx install jellyfin-tools
 pipx install markdown
 pipx install plexapi
 pipx install protontricks
+pipx install pyflac
 pipx install rembg[gpu,cli]
 pipx install rtcqs
 pipx install sacad
