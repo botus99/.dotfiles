@@ -86,6 +86,7 @@ pipx install rembg[gpu,cli]
 pipx install rtcqs
 pipx install sacad
 pipx install streamrip 
+pipx install tqdm
 
 ### install rust apps
 echo -e "\033[36m 🦀 ٩(ˊᗜˋ*)و Installing Rust Apps 🦀 \033[0m"
