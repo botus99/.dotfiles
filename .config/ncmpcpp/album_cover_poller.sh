@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-# $HOME/.ncmpcpp/album_cover_poller.sh
-
+# $HOME/.config/ncmpcpp/album_cover_poller.sh
 # © Andy Smith <andy@strugglers.net>
 # SPDX-License-Identifier: 0BSD
 
-ncmpcpp_home="$XDG_CONFIG_HOME/ncmpcpp"
+ncmpcpp_home="$HOME/.config/ncmpcpp"
 default_cover="$ncmpcpp_home/default_cover.jpg"
 cover_dir="$XDG_RUNTIME_DIR/ncmpcpp"
 ncmpcpp_cover="$cover_dir/current_cover.jpg"
