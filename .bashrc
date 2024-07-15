@@ -77,15 +77,15 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    # add basic color to ls (commented out because eza takes care of this in the .bash_aliases file)
+	# add basic color to ls (commented out because eza takes care of this in the .bash_aliases file)
     #alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    # some more ls aliases (commented out for same reason as above)
-    #alias ll='ls -l'
-    #alias la='ls -A'
-    #alias l='ls -CF'
+	# some more ls aliases (commented out for same reason as above)
+	#alias ll='ls -l'
+	#alias la='ls -A'
+	#alias l='ls -CF'
 
     #alias grep='grep --color=auto'
     #alias fgrep='fgrep --color=auto'
@@ -115,10 +115,36 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Environment variables added here since loading .profile does not work
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$HOME/.local/bin:$HOME/.local/share/applications:$HOME/.cargo/bin:/var/lib/flatpak/exports/share"
+# custom prompt
+PROMPT_COMMAND=__prompt_command
 
-# Enable zoxide
+__prompt_command() {
+    local EXITCODE="$?"
+
+    local HOSTCOLOR="2"
+    local USERCOLOR="3"
+    local PATHCOLOR="4"
+    local BARSCOLOR="1"
+    local WHITE="0"
+
+
+    PS1="\e[3${BARSCOLOR}m┌─\e[${WHITE}m󰅂 \e[3${HOSTCOLOR}m  \h 󰍟 \e[3${USERCOLOR}m󰙃 \u 󰍟 \e[3${PATHCOLOR}m  \w \n";
+
+    if [ $EXITCODE == 0 ]; then
+#        PS1+="\e[32m└───╼ $ \e[0m";
+        PS1+="\e[3${BARSCOLOR}m└──\e[${WHITE}m󰅂 \e[32m$ \e[0m";
+    else
+        PS1+="\e[31m└──╼ \e[32m$ \e[0m";
+    fi
+}
+
+# can't remember what this does 
+trap 'echo -ne "\e[0m"' DEBUG
+
+# environment variables added here since loading .profile does not work
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$HOME/.local/bin:$HOME/.local/share/applications:$HOME/.cargo/bin:/var/lib/flatpak/exports/share:/usr/local/lib"
+
+# enable zoxide
 eval "$(zoxide init bash)"
 
 # more environment variables
@@ -137,5 +163,5 @@ export MICRO_TRUECOLOR="1"
 # set doom wads directory
 export DOOMWADDIR="$HOME/.wads"
 
-#print fastfetch upon opening the terminal
+# print fastfetch upon opening the terminal
 fastfetch --config pusheen
