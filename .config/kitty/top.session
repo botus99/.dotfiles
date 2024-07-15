@@ -1,0 +1,7 @@
+# $HOME/.config/kitty/top.session
+
+layout tall:bias=67
+cd ~
+launch btop
+launch nvtop
+launch cbonsai
