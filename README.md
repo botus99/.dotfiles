@@ -5,6 +5,7 @@
 Welcome to my dotfiles, meticulously and specifically assembled to make your Debian Testing system truly cromulent! 🎉🥂
 
 You may or may not love the way that I have everything set up, but, at a minimum, I hope that this dotfiles repo can serve as a source of inspiration for your own unique setup 🦄. 
+
 Because of Debian/Nvidia reasons, I have been on Cinnamon using X11 recently and have not used Sway for some time now. I am ultimately trying to make Debian Testing more capable in a media-server or media-enthusiast-desktop context. How?
 
 - ffmpeg compiled with headers for Nvidia codecs and CUDA
