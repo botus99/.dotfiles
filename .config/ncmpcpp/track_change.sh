@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-
-# $HOME/.ncmpcpp/track_change.sh
-
+# $HOME/.config/ncmpcpp/track_change.sh
 # © Andy Smith <andy@strugglers.net>
 # SPDX-License-Identifier: 0BSD
 
