@@ -1,0 +1,138 @@
+[directories]
+## Directory for storing ncmpcpp related files.  Changing it is useful if you
+## want to store everything somewhere else and provide command line setting for
+## alternative location to config file which defines that while launching
+## ncmpcpp.
+ncmpcpp_directory = "~/.config/ncmpcpp"
+
+## Directory for storing downloaded lyrics. It defaults to ~/.lyrics since other
+## MPD clients (eg. ncmpc) also use that location.
+lyrics_directory = "/media/george/movies/MUSIC/.lyrics"
+
+
+[mpd]
+mpd_music_dir = "/media/george/movies/MUSIC/"
+mpd_host = "localhost"
+mpd_port = "6600"
+mpd_crossfade_time = "2"
+
+[playback]
+set enable_gapless = "yes"
+
+[visualizer]
+visualizer_data_source = /tmp/mpd.fifo
+visualizer_output_name = Visualizer feed
+visualizer_in_stereo = no
+#visualizer_sync_interval = 0
+## Available values: spectrum, wave, wave_filled, ellipse.
+visualizer_type = spectrum
+visualizer_fps = 30
+#visualizer_autoscale = no
+visualizer_look = ●▮
+visualizer_color = green, yellow, red
+
+## Note: The next few visualization options apply to the spectrum visualizer.
+##
+## Use unicode block characters for a smoother, more continuous look.
+## This will override the visualizer_look option. With transparent terminals
+## and visualizer_in_stereo set, artifacts may be visible on the bottom half of
+## the visualization.
+visualizer_spectrum_smooth_look = no
+
+## A value between 1 and 5 inclusive. Specifying a larger value makes the
+## visualizer look at a larger slice of time, which results in less jumpy
+## visualizer output.
+#visualizer_spectrum_dft_size = 2
+#visualizer_spectrum_gain = 10
+
+## Left-most frequency of visualizer in Hz, must be less than HZ MAX
+## Right-most frequency of visualizer in Hz, must be greater than HZ MIN
+#visualizer_spectrum_hz_min = 20
+#visualizer_spectrum_hz_max = 20000
+
+[header]
+header_visibility = "no"
+header_window_color = "cyan"
+volume_color = "cyan"
+state_line_color = "black"
+
+[playlist]
+
+[statusbar]
+progressbar_look = "󱘹󰎌 "
+progressbar_color = "white"
+progressbar_elapsed_color = "blue"
+statusbar_visibility = "no"
+statusbar_color = "white"
+song_status_format = "{{%a} - %t}|{ - %f}{ - %b{ (%y)}}}"
+#song_columns_list_format = "(10)[blue]{l} (30)[yellow]{t} (30)[red]{a} (30)[cyan]{b}"
+song_columns_list_format = "(5)[red]{l} (35)[cyan]{a} (30)[green]{b} (30)[yellow]{t}"
+now_playing_prefix = "> "
+autocenter_mode = "yes"
+
+[library]
+song_library_format = "{{%a - %t}|{%f}}{$R%l}"
+empty_tag_color = "yellow"
+
+[global]
+colors_enabled = "yes"
+main_window_color = "white"
+centered_cursor = "yes"
+enable_window_title = "yes"
+#active_window_border = "cyan"
+
+# possible display modes: classic, columns.
+browser_display_mode = "columns"
+search_engine_display_mode = "columns"
+playlist_editor_display_mode = "columns"
+playlist_disable_highlight_delay = "0"  
+playlist_display_mode = "columns"  
+playlist_show_remaining_time = "yes"
+playlist_shorten_total_times = "yes"
+
+## Available values: classic, alternative.
+user_interface = "alternative"
+
+# commented out until a satisfactory source or combination is found
+#lyrics_fetchers = "musixmatch, musixmatch, sing365, plyrics, metrolyrics, justsomelyrics, internet, genius"
+#follow_now_playing_lyrics = "yes"
+#fetch_lyrics_for_current_song_in_background = "yes"
+#store_lyrics_in_song_dir = "yes"
+
+external_editor = "micro"
+use_console_editor = "yes"
+
+# left a lot of stuff commented out for easier experimentation
+#colors_enabled = yes
+#empty_tag_color = cyan
+#header_window_color = default
+#volume_color = default
+#state_line_color = default
+#state_flags_color = default:b
+#main_window_color = yellow
+color1 = white
+color2 = cyan
+#progressbar_color = black:b
+#progressbar_elapsed_color = green:b
+#statusbar_color = default
+#statusbar_time_color = default:b
+#player_state_color = default:b
+alternative_ui_separator_color = white:b
+window_border_color = green
+active_window_border = red
+mouse_support = yes
+lines_scrolled = 5
+#empty_tag_marker = <empty>
+tags_separator = " | "
+
+# header stuff
+alternative_header_first_line_format = "$0$aqqu$/a {$4%a - $9}{$4%t$9}|{$8%f$9} $0$atqq$/a$9"
+alternative_header_second_line_format = "{{$5%b$9}{ [$2%y$9]}}|{%D}"
+display_bitrate = "yes"
+
+# selected tracks #
+selected_item_prefix = "󰸞 "
+discard_colors_if_item_is_selected = "yes"
+
+# notification stuff
+execute_on_song_change = "~/.config/ncmpcpp/track_change.sh -m /media/george/movies/MUSIC"
