@@ -10,7 +10,7 @@ set -eu
 ### Some things user might want to change.
 
 # File name that each album's art is stored under.
-candidate_name="cover.jpg"
+candidate_name="folder.jpg"
 
 # Directory to place the current track's cover in. Can be some temporary or
 # cache directory - we'll create it if it doesn't exist already.
