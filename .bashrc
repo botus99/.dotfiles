@@ -32,66 +32,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	# add basic color to ls (commented out because eza takes care of this in the .bash_aliases file)
-    #alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-	# some more ls aliases (commented out for same reason as above)
-	#alias ll='ls -l'
-	#alias la='ls -A'
-	#alias l='ls -CF'
-
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
-fi
-
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -116,30 +56,7 @@ if ! shopt -oq posix; then
 fi
 
 # custom prompt
-PROMPT_COMMAND=__prompt_command
-
-__prompt_command() {
-    local EXITCODE="$?"
-
-    local HOSTCOLOR="2"
-    local USERCOLOR="3"
-    local PATHCOLOR="4"
-    local BARSCOLOR="1"
-    local WHITE="0"
-
-
-    PS1="\e[3${BARSCOLOR}m┌─\e[${WHITE}m󰅂 \e[3${HOSTCOLOR}m  \h 󰍟 \e[3${USERCOLOR}m󰙃 \u 󰍟 \e[3${PATHCOLOR}m  \w \n";
-
-    if [ $EXITCODE == 0 ]; then
-#        PS1+="\e[32m└───╼ $ \e[0m";
-        PS1+="\e[3${BARSCOLOR}m└──\e[${WHITE}m󰅂 \e[32m$ \e[0m";
-    else
-        PS1+="\e[31m└──╼ \e[32m$ \e[0m";
-    fi
-}
-
-# can't remember what this does 
-trap 'echo -ne "\e[0m"' DEBUG
+export PS1="\[$(tput bold)\]\[$(tput setaf 1)\]┌─\[$(tput setaf 7)\]󰅂 \[$(tput setaf 3)\]  \[$(tput setaf 3)\]\h 󰍟 \[$(tput setaf 2)\]󰙃 \[$(tput setaf 2)\]\u 󰍟 \[$(tput setaf 4)\]  \w \[$(tput setaf 1)\]\n└──\[$(tput setaf 7)\]󰅂 \[$(tput setaf 2)\]\\$ \[$(tput sgr0)\]"
 
 # environment variables added here since loading .profile does not work
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$HOME/.local/bin:$HOME/.local/share/applications:$HOME/.cargo/bin:/var/lib/flatpak/exports/share:/usr/local/lib"
