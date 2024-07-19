@@ -22,7 +22,7 @@ Here's what I'm currently working on:
 - [x] Add ricing stuff (Colloid-Red-Dark-Gruvbox, ArcDusk-Cursors, Papirus-Dark) 🌈🍚🌺
 - [x] Add even more stuff that I use (stylepak, gruvbox-papirus-folders nwg-look...) 🎀🎨🤩
 - [x] Add deb-multimedia.org repo 💽
-- [ ] Add DRD Team Debian repo 💽
+- [x] Add DRD Team Debian repo 💽
 - [ ] Add prompts at certain points in the script 🧐
 - [ ] Add configs for Flatpak applications 🧩
 - [ ] Crossing the line with how many emojis a readme doc really needs 💩
