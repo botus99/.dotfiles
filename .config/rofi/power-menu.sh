@@ -4,10 +4,14 @@
 ## Github : @adi1090x
 #
 ## Rofi   : Power Menu
+#
+## Available Styles
+#
+## style-1   style-2   style-3   style-4   style-5
 
 # Current Theme
-dir="$HOME/.config/rofi"
-theme='power-menu'
+dir="$HOME/.config/rofi/powermenu/type-5"
+theme='style-1'
 
 # CMDs
 lastlogin="`last $USER | head -n1 | tr -s ' ' | cut -d' ' -f5,6,7`"
@@ -78,6 +82,8 @@ run_cmd() {
 				i3-msg exit
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+			elif [[ "$DESKTOP_SESSION" == 'cinnamon' ]]; then
+				cinnamon-session-quit --logout --force
 			fi
 		fi
 	else
@@ -98,7 +104,9 @@ case ${chosen} in
 		run_cmd --hibernate
         ;;
     $lock)
-		if [[ -x '/usr/bin/betterlockscreen' ]]; then
+		if [[ -x '/usr/bin/swaylock' ]]; then
+			swaylock --config $HOME/.config/swaylock/config
+		elif [[ -x '/usr/bin/betterlockscreen' ]]; then
 			betterlockscreen -l
 		elif [[ -x '/usr/bin/i3lock' ]]; then
 			i3lock
