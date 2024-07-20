@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Check for root privileges
 if [ "$EUID" -ne 0 ]; then
@@ -21,11 +21,11 @@ if [[ $debian_version == *"Bookworm"* ]]; then
     sudo cp -i /etc/apt/sources.list /etc/apt/sources.list.old
     echo -e "\033[1;32m|  d-(´▽｀)-b    Backup saved to sources.list.old!   ৻(  •̀ ᗜ •́  ৻)  |\033[0m"
     echo -e "\033[1;32m|------------------------------------------------------------------|\033[0m"
-    
+
     # Update apt sources list
     echo "deb http://deb.debian.org/debian/ testing main contrib non-free-firmware non-free" | sudo tee /etc/apt/sources.list
     echo "deb-src http://deb.debian.org/debian/ testing main contrib non-free-firmware non-free" | sudo tee -a /etc/apt/sources.list
-    
+
     echo "deb http://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware" | sudo tee -a /etc/apt/sources.list
     echo "deb-src http://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware" | sudo tee -a /etc/apt/sources.list
 
@@ -34,12 +34,12 @@ if [[ $debian_version == *"Bookworm"* ]]; then
 
     echo "deb http://deb.debian.org/debian/ testing-backports main non-free-firmware" | sudo tee -a /etc/apt/sources.list
     echo "deb-src http://deb.debian.org/debian/ testing-backports main non-free-firmware" | sudo tee -a /etc/apt/sources.list
-    
+
     # Update package lists
     sudo nala update
     sudo nala full-upgrade
     sudo nala autoremove
-    
+
     # Say goodbye
     echo -e "\033[1;32m|-------------------------------------------------------------------------|\033[0m"
     echo -e "\033[1;32m|  d-(´▽｀)-b  Debian Testing repositories added successfully. d-(´▽｀)-b  |\033[0m"
