@@ -107,14 +107,20 @@ alias foldersizesort='du -sh * |sort -h'
 # make downloaded fonts available for all users
 alias fonts-copy='sudo cp -r ~/fonts/* /usr/share/fonts/'
 
-# display image in terminal
-alias kitty-pix='kitty +kitten icat'
-
 # open the kitty theme selector
 alias kitty-themes='kitty +kitten themes'
+
+# display image in terminal
+alias kitty-pix='kitty +kitten icat'
 
 # make bro use specified theme
 alias bro='bro --theme gruvbox-dark'
 
 # make cbonsai use my preferred settings
 alias cbonsai='cbonsai --multiplier 15 --life 100 -S'
+
+# make ncmpcpp launch as a session in kitty
+alias ncmpcpp='kitty -o font_size=11 --session ~/.config/kitty/ncmpcpp.session'
+
+# make getting weather forecasts easier
+alias weather='curl wttr.in'
