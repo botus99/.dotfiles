@@ -26,22 +26,15 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-
 # set PATH so it includes user's cargo bin if it exists
 if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-# set PATH so it includes user's cargo bin if it exists
+# set PATH so it includes user's flatpak applications
 if [ -d "/var/lib/flatpak/exports/share/" ] ; then
     PATH="/var/lib/flatpak/exports/share/:$PATH"
 fi
 
-#export GTK_THEME_NAME="Matcha-dark-aliz"
-#export ICON_THEME_NAME="Vimix Ruby dark"
-#export CURSOR_THEME_NAME="ArcDusk-cursors"
-#export FONT_NAME="Iosevka 10"
-#export FONT_NAME="Mononoki 10"
-#export COLOR_SCHEME="prefer-dark"
-#export QT_STYLE_OVERRIDE="kvantum-dark"
-#export QT_QPA_PLATFORMTHEME="qt6ct"
+# qt stuff
+export QT_QPA_PLATFORMTHEME=qt5ct
