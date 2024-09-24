@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ### run as user, not root
 ### Inspired by... https://gitlab.com/thelinuxcast/scripts/-/blob/master/setup.sh
 
