@@ -3,9 +3,10 @@ alias sa="figlet -tf miniwi 'Debian upgrades' \
 && sudo nala update \
 && sudo nala upgrade -y \
 && figlet -tf miniwi 'Deb-Get upgrades' \
+&& sudo deb-get update --repos-only \
 && sudo deb-get upgrade \
 && figlet -tf miniwi 'Flatpak upgrades' \
-&& sudo flatpak update -y \
+&& flatpak update -y \
 && figlet -tf miniwi 'Python upgrades' \
 && pipx upgrade-all \
 && figlet -tf miniwi 'Cargo upgrades' \
