@@ -3,9 +3,6 @@
  * Author : Aditya Shakya (adi1090x)
  * Github : @adi1090x
  * 
- * edited 2024-05-19 
- * changes include gruvbox colors, tweaked sizes, background stuff, etc
- * 
  * Rofi Theme File
  * Rofi Version: 1.7.3
  **/
@@ -77,7 +74,7 @@ dummy {
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         " debian-testing";
+    str:                         " debian-testing";
     padding:                     12px;
     border-radius:               12px;
     background-color:            @selected;
