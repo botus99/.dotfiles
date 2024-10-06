@@ -18,7 +18,7 @@ xdg-user-dirs-update
 
 ### start with some bare nessessities...
 echo -e "\033[36m 🛠️ ٩(ˊᗜˋ*)و Installing Dependencies 🛠️ \033[0m"
-sudo apt-get install -y nala fonts-font-awesome fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion eza lolcat micro nano zoxide figlet fastfetch
+sudo apt-get install -y nala fonts-font-awesome fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion eza lolcat micro nano zoxide figlet fastfetch fonts-material-design-icons-iconfont
 
 ### start using nala
 nala --install-completion bash
