@@ -191,12 +191,12 @@ sudo ./stylepak install-system
 cd ~
 
 ### download & install termv
-#echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing termv 📥 \033[0m"
-#cd $gitstuff
-#git clone https://github.com/Roshan-R/termv.git
-#cd termv
-#sudo make install
-#cd ~
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing termv 📥 \033[0m"
+cd $gitstuff
+git clone https://github.com/Roshan-R/termv.git
+cd termv
+sudo make install
+cd ~
 
 ### download & install glow
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing glow 📥 \033[0m"
@@ -217,6 +217,7 @@ ln -s $HOME/.dotfiles/.config/cava ~/.config
 ln -s $HOME/.dotfiles/.config/fastfetch ~/.config
 ln -s $HOME/.dotfiles/.config/glow ~/.config
 ln -s $HOME/.dotfiles/.config/gtk-3.0 ~/.config
+ln -s $HOME/.dotfiles/.config/gzdoom ~/.config
 ln -s $HOME/.dotfiles/.config/kitty ~/.config
 ln -s $HOME/.dotfiles/.config/micro ~/.config
 ln -s $HOME/.dotfiles/.config/nwg-look ~/.config
