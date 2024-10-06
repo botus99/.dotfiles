@@ -42,13 +42,13 @@ if [[ $debian_version == *"Bookworm"* ]]; then
 
     # Say goodbye
     echo -e "\033[1;32m|-------------------------------------------------------------------------|\033[0m"
-    echo -e "\033[1;32m|  d-(´▽｀)-b  Debian Testing repositories added successfully. d-(´▽｀)-b  |\033[0m"
-    echo -e "\033[1;32m|  (ง ◉ _ ◉)ง    ...so uhh, now what are you gonna do to me?   (ง ◉ _ ◉)ง  |\033[0m"
+    echo -e "\033[1;32m|  d-(´▽｀)-b Debian Testing repositories added successfully. d-(´▽｀)-b  |\033[0m"
+    echo -e "\033[1;32m|  (ง ◉ _ ◉)ง   ...so uhh, now what are you gonna do to me?    (ง ◉ _ ◉)ง  |\033[0m"
     echo -e "\033[1;32m|-------------------------------------------------------------------------|\033[0m"
 else
     # Tell the user to pound sand for trying to break their system
     echo -e "\033[1;31m|-------------------------------------------------------------------------|\033[0m"
-    echo -e "\033[1;31m|  ( •̀ - •́ )   You are not using Debian Bookworm. For shame!   ( •̀ - •́ )  |\033[0m"
-    echo -e "\033[1;31m|  (ᴗ_ ᴗ。)    Go away & think about what you are doing here!   (ᴗ_ ᴗ。)  |\033[0m"
+    echo -e "\033[1;31m|  ( •̀ - •́ )  You are not using Debian Bookworm.  For shame!   ( •̀ - •́ )  |\033[0m"
+    echo -e "\033[1;31m|  (ᴗ_ ᴗ。)    Go away & think about what you are doing here!   (ᴗ_ ᴗ。)    |\033[0m"
     echo -e "\033[1;31m|-------------------------------------------------------------------------|\033[0m"
 fi
