@@ -26,7 +26,7 @@ sudo nala install -y xdotools python3-feedparser faker gawk jq fzf bat cava ripg
 
 ### install flatpak & use flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install net.nokyan.Resources com.github.tchx84.Flatseal com.usebottles.bottles net.davidotek.pupgui2 com.valvesoftware.Steam io.github.Foldex.AdwSteamGtk com.vscodium.codium com.makemkv.MakeMKV fr.handbrake.ghb io.github.giantpinkrobots.flatsweep io.github.zen_browser.zen io.gitlab.librewolf-community net.pcsx2.PCSX2 org.DolphinEmu.dolphin-emu org.libretro.RetroArch org.ryujinx.Ryujinx org.upscayl.Upscayl xyz.tytanium.DoorKnocker
+sudo flatpak install net.nokyan.Resources com.github.tchx84.Flatseal com.usebottles.bottles net.davidotek.pupgui2 com.valvesoftware.Steam io.github.Foldex.AdwSteamGtk com.vscodium.codium com.makemkv.MakeMKV fr.handbrake.ghb io.github.giantpinkrobots.flatsweep io.github.zen_browser.zen io.gitlab.librewolf-community io.github.ungoogled_software.ungoogled_chromium net.pcsx2.PCSX2 org.DolphinEmu.dolphin-emu org.libretro.RetroArch org.ryujinx.Ryujinx org.upscayl.Upscayl xyz.tytanium.DoorKnocker
 
 ### install Distrotube's color scripts
 cd $gitstuff
