@@ -12,7 +12,7 @@ mkdir .git-stuff
 
 # INSTALL FONTS
 ### beginning message
-echo -e "\033[36m 🛠️ ٩(ˊᗜˋ*)و Installing Nerd Fonts 🛠️ \033[0m"
+echo -e "\033[36m 🛠️ ٩(ˊᗜˋ*)و Downloading & Installing Nerd Fonts 🛠️ \033[0m"
 
 ### create and enter NerdFonts directory
 mkdir -p "$HOME/.local/share/fonts/NerdFonts"
@@ -68,6 +68,9 @@ sudo ln -s ~/.local/share/fonts/NerdFonts/ /usr/share/fonts/
 ### update font cache
 fc-cache -fv
 
+### success message
+echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Nerd Fonts successfully installed ✅ \033[0m"
+
 # INSTALL GTK THEME
 ### download & install Colloid-Red-Dark-Gruvbox GTK theme
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Colloid-Red-Dark-Gruvbox theme 📥 \033[0m"
@@ -93,6 +96,9 @@ ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/thumbnail.png $HOME/.config
 #./install.sh --color dark --theme aliz --libadwaita
 #cd ~
 
+### success message
+echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Colloid-Red-Dark-Gruvbox GTK theme successfully installed ✅ \033[0m"
+
 # INSTALL ICONS
 ### download and install papirus-icon-theme to user's shared icons directory
 wget -qO- https://git.io/papirus-icon-theme-install | env DESTDIR="$HOME/.local/share/icons" sh
@@ -115,6 +121,9 @@ cd ~
 #./install.sh ruby
 #cd ~
 
+### success message
+echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و gruvbox-papirus-folders successfully installed ✅ \033[0m"
+
 # INSTALL CURSORS
 ### download & install ArcDusk-Cursors
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing ArcDusk-Cursors 📥 \033[0m"
@@ -132,6 +141,9 @@ tar -xvf Banana.tar.gz
 sudo mv Banana /usr/share/icons/
 rm ./Banana.tar.gz
 
+### success message
+echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Banana-cursor successfully installed ✅ \033[0m"
+
 # INSTALL THEMING APPS
 ### download & install nwg-look
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing nwg-look 📥 \033[0m"
@@ -141,6 +153,8 @@ cd nwg-look
 make build
 sudo make install
 cd ~
+### success message
+echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و nwg-look successfully installed ✅ \033[0m"
 
 ### download & install stylepak
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing stylepak 📥 \033[0m"
@@ -151,9 +165,11 @@ cd stylepak
 sudo ./stylepak install-system
 ./stylepak install-user
 cd ~
+### success message
+echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و stylepak successfully installed ✅ \033[0m"
 
 ### download & install plymouth themes
-#echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Themes for Plymouth 📥 \033[0m"
+#echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing plymouth-themes 📥 \033[0m"
 #cd $gitstuff
 #git clone https://github.com/adi1090x/plymouth-themes.git 
 #sudo mv $gitstuff/plymouth-themes/pack_3/owl /usr/share/plymouth/themes/owl
@@ -164,6 +180,8 @@ cd ~
 #sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/PlymouthTheme-Cat/PlymouthTheme-Cat.plymouth 100
 #sudo update-alternatives --config default.plymouth
 #sudo update-initramfs -u
+### success message
+#echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و plymouth-themes successfully installed ✅ \033[0m"
 
 ### success message
 echo -e "🎊 (੭˃ᴗ˂)੭ OOOO LA LA!!! Let's put on your new threads!"
