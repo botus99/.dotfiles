@@ -16,6 +16,7 @@ ln -s $HOME/.dotfiles/.config/kitty ~/.config
 ln -s $HOME/.dotfiles/.config/micro ~/.config
 ln -s $HOME/.dotfiles/.config/nwg-look ~/.config
 ln -s $HOME/.dotfiles/.config/pcmanfm ~/.config
+ln -s $HOME/.dotfiles/.config/polybar ~/.config
 ln -s $HOME/.dotfiles/.config/rofi ~/.config
 ln -s $HOME/.dotfiles/.config/sway ~/.config
 ln -s $HOME/.dotfiles/.config/swaync ~/.config
