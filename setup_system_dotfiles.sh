@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-### run as user, not root
 
 ### dotfile installation
 cd ~
