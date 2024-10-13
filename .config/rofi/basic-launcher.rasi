@@ -17,8 +17,8 @@
     g-padding: 12px;
     hl-color: #FBF1C7FF;
     hlt-color: #282828FF;
-    alt-color: #1d2021FF;
-    wbg-color: #282828FF;
+    alt-color: #1d2021CC;
+    wbg-color: #282828CC;
     w-border: 2px;
     w-border-color: #EBDBB2FF;
     w-padding: 12px;
@@ -120,7 +120,7 @@ element selected.normal {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        24px;
+    size:                        32px;
     cursor:                      inherit;
 }
 
