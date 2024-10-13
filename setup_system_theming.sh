@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
-### run as user, not root
+
+# Check if the script is being run as root
+### this script was designed to be run as a user, not root
+### remove this portion at your own risk (...or for fun!)
+if [ "$(id -u)" -eq 0 ]; then
+    echo "🛃 This script must be run as a regular user. 🛃"
+    echo "🙅‍♂️ No sudo either... please, just don't. 🙅‍♂️"
+    exit 1
+fi
 
 # START AT HOME BASE & SET VARIABLES
 cd ~
@@ -87,6 +95,9 @@ ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/gtk.css $HOME/.config/gtk-4
 ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/gtk-dark.css $HOME/.config/gtk-4.0/gtk-dark.css
 ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/thumbnail.png $HOME/.config/gtk-4.0/thumbnail.png
 
+### success message
+echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Colloid-Red-Dark-Gruvbox GTK theme successfully installed ✅ \033[0m"
+
 ### download & install Matcha-dark-aliz
 #echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Matcha-dark-aliz theme 📥 \033[0m"
 #cd $gitstuff
@@ -95,9 +106,6 @@ ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/thumbnail.png $HOME/.config
 #sudo ./install.sh --color dark --theme aliz --libadwaita
 #./install.sh --color dark --theme aliz --libadwaita
 #cd ~
-
-### success message
-echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Colloid-Red-Dark-Gruvbox GTK theme successfully installed ✅ \033[0m"
 
 # INSTALL ICONS
 ### download and install papirus-icon-theme to user's shared icons directory
@@ -182,6 +190,12 @@ echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و stylepak successfully installed ✅ \033[0m
 #sudo update-initramfs -u
 ### success message
 #echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و plymouth-themes successfully installed ✅ \033[0m"
+
+### download wallpapers
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Wallpapers 📥 \033[0m"
+cd ~
+git clone https://github.com/botus99/.wallpapers.git
+echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و wallpapers successfully downloaded ✅ \033[0m"
 
 ### success message
 echo -e "🎊 (੭˃ᴗ˂)੭ OOOO LA LA!!! Let's put on your new threads!"
