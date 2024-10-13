@@ -1,15 +1,22 @@
 #!/usr/bin/env bash
-### run as user, not root
-### Inspired by... https://gitlab.com/thelinuxcast/scripts/-/blob/master/setup.sh
+
+# Inspired by... https://gitlab.com/thelinuxcast/scripts/-/blob/master/setup.sh
+
+# Check if the script is being run as root
+### this script was designed to be run as a user, not root
+### remove this portion at your own risk (...or for fun!)
+if [ "$(id -u)" -eq 0 ]; then
+    echo "🛃 This script must be run as a regular user. 🛃"
+    echo "🙅‍♂️ No sudo either... please, just don't. 🙅‍♂️"
+    exit 1
+fi
 
 ### set variables for commonly refered to directories
-dotfiles="$HOME/.dotfiles"
 gitstuff="$HOME/.git-stuff"
 scripts="$HOME/.my-scripts"
 
 ### create directories needed for scripts and stuff
 cd ~
-mkdir .dotfiles
 mkdir .git-stuff
 mkdir .my-scripts
 
@@ -76,11 +83,6 @@ cargo install gifski
 cargo install mfp --locked
 cargo install names
 cargo install oxipng
-
-### download wallpapers
-echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Wallpapers 📥 \033[0m"
-cd ~
-git clone https://github.com/botus99/.wallpapers.git
 
 ### download & install termv
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing termv 📥 \033[0m"
