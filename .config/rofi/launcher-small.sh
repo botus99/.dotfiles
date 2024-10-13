@@ -7,7 +7,7 @@
 
 
 dir="$HOME/.config/rofi"
-theme='launcher'
+theme='launcher-small'
 
 ## Run
 rofi \
