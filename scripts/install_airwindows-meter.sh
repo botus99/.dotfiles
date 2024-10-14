@@ -35,7 +35,6 @@ echo "Downloaded latest Meter release successfully."
 
 ### Extract the zip file to the destination directory
 unzip "$src_zip" -d "$old_dir"
-### change the next line to install the vst or standalone
 mv --force --verbose "$old_dir/CLAP/Meter.clap" "$HOME/.clap"
 mv --force --verbose "$old_dir/Standalone/Meter" "$HOME/.local/bin"
 echo "New Meter release extracted successfully."
@@ -44,6 +43,6 @@ echo "New Meter release extracted successfully."
 rm -v "$src_zip"
 rm -rfv "$old_dir/CLAP"
 rm -rfv "$old_dir/VST3"
-#rm -rfv "$old_dir/Standalone"
+rm -rfv "$old_dir/Standalone"
 echo "Cleanup performed successfully"
 echo "Installation complete"
