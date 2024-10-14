@@ -7,12 +7,11 @@ Behold! Here are my dotfiles, meticulously assembled to make my Debian Testing s
 ![desktop](./art/desktop.png)
 ![rofi](./art/rofi.png)
 ![terminal](./art/terminal.png)
+![tops](./art/tops.png)
+![ncmpcpp](./art/ncmpcpp.png)
+![power-menu](./art/power-menu.png)
 
 I hope that this dotfiles repo can serve as a source of inspiration for your own unique setup 🦄.
-
-![Alt Text](./art/tops.png)
-![Alt Text](./art/ncmpcpp.png)
-![Alt Text](./art/power-menu.png)
 
 I have been on Cinnamon using X11 recently (thanks Nvidia)  and have not used Sway for some time now. I am ultimately trying to make Debian Testing more capable in a media-server or media-enthusiast-desktop context. How?
 
