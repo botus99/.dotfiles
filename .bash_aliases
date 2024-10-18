@@ -14,7 +14,7 @@ alias sa="figlet -tf miniwi 'Debian upgrades' \
 && figlet -tf miniwi 'TLDR upgrades' \
 && tldr -u \
 && figlet -tf miniwi 'TGPT upgrades' \
-&& tgpt -u \
+&& sudo tgpt -u \
 && figlet -tf miniwi 'Garbage removal' \
 && sudo nala autoremove \
 && sudo nala clean \
