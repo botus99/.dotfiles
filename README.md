@@ -9,6 +9,7 @@ I hope these dotfiles serve as a source of inspiration for your own unique setup
 ## Features
 
 - a fancy ncmpcpp kitty session
+- custom bash prompt
 - custom fastfetch images to pick from
 - gruvbox color scheme all over the friggin' place
 - scripts to setup applications, dotfile configs, and theming
