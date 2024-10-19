@@ -2,7 +2,7 @@
 
 ### ｡*ﾟ.*.｡(っ ᐛ )っ HELLO!!!
 
-Behold, my dotfiles! They're meticulously crafted to make Debian Testing truly cromulent! 🎉🥂
+Behold, my dotfiles! They're meticulously crafted to make Debian Testing truly cromulent! 🎉
 
 I hope these dotfiles serve as a source of inspiration for your own unique setup 🦄.
 
