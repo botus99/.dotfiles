@@ -2,7 +2,9 @@
 
 ｡*ﾟ.*.｡(っ ᐛ )っ HELLO!!!
 
-Behold! Here are my dotfiles, meticulously assembled to make my Debian Testing system truly cromulent! 🎉🥂
+Behold, my dotfiles! They are meticulously assembled to make Debian Testing truly cromulent! 🎉🥂
+
+I hope these dotfiles serve as a source of inspiration for your own unique setup 🦄.
 
 ![desktop](./art/desktop.png)
 ![rofi](./art/rofi.png)
@@ -11,9 +13,8 @@ Behold! Here are my dotfiles, meticulously assembled to make my Debian Testing s
 ![ncmpcpp](./art/ncmpcpp.png)
 ![power-menu](./art/power-menu.png)
 
-I hope that this dotfiles repo can serve as a source of inspiration for your own unique setup 🦄.
 
-I have been on Cinnamon using X11 recently (thanks Nvidia)  and have not used Sway for some time now. I am ultimately trying to make Debian Testing more capable in a media-server or media-enthusiast-desktop context. How?
+I am currently using Cinnamon with X11 (thanks Nvidia) and have not used Sway or Wayland for some time now. I am ultimately trying to make Debian Testing more capable in a media-server and/or media-enthusiast-desktop context. How?
 
 - ffmpeg compiled with headers for Nvidia codecs and CUDA
 - avisynth / vapoursynth
