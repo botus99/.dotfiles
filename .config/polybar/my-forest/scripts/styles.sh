@@ -61,12 +61,12 @@ elif  [[ $1 = "--dark" ]]; then
 	SE="#33C5BA"
 	change_color
 elif  [[ $1 = "--catpuccin" ]]; then
-	BG="#1E1E2E"
-	FG="#cdd6f4"
-	BGA="#313244"
-	SEP="#585b70"
-	AC="#89b4fa"
-	SE="#f38ba8"
+	BG="#24273a"
+	FG="#cad3f5"
+	BGA="#363a4f"
+	SEP="#5b6078"
+	AC="#8bd5ca"
+	SE="#ed8796"
 	change_color
 elif  [[ $1 = "--cherry" ]]; then
 	BG="#1F1626"
