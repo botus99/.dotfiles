@@ -60,6 +60,14 @@ elif  [[ $1 = "--dark" ]]; then
 	AC="#D12F2C"
 	SE="#33C5BA"
 	change_color
+elif  [[ $1 = "--catpuccin" ]]; then
+	BG="#1E1E2E"
+	FG="#cdd6f4"
+	BGA="#313244"
+	SEP="#585b70"
+	AC="#89b4fa"
+	SE="#f38ba8"
+	change_color
 elif  [[ $1 = "--cherry" ]]; then
 	BG="#1F1626"
 	FG="#FFFFFF"
@@ -71,6 +79,6 @@ elif  [[ $1 = "--cherry" ]]; then
 else
 	cat <<- _EOF_
 	No option specified, Available options:
-	--default    --nord    --gruvbox    --dark    --cherry
+	--default    --nord    --gruvbox    --dark    --cherry    --catpuccin
 	_EOF_
 fi
