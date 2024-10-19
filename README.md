@@ -11,8 +11,9 @@ I hope these dotfiles serve as a source of inspiration for your own unique setup
 - a fancy ncmpcpp kitty session
 - custom bash prompt
 - custom fastfetch images to pick from
+- subtle to heavy tweaks to polybar, rofi, kitty, and others
 - gruvbox color scheme all over the friggin' place
-- scripts to setup applications, dotfile configs, and theming
+- scripts to install applications, setup dotfile configs, and apply theming
 
 ## Screenshots
 
@@ -24,6 +25,7 @@ I hope these dotfiles serve as a source of inspiration for your own unique setup
 ![power-menu](./art/power-menu.png)
 
 ## More Info
+
 I am currently using Cinnamon with X11 (thanks Nvidia) and have not used Sway or Wayland for some time now. I am ultimately trying to make Debian Testing more capable in a media-server and/or media-enthusiast-desktop context. How?
 
 - ffmpeg compiled with headers for Nvidia codecs and CUDA
