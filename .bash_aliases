@@ -1,6 +1,5 @@
 # update my goods
 alias sa="figlet -tf miniwi 'Debian upgrades' \
-&& sudo nala update \
 && sudo nala upgrade -y \
 && figlet -tf miniwi 'Deb-Get upgrades' \
 && sudo deb-get update --repos-only \
