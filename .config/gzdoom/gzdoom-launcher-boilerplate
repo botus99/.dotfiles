@@ -42,9 +42,10 @@ hocus_path="$HOME/.wads/hocus-pocus/HOCUS_08_Zandronum_Final.pk3"
 mscp_path="$HOME/.wads/mscp/MSCP_v1a.wad"
 
 # BRUTAL DOOM
-#brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.15.3_dev.pk3"
-brutal_doom_path="$HOME/.wads/brutalv22/brutalv22beta3.5.pk3"
+#brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.16.0_dev.pk3"
+#brutal_doom_path="$HOME/.wads/brutalv22/brutalv22test4.pk3"
 #brutal_doom_path="$HOME/.wads/brutalv21/weapons-only/brutal21_weapons_only_Zandronum_fix.pk3"
+brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.16.0_dev.pk3"
 
 # PROJECT BRUTALITY
 #project_brutality_path="$HOME/.wads/Project Brutality Public Files/Community Addons/Various/Project Brutality Monsters Standalone.pk3"
