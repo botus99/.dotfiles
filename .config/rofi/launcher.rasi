@@ -2,15 +2,13 @@
  *
  * Author : Aditya Shakya (adi1090x)
  * Github : @adi1090x
- * 
- * edited 2024-05-19 
+ *
+ * edited 2024-05-19
  * changes include gruvbox colors, tweaked sizes, added alternate item bg colors, etc
- * 
+ *
  * Rofi Theme File
  * Rofi Version: 1.7.3
  **/
-
-
 
 /*****----- Configuration -----*****/
 configuration {
@@ -44,16 +42,16 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       800px;
+    width:                       50em;
     x-offset:                    0px;
     y-offset:                    0px;
-    border:                      0.125em solid;
-    border-radius:               20px;
+    border:                      0.1em solid;
+    border-radius:               1.0em;
     border-color:                @foreground;
 
     /* properties for all widgets */
     enabled:                     true;
-    border-radius:               20px;
+    border-radius:               1.0em;
     cursor:                      "default";
     background-color:            @background;
 }
@@ -68,8 +66,8 @@ mainbox {
 }
 
 listbox {
-    spacing:                     40px;
-    padding:                     40px;
+    spacing:                     0.5em;
+    padding:                     1.0em;
     background-color:            transparent;
     orientation:                 vertical;
     children:                    [ "message", "listview" ];
@@ -78,10 +76,10 @@ listbox {
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     12px;
-    padding:                     150px 80px;
+    spacing:                     1.0em;
+    padding:                     6.667em 3em;
     background-color:            transparent;
-    background-image:            url("~/.wallpapers/color-scheme/gruvbox/DKoRY7F.jpeg", width);
+    background-image:            url("~/.wallpapers/reddit/Windows_10_|_Bliss___Night_version_edit__3840_×_2.png", width);
     text-color:                  @foreground;
     orientation:                 vertical;
     children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher" ];
@@ -90,55 +88,54 @@ textbox-prompt-colon {
     enabled:                     false;
     expand:                      false;
     str:                         " ";
-    padding:                     12px 12px;
-    border-radius:               100%;
+    padding:                     1.0em 1.0em;
+    border-radius:               1.0em;
     background-color:            @background-alt;
     text-color:                  inherit;
 }
 entry {
     enabled:                     true;
     expand:                      false;
-    width:                       270px;
-    padding:                     12px 15px;
-    border-radius:               100%;
+    width:                       25em;
+    padding:                     1.0em 1.0em;
     background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "";
     placeholder-color:           @subdued-white;
-    border:                      0.125em solid;
-    border-radius:               20px;
+    border:                      0.1em solid;
+    border-radius:               1.0em;
     border-color:                @foreground;
 }
 dummy {
     expand:                      true;
     background-color:            transparent;
-    padding:                     10px;
+    padding:                     1.0em;
 }
 
 /*****----- Mode Switcher -----*****/
 mode-switcher{
     enabled:                     true;
-    spacing:                     96px;
+    spacing:                     8.75em;
     background-color:            transparent;
     text-color:                  @foreground;
 }
 button {
-    width:                       36px;
-    padding:                     10px;
-    border-radius:               100%;
+    width:                       1em;
+    padding:                     0.75em;
+    border-radius:               25%;
     background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      pointer;
-    border:                      0.125em solid;
-    border-radius:               20px;
+    border:                      0.1em solid;
+    border-radius:               1.0em;
     border-color:                @foreground;
 }
 button selected {
     background-color:            @selected;
     text-color:                  @foreground;
-    border:                      0.125em solid;
-    border-radius:               20px;
+    border:                      0.1em solid;
+    border-radius:               1.0em;
     border-color:                @foreground;
 }
 
@@ -154,8 +151,8 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
-    spacing:                     10px;
+
+    spacing:                     0.5em;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
@@ -164,9 +161,9 @@ listview {
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     10px;
-    padding:                     4px;
-    border-radius:               100%;
+    spacing:                     0.00em;
+    padding:                     0.50em;
+    border-radius:               0.75em;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
@@ -202,7 +199,7 @@ element alternate.normal {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        32px;
+    size:                        2em;
     cursor:                      inherit;
 }
 element-text {
@@ -210,7 +207,7 @@ element-text {
     text-color:                  inherit;
     cursor:                      inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.0;
+    horizontal-align:            0.01;
 }
 
 /*****----- Message -----*****/
@@ -218,16 +215,16 @@ message {
     background-color:            transparent;
 }
 textbox {
-    padding:                     12px;
-    border-radius:               100%;
+    padding:                     0.5em;
+    border-radius:               0.5em;
     background-color:            @background-alt;
     text-color:                  @foreground;
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
 error-message {
-    padding:                     12px;
-    border-radius:               20px;
+    padding:                     1.0em;
+    border-radius:               1.0em;
     background-color:            @background;
     text-color:                  @foreground;
 }

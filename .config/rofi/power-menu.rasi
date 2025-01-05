@@ -2,7 +2,7 @@
  *
  * Author : Aditya Shakya (adi1090x)
  * Github : @adi1090x
- * 
+ *
  * Rofi Theme File
  * Rofi Version: 1.7.3
  **/
@@ -33,12 +33,12 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       800px;
+    width:                       50em;
     x-offset:                    0px;
     y-offset:                    0px;
     padding:                     0px;
-    border:                      2px solid;
-    border-radius:               20px;
+    border:                      0.1em solid;
+    border-radius:               1.0em;
     border-color:                @foreground;
     cursor:                      "default";
     background-color:            @background;
@@ -61,7 +61,7 @@ mainbox {
 inputbar {
     enabled:                     true;
     spacing:                     0px;
-    padding:                     128px 20px;
+    padding:                     6.667em 6.667em;
     background-color:            transparent;
     background-image:            url("~/.wallpapers/color-scheme/gruvbox/homer-bush.png", width);
     children:                    [ "textbox-prompt-colon", "dummy","prompt"];
@@ -75,15 +75,15 @@ textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         " debian-testing";
-    padding:                     12px;
-    border-radius:               12px;
+    padding:                     1em;
+    border-radius:               1em;
     background-color:            @selected;
     text-color:                  @foreground;
 }
 prompt {
     enabled:                     true;
-    padding:                     12px;
-    border-radius:               12px;
+    padding:                     1em;
+    border-radius:               1em;
     background-color:            @selected;
     text-color:                  @foreground;
 }
@@ -100,9 +100,9 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
-    spacing:                     15px;
-    margin:                      15px;
+
+    spacing:                     1em;
+    margin:                      1em;
     background-color:            transparent;
     cursor:                      "default";
 }
@@ -110,8 +110,8 @@ listview {
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    padding:                     30px 10px;
-    border-radius:               12px;
+    padding:                     2em 0em;
+    border-radius:               1em;
     background-color:            @background-alt;
     text-color:                  @foreground;
     cursor:                      pointer;
@@ -122,7 +122,7 @@ element-text {
     text-color:                  inherit;
     cursor:                      inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.5;
+    horizontal-align:            0.45;
 }
 element selected.normal {
     background-color:            var(selected);
@@ -133,7 +133,7 @@ element selected.normal {
 message {
     enabled:                     true;
     margin:                      0px;
-    padding:                     15px;
+    padding:                     1em;
     border-radius:               0px;
     background-color:            @background-alt;
     text-color:                  @foreground;
