@@ -10,8 +10,8 @@ dhtp_path="$HOME/.wads/dhtp/zdoom-dhtp-20180514.pk3"
 
 # BRUTAL DOOM
 #
-brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.15.3_dev.pk3"
-#brutal_doom_path="$HOME/.wads/brutalv22/brutalv22test3.7a.pk3"
+brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.16.0_dev.pk3"
+#brutal_doom_path="$HOME/.wads/brutalv22/brutalv22test4.pk3"
 
 # MUSIC
 #

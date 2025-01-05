@@ -6,8 +6,8 @@ iwad_path="$HOME/.wads/Doom (v1.9)/DOOM.WAD"
 
 # BRUTAL DOOM
 #
-#brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.14.0_dev.pk3"
-brutal_doom_path="$HOME/.wads/brutalv22/brutalv22test3.7a.pk3"
+brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.16.0_dev.pk3"
+#brutal_doom_path="$HOME/.wads/brutalv22/brutalv22test4.pk3"
 
 # MUSIC
 #
