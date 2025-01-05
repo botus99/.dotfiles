@@ -14,6 +14,8 @@ ln -s $HOME/.dotfiles/.config/gtk-3.0 ~/.config
 ln -s $HOME/.dotfiles/.config/gzdoom ~/.config
 ln -s $HOME/.dotfiles/.config/kitty ~/.config
 ln -s $HOME/.dotfiles/.config/micro ~/.config
+ln -s $HOME/.dotfiles/.config/mpd ~/.config
+ln -s $HOME/.dotfiles/.config/mpv ~/.config
 ln -s $HOME/.dotfiles/.config/nwg-look ~/.config
 ln -s $HOME/.dotfiles/.config/pcmanfm ~/.config
 ln -s $HOME/.dotfiles/.config/polybar ~/.config
