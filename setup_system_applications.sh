@@ -85,6 +85,9 @@ cargo install mfp --locked
 cargo install names
 cargo install oxipng
 
+### download & install tgpt
+curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
+
 ### download & install termv
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing termv 📥 \033[0m"
 cd $gitstuff
