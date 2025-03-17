@@ -56,24 +56,52 @@ alias fix-permissions='sudo chown -R $USER:$USER ~/.config ~/.local'
 
 # archive extractor
 extract () {
-     if [ -f $1 ] ; then
-         case $1 in
-             *.tar.bz2)   tar xjf $1     ;;
-             *.tar.gz)    tar xzf $1     ;;
-             *.bz2)       bunzip2 $1     ;;
-             *.rar)       rar x $1       ;;
-             *.gz)        gunzip $1      ;;
-             *.tar)       tar xf $1      ;;
-             *.tbz2)      tar xjf $1     ;;
-             *.tgz)       tar xzf $1     ;;
-             *.zip)       unzip $1       ;;
-             *.Z)         uncompress $1  ;;
-             *.7z)        7z x $1    ;;
-             *)           echo "'$1' cannot be extracted via extract()" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
+    set -e  # abort execution on errors
+
+    if [ $# -eq 0 ]; then
+        # display usage if no parameters given
+        echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz|.zlib|.cso|.zst>"
+        echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+
+        return 1
+    fi
+
+    for n in "$@"; do
+        if [ ! -f "$n" ]; then
+            echo "'$n' - file doesn't exist"
+            return 1
+        fi
+
+        case "${n%,}" in
+            *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
+                         tar --auto-compress -xvf "$n" ;;
+            *.lzma)      unlzma "$n" ;;
+            *.bz2)       bunzip2 "$n" ;;
+            *.cbr|*.rar) unrar x -ad "$n" ;;
+            *.gz)        gunzip "$n" ;;
+            *.cbz|*.epub|*.zip) unzip "$n" ;;
+            *.z)         uncompress "$n" ;;
+            *.7z|*.apk|*.arj|*.cab|*.cb7|*.chm|*.deb|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar|*.vhd)
+                         7z x "$n" ;;
+            *.xz)        unxz "$n" ;;
+            *.exe)       cabextract "$n" ;;
+            *.cpio)      cpio -id < "$n" ;;
+            *.cba|*.ace) unace x "$n" ;;
+            *.zpaq)      zpaq x "$n" ;;
+            *.arc)       arc e "$n" ;;
+            *.cso)       ciso 0 "$n" "$n.iso" && extract "$n.iso" && rm -f "$n" ;;
+            *.zlib)      zlib-flate -uncompress < "$n" > "${n%.*zlib}" && rm -f "$n" ;;
+            *.dmg)
+                         mnt_dir=$(mktemp -d)
+                         hdiutil mount "$n" -mountpoint "$mnt_dir"
+                         echo "Mounted at: $mnt_dir" ;;
+            *.tar.zst)  tar -I zstd -xvf "$n" ;;
+            *.zst)      zstd -d "$n" ;;
+            *)
+                echo "extract: '$n' - unknown archive method"
+                continue ;;
+        esac
+    done
 }
 
 # copy files with a progress bar
@@ -123,3 +151,6 @@ alias ncmpcpp='kitty -o font_size=11 --session ~/.config/kitty/ncmpcpp.session'
 
 # make getting weather forecasts easier
 alias weather='curl wttr.in'
+
+# edit nextcloud php config
+alias nextcloud-config='micro /nextcloud/config/www/nextcloud/config/config.php'
