@@ -44,16 +44,16 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       640px;
+    width:                       40em;
     x-offset:                    0px;
     y-offset:                    0px;
-    border:                      2px solid;
-    border-radius:               20px;
+    border:                      0.1em solid;
+    border-radius:               1em;
     border-color:                @foreground;
 
     /* properties for all widgets */
     enabled:                     true;
-    border-radius:               20px;
+    border-radius:               1em;
     cursor:                      "default";
     background-color:            @background;
 }
@@ -61,16 +61,16 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     0px;
-    padding:                     0px;
+    spacing:                     0.5em;
+    padding:                     0.5em;
     background-color:            transparent;
     orientation:                 vertical;
     children:                    [ "inputbar", "listbox" ];
 }
 
 listbox {
-    spacing:                     20px;
-    padding:                     20px;
+    spacing:                     1em;
+    padding:                     1em;
     background-color:            transparent;
     orientation:                 vertical;
     children:                    [ "message", "listview" ];
@@ -79,8 +79,8 @@ listbox {
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     0px;
-    padding:                     80px 80px;
+    spacing:                     1em;
+    padding:                     6em 6em;
     background-color:            transparent;
     background-image:            url("~/.wallpapers/color-scheme/gruvbox/17.png", width);
     text-color:                  @foreground;
@@ -91,55 +91,54 @@ textbox-prompt-colon {
     enabled:                     false;
     expand:                      false;
     str:                         " ";
-    padding:                     12px 12px;
-    border-radius:               100%;
+    padding:                     1em 1em;
+    border-radius:               1em;
     background-color:            @background-alt;
     text-color:                  inherit;
 }
 entry {
     enabled:                     true;
     expand:                      false;
-    width:                       240px;
-    padding:                     12px 15px;
-    border-radius:               100%;
+    width:                       10em;
+    padding:                     0.666em 0.666em;
     background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "";
     placeholder-color:           @foreground;
-    border:                      1.5px solid;
-    border-radius:               20px;
+    border:                      0.1em solid;
+    border-radius:               1em;
     border-color:                @foreground;
 }
 dummy {
     expand:                      true;
     background-color:            transparent;
-    padding:                     20px;
+    padding:                     1em;
 }
 
 /*****----- Mode Switcher -----*****/
 mode-switcher{
     enabled:                     true;
-    spacing:                     64px;
+    spacing:                     3em;
     background-color:            transparent;
     text-color:                  @foreground;
 }
 button {
-    width:                       36px;
-    padding:                     10px;
-    border-radius:               100%;
+    width:                       3.6em;
+    padding:                     0.5em;
+    margin:                      0.33em;
     background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      pointer;
-    border:                      1.5px solid;
-    border-radius:               20px;
+    border:                      0.1em solid;
+    border-radius:               1em;
     border-color:                @foreground;
 }
 button selected {
     background-color:            @selected;
     text-color:                  @foreground;
-    border:                      1.5px solid;
-    border-radius:               20px;
+    border:                      0.1em solid;
+    border-radius:               1em;
     border-color:                @foreground;
 }
 
@@ -165,9 +164,9 @@ listview {
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     8px;
-    padding:                     4px;
-    border-radius:               100%;
+    spacing:                     1em;
+    padding:                     0.1em;
+    border-radius:               0.5em;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
@@ -203,7 +202,7 @@ element alternate.normal {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        36px;
+    size:                        2.5em;
     cursor:                      inherit;
 }
 element-text {
@@ -219,16 +218,16 @@ message {
     background-color:            transparent;
 }
 textbox {
-    padding:                     12px;
-    border-radius:               100%;
+    padding:                     1em;
+    border-radius:               1em;
     background-color:            @background-alt;
     text-color:                  @foreground;
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
 error-message {
-    padding:                     12px;
-    border-radius:               20px;
+    padding:                     1em;
+    border-radius:               1em;
     background-color:            @background;
     text-color:                  @foreground;
 }
