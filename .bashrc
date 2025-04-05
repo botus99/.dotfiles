@@ -1,9 +1,5 @@
 #[ -f $HOME/.bashrc  ] && . $HOME/.profile
 
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -30,10 +26,11 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export TERM="xterm-256color"                      # getting proper colors
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -79,6 +76,20 @@ export MICRO_TRUECOLOR="1"
 
 # set doom wads directory
 export DOOMWADDIR="$HOME/.wads"
+
+# set fzf defaults
+export FZF_DEFAULT_OPTS="--layout=reverse-list --exact --border=bold --border=rounded --margin=1% --color=dark"
+
+# color man and less
+export LESS='-R --use-color -Dd+r$Du+b'
+export MANPAGER="/usr/bin/less -R --use-color -Dd+r -Du+b"
+export LESS_TERMCAP_mb=$'\E[01;31m'             # begin blinking
+export LESS_TERMCAP_md=$'\E[01;31m'             # begin bold
+export LESS_TERMCAP_me=$'\E[0m'                 # end mode
+export LESS_TERMCAP_se=$'\E[0m'                 # end standout-mode                 
+export LESS_TERMCAP_so=$'\E[01;44;33m'          # begin standout-mode - info box                              
+export LESS_TERMCAP_ue=$'\E[0m'                 # end underline
+export LESS_TERMCAP_us=$'\E[01;32m'             # begin underline
 
 # print fastfetch upon opening the terminal
 fastfetch --config pusheen
