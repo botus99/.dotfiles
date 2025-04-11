@@ -14,3 +14,7 @@ sudo make install
 # cleanup
 cd $HOME
 rm -rf $HOME/.wppfzf_d
+
+# overwrite binary with my fork
+sudo wget "https://raw.githubusercontent.com/botus99/wppfzf/master/wppfzf" -O /usr/bin/wppfzf
+sudo chmod +x /usr/bin/wppfzf
