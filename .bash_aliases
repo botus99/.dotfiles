@@ -26,6 +26,10 @@ alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip -color=auto'
+alias tree='tree --dirsfirst -C'
 
 # replace 'ps' with 'procs'
 alias ps='procs'
@@ -147,10 +151,15 @@ alias bro='bro --theme gruvbox-dark'
 alias cbonsai='cbonsai --multiplier 15 --life 100 -S'
 
 # make ncmpcpp launch as a session in kitty
-alias ncmpcpp='kitty -o font_size=11 --session ~/.config/kitty/ncmpcpp.session'
+#alias ncmpcpp='kitty -o font_size=11 --session ~/.config/kitty/ncmpcpp.session'
 
 # make getting weather forecasts easier
 alias weather='curl wttr.in'
 
 # edit nextcloud php config
 alias nextcloud-config='micro /nextcloud/config/www/nextcloud/config/config.php'
+
+# fzf bash history
+fh () {
+    eval $(history | fzf +s --layout=reverse --exact --prompt=" " --no-sort --margin=1% --gap=1 --multi --color="bg+:0,fg:15,fg+:9,border:8,hl+:2,prompt:15,hl:2,pointer:1,info:8,spinner:1" --border --border=bold --border=rounded --border-label="HISTORY" --highlight-line --pointer " " | sed 's/ *[0-9]* *//')
+}
