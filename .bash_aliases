@@ -161,5 +161,5 @@ alias nextcloud-config='micro /nextcloud/config/www/nextcloud/config/config.php'
 
 # fzf bash history
 fh () {
-    eval $(history | fzf +s --layout=reverse --exact --prompt=" " --no-sort --margin=1% --gap=1 --multi --color="bg+:0,fg:15,fg+:9,border:8,hl+:2,prompt:15,hl:2,pointer:1,info:8,spinner:1" --border --border=bold --border=rounded --border-label="HISTORY" --highlight-line --pointer " " | sed 's/ *[0-9]* *//')
+    eval $(history | fzf --layout=reverse --exact --prompt=" " --no-sort --margin=1% --gap=1 --multi --color="bg+:0,fg:15,fg+:9,border:8,hl+:2,prompt:15,hl:2,pointer:1,info:8,spinner:1" --border --border=bold --border=rounded --border-label="HISTORY" --highlight-line --pointer " " | sed 's/ *[0-9]* *//')
 }
