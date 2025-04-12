@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Exit script if something fails
+set -euo pipefail
+
 # Check if the script is being run as root
 ### this script was designed to be run as a user, not root
 ### remove this portion at your own risk (...or for fun!)
@@ -19,55 +22,35 @@ gitstuff="$HOME/.git-stuff"
 mkdir .git-stuff
 
 # INSTALL FONTS
+### set nerd font install directory
+NFDIR="$HOME/.local/share/fonts/NerdFonts"
+
 ### beginning message
 echo -e "\033[36m 🛠️ ٩(ˊᗜˋ*)و Downloading & Installing Nerd Fonts 🛠️ \033[0m"
 
 ### create and enter NerdFonts directory
-mkdir -p "$HOME/.local/share/fonts/NerdFonts"
-cd "$HOME/.local/share/fonts/NerdFonts"
+mkdir -p "$NFDIR"
+cd "$NFDIR"
 
-### my favorite sans-serif font in firefox
-wget -P "$HOME/.local/share/fonts/NerdFonts" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CodeNewRoman.tar.xz"
-tar -xf "CodeNewRoman.tar.xz"
-rm "CodeNewRoman.tar.xz"
+### download and install fonts
+FONTS=(
+    "CodeNewRoman"
+    "Mononoki"
+    "CascadiaCode"
+    "DaddyTimeMono"
+    "DejaVuSansMono"
+    "FantasqueSansMono"
+    "Iosevka"
+    "JetBrainsMono"
+    "Monofur"
+    "OpenDyslexic"
+)
 
-### my favorite font for basically everything
-wget -P "$HOME/.local/share/fonts/NerdFonts" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Mononoki.tar.xz"
-tar -xf "Mononoki.tar.xz"
-rm "Mononoki.tar.xz"
-
-### more fonts for various things here and there
-wget -P "$HOME/.local/share/fonts/NerdFonts" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.tar.xz"
-tar -xf "CascadiaCode.tar.xz"
-rm "CascadiaCode.tar.xz"
-
-wget -P "$HOME/.local/share/fonts/NerdFonts" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/DaddyTimeMono.tar.xz"
-tar -xf "DaddyTimeMono.tar.xz"
-rm "DaddyTimeMono.tar.xz"
-
-wget -P "$HOME/.local/share/fonts/NerdFonts" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/DejaVuSansMono.tar.xz"
-tar -xf "DejaVuSansMono.tar.xz"
-rm "DejaVuSansMono.tar.xz"
-
-wget -P "$HOME/.local/share/fonts/NerdFonts" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FantasqueSansMono.tar.xz"
-tar -xf "FantasqueSansMono.tar.xz"
-rm "FantasqueSansMono.tar.xz"
-
-wget -P "$HOME/.local/share/fonts/NerdFonts" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.tar.xz"
-tar -xf "Iosevka.tar.xz"
-rm "Iosevka.tar.xz"
-
-wget -P "$HOME/.local/share/fonts/NerdFonts" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz"
-tar -xf "JetBrainsMono.tar.xz"
-rm "JetBrainsMono.tar.xz"
-
-wget -P "$HOME/.local/share/fonts/NerdFonts" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monofur.tar.xz"
-tar -xf "Monofur.tar.xz"
-rm "Monofur.tar.xz"
-
-wget -P "$HOME/.local/share/fonts/NerdFonts" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/OpenDyslexic.tar.xz"
-tar -xf "OpenDyslexic.tar.xz"
-rm "OpenDyslexic.tar.xz"
+for FONT in "${FONTS[@]}"; do
+    wget -P "$NFDIR" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/${FONT}.tar.xz"
+    tar -xf "${FONT}.tar.xz"
+    rm "${FONT}.tar.xz"
+done
 
 ### link user NerdFonts directory to system fonts directory
 cd ~
