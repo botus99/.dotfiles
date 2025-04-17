@@ -93,5 +93,5 @@ done
 
 
 # Launch GZDoom with custom commands
-gzdoom -iwad "$iwad_path" -file "$beautiful_path" "$project_brutality_path" "$doom_2016_music_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"
+ENABLE_VKBASALT=1 gzdoom -iwad "$iwad_path" -file "$beautiful_path" "$project_brutality_path" "$doom_2016_music_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"
 # -config "$config_path"	# use when a custom config makes sense

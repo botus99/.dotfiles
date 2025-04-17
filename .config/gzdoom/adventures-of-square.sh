@@ -6,7 +6,7 @@ iwad_path="$HOME/.wads/Doom II - Hell on Earth (v1.9)/DOOM2.WAD"
 
 # BRUTAL DOOM
 #
-#brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.14.0_dev.pk3"
+#brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.16.0.pk3"
 brutal_doom_path="$HOME/.wads/brutalv22/brutalv22test3.7a.pk3"
 
 # ADVENTURES OF SQUARE
@@ -56,4 +56,4 @@ done
 
 # Launch GZDoom with custom commands
 #
-gzdoom -iwad "$iwad_path" -file "$square_path"  -savedir "$save_dir"
+ENABLE_VKBASALT=1 gzdoom -iwad "$iwad_path" -file "$square_path"  -savedir "$save_dir"

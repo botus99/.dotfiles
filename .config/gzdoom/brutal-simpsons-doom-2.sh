@@ -14,14 +14,12 @@ brutal_doom_path="$HOME/.wads/brutalv21/weapons-only/brutal21_weapons_only_Zandr
 #
 simpsons_path="$HOME/.wads/ulsimpdm/ulsimpdm.wad"
 
-# MUSIC
-#
-#doom_metal_path="$HOME/.wads/DoomMetalVol5/DoomMetalVol5_44100.wad"
+# MUSIC / SOUND
+#doom_metal_v5_path="$HOME/.wads/music/doom-metal/DoomMetalVol5_44100.wad"
+doom_metal_v6_path="$HOME/.wads/music/doom-metal/DoomMetalVol6.wad"
 doom_2016_music_path="$HOME/.wads/music/doom-2016/DOOMIIHellOnEarth_DOOMEternal_OST.pk3"
-
-# SOUND
-#
 tourretes_guy_path="$HOME/.wads/Project Brutality Public Files/Community Addons/Various/Voice Add-ons/Tourretes Guy Offends PB.pk3"
+live_reverb_path="$HOME/.wads/live-reverb/LiveReverb.pk3"
 
 # HUD
 #
@@ -46,7 +44,7 @@ save_dir="$HOME/.config/gzdoom/savegames/brutal-simpsons-doom-2"
 # Check if required files exist
 # ADD PATHS FROM ABOVE AS NEEDED
 #
-for path in "$iwad_path" "$brutal_doom_path" "$doom_2016_music_path"; do
+for path in "$iwad_path" "$brutal_doom_path" "$simpsons_path" "$live_reverb_path" "$tourretes_guy_path" "$rain_and_snow_path"; do
     if [ ! -f "$path" ]; then
         echo "Error: $path not found."
         exit 1
@@ -55,4 +53,4 @@ done
 
 # Launch GZDoom with custom commands
 #
-gzdoom -iwad "$iwad_path" -file "$brutal_doom_path" "$simpsons_path" "$tourretes_guy_path" "$rain_and_snow_path" -savedir "$save_dir"
+ENABLE_VKBASALT=1 gzdoom -iwad "$iwad_path" -file "$brutal_doom_path" "$simpsons_path" "$live_reverb_path" "$tourretes_guy_path" "$rain_and_snow_path" -savedir "$save_dir"

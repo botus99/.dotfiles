@@ -4,23 +4,21 @@
 #
 iwad_path="$HOME/.wads/Doom II - Hell on Earth (v1.9)/DOOM2.WAD"
 
-#
 # DOOM HIGH RESOLUTION TEXURE PROJECT
+#
 dhtp_path="$HOME/.wads/dhtp/zdoom-dhtp-20180514.pk3"
 
 # BRUTAL DOOM
 #
-brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.16.0_dev.pk3"
-#brutal_doom_path="$HOME/.wads/brutalv22/brutalv22test4.pk3"
+brutal_doom_path="$HOME/.wads/brutalv21/brutalv21-latest.pk3"
+#brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.16.0.pk3"
 
-# MUSIC
+# MUSIC / SOUND
 #
 doom_metal_path="$HOME/.wads/music/doom-metal/DoomMetalVol6.wad"
 doom_2016_music_path="$HOME/.wads/music/doom-2016/DOOMIIHellOnEarth_DOOMEternal_OST.pk3"
-
-# SOUND
-#
 tourretes_guy_path="$HOME/.wads/Project Brutality Public Files/Community Addons/Various/Voice Add-ons/Tourretes Guy Offends PB.pk3"
+live_reverb_path="$HOME/.wads/live-reverb/LiveReverb.pk3"
 
 # HUD
 #
@@ -54,4 +52,4 @@ done
 
 # Launch GZDoom with custom commands
 #
-gzdoom -iwad "$iwad_path" -file "$voxel_path" "$brutal_doom_path" "$doom_metal_path" "$tourretes_guy_path" "$dhtp_path" "$rain_and_snow_path" "$cats_visor_base_path" "$cats_visor_path" -savedir "$save_dir"
+ENABLE_VKBASALT=1 gzdoom -iwad "$iwad_path" -file "$voxel_path" "$rain_and_snow_path" "$dhtp_path" "$live_reverb_path" "$brutal_doom_path" "$doom_metal_path" "$tourretes_guy_path" -savedir "$save_dir"

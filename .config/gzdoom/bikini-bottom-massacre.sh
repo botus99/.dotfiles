@@ -4,44 +4,21 @@
 #
 iwad_path="$HOME/.wads/Doom II - Hell on Earth (v1.9)/DOOM2.WAD"
 
-# BLOOM
-#
-bloom_path="$HOME/.wads/bloom/Bloom.pk3"
-
-# GOLDENEYE
-#
-goldeneye_path="$HOME/.wads/goldeneye/GoldenEyeTC-Upgraded-NoTanks.pk3"
-ge1="$HOME/.wads/goldeneye/Goldeneye-Complete.pk3"
-ge2="$HOME/.wads/goldeneye/TWINE64Mini.pk3"
-
 # BRUTAL DOOM
 #
-#brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.14.0_dev.pk3"
+#brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.16.0.pk3"
 brutal_doom_path="$HOME/.wads/brutalv22/brutalv22test3.7a.pk3"
 #brutal_doom_path="$HOME/.wads/brutalv21/weapons-only/brutal21_weapons_only_Zandronum_fix.pk3"
-
-# SIMPSONS
-#
-simpsons_path="$HOME/.wads/ulsimpdm/ulsimpdm.wad"
 
 # SPONGEBOB
 #
 bikini_bottom_massacre_path="$HOME/.wads/bikini-bottom-massacre/bikini_bottom_massacre_(1.3).wad"
 
-# MUSIC
+# MUSIC / SOUND
 #
 #doom_metal_path="$HOME/.wads/DoomMetalVol5/DoomMetalVol5_44100.wad"
 doom_2016_music_path="$HOME/.wads/music/doom-2016/DOOMIIHellOnEarth_DOOMEternal_OST.pk3"
-
-# SOUND
-#
 tourretes_guy_path="$HOME/.wads/Project Brutality Public Files/Community Addons/Various/Voice Add-ons/Tourretes Guy Offends PB.pk3"
-
-# HUD
-#
-#simplehudaddons_path="$HOME/.wads/Project Brutality Public Files/Community Addons/Useful Tools - Minimods/simplehudaddons.pk3"
-cats_visor_base_path="$HOME/.wads/cats-visor/catsvisorbase1.10.3.pk3"
-cats_visor_path="$HOME/.wads/cats-visor/catsvisorc1.10.3_dynamic.pk3"
 
 # GRAPHICS
 #
@@ -73,4 +50,4 @@ done
 
 # Launch GZDoom with custom commands
 #
-gzdoom -iwad "$iwad_path" -file "$bikini_bottom_massacre_path" -savedir "$save_dir" -config "$config_path"
+ENABLE_VKBASALT=1 gzdoom -iwad "$iwad_path" -file "$bikini_bottom_massacre_path" -savedir "$save_dir" -config "$config_path"
