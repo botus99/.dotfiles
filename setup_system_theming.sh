@@ -73,10 +73,13 @@ sudo ./install.sh --color dark --theme red --libadwaita system --tweaks gruvbox
 cd ~
 
 ### setup gtk-4.0 links
-ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/assets/ $HOME/.config/gtk-4.0/assets
-ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/gtk.css $HOME/.config/gtk-4.0/gtk.css
-ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/gtk-dark.css $HOME/.config/gtk-4.0/gtk-dark.css
-ln -s $HOME/.themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/thumbnail.png $HOME/.config/gtk-4.0/thumbnail.png
+ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/assets/ $HOME/.config/gtk-4.0/assets
+ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/gtk.css $HOME/.config/gtk-4.0/gtk.css
+ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/gtk-dark.css $HOME/.config/gtk-4.0/gtk-dark.css
+ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/thumbnail.png $HOME/.config/gtk-4.0/thumbnail.png
+
+### fix flatpak apps
+sudo flatpak override --filesystem=xdg-config/gtk-3.0 && sudo flatpak override --filesystem=xdg-config/gtk-4.0
 
 ### success message
 echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Colloid-Red-Dark-Gruvbox GTK theme successfully installed ✅ \033[0m"
@@ -117,23 +120,23 @@ echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و gruvbox-papirus-folders successfully instal
 
 # INSTALL CURSORS
 ### download & install ArcDusk-Cursors
-echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing ArcDusk-Cursors 📥 \033[0m"
-cd $gitstuff
-git clone https://github.com/yeyushengfan258/ArcDusk-Cursors.git
-cd ArcDusk-Cursors
-sudo ./install.sh
-./install.sh
-cd ~
+#echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing ArcDusk-Cursors 📥 \033[0m"
+#cd $gitstuff
+#git clone https://github.com/yeyushengfan258/ArcDusk-Cursors.git
+#cd ArcDusk-Cursors
+#sudo ./install.sh
+#./install.sh
+#cd ~
 
 ### download & install Banana-cursor
-echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Banana-cursor 📥 \033[0m"
-wget https://github.com/ful1e5/banana-cursor/releases/download/v2.0.0/Banana.tar.xz
-tar -xvf Banana.tar.gz
-sudo mv Banana /usr/share/icons/
-rm ./Banana.tar.gz
+#echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Banana-cursor 📥 \033[0m"
+#wget https://github.com/ful1e5/banana-cursor/releases/download/v2.0.0/Banana.tar.xz
+#tar -xvf Banana.tar.gz
+#sudo mv Banana /usr/share/icons/
+#rm ./Banana.tar.gz
 
 ### success message
-echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Banana-cursor successfully installed ✅ \033[0m"
+#echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Banana-cursor successfully installed ✅ \033[0m"
 
 # INSTALL THEMING APPS
 ### download & install nwg-look
