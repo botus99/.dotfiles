@@ -5,4 +5,4 @@ cd ~
 launch ncmpcpp --screen playlist
 launch bash -c '${HOME}/.config/ncmpcpp/album_cover_poller.sh'
 launch bash -c 'ncmpcpp --config=${HOME}/.config/ncmpcpp/viz.conf --screen visualizer'
-#launch cava
+# launch bash -c 'cava'
