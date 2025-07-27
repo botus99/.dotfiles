@@ -64,25 +64,25 @@ echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Nerd Fonts successfully installed ✅ \033[
 
 # INSTALL GTK THEME
 ### download & install Colloid-Red-Dark-Gruvbox GTK theme
-echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Colloid-Red-Dark-Gruvbox theme 📥 \033[0m"
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Colloid-Red-Dark-Compact-Gruvbox theme 📥 \033[0m"
 cd $gitstuff
 git clone https://github.com/vinceliuice/Colloid-gtk-theme.git
 cd Colloid-gtk-theme
-sudo ./install.sh --color dark --theme red --libadwaita system --tweaks gruvbox
-./install.sh --color dark --theme red --libadwaita system --tweaks gruvbox
+sudo ./install.sh --color dark --theme red --libadwaita fixed --size compact --tweaks gruvbox
+./install.sh --color dark --theme red --libadwaita fixed --size compact --tweaks gruvbox
 cd ~
 
 ### setup gtk-4.0 links
-ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/assets/ $HOME/.config/gtk-4.0/assets
-ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/gtk.css $HOME/.config/gtk-4.0/gtk.css
-ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/gtk-dark.css $HOME/.config/gtk-4.0/gtk-dark.css
-ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Gruvbox/gtk-4.0/thumbnail.png $HOME/.config/gtk-4.0/thumbnail.png
+ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/assets/ $HOME/.config/gtk-4.0/assets
+ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/gtk.css $HOME/.config/gtk-4.0/gtk.css
+ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/gtk-dark.css $HOME/.config/gtk-4.0/gtk-dark.css
+ln -s $HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/thumbnail.png $HOME/.config/gtk-4.0/thumbnail.png
 
 ### fix flatpak apps
 sudo flatpak override --filesystem=xdg-config/gtk-3.0 && sudo flatpak override --filesystem=xdg-config/gtk-4.0
 
 ### success message
-echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Colloid-Red-Dark-Gruvbox GTK theme successfully installed ✅ \033[0m"
+echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Colloid-Red-Dark-Compact-Gruvbox GTK theme successfully installed ✅ \033[0m"
 
 ### download & install Matcha-dark-aliz
 #echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Matcha-dark-aliz theme 📥 \033[0m"

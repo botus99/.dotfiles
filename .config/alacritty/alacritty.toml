@@ -1,4 +1,4 @@
-import = [
+general.import = [
   "/usr/local/lib/node_modules/alacritty-themes/themes/Gruvbox-Dark.toml"
 ]
 [font]
