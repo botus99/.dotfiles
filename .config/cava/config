@@ -148,7 +148,7 @@ higher_cutoff_freq = 18000
 # Default is 'bottom'. Other orientations are only supported on sdl and ncruses
 # output. Note: many fonts have weird glyphs for 'top' and 'right' characters,
 # which can make ncurses not look right.
-; orientation = center
+; orientation = top
 
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
@@ -272,6 +272,6 @@ noise_reduction = 25
 # Look at readme.md on github for further explanations and examples.
 1 = 8 # bass
 2 = 6
-3 = 5 # midtone
+3 = 7 # midtone
 4 = 4
 5 = 7 # treble
