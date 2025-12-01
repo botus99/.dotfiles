@@ -9,7 +9,6 @@ ncmpcpp_directory = "~/.config/ncmpcpp"
 ## MPD clients (eg. ncmpc) also use that location.
 lyrics_directory = "/media/george/movies/MUSIC/.lyrics"
 
-
 [mpd]
 mpd_music_dir = "/media/george/movies/MUSIC/"
 mpd_host = "localhost"
@@ -81,7 +80,7 @@ centered_cursor = "yes"
 enable_window_title = "yes"
 #active_window_border = "cyan"
 
-# possible display modes: classic, columns.
+## Note: Possible display modes: classic, columns.
 browser_display_mode = "columns"
 search_engine_display_mode = "columns"
 playlist_editor_display_mode = "columns"
@@ -102,7 +101,36 @@ user_interface = "alternative"
 external_editor = "micro"
 use_console_editor = "yes"
 
-# left a lot of stuff commented out for easier experimentation
+##### colors definitions #####
+##
+## It is possible to set a background color by setting a color value
+## "<foreground>_<background>", e.g. red_black will set foregound color to red
+## and background color to black.
+##
+## In addition, for terminals that support 256 colors it is possible to set one
+## of them by using a number in range [1, 256] instead of color name,
+## e.g. numerical value corresponding to red_black is 2_1. To find out if the
+## terminal supports 256 colors, run ncmpcpp and check out the bottom of the
+## help screen for list of available colors and their numerical values.
+##
+## What is more, there are two special values for the background color:
+## "transparent" and "current". The first one explicitly sets the background to
+## be transparent, while the second one allows you to preserve current
+## background color and change only the foreground one. It's used implicitly
+## when background color is not specified.
+##
+## Moreover, it is possible to attach format information to selected color
+## variables by appending to their end a colon followed by one or more format
+## flags, e.g. black:b or red:ur. The following variables support this syntax:
+## visualizer_color, color1, color2, empty_tag_color, volume_color,
+## state_line_color, state_flags_color, progressbar_color,
+## progressbar_elapsed_color, player_state_color, statusbar_time_color,
+## alternative_ui_separator_color.
+##
+## Note: due to technical limitations of older ncurses version, if 256 colors
+## are used there is a possibility that you'll be able to use only colors with
+## transparent background.
+
 #colors_enabled = yes
 #empty_tag_color = cyan
 #header_window_color = default
@@ -125,12 +153,10 @@ lines_scrolled = 5
 #empty_tag_marker = <empty>
 tags_separator = " | "
 
-# header stuff
 alternative_header_first_line_format = "$0$aqqu$/a {$4%a - $9}{$4%t$9}|{$8%f$9} $0$atqq$/a$9"
 alternative_header_second_line_format = "{{$5%b$9}{ [$2%y$9]}}|{%D}"
 display_bitrate = "yes"
-
-# selected tracks #
+## Selected tracks ##
 selected_item_prefix = "󰸞 "
 discard_colors_if_item_is_selected = "yes"
 
