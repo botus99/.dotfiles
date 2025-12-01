@@ -2,8 +2,9 @@
 alias sa="figlet -tf miniwi 'Debian upgrades' \
 && sudo nala upgrade -y \
 && figlet -tf miniwi 'Deb-Get upgrades' \
-&& sudo deb-get update --repos-only \
-&& sudo deb-get upgrade \
+&& sudo deb-get update --repos-only && sudo deb-get upgrade --dg-only \
+&& figlet -tf miniwi 'Pacstall upgrades' \
+&& pacstall -Up \
 && figlet -tf miniwi 'Flatpak upgrades' \
 && flatpak update -y \
 && figlet -tf miniwi 'Python upgrades' \
@@ -20,6 +21,9 @@ alias sa="figlet -tf miniwi 'Debian upgrades' \
 && figlet -tf miniwi 'All done!' \
 && echo 'That was nice, thanks for bringing me up to date!'"
 
+# edit nextcloud php config
+alias nextcloud-config='micro /nextcloud/config/www/nextcloud/config/config.php'
+
 # colorize output
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
@@ -28,7 +32,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
-alias ip='ip -color=auto'
+alias ip='ip -color=always'
 alias tree='tree --dirsfirst -C'
 
 # replace 'ps' with 'procs'
@@ -43,9 +47,6 @@ alias bat='batcat'
 # make cmatrix look how I like
 alias cmatrix='cmatrix -asb -u 1 -C red'
 
-# make yabridgectl easier to type 
-alias yabridgectl='~/.local/share/yabridge/yabridgectl'
-
 # replace 'ls' with 'eza'
 alias ls='eza --header --git --color=always --icons=always --group-directories-first'
 alias la='eza --header --git --color=always --icons=always --group-directories-first --all'
@@ -57,6 +58,72 @@ alias df='df -h'
 
 # file owner fixes
 alias fix-permissions='sudo chown -R $USER:$USER ~/.config ~/.local'
+
+# copy files with a progress bar
+alias cpv='rsync -ah --info=progress2'
+
+# automatically create nessesary parent directories
+alias mkdir="mkdir -p"
+
+# automatically continue interrupted downloads with wget
+alias wget="wget -c"
+
+# tell me my external IP addrress
+alias myip="curl http://ipecho.net/plain; echo"
+
+# change directories easily
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# folders sorted by size
+alias foldersizesort='du -sh * | sort -h'
+
+# make downloaded fonts available for all users
+alias fonts-copy='sudo cp -r ~/.fonts/* /usr/share/fonts/ && sudo cp -r ~/.local/share/fonts/* /usr/share/fonts/'
+
+# open the kitty theme selector
+alias kitty-themes='kitty +kitten themes'
+
+# display image in terminal
+alias kitty-pix='kitty +kitten icat'
+
+# make bro use specified theme
+alias bro='bro --theme gruvbox-dark'
+
+# make cbonsai use my preferred settings
+alias cbonsai='cbonsai --multiplier 15 --life 100 -S'
+
+# make ncmpcpp launch as a session in kitty
+#alias ncmpcpp='kitty -o font_size=11 --session ~/.config/kitty/ncmpcpp.session'
+
+# make getting weather forecasts easier
+alias weather='curl wttr.in'
+
+# dwm aliases
+alias cdwm="micro ~/.config/suckless/dwm/config.h"
+alias mdwm="cd ~/.config/suckless/dwm; sudo make install; cd -"
+
+# fzf bash history
+fh () {
+    eval $(history | fzf --layout=reverse --exact --prompt=" " --no-sort --margin=1% --gap=1 --multi --color="bg+:0,fg:15,fg+:9,border:8,hl+:2,prompt:15,hl:2,pointer:1,info:8,spinner:1" --border --border=bold --border=rounded --border-label="HISTORY" --highlight-line --pointer " " | sed 's/ *[0-9]* *//')
+}
+
+# convert markdown to html
+md2html() {
+  /usr/bin/pandoc --standalone \
+    --template=https://raw.githubusercontent.com/tajmone/pandoc-goodies/master/templates/html5/github/GitHub.html5 \
+    --highlight-style=pygments \
+    --css=https://bootswatch.com/3/lumen/bootstrap.min.css \
+    --metadata pagetitle="$1" "$1" -o "${1%.*}.html"
+}
+
+# create and enter directory
+mcd () {
+    mkdir -p $1
+    cd $1
+}
 
 # archive extractor
 extract () {
@@ -108,58 +175,11 @@ extract () {
     done
 }
 
-# copy files with a progress bar
-alias cpv='rsync -ah --info=progress2'
+# easy flatpak codium
+alias codium="flatpak run com.vscodium.codium"
 
-# automatically create nessesary parent directories
-alias mkdir="mkdir -p"
+# pretty print path
+alias path="echo $PATH | tr -s ':' '\n'"
 
-# automatically continue interrupted downloads with wget
-alias wget="wget -c"
-
-# tell me my external IP addrress
-alias myip="curl http://ipecho.net/plain; echo"
-
-# create and enter directory
-mcd () {
-    mkdir -p $1
-    cd $1
-}
-
-# change directories easily
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-
-# folders sorted by size
-alias foldersizesort='du -sh * |sort -h'
-
-# make downloaded fonts available for all users
-alias fonts-copy='sudo cp -r ~/fonts/* /usr/share/fonts/'
-
-# open the kitty theme selector
-alias kitty-themes='kitty +kitten themes'
-
-# display image in terminal
-alias kitty-pix='kitty +kitten icat'
-
-# make bro use specified theme
-alias bro='bro --theme gruvbox-dark'
-
-# make cbonsai use my preferred settings
-alias cbonsai='cbonsai --multiplier 15 --life 100 -S'
-
-# make ncmpcpp launch as a session in kitty
-#alias ncmpcpp='kitty -o font_size=11 --session ~/.config/kitty/ncmpcpp.session'
-
-# make getting weather forecasts easier
-alias weather='curl wttr.in'
-
-# edit nextcloud php config
-alias nextcloud-config='micro /nextcloud/config/www/nextcloud/config/config.php'
-
-# fzf bash history
-fh () {
-    eval $(history | fzf --layout=reverse --exact --prompt=" " --no-sort --margin=1% --gap=1 --multi --color="bg+:0,fg:15,fg+:9,border:8,hl+:2,prompt:15,hl:2,pointer:1,info:8,spinner:1" --border --border=bold --border=rounded --border-label="HISTORY" --highlight-line --pointer " " | sed 's/ *[0-9]* *//')
-}
+# make yabridgectl easier to type 
+alias yabridgectl='~/.local/share/yabridge/yabridgectl'
