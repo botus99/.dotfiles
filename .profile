@@ -37,4 +37,4 @@ if [ -d "/var/lib/flatpak/exports/share/" ] ; then
 fi
 
 # qt stuff
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=qt6ct
