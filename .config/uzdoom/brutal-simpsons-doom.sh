@@ -36,10 +36,12 @@ rain_and_snow_path="$HOME/.wads/rain-and-snow/Universal Rain and Snow v3.pk3"
 #
 #glory_kill_path="$HOME/.wads/VanillaGloryKill/vanilla-glory-kill-master.pk3"
 
-
 # SAVE FILE DIRECTORY
 #
-save_dir="$HOME/.config/gzdoom/savegames/brutal-simpsons-doom"
+save_dir="$HOME/.config/uzdoom/savegames/brutal-simpsons-doom"
+
+# custom config location
+config_path="$HOME/.config/uzdoom/configs/brutal-simpsons-doom.ini"
 
 # Check if required files exist
 # ADD PATHS FROM ABOVE AS NEEDED
@@ -51,6 +53,6 @@ for path in "$iwad_path" "$brutal_doom_path" "$simpsons_path" "$live_reverb_path
     fi
 done
 
-# Launch GZDoom with custom commands
+# Launch UZDoom with custom commands
 #
-ENABLE_VKBASALT=1 gzdoom -iwad "$iwad_path" -file "$brutal_doom_path" "$simpsons_path" "$live_reverb_path" "$tourretes_guy_path" "$rain_and_snow_path" -savedir "$save_dir"
+ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$brutal_doom_path" "$simpsons_path" "$live_reverb_path" "$tourretes_guy_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"

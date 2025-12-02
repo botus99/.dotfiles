@@ -2,11 +2,8 @@
 
 # Pick your IWAD
 #
-iwad_path="$HOME/.wads/Doom II - Hell on Earth (BFG Edition)/DOOM2.WAD"
-
-# BLOOM
-#
-bloom_path="$HOME/.wads/bloom/Bloom.pk3"
+#iwad_path="$HOME/.wads/Doom (v1.9)/DOOM.WAD"
+iwad_path="$HOME/.wads/Doom II - Hell on Earth (v1.9)/DOOM2.WAD"
 
 # GOLDENEYE
 #
@@ -51,18 +48,18 @@ rain_and_snow_path="$HOME/.wads/rain-and-snow/Universal Rain and Snow v3.pk3"
 
 # SAVE FILE DIRECTORY
 #
-save_dir="$HOME/.config/gzdoom/savegames/bloom"
+save_dir="$HOME/.config/uzdoom/savegames/goldeneye"
 
 # Check if required files exist
 # ADD PATHS FROM ABOVE AS NEEDED
 #
-for path in "$iwad_path" "$brutal_doom_path" "$doom_2016_music_path"; do
+for path in "$iwad_path" "$ge1"; do
     if [ ! -f "$path" ]; then
         echo "Error: $path not found."
         exit 1
     fi
 done
 
-# Launch GZDoom with custom commands
+# Launch UZDoom with custom commands
 #
-gzdoom -iwad "$iwad_path" -file "$bloom_path" -savedir "$save_dir"
+ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$goldeneye_path" -savedir "$save_dir"

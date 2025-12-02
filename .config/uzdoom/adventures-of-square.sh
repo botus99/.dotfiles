@@ -39,10 +39,10 @@ glory_kill_path="$HOME/.wads/vanilla-glory-kill/vanilla-glory-kill-master.pk3"
 
 # SAVE FILE DIRECTORY
 #${latest_release}
-save_dir="$HOME/.config/gzdoom/savegames/adventure-of-square"
+save_dir="$HOME/.config/uzdoom/savegames/adventure-of-square"
 
-# custom config locataion
-config_path="$HOME/.config/gzdoom/configs/adventure-of-square.ini"
+# custom config location
+config_path="$HOME/.config/uzdoom/configs/adventure-of-square.ini"
 
 # Check if required files exist
 # ADD PATHS FROM ABOVE AS NEEDED
@@ -54,6 +54,6 @@ for path in "$iwad_path" "$square_path"; do
     fi
 done
 
-# Launch GZDoom with custom commands
+# Launch UZDoom with custom commands
 #
-ENABLE_VKBASALT=1 gzdoom -iwad "$iwad_path" -file "$square_path"  -savedir "$save_dir"
+ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$square_path" -savedir "$save_dir" -config "$config_path"

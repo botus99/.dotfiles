@@ -9,10 +9,10 @@ iwad_path="$HOME/.wads/Doom II - Hell on Earth (v1.9)/DOOM2.WAD"
 #iwad_path="$HOME/.wads/Final Doom - The Plutonia Experiment (id Anthology)/PLUTONIA.WAD"
 #iwad_path="$HOME/.wads/Final Doom - Evilution (id Anthology)/TNT.WAD"
 
-# GZDOOM OPTIONS (not nessesary if you have them load automatically, but here for testing purposes)
-brightmaps_path="$HOME/.config/gzdoom/brightmaps.pk3"
-widescreen_path="$HOME/.config/gzdoom/game_widescreen_gfx.pk3"
-lights_path="$HOME/.config/gzdoom/lights.pk3"
+# UZDOOM OPTIONS (not nessesary if you have them load automatically, but here for testing purposes)
+brightmaps_path="$HOME/.config/uzdoom/brightmaps.pk3"
+widescreen_path="$HOME/.config/uzdoom/game_widescreen_gfx.pk3"
+lights_path="$HOME/.config/uzdoom/lights.pk3"
 
 # AREA 51
 area51_path="$HOME/.wads/area51/Area51.wad"
@@ -20,24 +20,14 @@ area51_path="$HOME/.wads/area51/Area51.wad"
 # BEAUTIFUL DOOM
 beautiful_path="$HOME/.wads/beautiful-doom/Beautiful_Doom_716.pk3"
 
-# BLOOM
-bloom_path="$HOME/.wads/bloom/Bloom.pk3"
-
-# GOLDENEYE
-goldeneye_path="$HOME/.wads/goldeneye/GoldenEyeTC-Upgraded-NoTanks.pk3"
-ge1="$HOME/.wads/goldeneye/Goldeneye-Complete.pk3"
-ge2="$HOME/.wads/goldeneye/TWINE64Mini.pk3"
-
-# HOCUS POCUS
-hocus_path="$HOME/.wads/hocus-pocus/HOCUS_08_Zandronum_Final.pk3"
-
-# MICRO SLAUGHTER COMMUNITY PROJECT
-mscp_path="$HOME/.wads/mscp/MSCP_v1a.wad"
+# COMPENDIUM
+compendium_path="$HOME/.wads/compendium/Compendium-v1a.pk3"
+#compendium_path2="$HOME/.wads/compendium/compen-play.pk3"
 
 # BRUTAL DOOM
 #brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.14.0_dev.pk3"
-#brutal_doom_path="$HOME/.wads/brutalv22/brutalv22test3.7a.pk3"
-brutal_doom_path="$HOME/.wads/brutalv21/weapons-only/brutal21_weapons_only_Zandronum_fix.pk3"
+brutal_doom_path="$HOME/.wads/brutalv22/brutalv22test3.7a.pk3"
+#brutal_doom_path="$HOME/.wads/brutalv21/weapons-only/brutal21_weapons_only_Zandronum_fix.pk3"
 
 # PROJECT BRUTALITY
 #project_brutality_path="$HOME/.wads/Project Brutality Public Files/Community Addons/Various/Project Brutality Monsters Standalone.pk3"
@@ -45,12 +35,7 @@ brutal_doom_path="$HOME/.wads/brutalv21/weapons-only/brutal21_weapons_only_Zandr
 #project_brutality_path="$HOME/.wads/Project Brutality Public Files/Community Addons/WADs/Eviternity.wad"
 #project_brutality_path="$HOME/.wads/Project Brutality Public Files/Community Addons/WADs/Doom 2 TWID.wad"
 #project_brutality_path="$HOME/.wads/Project Brutality Public Files/Project Brutality/project brutality 2.02.pk3"
-
-# KING OF THE HILL
-hank_path="$HOME/.wads/hank-hill/hank.wad"
-
-# SIMPSONS
-simpsons_path="$HOME/.wads/ulsimpdm/ulsimpdm.wad"
+#project_brutality_path="$HOME/.wads/project-brutality/Project_Brutality_27.04.24.pk3"
 
 # MUSIC
 #doom_metal_v5_path="$HOME/.wads/music/doom-metal/DoomMetalVol5_44100.wad"
@@ -62,8 +47,6 @@ tourretes_guy_path="$HOME/.wads/Project Brutality Public Files/Community Addons/
 
 # HUD
 simplehudaddons_path="$HOME/.wads/Project Brutality Public Files/Community Addons/Useful Tools - Minimods/simplehudaddons.pk3"
-cats_visor_base_path="$HOME/.wads/cats-visor/catsvisorbase1.10.3.pk3"
-cats_visor_path="$HOME/.wads/cats-visor/catsvisorc1.10.3_dynamic.pk3"
 
 # GRAPHICS
 voxel_path="$HOME/.wads/voxel-doom/cheello_voxels_zan.pk3"
@@ -74,21 +57,19 @@ dhtp_path="$HOME/.wads/dhtp/zdoom-dhtp-20180514.pk3"
 glory_kill_path="$HOME/.wads/vanilla-glory-kill/vanilla-glory-kill-master.pk3"
 
 # SAVE FILE DIRECTORY
-save_dir="$HOME/.config/gzdoom/savegames/insert-doom-here"
+save_dir="$HOME/.config/uzdoom/savegames/compendium"
 
-# custom config locataion
-config_path="$HOME/.config/gzdoom/configs/insert-doom-here.ini"
+# custom config location
+config_path="$HOME/.config/uzdoom/configs/compendium.ini"
 
 # Check if required files exist
 # ADD PATHS FROM ABOVE AS NEEDED
-for path in "$iwad_path" "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$doom_2016_music_path" "$tourretes_guy_path" "$rain_and_snow_path" "$cats_visor_base_path" "$cats_visor_path" "$mscp_path"; do
+for path in "$iwad_path" "$dhtp_path" "$beautiful_path" "$brutal_doom_path" "$compendium_path" "$rain_and_snow_path"; do
     if [ ! -f "$path" ]; then
         echo "Error: $path not found."
         exit 1
     fi
 done
 
-
-# Launch GZDoom with custom commands
-gzdoom -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path" "$rain_and_snow_path" "$cats_visor_base_path" "$cats_visor_path" "$mscp_path" -savedir "$save_dir"
-# -config "$config_path"	# use when a custom config makes sense
+# Launch UZDoom with custom commands
+ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path" "$brutal_doom_path" "$compendium_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"

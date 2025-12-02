@@ -32,11 +32,11 @@ dhtp_path="$HOME/.wads/dhtp/zdoom-dhtp-20180514.pk3"
 
 # SAVE FILE DIRECTORY
 #
-save_dir="$HOME/.config/gzdoom/savegames/bikini-bottom-massacre"
+save_dir="$HOME/.config/uzdoom/savegames/bikini-bottom-massacre"
 
-# custom config locataion
+# custom config location
 #
-config_path="$HOME/.config/gzdoom/configs/bikini-bottom-massacre.ini"
+config_path="$HOME/.config/uzdoom/configs/bikini-bottom-massacre.ini"
 
 # Check if required files exist
 # ADD PATHS FROM ABOVE AS NEEDED
@@ -48,6 +48,6 @@ for path in "$iwad_path" "$brutal_doom_path" "$doom_2016_music_path"; do
     fi
 done
 
-# Launch GZDoom with custom commands
+# Launch UZDoom with custom commands
 #
-ENABLE_VKBASALT=1 gzdoom -iwad "$iwad_path" -file "$bikini_bottom_massacre_path" -savedir "$save_dir" -config "$config_path"
+ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$bikini_bottom_massacre_path" -savedir "$save_dir" -config "$config_path"

@@ -9,10 +9,10 @@ iwad_path="$HOME/.wads/Doom II - Hell on Earth (v1.9)/DOOM2.WAD"
 #iwad_path="$HOME/.wads/Final Doom - The Plutonia Experiment (id Anthology)/PLUTONIA.WAD"
 #iwad_path="$HOME/.wads/Final Doom - Evilution (id Anthology)/TNT.WAD"
 
-# GZDOOM OPTIONS (not nessesary if you have them load automatically, but here for testing purposes)
-brightmaps_path="$HOME/.config/gzdoom/brightmaps.pk3"
-widescreen_path="$HOME/.config/gzdoom/game_widescreen_gfx.pk3"
-lights_path="$HOME/.config/gzdoom/lights.pk3"
+# UZDOOM OPTIONS (not nessesary if you have them load automatically, but here for testing purposes)
+brightmaps_path="$HOME/.config/uzdoom/brightmaps.pk3"
+widescreen_path="$HOME/.config/uzdoom/game_widescreen_gfx.pk3"
+lights_path="$HOME/.config/uzdoom/lights.pk3"
 
 # AREA 51
 area51_path="$HOME/.wads/area51/Area51.wad"
@@ -105,10 +105,10 @@ psx_lost_levels="$HOME/.wads/psx-doom/PSXDOOM.CE-3.9.1/PSXDOOM.CE.Maps.LostLevel
 brutal_psx="$HOME/.wads/psx-doom/psx_brutal_doom_v20b.pk3"
 
 # SAVE FILE DIRECTORY
-save_dir="$HOME/.config/gzdoom/savegames/insert-doom-here"
+save_dir="$HOME/.config/uzdoom/savegames/insert-doom-here"
 
-# custom config locataion
-config_path="$HOME/.config/gzdoom/configs/insert-doom-here.ini"
+# custom config location
+config_path="$HOME/.config/uzdoom/configs/insert-doom-here.ini"
 
 # Check if required files exist
 # ADD PATHS FROM ABOVE AS NEEDED
@@ -119,7 +119,6 @@ for path in "$iwad_path" "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$d
     fi
 done
 
-
-# Launch GZDoom with custom commands
-gzdoom -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$doom_2016_music_path" "$tourretes_guy_path" "$rain_and_snow_path" "$cats_visor_base_path" "$cats_visor_path" -savedir "$save_dir"
+# Launch UZDoom with custom commands
+ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$doom_2016_music_path" "$tourretes_guy_path" "$rain_and_snow_path" "$cats_visor_base_path" "$cats_visor_path" -savedir "$save_dir"
 # -config "$config_path"	# use when a custom config makes sense
