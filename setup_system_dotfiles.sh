@@ -12,7 +12,6 @@ ln -s $HOME/.dotfiles/.config/fastfetch ~/.config
 ln -s $HOME/.dotfiles/.config/glow ~/.config
 ln -s $HOME/.dotfiles/.config/gtk-3.0 ~/.config
 ln -s $HOME/.dotfiles/.config/gtk-4.0 ~/.config
-ln -s $HOME/.dotfiles/.config/gzdoom ~/.config
 ln -s $HOME/.dotfiles/.config/kitty ~/.config
 ln -s $HOME/.dotfiles/.config/Kvantum ~/.config
 ln -s $HOME/.dotfiles/.config/micro ~/.config
@@ -22,7 +21,10 @@ ln -s $HOME/.dotfiles/.config/ncmpcpp ~/.config
 ln -s $HOME/.dotfiles/.config/nwg-look ~/.config
 ln -s $HOME/.dotfiles/.config/pcmanfm ~/.config
 ln -s $HOME/.dotfiles/.config/polybar ~/.config
+ln -s $HOME/.dotfiles/.config/qt5ct ~/.config
+ln -s $HOME/.dotfiles/.config/qt6ct ~/.config
 ln -s $HOME/.dotfiles/.config/rofi ~/.config
+ln -s $HOME/.dotfiles/.config/uzdoom ~/.config
 ln -s $HOME/.dotfiles/.config/xsettingsd ~/.config
 
 ### success message
