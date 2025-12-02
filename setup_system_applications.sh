@@ -16,7 +16,7 @@ GITDIR="$HOME/.git-stuff"
 SCRIPTDIR="$HOME/.my-scripts"
 
 ### create directories needed for scripts and stuff
-cd ~ || exit
+cd "$HOME" || exit
 mkdir "$GITDIR"
 mkdir "$SCRIPTDIR"
 
@@ -37,24 +37,24 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 sudo flatpak install net.nokyan.Resources com.github.tchx84.Flatseal com.usebottles.bottles net.davidotek.pupgui2 com.valvesoftware.Steam com.vscodium.codium com.makemkv.MakeMKV fr.handbrake.ghb io.github.giantpinkrobots.flatsweep io.github.zen_browser.zen io.gitlab.librewolf-community io.github.ungoogled_software.ungoogled_chromium org.DolphinEmu.dolphin-emu org.libretro.RetroArch org.upscayl.Upscayl xyz.tytanium.DoorKnocker
 
 ### install Distrotube's color scripts
-cd $GITDIR || exit
+cd "$GITDIR" || exit
 git clone https://gitlab.com/dwt1/shell-color-scripts.git
 cd shell-color-scripts || exit
 sudo make install
-cd ~ || exit
+cd "$HOME" || exit
 
 ### install alacritty themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
 ### install ly display manager
 #echo -e "\033[36m 🐍 ٩(ˊᗜˋ*)و Installing Ly Display Manager 🐍 \033[0m"
-#cd $GITDIR
+#cd "$GITDIR"
 #git clone --recurse-submodules https://github.com/fairyglade/ly
 #cd ly
 #sudo make
 #sudo make install installsystemd
 #sudo systemctl enable ly.service
-#cd ~
+#cd "$HOME"
 
 ### install python apps
 echo -e "\033[36m 🐍 ٩(ˊᗜˋ*)و Installing Python Apps 🐍 \033[0m"
@@ -96,11 +96,11 @@ curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash 
 
 ### download & install termv
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing termv 📥 \033[0m"
-cd $GITDIR || exit
+cd "$GITDIR" || exit
 git clone https://github.com/Roshan-R/termv.git
 cd termv || exit
 sudo make install
-cd ~ || exit
+cd "$HOME" || exit
 
 ### download & install glow & vhs
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing glow 📥 \033[0m"
