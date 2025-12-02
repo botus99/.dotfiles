@@ -12,13 +12,13 @@ if [ "$(id -u)" -eq 0 ]; then
 fi
 
 ### set variables for commonly refered to directories
-gitstuff="$HOME/.git-stuff"
-scripts="$HOME/.my-scripts"
+GITDIR="$HOME/.git-stuff"
+SCRIPTDIR="$HOME/.my-scripts"
 
 ### create directories needed for scripts and stuff
-cd ~
-mkdir .git-stuff
-mkdir .my-scripts
+cd ~ || exit
+mkdir "$GITDIR"
+mkdir "$SCRIPTDIR"
 
 ### create user directories in home folder
 xdg-user-dirs-update
@@ -26,29 +26,29 @@ xdg-user-dirs-update
 ### start with some bare nessessities...
 echo -e "\033[36m 🛠️ ٩(ˊᗜˋ*)و Installing Dependencies 🛠️ \033[0m"
 sudo apt-get update
-sudo apt-get install -y nala fonts-weather-icons fonts-font-awesome fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion eza lolcat micro nano zoxide figlet fastfetch fonts-material-design-icons-iconfont
+sudo apt-get install -y nala fonts-weather-icons fonts-font-awesome fonts-roboto fonts-recommended fonts-noto-color-emoji aria2 bash-completion eza lolcat micro nano zoxide figlet fastfetch fonts-material-design-icons-iconfont debian-archive-keyring curl gpg apt-transport-https
 
 ### start using nala
 nala --install-completion bash
-sudo nala install -y xdotool python3-feedparser faker gawk jq fzf bat cava ripgrep duf jpegoptim jpegqs cbonsai npm golang speedtest-cli qrencode pwgen ddgr cinnamon-desktop-environment sway swayidle swaybg swaylock sway-notification-center playerctl wayland-utils qt5-image-formats-plugins qt5-qmltooling-plugins python3-genshi pulseaudio pavumeter pavucontrol paprefs wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty exfat-fuse ntfs-3g netselect-apt btop cmatrix shotwell ostree appstream-util exiv2 gstreamer1.0-alsa ffmpeg mencoder webp libasound2-dev python3-i3ipc python3-geopy python3-pkgconfig libssl-dev libgtk-3-dev libcairo2-dev libglib2.0-dev mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf rofi timg inotify-tools pulsemixer python3 python3-pip pipx cargo tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full libsndfile1-dev polybar plymouth plymouth-themes python-is-python3 dos2unix build-essential libpam0g-dev libxcb-xkb-dev debian-archive-keyring curl gpg apt-transport-https vrms
+sudo nala install -y xdotool python3-feedparser faker gawk jq fzf bat cava ripgrep duf jpegoptim jpegqs cbonsai npm golang speedtest-cli qrencode pwgen ddgr cinnamon-desktop-environment playerctl wayland-utils qt5-image-formats-plugins qt5-qmltooling-plugins python3-genshi pulseaudio pavumeter pavucontrol paprefs wayland-protocols xwayland waybar wofi pcmanfm alacritty kitty exfat-fuse ntfs-3g netselect-apt btop cmatrix shotwell ostree appstream-util exiv2 gstreamer1.0-alsa ffmpeg mencoder webp libasound2-dev python3-i3ipc python3-geopy python3-pkgconfig libssl-dev libgtk-3-dev libcairo2-dev libglib2.0-dev mediainfo mediainfo-gui mpd ncmpcpp mpv gtk2-engines-murrine gtk2-engines-pixbuf rofi timg inotify-tools pulsemixer python3 python3-pip pipx cargo tldr git flatpak xdg-user-dirs xdg-utils yt-dlp zip unzip p7zip-full libsndfile1-dev polybar plymouth plymouth-themes python-is-python3 dos2unix build-essential libpam0g-dev libxcb-xkb-dev vrms
 
 ### install flatpak & use flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install net.nokyan.Resources com.github.tchx84.Flatseal com.usebottles.bottles net.davidotek.pupgui2 com.valvesoftware.Steam io.github.Foldex.AdwSteamGtk com.vscodium.codium com.makemkv.MakeMKV fr.handbrake.ghb io.github.giantpinkrobots.flatsweep io.github.zen_browser.zen io.gitlab.librewolf-community io.github.ungoogled_software.ungoogled_chromium net.pcsx2.PCSX2 org.DolphinEmu.dolphin-emu org.libretro.RetroArch org.ryujinx.Ryujinx org.upscayl.Upscayl xyz.tytanium.DoorKnocker
+sudo flatpak install net.nokyan.Resources com.github.tchx84.Flatseal com.usebottles.bottles net.davidotek.pupgui2 com.valvesoftware.Steam com.vscodium.codium com.makemkv.MakeMKV fr.handbrake.ghb io.github.giantpinkrobots.flatsweep io.github.zen_browser.zen io.gitlab.librewolf-community io.github.ungoogled_software.ungoogled_chromium org.DolphinEmu.dolphin-emu org.libretro.RetroArch org.upscayl.Upscayl xyz.tytanium.DoorKnocker
 
 ### install Distrotube's color scripts
-cd $gitstuff
+cd $GITDIR || exit
 git clone https://gitlab.com/dwt1/shell-color-scripts.git
-cd shell-color-scripts
+cd shell-color-scripts || exit
 sudo make install
-cd ~
+cd ~ || exit
 
 ### install alacritty themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
 ### install ly display manager
 #echo -e "\033[36m 🐍 ٩(ˊᗜˋ*)و Installing Ly Display Manager 🐍 \033[0m"
-#cd $gitstuff
+#cd $GITDIR
 #git clone --recurse-submodules https://github.com/fairyglade/ly
 #cd ly
 #sudo make
@@ -64,10 +64,13 @@ pipx install ffmpeg-normalize
 pipx install future
 pipx install gruvbox-factory
 pipx install jellyfin-tools
+pipx install manim
 pipx install markdown
 pipx install plexapi
 pipx install protontricks
+pipx install pwnedpasswords
 pipx install pyflac
+pipx install pywal16
 pipx install rembg[gpu,cli]
 pipx install rtcqs
 pipx install sacad
@@ -79,22 +82,25 @@ echo -e "\033[36m 🦀 ٩(ˊᗜˋ*)و Installing Rust Apps 🦀 \033[0m"
 cargo install bropages
 cargo install cargo-update
 cargo install cfonts
+cargo install charasay
 cargo install code-radio-cli
 cargo install gifski
+cargo install lovesay
 cargo install mfp --locked
 cargo install names
 cargo install oxipng
+cargo install systemd-manager-tui
 
 ### download & install tgpt
 curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
 
 ### download & install termv
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing termv 📥 \033[0m"
-cd $gitstuff
+cd $GITDIR || exit
 git clone https://github.com/Roshan-R/termv.git
-cd termv
+cd termv || exit
 sudo make install
-cd ~
+cd ~ || exit
 
 ### download & install glow & vhs
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing glow 📥 \033[0m"
