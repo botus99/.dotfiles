@@ -9,14 +9,6 @@ iwad_path="$DOOMWADDIR/Doom II - Hell on Earth (v1.9)/DOOM2.WAD"
 #iwad_path="$DOOMWADDIR/Final Doom - The Plutonia Experiment (id Anthology)/PLUTONIA.WAD"
 #iwad_path="$DOOMWADDIR/Final Doom - Evilution (id Anthology)/TNT.WAD"
 
-# UZDOOM OPTIONS (not nessesary if you have them load automatically, but here for testing purposes)
-brightmaps_path="$HOME/.config/uzdoom/brightmaps.pk3"
-widescreen_path="$HOME/.config/uzdoom/game_widescreen_gfx.pk3"
-lights_path="$HOME/.config/uzdoom/lights.pk3"
-
-# AREA 51
-area51_path="$DOOMWADDIR/area51/Area51.wad"
-
 # BEAUTIFUL DOOM
 beautiful_path="$DOOMWADDIR/beautiful-doom/Beautiful_Doom_716.pk3"
 
@@ -29,14 +21,6 @@ compendium_path="$DOOMWADDIR/compendium/Compendium-v1a.pk3"
 brutal_doom_path="$DOOMWADDIR/brutalv22/brutalv22test3.7a.pk3"
 #brutal_doom_path="$DOOMWADDIR/brutalv21/weapons-only/brutal21_weapons_only_Zandronum_fix.pk3"
 
-# PROJECT BRUTALITY
-#project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/Various/Project Brutality Monsters Standalone.pk3"
-#project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/Various/Glory_Kill_v25a.pk3"
-#project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/WADs/Eviternity.wad"
-#project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/WADs/Doom 2 TWID.wad"
-#project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Project Brutality/project brutality 2.02.pk3"
-#project_brutality_path="$DOOMWADDIR/project-brutality/Project_Brutality_27.04.24.pk3"
-
 # MUSIC
 #doom_metal_v5_path="$DOOMWADDIR/music/doom-metal/DoomMetalVol5_44100.wad"
 #doom_metal_v6_path="$DOOMWADDIR/music/doom-metal/DoomMetalVol6.wad"
@@ -44,9 +28,6 @@ doom_2016_music_path="$DOOMWADDIR/music/doom-2016/DOOMIIHellOnEarth_DOOMEternal_
 
 # SOUND
 tourretes_guy_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/Various/Voice Add-ons/Tourretes Guy Offends PB.pk3"
-
-# HUD
-simplehudaddons_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/Useful Tools - Minimods/simplehudaddons.pk3"
 
 # GRAPHICS
 voxel_path="$DOOMWADDIR/voxel-doom/cheello_voxels_zan.pk3"
@@ -63,7 +44,6 @@ save_dir="$HOME/.config/uzdoom/savegames/compendium"
 config_path="$HOME/.config/uzdoom/configs/compendium.ini"
 
 # Check if required files exist
-# ADD PATHS FROM ABOVE AS NEEDED
 for path in "$iwad_path" "$dhtp_path" "$beautiful_path" "$brutal_doom_path" "$compendium_path" "$rain_and_snow_path"; do
     if [ ! -f "$path" ]; then
         echo "Error: $path not found."
@@ -72,4 +52,4 @@ for path in "$iwad_path" "$dhtp_path" "$beautiful_path" "$brutal_doom_path" "$co
 done
 
 # Launch UZDoom with custom commands
-ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path" "$brutal_doom_path" "$compendium_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"
+ENABLE_VKBASALT=1 uzdoom.appimage -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path" "$brutal_doom_path" "$compendium_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"

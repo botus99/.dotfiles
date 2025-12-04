@@ -13,7 +13,7 @@ beautiful_path="$DOOMWADDIR/beautiful-doom/Beautiful_Doom_716.pk3"
 
 # BRUTAL DOOM
 #brutal_doom_path="$DOOMWADDIR/brutalv21/weapons-only/brutal21_weapons_only_Zandronum_fix.pk3"
-brutal_doom_path="$DOOMWADDIR/brutalv21/brutalv21.16.0.pk3"
+brutal_doom_path="$DOOMWADDIR/brutalv21/brutalv21-latest.pk3"
 
 # MUSIC / SOUND
 doom_metal_path="$DOOMWADDIR/music/doom-metal/DoomMetalVol6.wad"
@@ -30,8 +30,6 @@ dhtp_path="$DOOMWADDIR/dhtp/zdoom-dhtp-20180514.pk3"
 glory_kill_path="$DOOMWADDIR/VanillaGloryKill/vanilla-glory-kill-master.pk3"
 going_down_path="$DOOMWADDIR/gd/gd.wad"
 
-
-
 save_dir="$HOME/.config/uzdoom/savegames/brutal-going-down"
 config_path="$HOME/.config/uzdoom/configs/going-down.ini"
 
@@ -44,4 +42,4 @@ for path in "$iwad_path" "$going_down_path" "$brutal_doom_path" "$doom_2016_musi
 done
 
 # Launch UZDoom with custom commands
-ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$going_down_path" "$brutal_doom_path" "$doom_2016_music_path" "$tourretes_guy_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"
+ENABLE_VKBASALT=1 uzdoom.appimage -iwad "$iwad_path" -file "$going_down_path" "$brutal_doom_path" "$beautiful_path" "$doom_2016_music_path" "$tourretes_guy_path" "$live_reverb_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"

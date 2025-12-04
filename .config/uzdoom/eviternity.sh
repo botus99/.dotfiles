@@ -9,52 +9,11 @@ iwad_path="$DOOMWADDIR/Doom II - Hell on Earth (v1.9)/DOOM2.WAD"
 #iwad_path="$DOOMWADDIR/Final Doom - The Plutonia Experiment (id Anthology)/PLUTONIA.WAD"
 #iwad_path="$DOOMWADDIR/Final Doom - Evilution (id Anthology)/TNT.WAD"
 
-# UZDOOM OPTIONS (not nessesary if you have them load automatically, but here for testing purposes)
-brightmaps_path="$HOME/.config/uzdoom/brightmaps.pk3"
-widescreen_path="$HOME/.config/uzdoom/game_widescreen_gfx.pk3"
-lights_path="$HOME/.config/uzdoom/lights.pk3"
-
-# AREA 51
-area51_path="$DOOMWADDIR/area51/Area51.wad"
-
 # BEAUTIFUL DOOM
 beautiful_path="$DOOMWADDIR/beautiful-doom/Beautiful_Doom_716.pk3"
 
-# BLOOM
-bloom_path="$DOOMWADDIR/bloom/Bloom.pk3"
-
 # EVITERNITY
 eviternity_path="$DOOMWADDIR/eviternity/Eviternity.wad"
-
-# GOLDENEYE
-goldeneye_path="$DOOMWADDIR/goldeneye/GoldenEyeTC-Upgraded-NoTanks.pk3"
-ge1="$DOOMWADDIR/goldeneye/Goldeneye-Complete.pk3"
-ge2="$DOOMWADDIR/goldeneye/TWINE64Mini.pk3"
-
-# HOCUS POCUS
-hocus_path="$DOOMWADDIR/hocus-pocus/HOCUS_08_Zandronum_Final.pk3"
-
-# MICRO SLAUGHTER COMMUNITY PROJECT
-mscp_path="$DOOMWADDIR/mscp/MSCP_v1a.wad"
-
-# BRUTAL DOOM
-brutal_doom_path="$DOOMWADDIR/brutalv21/brutalv21.15.1_dev.pk3"
-#brutal_doom_path="$DOOMWADDIR/brutalv22/brutalv22test3.7a.pk3"
-#brutal_doom_path="$DOOMWADDIR/brutalv21/weapons-only/brutal21_weapons_only_Zandronum_fix.pk3"
-
-# PROJECT BRUTALITY
-#project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/Various/Project Brutality Monsters Standalone.pk3"
-#project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/Various/Glory_Kill_v25a.pk3"
-#project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/WADs/Eviternity.wad"
-#project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/WADs/Doom 2 TWID.wad"
-#project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Project Brutality/project brutality 2.02.pk3"
-#project_brutality_path="$DOOMWADDIR/project-brutality/Project_Brutality_27.04.24.pk3"
-
-# KING OF THE HILL
-hank_path="$DOOMWADDIR/hank-hill/hank.wad"
-
-# SIMPSONS
-simpsons_path="$DOOMWADDIR/ulsimpdm/ulsimpdm.wad"
 
 # MUSIC
 #doom_metal_v5_path="$DOOMWADDIR/music/doom-metal/DoomMetalVol5_44100.wad"
@@ -64,32 +23,9 @@ doom_2016_music_path="$DOOMWADDIR/music/doom-2016/DOOMIIHellOnEarth_DOOMEternal_
 # SOUND
 tourretes_guy_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/Various/Voice Add-ons/Tourretes Guy Offends PB.pk3"
 
-# HUD
-simplehudaddons_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/Useful Tools - Minimods/simplehudaddons.pk3"
-cats_visor_base_path="$DOOMWADDIR/cats-visor/catsvisorbase1.10.3.pk3"
-cats_visor_path="$DOOMWADDIR/cats-visor/catsvisorc1.10.3_dynamic.pk3"
-
 # GRAPHICS
-voxel_path="$DOOMWADDIR/voxel-doom/cheello_voxels_zan.pk3"
 rain_and_snow_path="$DOOMWADDIR/rain-and-snow/Universal Rain and Snow v3.pk3"
 dhtp_path="$DOOMWADDIR/dhtp/zdoom-dhtp-20180514.pk3"
-
-# MISC
-glory_kill_path="$DOOMWADDIR/vanilla-glory-kill/vanilla-glory-kill-master.pk3"
-
-# PSX
-psx_bgm="$DOOMWADDIR/psx-doom/PSXDOOM.CE-3.9.1/PSXDOOM.CE.Addon.BGM.Extended.pk3"
-psx_brightmaps="$DOOMWADDIR/psx-doom/PSXDOOM.CE-3.9.1/PSXDOOM.CE.Addon.GFX.Brightmaps.pk3"
-psx_decals="$DOOMWADDIR/psx-doom/PSXDOOM.CE-3.9.1/PSXDOOM.CE.Addon.GFX.Decals.pk3"
-psx_extra="$DOOMWADDIR/psx-doom/PSXDOOM.CE-3.9.1/PSXDOOM.CE.Addon.GFX.Extra.pk3"
-psx_parallax="$DOOMWADDIR/psx-doom/PSXDOOM.CE-3.9.1/PSXDOOM.CE.Addon.GFX.Parallax.pk3"
-psx_pbr="$DOOMWADDIR/psx-doom/PSXDOOM.CE-3.9.1/PSXDOOM.CE.Addon.GFX.PBR.pk3"
-psx_sfx="$DOOMWADDIR/psx-doom/PSXDOOM.CE-3.9.1/PSXDOOM.CE.Addon.SFX.HQ.pk3"
-psx_doom="$DOOMWADDIR/psx-doom/PSXDOOM.CE-3.9.1/PSXDOOM.CE.ipk3"
-psx_lost_levels="$DOOMWADDIR/psx-doom/PSXDOOM.CE-3.9.1/PSXDOOM.CE.Maps.LostLevels.pk3"
-
-# BRUTAL PSX
-brutal_psx="$DOOMWADDIR/psx-doom/psx_brutal_doom_v20b.pk3"
 
 # SAVE FILE DIRECTORY
 save_dir="$HOME/.config/uzdoom/savegames/eviternity"
@@ -98,8 +34,7 @@ save_dir="$HOME/.config/uzdoom/savegames/eviternity"
 config_path="$HOME/.config/uzdoom/configs/eviternity.ini"
 
 # Check if required files exist
-# ADD PATHS FROM ABOVE AS NEEDED
-for path in "$iwad_path" "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$doom_2016_music_path" "$tourretes_guy_path" "$rain_and_snow_path"; do
+for path in "$iwad_path" "$dhtp_path" "$beautiful_path"  "$eviternity_path" "$tourretes_guy_path" "$rain_and_snow_path"; do
     if [ ! -f "$path" ]; then
         echo "Error: $path not found."
         exit 1
@@ -107,5 +42,5 @@ for path in "$iwad_path" "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$d
 done
 
 # Launch UZDoom with custom commands
-ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path"  "$eviternity_path" "$tourretes_guy_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"
+ENABLE_VKBASALT=1 uzdoom.appimage -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path"  "$eviternity_path" "$tourretes_guy_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"
 

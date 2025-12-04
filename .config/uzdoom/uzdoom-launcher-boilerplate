@@ -69,7 +69,7 @@ thatcher_arcade="$DOOMWADDIR/thatcher/THATCHERCADE.wad"
 #doom_metal_v5_path="$DOOMWADDIR/music/doom-metal/DoomMetalVol5_44100.wad"
 #doom_metal_v6_path="$DOOMWADDIR/music/doom-metal/DoomMetalVol6.wad"
 doom_2016_music_path="$DOOMWADDIR/music/doom-2016/DOOMIIHellOnEarth_DOOMEternal_OST.pk3"
-psx-doom-music="$DOOMWADDIR/music/psx-doom/PSXOstUltimateHQ.pk3"
+psx_doom_music="$DOOMWADDIR/music/psx-doom/PSXOstUltimateHQ.pk3"
 
 # SOUND
 tourretes_guy_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/Various/Voice Add-ons/Tourretes Guy Offends PB.pk3"
@@ -111,8 +111,7 @@ save_dir="$HOME/.config/uzdoom/savegames/insert-doom-here"
 config_path="$HOME/.config/uzdoom/configs/insert-doom-here.ini"
 
 # Check if required files exist
-# ADD PATHS FROM ABOVE AS NEEDED
-for path in "$iwad_path" "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$doom_2016_music_path" "$tourretes_guy_path" "$rain_and_snow_path" "$cats_visor_base_path" "$cats_visor_path"; do
+for path in "$iwad_path" "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$doom_2016_music_path" "$tourretes_guy_path" "$rain_and_snow_path"; do
     if [ ! -f "$path" ]; then
         echo "Error: $path not found."
         exit 1
@@ -120,5 +119,6 @@ for path in "$iwad_path" "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$d
 done
 
 # Launch UZDoom with custom commands
-ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$doom_2016_music_path" "$tourretes_guy_path" "$rain_and_snow_path" "$cats_visor_base_path" "$cats_visor_path" -savedir "$save_dir"
-# -config "$config_path"	# use when a custom config makes sense
+ENABLE_VKBASALT=1 uzdoom.appimage -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$doom_2016_music_path" "$tourretes_guy_path" "$rain_and_snow_path" -savedir "$save_dir"
+# add to the line below (without the hashtag/number sign) to the end of previous line when a custom config is needed
+# -config "$config_path"
