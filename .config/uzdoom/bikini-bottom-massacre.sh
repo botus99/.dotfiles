@@ -2,33 +2,33 @@
 
 # Pick your IWAD
 #
-iwad_path="$HOME/.wads/Doom II - Hell on Earth (v1.9)/DOOM2.WAD"
+iwad_path="$DOOMWADDIR/Doom II - Hell on Earth (v1.9)/DOOM2.WAD"
 
 # BRUTAL DOOM
 #
-#brutal_doom_path="$HOME/.wads/brutalv21/brutalv21.16.0.pk3"
-brutal_doom_path="$HOME/.wads/brutalv22/brutalv22test3.7a.pk3"
-#brutal_doom_path="$HOME/.wads/brutalv21/weapons-only/brutal21_weapons_only_Zandronum_fix.pk3"
+#brutal_doom_path="$DOOMWADDIR/brutalv21/brutalv21.16.0.pk3"
+brutal_doom_path="$DOOMWADDIR/brutalv22/brutalv22test3.7a.pk3"
+#brutal_doom_path="$DOOMWADDIR/brutalv21/weapons-only/brutal21_weapons_only_Zandronum_fix.pk3"
 
 # SPONGEBOB
 #
-bikini_bottom_massacre_path="$HOME/.wads/bikini-bottom-massacre/bikini_bottom_massacre_(1.3).wad"
+bikini_bottom_massacre_path="$DOOMWADDIR/bikini-bottom-massacre/bikini_bottom_massacre_(1.3).wad"
 
 # MUSIC / SOUND
 #
-#doom_metal_path="$HOME/.wads/DoomMetalVol5/DoomMetalVol5_44100.wad"
-doom_2016_music_path="$HOME/.wads/music/doom-2016/DOOMIIHellOnEarth_DOOMEternal_OST.pk3"
-tourretes_guy_path="$HOME/.wads/Project Brutality Public Files/Community Addons/Various/Voice Add-ons/Tourretes Guy Offends PB.pk3"
+#doom_metal_path="$DOOMWADDIR/DoomMetalVol5/DoomMetalVol5_44100.wad"
+doom_2016_music_path="$DOOMWADDIR/music/doom-2016/DOOMIIHellOnEarth_DOOMEternal_OST.pk3"
+tourretes_guy_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/Various/Voice Add-ons/Tourretes Guy Offends PB.pk3"
 
 # GRAPHICS
 #
-voxel_path="$HOME/.wads/Voxel Doom/cheello_voxels_zan.pk3"
-rain_and_snow_path="$HOME/.wads/rain-and-snow/Universal Rain and Snow v3.pk3"
-dhtp_path="$HOME/.wads/dhtp/zdoom-dhtp-20180514.pk3"
+voxel_path="$DOOMWADDIR/Voxel Doom/cheello_voxels_zan.pk3"
+rain_and_snow_path="$DOOMWADDIR/rain-and-snow/Universal Rain and Snow v3.pk3"
+dhtp_path="$DOOMWADDIR/dhtp/zdoom-dhtp-20180514.pk3"
 
 # MISC
 #
-#glory_kill_path="$HOME/.wads/VanillaGloryKill/vanilla-glory-kill-master.pk3"
+#glory_kill_path="$DOOMWADDIR/VanillaGloryKill/vanilla-glory-kill-master.pk3"
 
 # SAVE FILE DIRECTORY
 #
