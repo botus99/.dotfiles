@@ -1,3 +1,12 @@
+#/----------------------------------------/
+#╱╭━━━╮╱╭╮╱╱╱╱╭━━╮╱╭━━━╮╱╭━━━╮╱╭━━━╮╱╭━━━╮/
+#╱┃╭━╮┃╱┃┃╱╱╱╱╰┫┣╯╱┃╭━╮┃╱┃╭━╮┃╱┃╭━━╯╱┃╭━╮┃/
+#/┃┃╱┃┃╱┃┃╱╱╱╱╱┃┃╱╱┃┃╱┃┃╱┃╰━━╮╱┃╰━━╮╱┃╰━━╮/
+#╱┃╰━╯┃╱┃┃╱╭╮╱╱┃┃╱╱┃╰━╯┃╱╰━━╮┃╱┃╭━━╯╱╰━━╮┃/
+#╱┃╭━╮┃╱┃╰━╯┃╱╭┫┣╮╱┃╭━╮┃╱┃╰━╯┃╱┃╰━━╮╱┃╰━╯┃/
+#╱╰╯╱╰╯╱╰━━━╯╱╰━━╯╱╰╯╱╰╯╱╰━━━╯╱╰━━━╯╱╰━━━╯/
+#/----------------------------------------/
+
 # update my goods
 alias sa="figlet -tf miniwi 'Debian upgrades' \
 && sudo nala upgrade -y \
@@ -21,10 +30,91 @@ alias sa="figlet -tf miniwi 'Debian upgrades' \
 && figlet -tf miniwi 'All done!' \
 && echo 'That was nice, thanks for bringing me up to date!'"
 
-# edit nextcloud php config
-alias nextcloud-config='micro /nextcloud/config/www/nextcloud/config/config.php'
 
-# colorize output
+# ============================================================================
+# FILE OPERATIONS
+# ============================================================================
+
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -Iv'
+alias mkdir='mkdir -pv'
+
+# copy files with a progress bar
+alias cpv='rsync -ah --info=progress2'
+
+# file owner fixes
+alias fix-permissions='sudo chown -R $USER:$USER ~/.config ~/.local'
+
+# consolidate downloaded fonts & make available for all users
+alias fonts-copy='sudo cp -r ~/.fonts/* /usr/share/fonts/ && sudo cp -r ~/.local/share/fonts/* /usr/share/fonts/'
+
+
+# ============================================================================
+# LS VARIANTS
+# ============================================================================
+
+if command -v eza >/dev/null 2>&1; then
+    alias l='eza --header --git  --color=always --icons=always --group-directories-first --classify=auto'
+    alias ll='eza --header --git --color=always --icons=always --group-directories-first --all --long'
+    alias la='eza --header --git --color=always --icons=always --group-directories-first --all'
+    alias ls='eza --header --git --color=always --icons=always --group-directories-first'
+    alias lt='eza --header --git --color=always --icons=always --tree --level=2 --icons'
+    alias lh='eza --header --git --color=always --icons=always -la --sort=modified --reverse'
+elif command -v exa >/dev/null 2>&1; then
+    alias l='exa -l --color=always --group-directories-first'
+    alias ls='exa -a --icons --group-directories-first'
+    alias ll='exa -la --icons --group-directories-first'
+    alias la='exa -la --icons --group-directories-first'
+    alias lt='exa --tree --level=2 --icons'
+    alias lh='exa -la --sort=modified --reverse'
+else
+    alias l='ls -lF'
+    alias ll='ls -laF'
+    alias la='ls -A'
+    alias lt='tree -L 2'
+    alias lh='ls -lath'
+fi
+
+
+# ============================================================================
+# NAVIGATION
+# ============================================================================
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# replace 'cd' with 'z'
+alias cd='z'
+
+# folders sorted by size
+alias foldersizesort='du -sh * | sort -h'
+
+
+# ============================================================================
+# PATHS
+# ============================================================================
+
+# easy flatpak access
+alias codium='flatpak run com.vscodium.codium'
+alias gearlever='flatpak run it.mijorus.gearlever'
+alias wardrobe='flatpak run io.github.swordpuffin.wardrobe'
+alias rewaita='flatpak run io.github.swordpuffin.rewaita'
+
+# pretty print path
+alias path="echo $PATH | tr -s ':' '\n'"
+
+# easy yabridgectl access
+alias yabridgectl='~/.local/share/yabridge/yabridgectl'
+
+
+# ============================================================================
+# SYSTEM UTILITIES
+# ============================================================================
+
+# add color
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
@@ -38,50 +128,19 @@ alias tree='tree --dirsfirst -C'
 # replace 'ps' with 'procs'
 alias ps='procs'
 
-# replace 'cd' with 'z'
-alias cd='z'
-
 # replace 'bat' with 'batcat'
 alias bat='batcat'
 
 # make cmatrix look how I like
 alias cmatrix='cmatrix -asb -u 1 -C red'
 
-# replace 'ls' with 'eza'
-alias ls='eza --header --git --color=always --icons=always --group-directories-first'
-alias la='eza --header --git --color=always --icons=always --group-directories-first --all'
-alias ll='eza --header --git --color=always --icons=always --group-directories-first --all --long'
-alias l='eza --header --git  --color=always --icons=always --group-directories-first --classify=auto'
-
 # readable output
 alias df='df -h'
-
-# file owner fixes
-alias fix-permissions='sudo chown -R $USER:$USER ~/.config ~/.local'
-
-# copy files with a progress bar
-alias cpv='rsync -ah --info=progress2'
-
-# automatically create nessesary parent directories
-alias mkdir="mkdir -p"
-
-# automatically continue interrupted downloads with wget
-alias wget="wget -c"
+alias du='du -h'
+alias free='free -h'
 
 # tell me my external IP addrress
-alias myip="curl http://ipecho.net/plain; echo"
-
-# change directories easily
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-
-# folders sorted by size
-alias foldersizesort='du -sh * | sort -h'
-
-# make downloaded fonts available for all users
-alias fonts-copy='sudo cp -r ~/.fonts/* /usr/share/fonts/ && sudo cp -r ~/.local/share/fonts/* /usr/share/fonts/'
+alias myip='curl http://ipecho.net/plain; echo'
 
 # open the kitty theme selector
 alias kitty-themes='kitty +kitten themes'
@@ -95,15 +154,28 @@ alias bro='bro --theme gruvbox-dark'
 # make cbonsai use my preferred settings
 alias cbonsai='cbonsai --multiplier 15 --life 100 -S'
 
-# make ncmpcpp launch as a session in kitty
-#alias ncmpcpp='kitty -o font_size=11 --session ~/.config/kitty/ncmpcpp.session'
-
 # make getting weather forecasts easier
 alias weather='curl wttr.in'
 
 # dwm aliases
-alias cdwm="micro ~/.config/suckless/dwm/config.h"
-alias mdwm="cd ~/.config/suckless/dwm; sudo make install; cd -"
+alias cdwm='micro ~/.config/suckless/dwm/config.def.h'
+alias mdwm='cd ~/.config/suckless/dwm; rm config.h; sudo make clean install; cd -'
+
+# edit nextcloud php config
+alias nextcloud-config='micro /nextcloud/config/www/nextcloud/config/config.php'
+
+# make ncmpcpp launch as a session in kitty
+#alias ncmpcpp='kitty -o font_size=11 --session ~/.config/kitty/ncmpcpp.session'
+
+
+#/-------------------------------------------------------/
+#╱╭━━━╮╱╭╮╱╭╮╱╭━╮╱╭╮╱╭━━━╮╱╭━━━━╮╱╭━━╮╱╭━━━╮╱╭━╮╱╭╮╱╭━━━╮/
+#╱┃╭━━╯╱┃┃╱┃┃╱┃┃╰╮┃┃╱┃╭━╮┃╱┃╭╮╭╮┃╱╰┫┣╯╱┃╭━╮┃╱┃┃╰╮┃┃╱┃╭━╮┃/
+#╱┃╰━━╮╱┃┃╱┃┃╱┃╭╮╰╯┃╱┃┃╱╰╯╱╰╯┃┃╰╯╱╱┃┃╱╱┃┃╱┃┃╱┃╭╮╰╯┃╱┃╰━━╮/
+#╱┃╭━━╯╱┃┃╱┃┃╱┃┃╰╮┃┃╱┃┃╱╭╮╱╱╱┃┃╱╱╱╱┃┃╱╱┃┃╱┃┃╱┃┃╰╮┃┃╱╰━━╮┃/
+#╱┃┃╱╱╱╱┃╰━╯┃╱┃┃╱┃┃┃╱┃╰━╯┃╱╱╱┃┃╱╱╱╭┫┣╮╱┃╰━╯┃╱┃┃╱┃┃┃╱┃╰━╯┃/
+#╱╰╯╱╱╱╱╰━━━╯╱╰╯╱╰━╯╱╰━━━╯╱╱╱╰╯╱╱╱╰━━╯╱╰━━━╯╱╰╯╱╰━╯╱╰━━━╯/
+#/-------------------------------------------------------/
 
 # fzf bash history
 fh () {
@@ -174,12 +246,3 @@ extract () {
         esac
     done
 }
-
-# easy flatpak codium
-alias codium="flatpak run com.vscodium.codium"
-
-# pretty print path
-alias path="echo $PATH | tr -s ':' '\n'"
-
-# make yabridgectl easier to type 
-alias yabridgectl='~/.local/share/yabridge/yabridgectl'
