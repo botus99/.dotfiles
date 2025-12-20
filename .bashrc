@@ -34,8 +34,8 @@ shopt -s globstar           # Allow ** for recursive matching
 shopt -s nocaseglob         # Case-insensitive globbing
 shopt -s extglob            # Extended pattern matching
 
-export HISTSIZE=1000000		                          # define maximum number of stored commands
-export HISTFILESIZE=1000000	                        # define maximum number of total lines
+export HISTSIZE=10000		                            # define maximum number of stored commands
+export HISTFILESIZE=20000	                          # define maximum number of total lines
 export HISTIGNORE="ls:ll:cd:pwd:exit:clear:history" # ignore given commands for bash history
 export HISTCONTROL=ignoreboth:erasedups             # don't put duplicate lines or lines starting with space in the history.
 
