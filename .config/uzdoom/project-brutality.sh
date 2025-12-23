@@ -19,7 +19,7 @@ beautiful_path="$DOOMWADDIR/beautiful-doom/Beautiful_Doom_716.pk3"
 #project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/WADs/Doom 2 TWID.wad"
 #project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Project Brutality/project brutality 2.02.pk3"
 #project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Project Brutality/project brutality 2.0.pk3"
-project_brutality_path="$DOOMWADDIR/project-brutality/Project_Brutality_2024-10-05.pk3"
+project_brutality_path="$DOOMWADDIR/project-brutality-staging/project-brutality-staging.pk3"
 
 # MUSIC
 #doom_metal_v5_path="$DOOMWADDIR/music/doom-metal/DoomMetalVol5_44100.wad"

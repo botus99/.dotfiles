@@ -53,7 +53,7 @@ brutal_doom_path="$DOOMWADDIR/brutalv21/brutalv21.16.0_dev.pk3"
 #project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/WADs/Eviternity.wad"
 #project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Community Addons/WADs/Doom 2 TWID.wad"
 #project_brutality_path="$DOOMWADDIR/Project Brutality Public Files/Project Brutality/project brutality 2.02.pk3"
-#project_brutality_path="$DOOMWADDIR/project-brutality/Project_Brutality_27.04.24.pk3"
+#project_brutality_path="$DOOMWADDIR/project-brutality-staging/project-brutality-staging.pk3"
 
 # KING OF THE HILL
 hank_path="$DOOMWADDIR/hank-hill/hank.wad"
