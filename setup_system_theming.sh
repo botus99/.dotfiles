@@ -62,12 +62,12 @@ echo -e "\033[36m ✅ ٩(ˊᗜˋ*)و Nerd Fonts successfully installed ✅ \033[
 
 # INSTALL GTK THEME
 ### download & install Colloid-Red-Dark-Gruvbox GTK theme
-echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Colloid-Red-Dark-Compact-Gruvbox theme 📥 \033[0m"
+echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing Colloid-Red-Compact-Gruvbox themes 📥 \033[0m"
 cd "$GITDIR"
 git clone https://github.com/vinceliuice/Colloid-gtk-theme.git
 cd Colloid-gtk-theme
-sudo ./install.sh --color dark --theme red --libadwaita fixed --size compact --tweaks gruvbox
-./install.sh --color dark --theme red --libadwaita fixed --size compact --tweaks gruvbox
+sudo ./install.sh --theme red --libadwaita system --size compact --tweaks gruvbox
+./install.sh --theme red --libadwaita system --size compact --tweaks gruvbox
 cd "$HOME"
 
 ### setup gtk-4.0 links
