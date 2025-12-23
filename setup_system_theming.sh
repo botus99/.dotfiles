@@ -98,7 +98,7 @@ wget -qO- https://git.io/papirus-icon-theme-install | env DESTDIR="$HOME/.local/
 ### download & install gruvbox-papirus folders
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading & Installing gruvbox-papirus-folders 📥 \033[0m"
 cd "$GITDIR"
-git clone https://github.com/xelser/gruvbox-papirus-folders
+git clone https://github.com/botus99/gruvbox-papirus-folders
 cd gruvbox-papirus-folders
 cp -r "src/*" "$HOME/.local/share/icons/Papirus/"
 ./papirus-folders -C gruvbox-original-red --theme Papirus
