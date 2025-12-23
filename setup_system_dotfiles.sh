@@ -17,6 +17,7 @@ ln -s $HOME/.dotfiles/.config/Kvantum ~/.config
 ln -s $HOME/.dotfiles/.config/micro ~/.config
 ln -s $HOME/.dotfiles/.config/mpd ~/.config
 ln -s $HOME/.dotfiles/.config/mpv ~/.config
+ln -s $HOME/.dotfiles/.config/MusicBrainz ~/.config
 ln -s $HOME/.dotfiles/.config/ncmpcpp ~/.config
 ln -s $HOME/.dotfiles/.config/nwg-look ~/.config
 ln -s $HOME/.dotfiles/.config/pcmanfm ~/.config
