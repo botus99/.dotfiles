@@ -1,0 +1,6 @@
+# $HOME/.config/kitty/now-playing-visualizer.session
+
+layout splits
+launch bash -c '${HOME}/.config/ncmpcpp/album_cover_poller.sh'
+launch --location=hsplit --bias=33 bash -c 'ncmpcpp --config=${HOME}/.config/ncmpcpp/viz.conf --screen visualizer'
+# launch bash -c 'cava'
