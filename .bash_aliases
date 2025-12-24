@@ -102,6 +102,7 @@ alias codium='flatpak run com.vscodium.codium'
 alias gearlever='flatpak run it.mijorus.gearlever'
 alias wardrobe='flatpak run io.github.swordpuffin.wardrobe'
 alias rewaita='flatpak run io.github.swordpuffin.rewaita'
+alias zed='flatpak run dev.zed.Zed'
 
 # pretty print path
 alias path="echo $PATH | tr -s ':' '\n'"
