@@ -5,6 +5,15 @@
 # someday I should add error-checking and use git
 # to combine the repos instead of cp. Not today.
 
+# More repos to try/add later...
+# https://github.com/SwayLE3/picom-shader-oldCRT-Bloom
+# https://github.com/DiKetarogg/picom-transparent-bg-shader
+# https://github.com/tphLatte/picomShaders
+# https://github.com/dedenholm/Chromab-Glitch-GLSL-
+# https://github.com/PickNicko13/picom-o8dither
+# https://github.com/kin-fuyuki/picom
+# https://github.com/4194304/color-depth-shaders
+
 # Set variables
 GH="https://github.com"
 REPO="picom-shaders"
