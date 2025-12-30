@@ -6,7 +6,6 @@
 # combine the repos instead of cp. Maybe later.
 
 # More repos to try/add later...
-# https://github.com/DiKetarogg/picom-transparent-bg-shader
 # https://github.com/kin-fuyuki/picom
 
 # Set variables
@@ -56,6 +55,7 @@ URLS=(
     "https://github.com/tphLatte/picomShaders/raw/refs/heads/main/bw.glsl"
     "https://github.com/tphLatte/picomShaders/raw/refs/heads/main/dither.glsl"
     "https://github.com/tphLatte/picomShaders/raw/refs/heads/main/dither_sobel.glsl"
+    "https://github.com/DiKetarogg/picom-transparent-bg-shader/raw/refs/heads/master/corners-transparent.glsl"
 )
 
 # Download GLSL files
