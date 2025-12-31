@@ -12,15 +12,15 @@
 #  ██║     ██╔══██║██║   ██║██║╚██╗██║██║     ██╔══██║██╔══╝  ██╔══██╗
 #  ███████╗██║  ██║╚██████╔╝██║ ╚████║╚██████╗██║  ██║███████╗██║  ██║
 #  ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-#	originally written by: gh0stzk - https://github.com/gh0stzk/dotfiles
-#	rewritten for hyprland by :	 develcooking - https://github.com/develcooking/hyprland-dotfiles
-#	Info    - This script runs the rofi launcher, to select
-#             the wallpapers included in the theme you are in.
-
+#	originally written by : gh0stzk - https://github.com/gh0stzk/dotfiles
+#	rewritten for hyprland by : develcooking - https://github.com/develcooking/hyprland-dotfiles
+#	rewritten to use feh by : botus99 - https://github.com/botus99/.dotfiles
+#	Info    - This script runs the rofi launcher, to select a wallpaper
+#             from the directory that you can set below (wall_dir).
 
 
 # Set some variables
-wall_dir="${HOME}/.wallpapers/reddit"
+wall_dir="${HOME}/.wallpapers"
 cache_dir="${HOME}/.cache/wp/${theme}"
 rofi_command="rofi -x11 -dmenu -theme ${HOME}/.config/rofi/wallpaper.rasi -theme-str"
 
@@ -30,10 +30,10 @@ if [ ! -d "${cache_dir}" ] ; then
     fi
 
 #physical_monitor_size=47
-#monitor_res=$(xrandr --query | grep " connected" | awk '{print $3}' | sed 's/[^0-9]*//g')
+#monitor_res=$(hyprctl monitors |grep -A2 Monitor |head -n 2 |awk '{print $1}' | grep -oE '^[0-9]+')
+#monitor_res=$(xdpyinfo | grep dimensions | awk '{print $2}')
 #dotsperinch=$(echo "scale=2; $monitor_res / $physical_monitor_size" | bc | xargs printf "%.0f")
 #monitor=$(( $monitor_res "* $physical_monitor_size / $dotsperinch" ))
-
 #rofi_override="element-icon{size:${monitor}px;border-radius:15px;}"
 
 # Convert images in directory and save to cache dir
@@ -51,6 +51,6 @@ wall_selection=$(find "${wall_dir}"  -maxdepth 1  -type f \( -iname "*.jpg" -o -
 
 # Set the wallpaper
 [[ -n "$wall_selection" ]] || exit 1
-feh --bg-scale ${wall_dir}/${wall_selection}
+feh --bg-fill "${wall_dir}"/"${wall_selection}"
 
 exit 0
