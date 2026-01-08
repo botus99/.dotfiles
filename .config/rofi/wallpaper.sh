@@ -18,10 +18,9 @@
 #	Info    - This script runs the rofi launcher, to select a wallpaper
 #             from the directory that you can set below (wall_dir).
 
-
 # Set some variables
 wall_dir="${HOME}/.wallpapers"
-cache_dir="${HOME}/.cache/wp/${theme}"
+cache_dir="${HOME}/.cache/wp"
 rofi_command="rofi -x11 -dmenu -theme ${HOME}/.config/rofi/wallpaper.rasi -theme-str"
 
 # Create cache dir if not exists
