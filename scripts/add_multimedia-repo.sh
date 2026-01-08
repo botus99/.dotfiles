@@ -8,7 +8,7 @@
 echo '
 Types: deb
 URIs: https://www.deb-multimedia.org
-Suites: unstable
+Suites: testing
 Components: main non-free
 Signed-By: /usr/share/keyrings/deb-multimedia-keyring.pgp
 Enabled: yes
@@ -16,4 +16,3 @@ Enabled: yes
 
 sudo apt-get update -oAcquire::AllowInsecureRepositories=true
 sudo apt-get install deb-multimedia-keyring -y --allow-unauthenticated
-
