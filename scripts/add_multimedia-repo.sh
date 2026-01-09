@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#
+# third-party multimedia tools, codecs, and applications that are not offered by debian
+# if you use an nvidia card, the nv-codec-headers package may be needed for encoding with ffmpeg
 
 # old way of doing it
 #sudo echo "deb https://www.deb-multimedia.org testing main non-free" > deb-multimedia.list
