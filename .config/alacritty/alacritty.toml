@@ -5,19 +5,19 @@ general.import = [
 size = 11.0
 
 [font.bold]
-family = "Mononoki Nerd Font"
+family = "Mononoki Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "Mononoki Nerd Font"
+family = "Mononoki Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "Mononoki Nerd Font"
+family = "Mononoki Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "Mononoki Nerd Font"
+family = "Mononoki Nerd Font Mono"
 style = "Regular"
 
 [window]
