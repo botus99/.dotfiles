@@ -33,11 +33,12 @@ shopt -s checkwinsize       # update LINES and COLUMNS values for the window siz
 shopt -s globstar           # Allow ** for recursive matching
 shopt -s nocaseglob         # Case-insensitive globbing
 shopt -s extglob            # Extended pattern matching
+shopt -s cdspell            # Spellcheck directories when using cd
 
 # don't add duplicate lines or lines starting with space to the history file
 export HISTCONTROL=ignoreboth:erasedups
 # ignore given commands for bash history
-export HISTIGNORE="ls:ll:l:cd:pwd:exit:clear:history:fh:..:...:...."
+export HISTIGNORE="?:??:pwd:exit:clear:history:...:...."
 export HISTFILESIZE=20000   # define maximum number of total lines
 export HISTSIZE=10000       # define maximum number of stored commands
 
