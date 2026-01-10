@@ -101,14 +101,23 @@ alias foldersizesort='du -sh * | sort -h'
 alias codium='flatpak run com.vscodium.codium'
 alias gearlever='flatpak run it.mijorus.gearlever'
 alias wardrobe='flatpak run io.github.swordpuffin.wardrobe'
-alias rewaita='flatpak run io.github.swordpuffin.rewaita'
 alias zed='flatpak run dev.zed.Zed'
 
 # pretty print path
 alias path="echo $PATH | tr -s ':' '\n'"
 
-# easy yabridgectl access
-alias yabridgectl='~/.local/share/yabridge/yabridgectl'
+
+# ============================================================================
+# PIPEWIRE
+# ============================================================================
+
+alias pw0='pw-metadata -n settings 0 clock.force-quantum 0'
+alias pw64='pw-metadata -n settings 0 clock.force-quantum 64'
+alias pw128='pw-metadata -n settings 0 clock.force-quantum 128'
+alias pw256='pw-metadata -n settings 0 clock.force-quantum 256'
+alias pw512='pw-metadata -n settings 0 clock.force-quantum 512'
+alias pw1024='pw-metadata -n settings 0 clock.force-quantum 1024'
+alias pw2048='pw-metadata -n settings 0 clock.force-quantum 2048'
 
 
 # ============================================================================
