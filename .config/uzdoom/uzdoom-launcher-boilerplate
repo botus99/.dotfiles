@@ -119,6 +119,6 @@ for path in "$iwad_path" "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$d
 done
 
 # Launch UZDoom with custom commands
-ENABLE_VKBASALT=1 uzdoom.appimage -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$doom_2016_music_path" "$tourretes_guy_path" "$rain_and_snow_path" -savedir "$save_dir"
+ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path"  "$brutal_doom_path" "$doom_2016_music_path" "$tourretes_guy_path" "$rain_and_snow_path" -savedir "$save_dir"
 # add to the line below (without the hashtag/number sign) to the end of previous line when a custom config is needed
 # -config "$config_path"

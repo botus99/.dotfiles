@@ -21,4 +21,4 @@ for path in "$iwad_path" "$bloom_path"; do
 done
 
 # Launch UZDoom with custom commands
-ENABLE_VKBASALT=1 uzdoom.appimage -iwad "$iwad_path" -file "$bloom_path" -savedir "$save_dir" -config "$config_path"
+ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$bloom_path" -savedir "$save_dir" -config "$config_path"

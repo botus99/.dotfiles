@@ -42,4 +42,4 @@ for path in "$iwad_path" "$going_down_path" "$brutal_doom_path" "$doom_2016_musi
 done
 
 # Launch UZDoom with custom commands
-ENABLE_VKBASALT=1 uzdoom.appimage -iwad "$iwad_path" -file "$going_down_path" "$brutal_doom_path" "$beautiful_path" "$doom_2016_music_path" "$tourretes_guy_path" "$live_reverb_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"
+ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$going_down_path" "$brutal_doom_path" "$beautiful_path" "$doom_2016_music_path" "$tourretes_guy_path" "$live_reverb_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"

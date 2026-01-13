@@ -45,4 +45,4 @@ for path in "$iwad_path" "$dhtp_path" "$beautiful_path"  "$hocus_path" "$rain_an
 done
 
 # Launch UZDoom with custom commands
-ENABLE_VKBASALT=1 uzdoom.appimage -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path"  "$hocus_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"
+ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$dhtp_path" "$beautiful_path"  "$hocus_path" "$rain_and_snow_path" -savedir "$save_dir" -config "$config_path"

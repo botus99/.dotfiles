@@ -54,4 +54,4 @@ for path in "$iwad_path" "$brutal_psx" "$rain_and_snow_path" "$psx_bgm"; do
 done
 
 # Launch UZDoom with custom commands
-ENABLE_VKBASALT=1 uzdoom.appimage -iwad "$iwad_path" -file "$brutal_psx" "$rain_and_snow_path" "$psx_bgm" -savedir "$save_dir" -config "$config_path"
+ENABLE_VKBASALT=1 uzdoom -iwad "$iwad_path" -file "$brutal_psx" "$rain_and_snow_path" "$psx_bgm" -savedir "$save_dir" -config "$config_path"
