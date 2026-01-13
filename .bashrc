@@ -1,4 +1,7 @@
-#[ -f $HOME/.bashrc  ] && . $HOME/.profile
+#!/usr/bin/env /bash
+
+# do not uncomment the line below without addressing .profile
+#[ -f $HOME/.bashrc  ] && source $HOME/.profile
 
 # ============================================================================
 # SHELL OPTIONS
@@ -45,14 +48,13 @@ export HISTSIZE=10000       # define maximum number of stored commands
 # Immediately write history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-
 # ============================================================================
 # ALIASES
 # ============================================================================
 
 # Source external bash aliases file
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    source ~/.bash_aliases
 fi
 
 # ============================================================================
@@ -62,33 +64,91 @@ fi
 # Enable programmable completion features
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
+    source '/usr/share/bash-completion/bash_completion'
   elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+    source '/etc/bash_completion'
   fi
 fi
 
 # Git completion
 if [ -f /usr/share/bash-completion/completions/git ]; then
-    . /usr/share/bash-completion/completions/git
+    source '/usr/share/bash-completion/completions/git'
 fi
 
+# Nala completion
+source '/usr/share/bash-completion/nala.sh'
+
+# Cheat Sheet completion
+source '/usr/share/bash-completion/cht.sh'
 
 # ============================================================================
 # PROMPT
 # ============================================================================
+#
+# clearly, I don't exactly know what I want yet for a terminal prompt yet.
+# BUT... I know that I like 2 lines with a bunch of info and ugly colors!
 
-# custom prompt
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\]┌─\[$(tput setaf 7)\]󰅂 \[$(tput setaf 3)\]  \[$(tput setaf 3)\][\h] 󰍟 \[$(tput setaf 2)\]󰙃 \[$(tput setaf 2)\][\u] 󰍟 \[$(tput setaf 4)\]  [\w] 󰍟 \[$(tput setaf 8)\] \[$(tput setaf 15)\][\t] \[$(tput setaf 1)\]\n└──\[$(tput setaf 7)\]󰅂 \[$(tput setaf 2)\]\\$ \[$(tput sgr0)\]"
+# old prompt
+#export PS1="\[$(tput bold)\]\[$(tput setaf 1)\]┌─\[$(tput setaf 7)\]󰅂 \[$(tput setaf 3)\]  \[$(tput setaf 3)\][\h] 󰍟 \[$(tput setaf 2)\]󰙃 \[$(tput setaf 2)\][\u] 󰍟 \[$(tput setaf 4)\]  [\w] 󰍟 \[$(tput setaf 8)\] \[$(tput setaf 15)\][\t] \[$(tput setaf 1)\]\n└──\[$(tput setaf 7)\]󰅂 \[$(tput setaf 2)\]\\$ \[$(tput sgr0)\]"
 
+# Define colors
+BLACK="\e[1;30m"
+RED="\e[1;31m"
+GREEN="\e[1;32m"
+YELLOW="\e[1;33m"
+BLUE="\e[1;34m"
+PURPLE="\e[1;35m"
+CYAN="\e[1;36m"
+WHITE="\e[1;37m"
+RESET="\e[0m"
+
+# Return color for common git status
+GIT_COLOR() {
+    local GIT_STATUS="$(git status 2>/dev/null)"
+
+    if [[ !$GIT_STATUS =~ "working directory clean" ]]; then
+        echo "${RED} ${RED} "
+    elif [[ !$GIT_STATUS =~ "have diverged" ]]; then
+        echo "${RED} ${RED} "
+    elif [[ !$GIT_STATUS =~ "fix conflicts" ]]; then
+        echo "${RED} ${RED} "
+    elif [[ $GIT_STATUS =~ "Your branch is ahead of" ]]; then
+        echo "${RED} ${PURPLE}↑ "
+    elif [[ $GIT_STATUS =~ "Your branch is behind" ]]; then
+        echo "${RED} ${YELLOW} "
+    elif [[ $GIT_STATUS =~ "Changes to be committed" || $GIT_STATUS =~ "Changes not staged for commit" ]]; then
+        echo "${RED} ${YELLOW} "
+    elif [[ $GIT_STATUS =~ "untracked files present" ]]; then
+        echo "${RED} ${PURPLE}… "
+    else
+        echo "${RED} ${GREEN} "
+    fi
+}
+
+# return git branch name with color code
+GIT_BRANCH() {
+    local BRANCH=$(git branch --show-current 2>/dev/null)
+    BRANCH_STATUS=$(echo -e "$(GIT_COLOR)$BRANCH${RESET}")
+    echo -ne ${BRANCH:+"──${RESET}[${RED}$BRANCH_STATUS${RESET}]"}
+}
+
+# additional status for $PS1
+GENERATE_STATUS() {
+    echo -e "$(GIT_BRANCH)${CYAN}"
+}
+
+export PS1="\n\[${RED}\]┌──\[${RESET}\]󰅂[\[${YELLOW}\] \u\[${RESET}\]]\[${RED}\]──\[${RESET}\][\[${GREEN}\] \h\[${RESET}\]]\[${RED}\]──\[${RESET}\][\[${BLUE}\] \[${BLUE}\]\w\[${RED}\]\[${RESET}\]]\[${RED}\]\$(GENERATE_STATUS)\[${RED}──\[$RESET\][\[${BLUE}\] \[$RESET\]\t\\[${RESET}\]]\[${RED}\]\n\[${RED}\]└─\[${RESET}\]󰅂 \[${GREEN}\]\$ \[${RESET}\]"
+export PS2="\[${RED}\]……󰅂 \[${RESET}\]"
 
 # ============================================================================
 # PATH
 # ============================================================================
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:\
+export GOPATH=$HOME/go
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:\
 $HOME/.local/bin:$HOME/.local/bin/statusbar:$HOME/.local/share/applications:\
 $HOME/.cargo/bin:\
+$GOPATH/bin:\
 $HOME/AppImages:\
 /var/lib/flatpak/exports/share:\
 /usr/local/lib"
@@ -99,17 +159,17 @@ export DOOMWADDIR="$HOME/.wads"
 # fix non-standard location of libvapoursynth-script.so.0 for vapoursynth
 #export LD_LIBRARY_PATH="/usr/local/lib vspipe --version"
 
-
 # ============================================================================
 # ENVIRONMENT VARIABLES
 # ============================================================================
 
 # xdg stuff
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
+export TERMINAL="/usr/bin/kitty"
 
 # ============================================================================
 # THEMING
@@ -122,7 +182,10 @@ export FZF_DEFAULT_OPTS="--layout=reverse-list --exact --border=bold --border=ro
 export GTK_THEME="Colloid-Red-Dark-Compact-Gruvbox"
 export ICON_THEME="Papirus"
 export MICRO_TRUECOLOR="1"
+export QT_QPA_PLATFORMTHEME=qt6ct
 export XCURSOR_PATH="/usr/share/icons:$XDG_DATA_HOME/icons"
+export CHTSH_QUERY_OPTIONS="style=rrt"
+export CHTSH_CONF="XDG_CONFIG_HOME/cht.sh/cht.sh.conf"
 
 # Colored man pages
 #export MANPAGER="/usr/bin/less -R --use-color -Dd+r$Du+b "
@@ -145,15 +208,19 @@ export LESSHISTFILE=/dev/null
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-export TERM="xterm-256color"
+export TERM='xterm-256color'
 
+# ============================================================================
+# ALTERNATE WINE FOR VST PLUGINS
+# ============================================================================
+
+export WINELOADER=$HOME/.local/bin/wineloader
 
 # ============================================================================
 # WELCOME MESSAGE
 # ============================================================================
 
 fastfetch --config pusheen
-
 
 # ============================================================================
 # ble.sh
