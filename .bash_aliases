@@ -1,11 +1,12 @@
-#/----------------------------------------/
-#╱╭━━━╮╱╭╮╱╱╱╱╭━━╮╱╭━━━╮╱╭━━━╮╱╭━━━╮╱╭━━━╮/
-#╱┃╭━╮┃╱┃┃╱╱╱╱╰┫┣╯╱┃╭━╮┃╱┃╭━╮┃╱┃╭━━╯╱┃╭━╮┃/
-#/┃┃╱┃┃╱┃┃╱╱╱╱╱┃┃╱╱┃┃╱┃┃╱┃╰━━╮╱┃╰━━╮╱┃╰━━╮/
-#╱┃╰━╯┃╱┃┃╱╭╮╱╱┃┃╱╱┃╰━╯┃╱╰━━╮┃╱┃╭━━╯╱╰━━╮┃/
-#╱┃╭━╮┃╱┃╰━╯┃╱╭┫┣╮╱┃╭━╮┃╱┃╰━╯┃╱┃╰━━╮╱┃╰━╯┃/
-#╱╰╯╱╰╯╱╰━━━╯╱╰━━╯╱╰╯╱╰╯╱╰━━━╯╱╰━━━╯╱╰━━━╯/
-#/----------------------------------------/
+#!/usr/bin/env bash
+# /----------------------------------------/
+# ╱╭━━━╮╱╭╮╱╱╱╱╭━━╮╱╭━━━╮╱╭━━━╮╱╭━━━╮╱╭━━━╮/
+# ╱┃╭━╮┃╱┃┃╱╱╱╱╰┫┣╯╱┃╭━╮┃╱┃╭━╮┃╱┃╭━━╯╱┃╭━╮┃/
+# /┃┃╱┃┃╱┃┃╱╱╱╱╱┃┃╱╱┃┃╱┃┃╱┃╰━━╮╱┃╰━━╮╱┃╰━━╮/
+# ╱┃╰━╯┃╱┃┃╱╭╮╱╱┃┃╱╱┃╰━╯┃╱╰━━╮┃╱┃╭━━╯╱╰━━╮┃/
+# ╱┃╭━╮┃╱┃╰━╯┃╱╭┫┣╮╱┃╭━╮┃╱┃╰━╯┃╱┃╰━━╮╱┃╰━╯┃/
+# ╱╰╯╱╰╯╱╰━━━╯╱╰━━╯╱╰╯╱╰╯╱╰━━━╯╱╰━━━╯╱╰━━━╯/
+# /----------------------------------------/
 
 # update my goods
 alias sa="figlet -tf miniwi 'Debian upgrades' \
@@ -30,11 +31,11 @@ alias sa="figlet -tf miniwi 'Debian upgrades' \
 && figlet -tf miniwi 'All done!' \
 && echo 'That was nice, thanks for bringing me up to date!'"
 
-
 # ============================================================================
 # FILE OPERATIONS
 # ============================================================================
 
+# ask before doing potentially dangerous file actions and give more info
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -Iv'
@@ -48,7 +49,6 @@ alias fix-permissions='sudo chown -R $USER:$USER ~/.config ~/.local'
 
 # consolidate downloaded fonts & make available for all users
 alias fonts-copy='sudo cp -r ~/.fonts/* /usr/share/fonts/ && sudo cp -r ~/.local/share/fonts/* /usr/share/fonts/'
-
 
 # ============================================================================
 # LS VARIANTS
@@ -76,22 +76,23 @@ else
     alias lh='ls -lath'
 fi
 
-
 # ============================================================================
 # NAVIGATION
 # ============================================================================
+
+# replace cd with zoxide
+[[ -x "$(command -v zoxide)" ]] && alias cd='z'
 
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# replace 'cd' with 'z'
-alias cd='z'
-
 # folders sorted by size
 alias foldersizesort='du -sh * | sort -h'
 
+# show thie 15 largest things
+alias ducks='du -cks *|sort -rn|head -16'
 
 # ============================================================================
 # PATHS
@@ -104,8 +105,7 @@ alias wardrobe='flatpak run io.github.swordpuffin.wardrobe'
 alias zed='flatpak run dev.zed.Zed'
 
 # pretty print path
-alias path="echo $PATH | tr -s ':' '\n'"
-
+alias path='echo $PATH | tr -s : \n'
 
 # ============================================================================
 # PIPEWIRE
@@ -118,7 +118,6 @@ alias pw256='pw-metadata -n settings 0 clock.force-quantum 256'
 alias pw512='pw-metadata -n settings 0 clock.force-quantum 512'
 alias pw1024='pw-metadata -n settings 0 clock.force-quantum 1024'
 alias pw2048='pw-metadata -n settings 0 clock.force-quantum 2048'
-
 
 # ============================================================================
 # SYSTEM UTILITIES
@@ -135,14 +134,21 @@ alias grep='grep --color=auto'
 alias ip='ip -color=always'
 alias tree='tree --dirsfirst -C'
 
-# replace 'ps' with 'procs'
-alias ps='procs'
+# replace ps with procs
+[[ -x "$(command -v procs)" ]]    && alias ps='procs'
 
-# replace 'bat' with 'batcat'
-alias bat='batcat'
+# replace grep with ripgrep
+[[ -x "$(command -v rg)" ]]       && alias grep='rg'
+
+# replace find with fd
+[[ -x "$(command -v fd)" ]]       && alias find='fd'
+[[ -x "$(command -v fdfind)" ]]   && alias find='fdfind'
+
+# use bat instead of batcat
+[[ -x "$(command -v batcat)" ]]   && alias bat='batcat'
 
 # make cmatrix look how I like
-alias cmatrix='cmatrix -asb -u 1 -C red'
+[[ -x "$(command -v cmatrix)" ]]  && alias cmatrix='cmatrix -asb -u 1 -C red'
 
 # readable output
 alias df='df -h'
@@ -152,17 +158,17 @@ alias free='free -h'
 # tell me my external IP addrress
 alias myip='curl http://ipecho.net/plain; echo'
 
-# open the kitty theme selector
-alias kitty-themes='kitty +kitten themes'
-
 # display image in terminal
-alias kitty-pix='kitty +kitten icat'
+[[ $TERM == 'xterm-kitty' ]]      && alias kitty-pix='kitty +kitten icat'
+
+# open the kitty theme selector
+[[ $TERM == 'xterm-kitty' ]]      && alias kitty-themes='kitty +kitten themes'
 
 # make bro use specified theme
-alias bro='bro --theme gruvbox-dark'
+[[ -x "$(command -v bro)" ]]      && alias bro='bro --theme gruvbox-dark'
 
 # make cbonsai use my preferred settings
-alias cbonsai='cbonsai --multiplier 15 --life 100 -S'
+[[ -x "$(command -v cbonsai)" ]]  && alias cbonsai='cbonsai --multiplier 15 --life 100 -S'
 
 # make getting weather forecasts easier
 alias weather='curl wttr.in'
@@ -177,19 +183,18 @@ alias nextcloud-config='micro /nextcloud/config/www/nextcloud/config/config.php'
 # make ncmpcpp launch as a session in kitty
 #alias ncmpcpp='kitty -o font_size=11 --session ~/.config/kitty/ncmpcpp.session'
 
-
-#/-------------------------------------------------------/
-#╱╭━━━╮╱╭╮╱╭╮╱╭━╮╱╭╮╱╭━━━╮╱╭━━━━╮╱╭━━╮╱╭━━━╮╱╭━╮╱╭╮╱╭━━━╮/
-#╱┃╭━━╯╱┃┃╱┃┃╱┃┃╰╮┃┃╱┃╭━╮┃╱┃╭╮╭╮┃╱╰┫┣╯╱┃╭━╮┃╱┃┃╰╮┃┃╱┃╭━╮┃/
-#╱┃╰━━╮╱┃┃╱┃┃╱┃╭╮╰╯┃╱┃┃╱╰╯╱╰╯┃┃╰╯╱╱┃┃╱╱┃┃╱┃┃╱┃╭╮╰╯┃╱┃╰━━╮/
-#╱┃╭━━╯╱┃┃╱┃┃╱┃┃╰╮┃┃╱┃┃╱╭╮╱╱╱┃┃╱╱╱╱┃┃╱╱┃┃╱┃┃╱┃┃╰╮┃┃╱╰━━╮┃/
-#╱┃┃╱╱╱╱┃╰━╯┃╱┃┃╱┃┃┃╱┃╰━╯┃╱╱╱┃┃╱╱╱╭┫┣╮╱┃╰━╯┃╱┃┃╱┃┃┃╱┃╰━╯┃/
-#╱╰╯╱╱╱╱╰━━━╯╱╰╯╱╰━╯╱╰━━━╯╱╱╱╰╯╱╱╱╰━━╯╱╰━━━╯╱╰╯╱╰━╯╱╰━━━╯/
-#/-------------------------------------------------------/
+# /-------------------------------------------------------/
+# ╱╭━━━╮╱╭╮╱╭╮╱╭━╮╱╭╮╱╭━━━╮╱╭━━━━╮╱╭━━╮╱╭━━━╮╱╭━╮╱╭╮╱╭━━━╮/
+# ╱┃╭━━╯╱┃┃╱┃┃╱┃┃╰╮┃┃╱┃╭━╮┃╱┃╭╮╭╮┃╱╰┫┣╯╱┃╭━╮┃╱┃┃╰╮┃┃╱┃╭━╮┃/
+# ╱┃╰━━╮╱┃┃╱┃┃╱┃╭╮╰╯┃╱┃┃╱╰╯╱╰╯┃┃╰╯╱╱┃┃╱╱┃┃╱┃┃╱┃╭╮╰╯┃╱┃╰━━╮/
+# ╱┃╭━━╯╱┃┃╱┃┃╱┃┃╰╮┃┃╱┃┃╱╭╮╱╱╱┃┃╱╱╱╱┃┃╱╱┃┃╱┃┃╱┃┃╰╮┃┃╱╰━━╮┃/
+# ╱┃┃╱╱╱╱┃╰━╯┃╱┃┃╱┃┃┃╱┃╰━╯┃╱╱╱┃┃╱╱╱╭┫┣╮╱┃╰━╯┃╱┃┃╱┃┃┃╱┃╰━╯┃/
+# ╱╰╯╱╱╱╱╰━━━╯╱╰╯╱╰━╯╱╰━━━╯╱╱╱╰╯╱╱╱╰━━╯╱╰━━━╯╱╰╯╱╰━╯╱╰━━━╯/
+# /-------------------------------------------------------/
 
 # fzf bash history
 fh () {
-    eval $(history | fzf --layout=reverse --exact --prompt=" " --no-sort --margin=1% --gap=1 --multi --color="bg+:0,fg:15,fg+:9,border:8,hl+:2,prompt:15,hl:2,pointer:1,info:8,spinner:1" --border --border=bold --border=rounded --border-label="HISTORY" --highlight-line --pointer " " | sed 's/ *[0-9]* *//')
+    eval "$(history | fzf --layout=reverse --exact --prompt=" " --no-sort --margin=1% --gap=1 --multi --color="bg+:0,fg:15,fg+:9,border:8,hl+:2,prompt:15,hl:2,pointer:1,info:8,spinner:1" --border --border=bold --border=rounded --border-label="HISTORY" --highlight-line --pointer " " | sed 's/ *[0-9]* *//')"
 }
 
 # convert markdown to html
@@ -203,13 +208,17 @@ md2html() {
 
 # create and enter directory
 mcd () {
-    mkdir -p $1
-    cd $1
+    mkdir -p "$1"
+    cd "$1" || exit
 }
 
 # archive extractor
-extract () {
-    set -e  # abort execution on errors
+extract() {
+    SAVEIFS=$IFS
+    IFS=$' \t\n'
+
+    # abort execution on errors
+    set +e
 
     if [ $# -eq 0 ]; then
         # display usage if no parameters given
@@ -219,40 +228,67 @@ extract () {
         return 1
     fi
 
-    for n in "$@"; do
-        if [ ! -f "$n" ]; then
-            echo "'$n' - file doesn't exist"
+    while [[ $# -gt 0 ]]; do
+        n="$1"
+        shift
+
+    # === STDIN ===
+    if [[ "$n" == "-" ]]; then
+        if [ -z "$1" ]; then
+            echo "Error: must provide extension after '-' (stdin mode)"
             return 1
         fi
+        ext="$1"
+        shift
 
-        case "${n%,}" in
-            *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
-                         tar --auto-compress -xvf "$n" ;;
-            *.lzma)      unlzma "$n" ;;
-            *.bz2)       bunzip2 "$n" ;;
-            *.cbr|*.rar) unrar x -ad "$n" ;;
-            *.gz)        gunzip "$n" ;;
-            *.cbz|*.epub|*.zip) unzip "$n" ;;
-            *.z)         uncompress "$n" ;;
-            *.7z|*.apk|*.arj|*.cab|*.cb7|*.chm|*.deb|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar|*.vhd)
-                         7z x "$n" ;;
-            *.xz)        unxz "$n" ;;
-            *.exe)       cabextract "$n" ;;
-            *.cpio)      cpio -id < "$n" ;;
-            *.cba|*.ace) unace x "$n" ;;
-            *.zpaq)      zpaq x "$n" ;;
-            *.arc)       arc e "$n" ;;
-            *.cso)       ciso 0 "$n" "$n.iso" && extract "$n.iso" && rm -f "$n" ;;
-            *.zlib)      zlib-flate -uncompress < "$n" > "${n%.*zlib}" && rm -f "$n" ;;
-            *.dmg)
-                         mnt_dir=$(mktemp -d)
-                         hdiutil mount "$n" -mountpoint "$mnt_dir"
-                         echo "Mounted at: $mnt_dir" ;;
-            *.tar.zst)  tar -I zstd -xvf "$n" ;;
-            *.zst)      zstd -d "$n" ;;
-            *)
-                echo "extract: '$n' - unknown archive method"
-                continue ;;
-        esac
-    done
+        tmpfile=$(mktemp "/tmp/extract.stdin.XXXXXX.$ext")
+        cat > "$tmpfile"
+        echo "Saved stdin to temp file: $tmpfile"
+        extract "$tmpfile"
+        rm -f "$tmpfile"
+        continue
+    fi
+
+    # === FILE CHECK ===
+    if [ ! -f "$n" ]; then
+        echo "'$n' - file doesn't exist"
+        continue
+    fi
+
+    case "${n%,}" in
+        *.7z|*.apk|*.arj|*.cab|*.cb7|*.chm|*.deb|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar|*.vhd)
+            7z x "$n" ;;
+        *.appimage)  ./"$n" --appimage-extract ;;
+        *.arc)       arc e "$n" ;;
+        *.bz2)       bunzip2 "$n" ;;
+        *.cba|*.ace) unace x "$n" ;;
+        *.cbr|*.rar) unrar x -ad "$n" ;;
+        *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
+            tar --auto-compress -xvf "$n" ;;
+        *.cbz|*.epub|*.zip) unzip "$n" ;;
+        *.cpio)      cpio -id < "$n" ;;
+        *.cso)       ciso 0 "$n" "$n.iso" && extract "$n.iso" && rm -f "$n" ;;
+        *.dmg)
+                mnt_dir=$(mktemp -d)
+                hdiutil mount "$n" -mountpoint "$mnt_dir"
+                echo "Mounted at: $mnt_dir" ;;
+        *.exe)       cabextract "$n" ;;
+        *.gz)        gunzip "$n" ;;
+        *.lzma)      unlzma "$n" ;;
+        *.lz4)       lz4 -d "$n" ;;
+        *.tar.br)    tar --use-compress-program=pbzip2 -xvf "$n" ;;
+        *.tar.lz4)   tar --use-compress-program=lz4 -xvf "$n" ;;
+        *.tar.zst)   tar -I zstd -xvf "$n" ;;
+        *.xz)        unxz "$n" ;;
+        *.z)         uncompress "$n" ;;
+        *.zlib)      zlib-flate -uncompress < "$n" > "${n%.*zlib}" && rm -f "$n" ;;
+        *.zpaq)      zpaq x "$n" ;;
+        *.zst)       zstd -d "$n" ;;
+        *)
+            echo "extract: '$n' - unknown archive method"
+            continue ;;
+    esac
+done
+
+IFS=$SAVEIFS
 }
