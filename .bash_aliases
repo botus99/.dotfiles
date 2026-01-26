@@ -105,7 +105,7 @@ alias wardrobe='flatpak run io.github.swordpuffin.wardrobe'
 alias zed='flatpak run dev.zed.Zed'
 
 # pretty print path
-alias path='echo $PATH | tr -s : \n'
+alias path="echo $PATH | tr -s ':' '\n' | sort"
 
 # ============================================================================
 # PIPEWIRE
