@@ -91,7 +91,7 @@ alias .....='cd ../../../..'
 # folders sorted by size
 alias foldersizesort='du -sh * | sort -h'
 
-# show thie 15 largest things
+# show the 15 largest things inside the current directory
 alias ducks='du -cks *|sort -rn|head -16'
 
 # ============================================================================
