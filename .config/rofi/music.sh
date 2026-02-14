@@ -1,0 +1,1 @@
+/home/george/.config/rofi/music.sh
