@@ -9,10 +9,12 @@ I hope these dotfiles serve as a source of inspiration for your own unique setup
 ## Features
 
 - a fancy ncmpcpp kitty session
+- over 10 custom rofi scripts
+- custom fastfetch images and ascii art
 - custom bash prompt
-- custom fastfetch images to pick from
+- custom pywal shaders
+- pywal when possible, gruvbox when necessary
 - subtle to heavy tweaks to polybar, rofi, kitty, and others
-- gruvbox color scheme all over the place
 - scripts to install deb repos, applications, configurations, and theming
 - ffmpeg compiled with Nvidia/CUDA codecs and headers
 - avisynth & vapoursynth
