@@ -8,29 +8,6 @@
 # ╱╰╯╱╰╯╱╰━━━╯╱╰━━╯╱╰╯╱╰╯╱╰━━━╯╱╰━━━╯╱╰━━━╯/
 # /----------------------------------------/
 
-# update my goods
-alias sa="figlet -tf miniwi 'Debian upgrades' \
-&& sudo nala upgrade -y \
-&& figlet -tf miniwi 'Deb-Get upgrades' \
-&& sudo deb-get update --repos-only && sudo deb-get upgrade --dg-only \
-&& figlet -tf miniwi 'Pacstall upgrades' \
-&& pacstall -Up \
-&& figlet -tf miniwi 'Flatpak upgrades' \
-&& flatpak update -y \
-&& figlet -tf miniwi 'Python upgrades' \
-&& pipx upgrade-all \
-&& figlet -tf miniwi 'Cargo upgrades' \
-&& cargo-install-update install-update --all \
-&& figlet -tf miniwi 'TLDR upgrades' \
-&& tldr -u \
-&& figlet -tf miniwi 'TGPT upgrades' \
-&& sudo tgpt -u \
-&& figlet -tf miniwi 'Garbage removal' \
-&& sudo nala autoremove \
-&& sudo nala clean \
-&& figlet -tf miniwi 'All done!' \
-&& echo 'That was nice, thanks for bringing me up to date!'"
-
 # ============================================================================
 # FILE OPERATIONS
 # ============================================================================
@@ -379,4 +356,60 @@ darken () {
         i=$(( i + 1))
     done
     printf '#%s\n' "$colout"
+}
+
+# update my goods
+sa() {
+    # colors for banners
+    RED="\033[1;31m"
+    GREEN="\033[1;32m"
+    BLUE="\033[1;34m"
+    YELLOW="\033[1;33m"
+    RESET="\033[0m"
+
+    # banner helper
+    banner() {
+        local name="$1"
+        local color="${2:-$BLUE}"
+        echo -e "${color}========================="
+        echo -e " $name "
+        echo -e "=========================${RESET}"
+    }
+
+    # list of package managers and commands
+    declare -A managers=(
+        ["Debian upgrades"]="sudo nala upgrade -y"
+        ["Deb-Get upgrades"]="sudo deb-get update --repos-only && sudo deb-get upgrade --dg-only"
+        ["Pacstall upgrades"]="pacstall -Up"
+        ["Flatpak upgrades"]="flatpak update -y"
+        ["Python upgrades"]="pipx upgrade-all"
+        ["Cargo upgrades"]="cargo-install-update install-update --all"
+        ["TLDR upgrades"]="tldr -u"
+        ["TGPT upgrades"]="sudo tgpt -u"
+        ["Garbage removal"]="sudo nala autoremove && sudo nala clean"
+    )
+
+    # colors per manager
+    declare -A colors=(
+        ["Debian upgrades"]=$BLUE
+        ["Deb-Get upgrades"]=$BLUE
+        ["Pacstall upgrades"]=$BLUE
+        ["Flatpak upgrades"]=$BLUE
+        ["Python upgrades"]=$BLUE
+        ["Cargo upgrades"]=$BLUE
+        ["TLDR upgrades"]=$BLUE
+        ["TGPT upgrades"]=$BLUE
+        ["Garbage removal"]=$BLUE
+    )
+
+    # loop through each manager
+    for manager in "${!managers[@]}"; do
+        banner "$manager" "${colors[$manager]}"
+        if ! eval "${managers[$manager]}"; then
+            echo -e "\033[1;31m⚠️  $manager failed — continuing...\033[0m"
+        fi
+    done
+    
+    banner "All done!" $GREEN
+    echo -e "✅ That was nice, thanks for bringing me up to date!"
 }
