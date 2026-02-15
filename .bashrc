@@ -169,7 +169,11 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# for statusbar scripts other other scripts
+#export TERM="xterm-256color"
+export EDITOR="micro"
 export TERMINAL="/usr/bin/kitty"
+export COLORTERM='truecolor'
 
 # ============================================================================
 # THEMING
@@ -199,16 +203,15 @@ export LESS_TERMCAP_ue=$'\e[0m'                # end underline
 export LESS_TERMCAP_us=$'\e[1;4;31m'           # begin underline
 
 # Better less defaults
+#export LESSHISTFILE=/dev/null
 #export LESS="-R --use-color -Dd+r$Du+b "
-export LESS='-R -F -X -i -P %f (%i/%m) '
-export LESSHISTFILE=/dev/null
+export LESS='-R -F -X -i -P -d %f (%i/%m) '
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-export TERM='xterm-256color'
 
 # ============================================================================
 # ALTERNATE WINE FOR VST PLUGINS
@@ -217,10 +220,17 @@ export TERM='xterm-256color'
 export WINELOADER=$HOME/.local/bin/wineloader
 
 # ============================================================================
+# PYWAL
+# ============================================================================
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
+source ~/.cache/wal/colors.sh
+
+# ============================================================================
 # WELCOME MESSAGE
 # ============================================================================
 
-fastfetch --config pusheen
+fastfetch --config catbox
 
 # ============================================================================
 # ble.sh
