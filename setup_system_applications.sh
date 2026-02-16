@@ -148,6 +148,7 @@ INSTALL_DEBS() {
                 mediainfo-gui \
                 mencoder \
                 mpd \
+                mpDris2 \
                 mpv \
                 ncmpcpp \
                 paprefs \
