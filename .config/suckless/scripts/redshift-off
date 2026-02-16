@@ -1,0 +1,4 @@
+#! /bin/sh
+
+killall redshift
+notify-send -i redshift "redshift off" "temperature color: normal"

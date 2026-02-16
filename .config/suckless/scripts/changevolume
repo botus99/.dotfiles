@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+SINK="@DEFAULT_AUDIO_SINK@"
+
+get_volume() {
+    # Extract volume as percentage
+    wpctl get-volume "$SINK" | awk '{printf "%d\n", $2 * 100}'
+}
+
+is_muted() {
+    wpctl get-volume "$SINK" | grep -q MUTED
+}
+
+send_notification() {
+    volume=$(get_volume)
+
+    if is_muted; then
+        icon=""
+        message="muted"
+        volume=0
+    elif (( volume < 30 )); then
+        icon=""
+    elif (( volume < 70 )); then
+        icon=""
+    else
+        icon=""
+    fi
+
+    notify-send \
+        -a "changevolume" \
+        -u low \
+        -r 9993 \
+        -h int:value:"$volume" \
+        -i "$icon" \
+        "volume: ${volume}%" \
+        "$message" \
+        -t 1500
+}
+
+play_feedback() {
+    play "/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga" 2>/dev/null
+}
+
+case "$1" in
+up)
+    wpctl set-mute "$SINK" 0
+    wpctl set-volume --limit 1.0 "$SINK" 1%+
+    play_feedback
+    send_notification up
+    ;;
+down)
+    wpctl set-mute "$SINK" 0
+    wpctl set-volume "$SINK" 1%-
+    play_feedback
+    send_notification down
+    ;;
+mute)
+    wpctl set-mute "$SINK" toggle
+    if is_muted; then
+        notify-send -i gnome-settings-sound -a "changevolume" -t 2000 -r 9993 -u low "muted"
+    else
+        send_notification up
+    fi
+    ;;
+*)
+    echo "Usage: $0 {up|down|mute}"
+    exit 1
+    ;;
+esac

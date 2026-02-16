@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Get public IP address
+public_ip=$(curl -s https://api.ipify.org)
+
+# Get latitude and longitude
+lat=$(curl -s "http://ip-api.com/json/$public_ip?fields=lat" | jq -r '.lat')
+lon=$(curl -s "http://ip-api.com/json/$public_ip?fields=lon" | jq -r '.lon')
+
+# Format output
+echo "$lat:$lon"

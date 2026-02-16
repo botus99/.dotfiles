@@ -1,0 +1,4 @@
+#! /bin/sh
+
+pidof redshift >/dev/null || /usr/bin/redshift -m randr -P -l 41.76058:-88.32007 &
+notify-send -i redshift "redshift" "daytime temp: 6500k \nnight temp: 4500k"
