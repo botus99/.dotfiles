@@ -1,0 +1,16 @@
+#!/bin/sh
+
+TERMINAL="/usr/local/bin/st"
+EDITOR="micro"
+
+case $BLOCK_BUTTON in
+	1) notify-send "🖥 cpu hogs" "$(ps axch -o cmd,%cpu | awk '{cmd[$1]+=$2} END {for (i in cmd) print i, cmd[i]}' | sort -nrk2  | head)\\n(100% per core)" ;;
+	2) setsid -f "$TERMINAL" -e btop ;;
+	3) notify-send "🖥 cpu module " "\ click to show intensive processes
+ middle click to open btop" ;;
+	6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+cpu_temp=$(sensors | awk '/Tctl/ {print "" $2}' | sed 's/+//;s/\..*$//')
+echo " $cpu_tempC"
+

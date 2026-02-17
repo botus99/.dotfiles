@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# ensure updater is running
+#pidof -x sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
+
+TERMINAL="/usr/local/bin/st"
+META='{{ trunc(artist,17) }} - {{ trunc(title,17) }}'
+
+case $(playerctl status 2>/dev/null) in
+  Playing) ICON="  " ;;
+  Paused)  ICON="  " ;;
+  *) exit 0 ;;
+esac
+
+META_OUTPUT=$(playerctl metadata --format "$META" 2>/dev/null)
+echo "$ICON$META_OUTPUT"
+
+case $BLOCK_BUTTON in
+  1) setsid -f "$HOME/.config/rofi/music.sh" >/dev/null 2>&1 ;;
+  2) playerctl play-pause >/dev/null 2>&1 ;;
+  3) setsid -f "$TERMINAL" -e ncmpcpp >/dev/null 2>&1 ;;
+  4) wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+ >/dev/null 2>&1 ;;
+  5) wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%- >/dev/null 2>&1 ;;
+esac

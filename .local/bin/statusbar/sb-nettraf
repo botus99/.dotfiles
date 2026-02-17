@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Module showing network traffic. Shows how much data has been received (RX) or
+# transmitted (TX) since the previous time this script ran. So if run every
+# second, gives network traffic per second.
+
+TERMINAL="/usr/local/bin/st"
+EDITOR="micro"
+
+case $BLOCK_BUTTON in
+	1) setsid -f "$TERMINAL" -e bmon >/dev/null 2>&1 ;;
+	3) notify-send "󰖟 network traffic module" " : traffic in
+ : traffic out" >/dev/null 2>&1 ;;
+	6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" >/dev/null 2>&1 ;;
+esac
+
+update() {
+    sum=0
+    for arg; do
+        read -r i < "$arg"
+        sum=$(( sum + i ))
+    done
+    cache=/tmp/${1##*/}
+    [ -f "$cache" ] && read -r old < "$cache" || old=0
+    printf %d\\n "$sum" > "$cache"
+    printf %d\\n $(( sum - old ))
+}
+
+rx=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
+tx=$(update /sys/class/net/[ew]*/statistics/tx_bytes)
+
+printf " %5sB  %5sB\\n" $(numfmt --to=iec $rx $tx)
