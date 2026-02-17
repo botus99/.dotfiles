@@ -1,1 +1,139 @@
-/home/george/.config/wal/wal-after
+#!/usr/bin/env bash
+
+source "$HOME/.cache/wal/colors.sh"
+
+# --------------------------------------------------
+# sed helpers
+# --------------------------------------------------
+
+# replace entire value after "=" (no quotes added)
+set_cv() {
+    file="$1"
+    key="$2"
+    value="$3"
+    sed -i "/^$key[[:space:]]*=/s@=.*@= $value@" "$file"
+}
+
+# replace entire value after "=" and wrap in quotes
+set_quoted_cv() {
+    file="$1"
+    key="$2"
+    value="$3"
+    sed -i "/^$key[[:space:]]*=/s@=.*@= \"$value\"@" "$file"
+}
+
+# replace first hex color on matching line (for legacy configs like mpv/jgmenu)
+replace_hex() {
+    file="$1"
+    key="$2"
+    value="$3"
+    sed -i "/$key/s@#[[:xdigit:]]\\{6\\}@$value@" "$file"
+}
+
+# replace inside INI section range (used for dunst)
+set_section_quoted_cv() {
+    file="$1"
+    section="$2"
+    key="$3"
+    value="$4"
+    sed -i "/^\\[$section\\]/,/^\\[/{/^[[:space:]]*$key[[:space:]]*=/s@=.*@= \"$value\"@}" "$file"
+}
+
+# nicotine
+# gui doesn't update and settings overwrite
+# needs more research... leaving here for later experimentats
+#NIC="$HOME/.config/nicotine/config"
+#sed -i '/^chatme[[:space:]]*=/s@=.*@= '"$color6"'@' "$NIC"
+#sed -i '/^chatremote[[:space:]]*=/s@=.*@= '"$color15"'@' "$NIC"
+#sed -i '/^chatlocal[[:space:]]*=/s@=.*@= '"$color15"'@' "$NIC"
+#sed -i '/^chatcommand[[:space:]]*=/s@=.*@= '"$color6"'@' "$NIC"
+#sed -i '/^chathilite[[:space:]]*=/s@=.*@= '"$color5"'@' "$NIC"
+#sed -i '/^urlcolor[[:space:]]*=/s@=.*@= '"$color13"'@' "$NIC"
+#sed -i '/^useronline[[:space:]]*=/s@=.*@= '"$color2"'@' "$NIC"
+#sed -i '/^useraway[[:space:]]*=/s@=.*@= '"$color3"'@' "$NIC"
+#sed -i '/^useroffline[[:space:]]*=/s@=.*@= '"$color9"'@' "$NIC"
+#sed -i '/^search[[:space:]]*=/s@=.*@= '"$color15"'@' "$NIC"
+#sed -i '/^inputcolor[[:space:]]*=/s@=.*@= '"$color15"'@' "$NIC"
+#sed -i '/^tab_default[[:space:]]*=/s@=.*@= '"$color15"'@' "$NIC"
+#sed -i '/^tab_hilite[[:space:]]*=/s@=.*@= '"$color5"'@' "$NIC"
+#sed -i '/^tab_changed[[:space:]]*=/s@=.*@= '"$color1"'@' "$NIC"
+
+# kitty
+ln -sf "$HOME/.cache/wal/colors-kitty.conf" "$HOME/.config/kitty/kitty.conf"
+
+# cava
+ln -sf "$HOME/.cache/wal/colors-cava" "$HOME/.config/cava/config"
+
+# zed
+ln -sf "$HOME/.cache/wal/colors-zed.json" "$HOME/.var/app/dev.zed.Zed/config/zed/settings.json"
+
+# gradience
+cp -f "$HOME/.cache/wal/gradience.json" "$HOME/.var/app/com.github.GradienceTeam.Gradience/config/presets/user/pywal.json"
+
+# flameshot
+FLAME="$HOME/.config/flameshot/flameshot.ini"
+set_cv "$FLAME" uiColor "$color1"
+set_cv "$FLAME" drawColor "$color9"
+
+# dunst
+DUNSTRC="$HOME/.config/suckless/dunst/dunstrc"
+set_section_quoted_cv "$DUNSTRC" global frame_color "$color9"
+set_section_quoted_cv "$DUNSTRC" global separator_color "$color1"
+set_section_quoted_cv "$DUNSTRC" urgency_low background "$color0"
+set_section_quoted_cv "$DUNSTRC" urgency_low foreground "$color15"
+set_section_quoted_cv "$DUNSTRC" urgency_low frame_color "$color9"
+set_section_quoted_cv "$DUNSTRC" urgency_low highlight "$color5"
+set_section_quoted_cv "$DUNSTRC" urgency_normal background "$color0"
+set_section_quoted_cv "$DUNSTRC" urgency_normal foreground "$color15"
+set_section_quoted_cv "$DUNSTRC" urgency_normal frame_color "$color9"
+set_section_quoted_cv "$DUNSTRC" urgency_normal highlight "$color5"
+set_section_quoted_cv "$DUNSTRC" urgency_critical background "$color0"
+set_section_quoted_cv "$DUNSTRC" urgency_critical foreground "$color15"
+set_section_quoted_cv "$DUNSTRC" urgency_critical frame_color "$color9"
+set_section_quoted_cv "$DUNSTRC" urgency_critical highlight "$color5"
+pkill dunst
+setsid -f dunst -conf "$DUNSTRC"
+
+# mpv
+MPVCONF="$HOME/.config/mpv/mpv.conf"
+replace_hex "$MPVCONF" background-color "$color0"
+replace_hex "$MPVCONF" sub-shadow-color "$color0"
+replace_hex "$MPVCONF" osd-border-color "$color0"
+replace_hex "$MPVCONF" background-tile-color-0 "$color0"
+replace_hex "$MPVCONF" background-tile-color-1 "$color15"
+replace_hex "$MPVCONF" sub-color "$color15"
+
+# jgmenu
+JGMENURC="$HOME/.config/jgmenu/jgmenurc"
+replace_hex "$JGMENURC" color_menu_bg "$color0"
+replace_hex "$JGMENURC" color_menu_border "$color1"
+replace_hex "$JGMENURC" color_norm_bg "$color9"
+replace_hex "$JGMENURC" color_norm_fg "$color15"
+replace_hex "$JGMENURC" color_sel_bg "$color1"
+replace_hex "$JGMENURC" color_sel_border "$color1"
+replace_hex "$JGMENURC" color_sel_fg "$color15"
+replace_hex "$JGMENURC" color_sep_fg "$color1"
+replace_hex "$JGMENURC" color_title_bg "$color1"
+replace_hex "$JGMENURC" color_title_border "$color9"
+replace_hex "$JGMENURC" color_title_fg "$color15"
+
+# sxhkd
+pidof sxhkd >/dev/null || sxhkd -c ~/.config/suckless/sxhkd/sxhkdrc &
+
+# dwm
+ln -sf "$HOME/.cache/wal/colors.Xresources" "${HOME}/.Xresources"
+cat "$HOME/.Xresources" "$HOME/.cache/wal/xrdb_extra" | xrdb -merge
+xdotool key super+Ctrl+Shift+q
+
+# picom
+replace_hex "$HOME/.config/suckless/picom/picom.conf" shadow-color "$color0"
+
+#####################
+# stuff for later...#
+#####################
+# gtk stuff
+# pywalfox
+#pidof pywalfox >/dev/null && pywalfox update || pywalfox start
+
+# confirmation message
+notify-send -t 2000 --icon=preferences-desktop-wallpaper "wallpaper & colors updated 🥸" "swhwing 🔥!!!"
