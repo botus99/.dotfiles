@@ -71,10 +71,11 @@ sudo ./install.sh --theme red --libadwaita system --size compact --tweaks gruvbo
 cd "$HOME"
 
 ### setup gtk-4.0 links
-ln -s "$HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/assets/" "$HOME/.config/gtk-4.0/assets"
-ln -s "$HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/gtk.css" "$HOME/.config/gtk-4.0/gtk.css"
-ln -s "$HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/gtk-dark.css" "$HOME/.config/gtk-4.0/gtk-dark.css"
-ln -s "$HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/thumbnail.png" "$HOME/.config/gtk-4.0/thumbnail.png"
+### I used to do this until I found out installing both light and dark versions fixed multiple issues
+#ln -s "$HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/assets/" "$HOME/.config/gtk-4.0/assets"
+#ln -s "$HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/gtk.css" "$HOME/.config/gtk-4.0/gtk.css"
+#ln -s "$HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/gtk-dark.css" "$HOME/.config/gtk-4.0/gtk-dark.css"
+#ln -s "$HOME/.local/share/themes/Colloid-Red-Dark-Compact-Gruvbox/gtk-4.0/thumbnail.png" "$HOME/.config/gtk-4.0/thumbnail.png"
 
 ### fix flatpak apps
 sudo flatpak override --filesystem=xdg-config/gtk-3.0 && sudo flatpak override --filesystem=xdg-config/gtk-4.0
@@ -154,7 +155,7 @@ cd "$GITDIR"
 git clone https://github.com/refi64/stylepak.git
 cd stylepak
 ### install current gtk theme for flatpak apps
-sudo ./stylepak install-system
+#sudo ./stylepak install-system
 ./stylepak install-user
 cd "$HOME"
 ### success message
