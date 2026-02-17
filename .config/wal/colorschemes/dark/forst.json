@@ -1,1 +1,25 @@
-/home/george/.config/wal/colorschemes/dark/forst.json
+{
+	"special":{
+		"background": "#161f14",
+		"foreground": "#aca173",
+		"cursor": "#aca173"
+	},
+	"colors":{
+		"color0": "#161f14",
+		"color1": "#744425",
+		"color2": "#50703f",
+		"color3": "#806420",
+		"color4": "#45605d",
+		"color5": "#71532f",
+		"color6": "#56535d",
+		"color7": "#8f855c",
+		"color8": "#2d352b",
+		"color9": "#8a5230",
+		"color10": "#5f844c",
+		"color11": "#967728",
+		"color12": "#527372",
+		"color13": "#86643a",
+		"color14": "#67646f",
+		"color15": "#aca173"
+	}
+}

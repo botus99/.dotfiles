@@ -1,1 +1,25 @@
-/home/george/.config/wal/colorschemes/dark/brogrammer.json
+{
+    "special": {
+        "background": "#1f1f1f",
+        "foreground": "#d6dbe5",
+        "cursor": "#ecf0f1"
+    },
+    "colors": {
+        "color0": "#1f1f1f",
+        "color1": "#e74c3c",
+        "color2": "#f3bd09",
+        "color3": "#1dd361",
+        "color4": "#0f7ddb",
+        "color5": "#5350b9",
+        "color6": "#1abc9c",
+        "color7": "#d6dbe5",
+        "color8": "#2a2a2a",
+        "color9": "#e74c3c",
+        "color10": "#f1c40f",
+        "color11": "#2ecc71",
+        "color12": "#3498db",
+        "color13": "#5350b9",
+        "color14": "#1abc9c",
+        "color15": "#ecf0f1"
+    }
+}

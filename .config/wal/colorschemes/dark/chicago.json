@@ -1,1 +1,25 @@
-/home/george/.config/wal/colorschemes/dark/chicago.json
+{
+    "special": {
+        "background": "#150c09",
+        "foreground": "#c4c2c1",
+        "cursor": "#c4c2c1"
+    },
+    "colors": {
+        "color0": "#150c09",
+        "color1": "#804121",
+        "color2": "#1a6b2e",
+        "color3": "#81634d",
+        "color4": "#2c5772",
+        "color5": "#515766",
+        "color6": "#5a6372",
+        "color7": "#978f8d",
+        "color8": "#6b5e58",
+        "color9": "#a2552c",
+        "color10": "#5c8b67",
+        "color11": "#ac8567",
+        "color12": "#366b8b",
+        "color13": "#6c7687",
+        "color14": "#788699",
+        "color15": "#c4c2c1"
+    }
+}
