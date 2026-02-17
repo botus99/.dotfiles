@@ -1,0 +1,112 @@
+// # z0mbi3 -  https://github.com/gh0stzk/dotfiles
+
+configuration {
+    modi:                        "drun";
+    show-icons:                  true;
+    drun-display-format:         "{name}";
+    font:                        "Mononoki Nerd Font 10.1";
+    
+    //hover-select:				 true;
+	//me-select-entry:			 "";
+	//me-accept-entry:			 "MousePrimary";
+}
+
+//----- Global Properties -----//
+
+* {
+background: #282828;
+foreground: #ebddb2;
+selected-urgent-background: #fb4934;
+selected-active-foreground: #282828;
+}
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+//----- Main Window -----//
+
+window {
+    enabled:                     true;
+    fullscreen:                  false;
+    width:                       90em;
+    height:                      62em;
+    transparency:                "real";
+    cursor:                      "default";
+    spacing:                     0em;
+    padding:                     0em;
+    border:                      0.333em;
+    border-radius:               1em;
+    border-color:                @selected-active-background;
+    background-color:            transparent;
+}
+
+//----- Main Box -----//
+
+mainbox {
+    enabled:                     true;
+    padding:                     2em 1em 0em 1em;
+    children:                    [ "listview" ];
+    background-color:            @background;
+}
+
+//----- Listview -----//
+
+listview {
+    enabled:                     true;
+    columns:                     7;
+    lines:                       5;
+    spacing:                     0.5em 0.5em 0.5em 0.5em;
+    padding:                     0em 1em 0em 1em;
+    cycle:                       true;
+    dynamic:                     false;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-width:                 true;
+    fixed-columns:               true;
+    cursor:                      "default";
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+
+//----- Elements -----//
+
+element {
+    enabled:                     true;
+    orientation:                 vertical;
+    spacing:                     0em;
+    padding:                     0em;
+    border-radius:               1em;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+
+@media(max-aspect-ratio: 1.88) {
+    element {
+        orientation:             vertical;
+    }
+}
+
+element selected.normal {
+    background-color:            @selected-active-background;
+    text-color:                  @selected-active-foreground;
+}
+
+element-icon {
+    size:                        15%;
+    cursor:                      inherit;
+    border-radius:               1em;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+element-text {
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    padding:                     0em 0em 0em 0em;
+    width:                       1em;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}

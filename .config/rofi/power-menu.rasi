@@ -1,0 +1,163 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ *
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+    show-icons: false;
+}
+
+/*****----- Global Properties -----*****/
+* {
+    font: "Mononoki Nerd Font Mono 10.1";
+    background: #1d2021;
+    selected-normal-background: #282828;
+    foreground: #ebdbb2;
+    selected-active-background: #fb4934;
+    selected-urgent-background: #458588;
+}
+
+@import "~/.cache/wal/colors-rofi-dark.rasi" 
+/*
+USE_BUTTONS=YES
+*/
+    /*****----- Main Window -----*****/ 
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 50em;
+    x-offset: 0em;
+    y-offset: 0em;
+    padding: 0em;
+    border: 0.2em;
+    border-radius: 0.666em;
+    border-color: @selected-active-background;
+    cursor: "default";
+    background-color: @background;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled: true;
+    spacing: 0em;
+    margin: 0em;
+    padding: 0em;
+    border: 0em solid;
+    border-radius: 0em;
+    border-color: @selected-active-background;
+    background-color: transparent;
+    children:
+        [ "inputbar",
+        "listview",
+        "message"];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled: true;
+    spacing: 0em;
+    padding: 1.5em 9em 0em 9em;
+    background-color: transparent;
+    /*    background-image:            url("~/.wallpapers/color-scheme/gruvbox/homer-bush.png", width); */
+    children:
+        [ "textbox-prompt-colon",
+        "dummy",
+        "prompt"];
+}
+
+dummy {
+    background-color: transparent;
+}
+
+textbox-prompt-colon {
+    enabled: true;
+    expand: false;
+    str: " debian-testing";
+    margin: 0.5em;
+    padding: 1em;
+    border-radius: 0.666em;
+    background-color: @selected-active-background;
+    text-color: @foreground;
+    border: 0em;
+    border-color: @selected-active-foreground;
+}
+prompt {
+    enabled: true;
+    margin: 0.5em;
+    padding: 1em;
+    border-radius: 0.666em;
+    background-color: @selected-active-background;
+    text-color: @foreground;
+    border: 0em;
+    border-color: @selected-active-foreground;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled: true;
+    columns: 6;
+    lines: 1;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 1em;
+    margin: 1em;
+    background-color: transparent;
+    cursor: "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled: true;
+    padding: 1em 0em;
+    border-radius: 0.666em;
+    background-color: @selected-urgent-background;
+    text-color: @foreground;
+    cursor: pointer;
+    border: 0.0em;
+    border-color: @selected-active-background;
+}
+element-text {
+    font: "Mononoki Nerd Font Mono 30.3";
+    background-color: transparent;
+    padding: 1em;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.48;
+}
+element selected.normal {
+    background-color: @selected-active-background;
+    text-color: @foreground;
+    border: 0em;
+    border-color: @selected-active-foreground;
+}
+
+/*****----- Message -----*****/
+message {
+    enabled: true;
+    margin: 0em;
+    padding: 1em 1em 0.5em 1em;
+    border-radius: 0em;
+    background-color: @selected-active-background;
+    text-color: @foreground;
+    border: 0em;
+    border-color: @selected-active-foreground;
+}
+textbox {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}

@@ -1,0 +1,73 @@
+configuration {
+    show-icons: false;
+    disable-history: true;
+    hide-scrollbar: true;
+}
+
+* {
+    font: "Mononoki Nerd Font Mono 21";
+    background: #1d2021;
+    foreground: #ebdbb2;
+    selected-normal-background: #282828;
+    selected-active-background: #fb4934;
+    selected-urgent-background: #458588;
+}
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+window {
+    enabled: true;
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 16em;
+    padding: 1em 1.2em 0em 1.2em;
+    x-offset: 0px;
+    y-offset: 0px;
+    border: 0.15em;
+    border-radius: 0.333em;
+    border-color: @selected-active-background;
+    cursor: "default";
+    background-color: @background;
+}
+
+mainbox {
+    enabled: true;
+    background-color: @background;
+}
+
+inputbar {
+    enabled: true;
+    orientation: vertical;
+    background-color: @background;
+}
+
+entry {
+    enabled: true;
+    expand: true;
+    padding: 0.25em 0.25em 0.25em 0.25em;
+    background-color: @background;
+    text-color: inherit;
+    cursor: text;
+    placeholder: "󰀠";
+    placeholder-color: @selected-active-background;
+    border: 0.1em solid;
+    border-radius: 0.2em;
+    border-color: @selected-active-background;
+}
+
+prompt {
+    enabled: true;
+    padding: 0em 0em 0.5em 0em;
+    background-color: @background;
+    text-color: @foreground;
+}
+
+textbox-prompt-colon {
+    enabled: false;
+}
+
+listview {
+    enabled: false;
+}

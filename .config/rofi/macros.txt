@@ -1,0 +1,20 @@
+super + Return	💻️ launch terminal
+super + p	🚀 run dmenu
+super + q	❌ close window (method 1)
+super + shift + c	❌ close window (method 2)
+super + ctrl + b	👀 toggle bar
+super + tab	⏮️ last tag
+super + right	➡️ go to tag to the right
+super + left	⬅️ go to tag to the left
+super + ctrl + right	↪️ move focused window to next tag
+super + ctrl + left	↩️ move focused window to prev tag
+super + k	👉️ focus next window
+super + j	👈️ focus previous window
+super + shift + k	↪️ move window right
+super + shift + j	↩️ move window left
+super + shift + l	🤜 resize window right
+super + shift + h	🤛 resize window left
+super + shift + s	📌 toggle Sticky window
+super + shift + space	🛟 toggle floating
+super + shift + r	♻️ restart dwm
+super + ctrl + shift + q	🚪 quit dwm

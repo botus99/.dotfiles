@@ -1,0 +1,248 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ *
+ * edited by : botus99
+ * changes to sizes, pywal integration, etc
+ *
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+    modi: "drun,run,filebrowser,window";
+    show-icons: true;
+    display-drun: "󰵆  app";
+    display-run: "  cmd";
+    display-filebrowser: "  file";
+    display-window: "  window";
+    drun-display-format: "{name}";
+    window-format: "{w} · {c} · {t}";
+}
+
+/*****----- Global Properties -----*****/
+* {
+    font: "Mononoki Nerd Font Mono 10.7"; /* for larger icons do not use a mono font */
+    normal-background: #1d2021;
+    active-background: #282828;
+    normal-foreground: #ebdbb2;
+    selected-normal-foreground: #fb4934;
+    selected-urgent-foreground: #8ec07c;
+    active-foreground: #83a598;
+    subdued-white: #ebdbb236;
+    subdued-red: #fb493436;
+}
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+/*****----- Main Window -----*****/
+window {
+    /* properties for window widget */
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 50em;
+    x-offset: 0px;
+    y-offset: 0px;
+    border: 0.2em solid;
+    border-radius: 0.666em;
+    border-color: @selected-active-background;
+
+    /* properties for all widgets */
+    enabled: true;
+    border-radius: 0.666em;
+    cursor: "default";
+    background-color: @normal-background;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled: true;
+    spacing: 0em;
+    background-color: transparent;
+    orientation: vertical;
+    children:
+        [ "inputbar",
+        "listbox"];
+}
+
+listbox {
+    padding: 0em 1em 1em 1em;
+    background-color: transparent;
+    orientation: vertical;
+    children:
+        [ "message",
+        "listview"];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled: true;
+    spacing: 0em;
+    padding: 1.5em 1em 0em 1em;
+    background-color: transparent;
+    text-color: @normal-foreground;
+    orientation: vertical;
+    children:
+        [ "textbox-prompt-colon",
+        "entry",
+        "dummy",
+        "mode-switcher"];
+}
+
+textbox-prompt-colon {
+    enabled: false;
+    expand: false;
+    str: "";
+    padding: 1em 1em 1em 1em;
+    border-radius: 0.666em;
+    background-color: @active-background;
+    text-color: inherit;
+}
+
+entry {
+    enabled: true;
+    font: "Mononoki Nerd Font Mono 16.7";
+    expand: false;
+    width: 20em;
+    padding: 1em 1em 1em 1em;
+    background-color: @normal-background;
+    text-color: inherit;
+    cursor: text;
+    placeholder: "";
+    placeholder-color: @subdued-white;
+    border: 0.15em solid;
+    border-radius: 0.666em;
+    border-color: @selected-active-background;
+}
+
+dummy {
+    expand: true;
+    background-color: transparent;
+    padding: 0.1em;
+}
+
+/*****----- Mode Switcher -----*****/
+mode-switcher {
+    enabled: true;
+    padding: 2em 0em 3em 0em;
+    spacing: 4em;
+    background-color: transparent;
+    text-color: @normal-foreground;
+}
+
+button {
+    width: 1em;
+    padding: 0.5em;
+    background-color: @background;
+    text-color: @normal-foreground;
+    cursor: pointer;
+    border: 0.15em solid;
+    border-radius: 0.666em;
+    border-color: @selected-active-background;
+}
+
+button selected {
+    padding: 0.5em;
+    background-color: @selected-active-background;
+    text-color: @normal-foreground;
+    border: 0.15em solid;
+    border-radius: 0.666em;
+    border-color: @selected-active-background;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled: true;
+    columns: 3;
+    lines: 6;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+
+    spacing: 0.5em;
+    background-color: transparent;
+    text-color: @normal-foreground;
+    cursor: "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled: true;
+    spacing: 0em;
+    padding: 0.5em;
+    border-radius: 0.666em;
+    background-color: transparent;
+    text-color: @normal-foreground;
+    cursor: pointer;
+}
+element normal.normal {
+    background-color: @background;
+    text-color: inherit;
+}
+element normal.urgent {
+    background-color: @selected-urgent-foreground;
+    text-color: @normal-foreground;
+}
+element normal.active {
+    background-color: @active-background;
+    text-color: @normal-foreground;
+}
+element selected.normal {
+    background-color: @selected-active-background;
+    text-color: @normal-foreground;
+}
+element selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color: @normal-foreground;
+}
+element selected.active {
+    background-color: @selected-urgent-foreground;
+    text-color: @normal-foreground;
+}
+element alternate.normal {
+    background-color: @background;
+    text-color: @foreground;
+}
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 2em;
+    cursor: inherit;
+}
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    padding: 0 0 0 0.5em;
+}
+
+/*****----- Message -----*****/
+message {
+    background-color: transparent;
+}
+
+textbox {
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background-color: @active-background;
+    text-color: @normal-foreground;
+    vertical-align: 0.5;
+    horizontal-align: 0;
+}
+
+error-message {
+    padding: 1em;
+    border-radius: 0.666em;
+    background-color: @active-background;
+    text-color: @normal-foreground;
+}

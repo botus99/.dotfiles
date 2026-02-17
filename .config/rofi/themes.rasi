@@ -1,0 +1,76 @@
+configuration {
+    show-icons: false;
+    disable-history: true;
+    hide-scrollbar: true;
+}
+
+* {
+    font: "Mononoki Nerd Font Mono 12.2";
+    background: #1d2021;
+    foreground: #ebdbb2;
+    selected-active-background: #fb4934;
+    selected-urgent-background: #458588;
+}
+
+@import "~/.cache/wal/colors-rofi-dark"
+
+window {
+    location: center;
+    anchor: center;
+    width: 50em;
+    padding: 1.5em;
+    border: 0.2em;
+    border-radius: 1em;
+    border-color: @selected-active-background;
+    background-color: @background;
+}
+
+mainbox {
+    spacing: 0.8em;
+}
+
+inputbar {
+    margin: 0 0 0.333em 0;
+    border: 0.15em;
+    border-color: @selected-active-background;
+    border-radius: 0.5em;
+    padding: 0.4em;
+}
+
+prompt {
+    padding: 0.1em 0em 0em 0.5em;
+    font: "Mononoki Nerd Font Mono 20.2";
+    text-color: @selected-active-background;
+    placeholder: "";
+}
+
+entry {
+    font: "Mononoki Nerd Font Mono 16.7";
+    text-color: @foreground;
+    padding: 0.15em 0em 0em 0em;
+}
+
+listview {
+    columns: 4;
+    lines: 12;
+    spacing: 0.4em;
+}
+
+element {
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background-color: @background;
+}
+
+element selected.normal {
+    background-color: @selected-active-background;
+    text-color: @foreground;
+}
+
+element-text {
+    horizontal-align: 0.5;
+}
+
+textbox-prompt-colon {
+    text-color: @background;
+}

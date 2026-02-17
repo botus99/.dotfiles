@@ -1,0 +1,121 @@
+* {
+    font: "Mononoki Nerd Font Mono 14.5"; /* Monospace font for alignment */
+}
+
+configuration {
+    location: 0;
+}
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+window {
+    width: 32em;
+    transparency: "real";
+    orientation: vertical;
+    border-color: @selected-active-background;
+    border-radius: 0.666em;
+    border: 0.2em;
+    padding: 1em 1em 1em 1em;
+    margin: 0em 0em 0em 0em;
+}
+
+mainbox {
+    children: [inputbar, listview];
+}
+
+// ELEMENT
+// -----------------------------------
+
+element {
+    padding: 0.5em 0.5em 0.5em 2.5em;
+    text-color: @foreground;
+    background-color: @background;
+    border-radius: 0.33em;
+}
+
+element.selected {
+    text-color: @foreground;
+    background-color: @selected-active-background;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element-icon {
+    size: 0.2em;
+    background-color: inherit;
+    padding: 0.2em 0em 0.2em 0em;
+    alignment: vertical;
+}
+
+element.selected.active {
+    background-color: @background;
+    text-color: @foreground;
+}
+
+element.alternate.normal {
+    background-color: @background;
+    text-color: @foreground;
+}
+
+element.alternate.active {
+    background-color: @selected-active-background;
+    text-color: @foreground;
+}
+
+element.selected.normal {
+    background-color: @selected-active-background;
+    text-color: @foreground;
+}
+
+element.normal.active {
+    background-color: @background;
+    text-color: @foreground;
+}
+
+element.normal.normal {
+    background-color: @background;
+    text-color: @foreground;
+}
+
+element.normal.urgent {
+    background-color: @selected-active-background;
+    text-color: @foreground;
+}
+
+listview {
+    columns: 1;
+    lines: 12;
+    padding: 0.666em 0.666em 0.666em 0.666em;
+    fixed-height: true;
+    fixed-columns: true;
+    fixed-lines: true;
+    border: 0em;
+}
+
+inputbar {
+    padding: 0em 0em 0em 0em;
+    margin: 0em 0em 0em 0em;
+}
+
+entry {
+    font: "Mononoki Nerd Font Mono 16.7";
+    text-color: @foreground;
+    padding: 0.666em 0em 1.0em 0em;
+    margin: 0em 0em 0em 0em;
+}
+
+prompt {
+    font: "Mononoki Nerd Font Mono 20.2";
+    text-color: @selected-active-background;
+    padding: 0.5em 0em 0.5em 1em;
+    margin: 0em 0em 0em 0em;
+}
+
+/***---remove colon after prompt---***/
+textbox-prompt-colon {
+    content: "";
+    text-color: @background;
+}
