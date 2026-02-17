@@ -1,1 +1,0 @@
-/home/george/.config/rofi/power-menu.sh

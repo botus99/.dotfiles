@@ -1,1 +1,0 @@
-/home/george/.config/rofi/launcher.sh
