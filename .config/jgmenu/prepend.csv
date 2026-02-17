@@ -1,0 +1,176 @@
+# =========================================================================== #
+#                         JGMENU... mangled by botus99                        #
+# =========================================================================== #
+
+# search
+@text,,5,8,24,24,2,left,top,auto,#ebddb2 0,<span size="large">🔎</span>
+@search,,24,13,87,24,2,left,top,auto,#ebddb2 0,…
+
+# main hub
+^sep(apps)
+launcher,"$HOME/.config/rofi/launcher.sh",app-launcher
+all apps,^checkout(apps),tux
+terminals,^checkout(terminals),utilities-terminal
+browsers,^checkout(browsers),web-browser
+music,^checkout(music),apple-music
+^sep(files)
+audio,^checkout(gAudio),audio-recorder-on
+music,^checkout(gMusic),deepin-music
+video,^checkout(gVideo),deepin-movie
+gaming,^checkout(gGaming),applications-games
+file manager,thunar,system-file-manager
+text editor,st -e micro,text-editor
+^sep(tools)
+scripts,^checkout(scripts),applications-utilities
+appkiller,xkill,gtk-close
+^sep(system)
+prefs,^checkout(gPreferences),preferences-system
+system,^checkout(gSystem),applications-system
+lock,slock,gnome-lockscreen
+exit,"$HOME/.config/rofi/power-menu.sh",org.rnd2.cpupower_gui-panel
+
+# =========================================================================== #
+#                                                                             #
+# =========================================================================== #
+
+^tag(terminals)
+back,^back()
+alacritty,alacritty,Alacritty
+kitty,kitty,kitty
+st,st,utilities-terminal
+wezterm,wezterm,org.wezfurlong.wezterm
+
+^tag(browsers)
+back,^back()
+browser,x-www-browser,web-browser
+firefox,firefox-esr,firefox
+librewolf,flatpak run io.gitlab.librewolf-community,librewolf
+zen,flatpak run app.zen_browser.zen,zen-icon
+chromium,flatpak run io.github.ungoogled_software.ungoogled_chromium,chromium
+helium,helium.appimage,chromium
+
+^tag(gVideo)
+back,^back()
+jellyfin,flatpak run com.github.iwalton3.jellyfin-media-player,jellyfin
+invidtui,kitty -e inviditui,terminal
+termv,kitty -e termv,terminal
+mlmf (simpsons),kitty -e mlmf,terminal
+mlmf (king of the hill),kitty -e mlmf "/media/george/tv-shows/TV SHOWS/King of the Hill (1997) [TVDB=73903] [IMDB=tt0118375]/",terminal
+mlmf (futurama),kitty -e mlmf "/media/george/tv-shows/TV SHOWS/Futurama (1999) [TVDB=73871] [IMDB=tt0149460]/",terminal
+mlmf (movies),kitty -e mlmf "/media/george/movies/MOVIES/",terminal
+
+^tag(gMusic)
+back,^back()
+spotiflac,$HOME/AppImages/spotiflac.appimage,spotify
+ncmpcpp,$HOME/.config/autostart/ncmpcpp.sh,multimedia-audio-player
+code-radio,kitty -e code-radio-cli,library-internet-radio
+musicforprogrammers,kitty -e mfp,library-internet-radio
+tunein,kitty -e tunein-cli,library-internet-radio
+somafm,kitty -e soma-player,library-internet-radio
+
+^tag(gAudio)
+back,^back()
+disable smt,~/Documents/GitHub/.my-scripts/audio/disable-smt.sh,cpufreq-icon
+enable smt,~/Documents/GitHub/.my-scripts/audio/enable-smt.sh,cpufreq-icon
+^sep()
+reaper,"$HOME/.reaper/REAPER/reaper",cockos-reaper
+meter,"$HOME/.local/bin/Meter",plugins
+
+^tag(gGaming)
+back,^back()
+brutal-doom-bloodwolf,"$HOME/.config/uzdoom/brutal-doom.sh",freedoom1
+brutal-doom-bloodwolf-2,"$HOME/.config/uzdoom/brutal-doom-2.sh",freedoom2
+brutal-doom-platinum-2,"$HOME/.config/uzdoom/brutal-doom-platinum.sh",freedoom2
+brutal-going-down,"$HOME/.config/uzdoom/brutal-going-down.sh",doom
+brutal-simpsons-doom,"$HOME/.config/uzdoom/brutal-simpsons-doom.sh",freedoom1
+brutal-simpsons-doom-2,"$HOME/.config/uzdoom/brutal-simpsons-doom-2.sh",freedoom2
+project-brutality-2,"$HOME/.config/uzdoom/project-brutality.sh",freedoom2
+
+^tag(gPreferences)
+back,^back()
+display,^checkout(DisplaySettings),preferences-desktop-display-randr
+dwm,^checkout(dwmConfig),dwm
+jgmenu,^checkout(jgmenuConfig),jgmenu
+keybinds,^checkout(keybinds),keyboard
+picom,^checkout(picom),picom
+rofi,^checkout(rofiConfig),rofi
+^sep()
+appearance (wayland),nwg-look,preferences-desktop-theme
+appearance (x11),lxappearance,preferences-desktop-theme
+font config,flatpak run dev.zed.Zed ~/.config/fontconfig/fonts.conf,preferences-desktop-font
+keyboard shortcuts,~/.config/suckless/scripts/help,keyboard
+notifications config,flatpak run dev.zed.Zed ~/.config/suckless/dunst/dunstrc,notifyconf
+wallpaper,~/.config/rofi/wallpaper.sh,preferences-desktop-wallpaper,wallpaper
+
+^tag(picom)
+back,^back()
+edit picom.conf, kitty -e micro ~/.config/suckless/picom/picom.conf,picom
+
+^tag(scripts)
+back,^back()
+take fullscreen screenshot,flameshot full --path "$HOME/Screenshots/",camera-photo
+take area screenshot,flameshot gui --path "$HOME/Screenshots/",gtk-select-all
+emoji,"$HOME/.config/rofi/emoji.sh",face-smile
+theme selector,"$HOME/.config/rofi/themes.sh",gtk-theme-config
+^sep(tui)
+nfl-tui,kitty -e nfl-tui,games-highscores
+^sep(backup)
+backup music,st -e rsync --archive --delete --update --verbose --human-readable --progress "/media/george/movies/MUSIC" "/media/george/22-Tantalizing-TBs/"; notify-send -i folder-gruvbox-original-red-backup -t 5000 '🎵 music backup complete 🎵',deepin-music
+backup movies,st -e rsync --archive --delete --update --verbose --human-readable --progress "/media/george/movies/MOVIES" "/media/george/22-Tantalizing-TBs/"; notify-send -i folder-gruvbox-original-red-backup -t 5000 '🎥 movies backup complete 🎥',video-player
+backup tv,st -e rsync --archive --delete --update --verbose --human-readable --progress "/media/george/tv-shows/TV SHOWS" "/media/george/22-Tantalizing-TBs/"; notify-send -i folder-gruvbox-original-red-backup -t 5000 '📺️ tv-shows backup complete 📺️',freetuxtv
+backup wrasslin',st -e rsync --archive --delete --update --verbose --human-readable --progress "/media/george/movies/WRESTLING" "/media/george/22-Tantalizing-TBs/"; notify-send -i folder-gruvbox-original-red-backup -t 5000 '🤼 wrasslin backup complete 🤼',freetuxtv
+
+dwm,^tag(dwmConfig),dwm
+back,^back()
+edit autostart,st -e micro ~/.config/suckless/scripts/autostart.sh
+edit config.h,flatpak run dev.zed.Zed ~/.git-stuff/dwm-flexipatch-6.6-dev/config.h
+edit config.mk,flatpak run dev.zed.Zed ~/.git-stuff/dwm-flexipatch-6.6-dev/config.mk
+edit patches.h,flatpak run dev.zed.Zed ~/.git-stuff/dwm-flexipatch-6.6-dev/patches.h
+edit environment,pkexec st -e micro /etc/environment
+^sep()
+restart,xdotool key super+Ctrl+Shift+q
+
+jgmenu,^tag(jgmenuConfig)
+back,^back()
+edit menu content,flatpak run dev.zed.Zed ~/.config/jgmenu/prepend.csv
+edit menu settings,flatpak run dev.zed.Zed ~/.config/jgmenu/jgmenurc
+
+keybinds,^tag(keybinds)
+back,^back()
+edit sxhkdrc,flatpak run dev.zed.Zed ~/.config/suckless/sxhkd/sxhkdrc
+restart sxhkd,sh -c "pkill -x sxhkdrc; pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Configuration reloaded'"
+^sep()
+# Next entry requires tk
+#Show Keybinds,xbindkeys_show
+^sep(help)
+man page,x-terminal-emulator -T 'man xbindkeys' -e man xbindkeys,deepin-manual
+
+rofi,^tag(rofiConfig)
+back,^back()
+edit start-up script,flatpak run dev.zed.Zed ~/.config/rofi/config.rasi
+^sep(help)
+man page,x-terminal-emulator -T 'man dmenu' -e man dmenu,deepin-manual
+
+Display,^tag(DisplaySettings)
+back,^back()
+ARandR Screen Layout Editor,arandr
+^sep(Help)
+man xrandr,st -T 'man xrandr' -e man xrandr,deepin-manual
+man arandr,st -T 'man arandr' -e man arandr,deepin-manual
+
+System,^tag(gSystem)
+back,^back()
+task manager (btop),st -e btop,btop
+gnome software,pkexec gnome-software,gnome-software
+bazaar,flatpak run io.github.kolunmi.Bazaar,software-store
+login settings,pkexec flatpak run dev.zed.Zed /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf,lightdm-settings
+login interface,lightdm-gtk-greeter-settings-pkexec,lightdm-settings
+partition manager,pkexec gparted,gparted
+power management,xfce4-power-manager-settings,xfce4-power-manager-settings
+set default browser,"""x-terminal-emulator -T 'select default browser' -e sh -c 'sudo update-alternatives --config x-www-browser; sleep 5'""",web-browser
+set default terminal,"""x-terminal-emulator -T 'select default terminal' -e sh -c 'sudo update-alternatives --config x-terminal-emulator; sleep 5'""",utilities-terminal
+set alternatives,galternatives,galternatives
+^sep()
+about,yad --button="By clicking here you acknowledge the fact that Metallica rules":0 --center --window-icon=distributor-logo-debian --text-info --title="¯\_(ツ)_/¯" --filename="$HOME/.local/share/fastfetch/ascii/busydogs.txt" --width=900 --height=700 --fontname=Mononoki Nerd Font Mono,distributor-logo-debian
+
+^tag(apps)
