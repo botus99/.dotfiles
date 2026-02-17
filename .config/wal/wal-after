@@ -39,8 +39,7 @@ set_section_quoted_cv() {
     sed -i "/^\\[$section\\]/,/^\\[/{/^[[:space:]]*$key[[:space:]]*=/s@=.*@= \"$value\"@}" "$file"
 }
 
-# nicotine
-# gui doesn't update and settings overwrite
+# nicotine (gui doesn't update and settings overwrite)
 # needs more research... leaving here for later experimentats
 #NIC="$HOME/.config/nicotine/config"
 #sed -i '/^chatme[[:space:]]*=/s@=.*@= '"$color6"'@' "$NIC"
@@ -58,7 +57,10 @@ set_section_quoted_cv() {
 #sed -i '/^tab_hilite[[:space:]]*=/s@=.*@= '"$color5"'@' "$NIC"
 #sed -i '/^tab_changed[[:space:]]*=/s@=.*@= '"$color1"'@' "$NIC"
 
-# kitty
+# gradience (unmaintained and broken 🙁)
+#cp -f "$HOME/.cache/wal/gradience.json" "$HOME/.var/app/com.github.GradienceTeam.Gradience/config/presets/user/pywal.json"
+
+# kitty (this is not the official way, but it still works fine)
 ln -sf "$HOME/.cache/wal/colors-kitty.conf" "$HOME/.config/kitty/kitty.conf"
 
 # cava
@@ -66,9 +68,6 @@ ln -sf "$HOME/.cache/wal/colors-cava" "$HOME/.config/cava/config"
 
 # zed
 ln -sf "$HOME/.cache/wal/colors-zed.json" "$HOME/.var/app/dev.zed.Zed/config/zed/settings.json"
-
-# gradience
-cp -f "$HOME/.cache/wal/gradience.json" "$HOME/.var/app/com.github.GradienceTeam.Gradience/config/presets/user/pywal.json"
 
 # flameshot
 FLAME="$HOME/.config/flameshot/flameshot.ini"
