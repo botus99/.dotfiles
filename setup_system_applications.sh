@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #
-# This script is designed to work with Debian Testing.
+# This script is designed for Debian Testing.
 #
-# I WILL add/remove apps from here, change things around, or just rewrite things
-# for whatever reason I feel like at the time. This script is very opinionated,
-# and it is a constant work-in-progress.
+# I WILL add or remove apps from here, change things around,
+# or just rewrite things for whatever reason I feel like at the time.
+# This script is a constant work-in-progress.
 #
 # Be sure to substitute your preferred options wherever you want them.
 # This script was written by myself, for myself. Have fun making it yours!
@@ -25,6 +25,11 @@ fi
 # =========================================================================== #
 #                              SET YOUR VARIABLES                             #
 # =========================================================================== #
+
+# if I were starting a fresh system now, I would probably use ~/.local/src
+# instead of the arbitrary ~/.git-stuff directory that I created years ago.
+
+# I would use ~/.local/bin or even ~/bin if I were starting fresh for scripts.
 
 GIT_STUFF="$HOME/.git-stuff"
 SCRIPTS_DIR="$HOME/.my-scripts"
@@ -65,6 +70,7 @@ INSTALL_DEPS() {
         fastfetch \
         figlet \
         fonts-font-awesome \
+        fonts-inter \
         fonts-material-design-icons-iconfont \
         fonts-noto-color-emoji \
         fonts-recommended \
@@ -92,6 +98,7 @@ INSTALL_DEBS() {
                 gawk \
                 golang \
                 npm \
+                pastel \
                 pipx \
                 python3 \
                 python3-feedparser \
@@ -104,6 +111,13 @@ INSTALL_DEBS() {
             ;;
         "desktop")
             sudo apt-get install -y \
+                dialog \
+                flameshot \
+                galternatives \
+                jgmenu \
+                libimlib2-dev \
+                lxappearance \
+                nfoview \
                 pcmanfm \
                 plymouth \
                 plymouth-themes \
@@ -147,6 +161,7 @@ INSTALL_DEBS() {
                 mediainfo \
                 mediainfo-gui \
                 mencoder \
+                mpc \
                 mpd \
                 mpDris2 \
                 mpv \
@@ -171,14 +186,18 @@ INSTALL_DEBS() {
             sudo apt-get install -y \
                 alacritty \
                 batcat \
+                bmon \
                 btop \
+                calcurse \
                 cava \
                 cbonsai \
+                cht.sh \
                 cmatrix \
                 ddgr \
                 duf \
                 faker \
                 fzf \
+                glow \
                 jq \
                 kitty \
                 less \
@@ -189,6 +208,8 @@ INSTALL_DEBS() {
                 speedtest-cli \
                 timg \
                 tldr \
+                vhs \
+                xxhash \
                 yt-dlp
             ;;
         "system")
@@ -363,13 +384,18 @@ INSTALL_RUST_APPS() {
         "cfonts"
         "charasay"
         "code-radio-cli"
+        "feedtui"
         "gifski"
         "lovesay"
         "mfp --locked"
         "names"
         "oxipng"
+        "oxker"
         "presenterm"
+        "scrbrd"
+        "soma-player"
         "systemd-manager-tui"
+        "tunein-cli"
     )
 
     for APP in "${CARGO_APPS[@]}"; do
@@ -392,7 +418,7 @@ INSTALL_TGPT() {
     curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
 }
 
-read -p "Install tgpt app? (LLM TUI app without APIs) [y/n]: " TGPT_CHOICE
+read -p "Install tgpt? (LLM terminal cli) [y/n]: " TGPT_CHOICE
 if [[ $TGPT_CHOICE == 'y' ]]; then
     INSTALL_TGPT
 fi
@@ -410,26 +436,9 @@ INSTALL_TERMV() {
     cd "$HOME" || exit
 }
 
-read -p "Install termv app? (IPTV TUI app played through MPV) [y/n]: " TERMV_CHOICE
+read -p "Install termv app? (IPTV cli using MPV) [y/n]: " TERMV_CHOICE
 if [[ $TERMV_CHOICE == 'y' ]]; then
     INSTALL_TERMV
-fi
-
-# =========================================================================== #
-#                              INSTALL GLOW & VHS                             #
-# =========================================================================== #
-
-INSTALL_CHARM_STUFF() {
-    echo -e "\033[36m| --- 📥 (⊙ _ ⊙ ) Downloading & Installing glow 📥 --- |\033[0m"
-    sudo mkdir -p /etc/apt/keyrings
-    curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
-    echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
-    sudo nala update && sudo nala install glow vhs
-}
-
-read -p "Install Charm terminal apps? (glow, vhs) [y/n]: " CHARM_CHOICE
-if [[ $CHARM_CHOICE == 'y' ]]; then
-    INSTALL_CHARM_STUFF
 fi
 
 # =========================================================================== #
@@ -437,7 +446,7 @@ fi
 # =========================================================================== #
 
 INSTALL_REAPER() {
-    wget -O reaper.tar.xz http://reaper.fm/files/7.x/reaper758_linux_x86_64.tar.xz
+    wget -O reaper.tar.xz http://reaper.fm/files/7.x/reaper761_linux_x86_64.tar.xz
     mkdir ./reaper
     tar -C ./reaper -xf reaper.tar.xz
     ./reaper/reaper_linux_x86_64/install-reaper.sh --install ~/ --integrate-desktop
