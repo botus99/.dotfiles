@@ -1,32 +1,37 @@
 #!/usr/bin/env bash
 
 ### dotfile installation
-cd ~
+cd ~ || exit
 echo -e "\033[36m 📥 (⊙ _ ⊙ ) Downloading Dotfiles 📥 \033[0m"
 git clone https://github.com/botus99/.dotfiles.git
 echo -e "\033[36m 🛠️ ٩(ˊᗜˋ*)و Installing Dotfiles 🛠️ \033[0m"
-ln -s $HOME/.dotfiles/.config/alacritty ~/.config
-ln -s $HOME/.dotfiles/.config/btop ~/.config
-ln -s $HOME/.dotfiles/.config/cava ~/.config
-ln -s $HOME/.dotfiles/.config/fastfetch ~/.config
-ln -s $HOME/.dotfiles/.config/glow ~/.config
-ln -s $HOME/.dotfiles/.config/gtk-3.0 ~/.config
-ln -s $HOME/.dotfiles/.config/gtk-4.0 ~/.config
-ln -s $HOME/.dotfiles/.config/kitty ~/.config
-ln -s $HOME/.dotfiles/.config/Kvantum ~/.config
-ln -s $HOME/.dotfiles/.config/micro ~/.config
-ln -s $HOME/.dotfiles/.config/mpd ~/.config
-ln -s $HOME/.dotfiles/.config/mpv ~/.config
-ln -s $HOME/.dotfiles/.config/MusicBrainz ~/.config
-ln -s $HOME/.dotfiles/.config/ncmpcpp ~/.config
-ln -s $HOME/.dotfiles/.config/nwg-look ~/.config
-ln -s $HOME/.dotfiles/.config/pcmanfm ~/.config
-ln -s $HOME/.dotfiles/.config/polybar ~/.config
-ln -s $HOME/.dotfiles/.config/qt5ct ~/.config
-ln -s $HOME/.dotfiles/.config/qt6ct ~/.config
-ln -s $HOME/.dotfiles/.config/rofi ~/.config
-ln -s $HOME/.dotfiles/.config/uzdoom ~/.config
-ln -s $HOME/.dotfiles/.config/xsettingsd ~/.config
+ln -sf "$HOME/.dotfiles/.config/alacritty" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/autostart" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/btop" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/cava" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/fastfetch" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/glow" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/gtk-3.0" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/gtk-4.0" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/jgmenu" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/kitty" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/Kvantum" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/micro" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/mpd" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/mpDris2" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/mpv" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/MusicBrainz" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/ncmpcpp" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/nwg-look" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/pcmanfm" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/polybar" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/qt5ct" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/qt6ct" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/rofi" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/suckless" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/uzdoom" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/wal" "$HOME/.config"
+ln -sf "$HOME/.dotfiles/.config/xsettingsd" "$HOME/.config"
 
 ### success message
 echo -e "🎉 (੭˃ᴗ˂)੭ GREAT SUCCESS!!! WE DID IT!!! "
