@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-ARGS="--volume=60"
+ARGS="--volume=50"
 TITLE="rofi-radio"
 PID_FILE="/tmp/radio_pid"
+IPC_SOCKET="/tmp/mpv_socket"
 
 declare -A STATIONS=(
-    ["❌ stop"]="stop_radio"
+    ["❌ STOP/KILL"]="stop_radio"
     ["🖥️ lofi girl"]="https://play.streamafrica.net/lofiradio"
     ["🖥️ chillhop"]="http://stream.zeno.fm/fyn8eh3h5f8uv"
     ["🖥️ box lofi"]="http://stream.zeno.fm/f3wvbbqmdg8uv"
@@ -22,7 +23,7 @@ declare -A STATIONS=(
     ["💊 ambient sleeping pill"]="http://radio.stereoscenic.com/asp-h"
     ["🥗 groove salad"]="https://somafm.com/groovesalad.pls"
     ["🎻 classical relax"]="http://relax.stream.publicradio.org/relax.mp3"
-    ["🎻 100 greatest classical"]="https://az1.mediacp.eu/listen/100greatestclassicalmusic/radio.mp3"
+    ["🎻 greatest classical"]="https://az1.mediacp.eu/listen/100greatestclassicalmusic/radio.mp3"
     ["🌧️ rain relax "]="https://maggie.torontocast.com:2020/stream/natureradiorain"
     ["🌳 nature relax"]="https://0nlineradio.radioho.st/lounge-nature-sounds?ref=radio-browser26"
     ["🌲 pure nature"]="https://purenature-mynoise.radioca.st/stream"
@@ -30,13 +31,22 @@ declare -A STATIONS=(
 )
 
 notification() {
-    notify-send "rofi radio" "$1" --icon=media-tape
+    notify-send "rofi radio" "$1" --icon=media-tape -t 3000
+}
+
+kill_radio_silent() {
+    if [[ -f "$PID_FILE" ]]; then
+        kill "$(cat "$PID_FILE")" 2>/dev/null
+        rm -f "$PID_FILE"
+        [[ -S "$IPC_SOCKET" ]] && rm -f "$IPC_SOCKET"
+    fi
 }
 
 stop_radio() {
-    if [ -f "$PID_FILE" ]; then
-        kill "$(cat "$PID_FILE")"
+    if [[ -f "$PID_FILE" ]]; then
+        kill "$(cat "$PID_FILE")" 2>/dev/null
         rm -f "$PID_FILE"
+        [[ -S "$IPC_SOCKET" ]] && rm -f "$IPC_SOCKET"
         notification "radio stopped"
     else
         notification "no radio playing."
@@ -50,24 +60,27 @@ main() {
                -theme ~/.config/rofi/radio.rasi \
                -p "")
 
-    # If user cancels → do nothing
+    # if user cancels → do nothing
     [[ -z "$choice" ]] && exit 0
 
-    if [[ "$choice" == "stop_radio" ]]; then
+    target="${STATIONS[$choice]}"
+
+    if [[ "$target" == "stop_radio" ]]; then
         stop_radio
-        return
+        exit 0
     fi
 
-    URL="${STATIONS[$choice]}"
+    # silently kill any radio playing
+    kill_radio_silent
 
-    # Kill existing radio ONLY NOW
-    pkill -f "$TITLE" 2>/dev/null
-
+    # show off your choice
     notification "$choice"
 
-    # Launch new station in background
-    mpv $ARGS --title="$TITLE" "$URL" &
-    echo $! > "$PID_FILE"  # Save PID of the new mpv process
+    # launch radio station in the background
+    mpv --title="$TITLE" --input-ipc-server="$IPC_SOCKET" $ARGS "$target" &
+
+    # save PID of mpv process
+    echo $! > "$PID_FILE"
 }
 
 main
