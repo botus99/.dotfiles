@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # ensure updater is running
-#pidof -x sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
+pidof -x sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
 
 TERMINAL="/usr/local/bin/st"
 META='{{ trunc(artist,17) }} - {{ trunc(title,17) }}'
