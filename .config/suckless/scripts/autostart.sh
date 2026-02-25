@@ -16,9 +16,6 @@ pidof lxpolkit >/dev/null || lxpolkit &
 #slstatus &
 pidof dwmblocks >/dev/null || dwmblocks &
 
-# wallpaper
-~/.fehbg &
-
 # macros
 pgrep -x sxhkd >/dev/null || sxhkd -c ~/.config/suckless/sxhkd/sxhkdrc &
 
@@ -26,10 +23,13 @@ pgrep -x sxhkd >/dev/null || sxhkd -c ~/.config/suckless/sxhkd/sxhkdrc &
 pidof dunst >/dev/null || dunst -config ~/.config/suckless/dunst/dunstrc &
 
 # compositor
-pidof picom >/dev/null || picom --config ~/.config/suckless/picom/picom.conf -b &
+pidof picom >/dev/null || picom --config ~/.config/suckless/picom/picom.conf -b
 
 # redshift
 pidof redshift >/dev/null || redshift -P -l 41.76058:-88.32007 &
+
+# wallpaper
+~/.fehbg
 
 # =========================================================================== #
 #                                STARTUP VIDEO                                #
@@ -45,7 +45,7 @@ pidof redshift >/dev/null || redshift -P -l 41.76058:-88.32007 &
 # =========================================================================== #
 
 # start android messages app
-pidof AndroidMessages >/dev/null || "/opt/Android Messages/AndroidMessages" &
+pidof AndroidMessages >/dev/null || "/opt/Android Messages/AndroidMessages"
 
 # still need to figure out how to enable it and not just load the indicator
-pgrep -f caffeine-indicator >/dev/null || caffeine-indicator &
+pgrep -f caffeine-indicator >/dev/null || caffeine-indicator
