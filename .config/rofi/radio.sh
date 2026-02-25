@@ -6,7 +6,7 @@ PID_FILE="/tmp/radio_pid"
 IPC_SOCKET="/tmp/mpv_socket"
 
 declare -A STATIONS=(
-    ["❌ STOP/KILL"]="stop_radio"
+    ["❌ [STOP/KILL] ❌"]="stop_radio"
     ["🖥️ lofi girl"]="https://play.streamafrica.net/lofiradio"
     ["🖥️ chillhop"]="http://stream.zeno.fm/fyn8eh3h5f8uv"
     ["🖥️ box lofi"]="http://stream.zeno.fm/f3wvbbqmdg8uv"
@@ -28,6 +28,9 @@ declare -A STATIONS=(
     ["🌳 nature relax"]="https://0nlineradio.radioho.st/lounge-nature-sounds?ref=radio-browser26"
     ["🌲 pure nature"]="https://purenature-mynoise.radioca.st/stream"
     ["💤 music for sleep"]="https://0nlineradio.radioho.st/classical-classical-music-for-sleep?ref=radio-browser26"
+	["🤘 rockantenne"]="http://mp3channels.webradio.rockantenne.de/heavy-metal"
+	["🤘 bandit metal"]="https://wr03-ice.stream.khz.se/wr03_mp3"
+	["🤘 metalrock.fm"]="https://kathy.torontocast.com:2800/;"
 )
 
 notification() {
