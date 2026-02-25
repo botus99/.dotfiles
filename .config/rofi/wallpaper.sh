@@ -47,16 +47,16 @@ get_optimal_jobs() {
 PARALLEL_JOBS=$(get_optimal_jobs)
 
 process_func_def='process_image() {
-    imagen="$1"
-    archive_number=$(basename "$imagen")
+    image="$1"
+    archive_number=$(basename "$image")
     cache_file="${cache_dir}/${archive_number}"
     md5_file="${cache_dir}/.${archive_number}.md5"
     lock_file="${cache_dir}/.lock_${archive_number}"
-    current_md5=$(xxh64sum "$imagen" | cut -d " " -f1)
+    current_md5=$(xxh64sum "$image" | cut -d " " -f1)
     (
         flock -x 9
         if [ ! -f "$cache_file" ] || [ ! -f "$md5_file" ] || [ "$current_md5" != "$(cat "$md5_file" 2>/dev/null)" ]; then
-            magick "$imagen" -resize 480x270^ -gravity center -extent 480x270 "$cache_file"
+            magick "$image" -resize 480x270^ -gravity center -extent 480x270 "$cache_file"
             echo "$current_md5" > "$md5_file"
         fi
         rm -f "$lock_file"
