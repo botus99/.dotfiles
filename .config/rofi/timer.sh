@@ -17,7 +17,7 @@ start() {
     while (( t > 0 )); do
         printf -v m "%02d" $((t/60))
         printf -v s "%02d" $((t%60))
-        printf " %s:%s " "$m" "$s" > "$ICON"
+        printf "  󰔟 %s:%s" "$m" "$s" > "$ICON"
         update
         sleep 1
         ((t--))
