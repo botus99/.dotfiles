@@ -13,10 +13,22 @@ float sin_rand() {
     return sin(gl_FragCoord.x + cos(gl_FragCoord.y));
 }
 
-float random(float seedChange) {
-    vec2 seed = gl_FragCoord.xy + sin(seedChange);
-    return fract(dot(vec2(sin(mod(seed.x / cos(seed.y), 5.0) * 10000.0)), vec2(1.1, 12.2)));
+float bayer4x4(vec2 fragCoord) {
+    int x = int(mod(fragCoord.x, 4.0));
+    int y = int(mod(fragCoord.y, 4.0));
+
+    int index = x + y * 4;
+
+    float bayer[16] = float[](
+         0.0,  8.0,  2.0, 10.0,
+        12.0,  4.0, 14.0,  6.0,
+         3.0, 11.0,  1.0,  9.0,
+        15.0,  7.0, 13.0,  5.0
+    );
+
+    return (bayer[index] + 0.5) / 16.0;
 }
+
 
 /* ----------------------------------------------------------
    Main shader
@@ -27,9 +39,9 @@ vec4 window_shader() {
     vec4 d = c;
     vec3 colors[16];
 
-/* ----------------------------------------------------------
-   pywal-colors
----------------------------------------------------------- */
+    /* ------------------------------------------------------
+       pywal-colors
+    ------------------------------------------------------ */
     colors[0] = vec3({color0.red},  {color0.green},  {color0.blue});
     colors[1] = vec3({color1.red},  {color1.green},  {color1.blue});
     colors[2] = vec3({color2.red},  {color2.green},  {color2.blue});
@@ -58,11 +70,11 @@ vec4 window_shader() {
             mindist = dist;
             minind2 = minind;
             minind = i;
-        }
+       }
     }
     float ratio = mindist / (mindist + mindist2);
-    float r = random(1.0) * 0.4 + 0.25;
-    if (r > ratio)
+    float threshold = bayer4x4(gl_FragCoord.xy);
+    if (threshold > ratio)
         c.xyz = colors[minind];
     else 
         c.xyz = colors[minind2];
