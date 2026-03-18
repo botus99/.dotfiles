@@ -1,10 +1,16 @@
 # .dotfiles
 
+![](https://img.shields.io/github/last-commit/botus99/.dotfiles?style=for-the-badge&logoColor=d79921&labelColor=282828&color=458588)
+![](https://img.shields.io/github/stars/botus99/.dotfiles?style=for-the-badge&logo=andela&color=d79921&logoColor=ebdbb2&labelColor=282828)
+![](https://img.shields.io/github/repo-size/botus99/.dotfiles?color=689d6a&label=SIZE&logo=googledrive&style=for-the-badge&logoColor=ebdbb2&labelColor=282828)
+
+![](https://img.shields.io/badge/still%20needs-love-green?style=for-the-badge&color=cc241d&logoColor=ebdbb2&labelColor=282828) 
+
 ### ｡*ﾟ.*.｡(っ ᐛ )っ HELLO!!!
 
-Behold, my dotfiles! They're meticulously crafted to make Debian-Testing more cromulent! 🎉
+Behold, my dotfiles! They have been specfically crafted for Debian-Testing.
 
-I hope these dotfiles serve as a source of inspiration for your own unique setup 🦄.
+I hope these dotfiles serve as a source of inspiration for your own unique setup.
 
 ## Features
 
@@ -14,10 +20,9 @@ I hope these dotfiles serve as a source of inspiration for your own unique setup
 - custom bash prompt
 - custom pywal shaders
 - pywal when possible, gruvbox when necessary
-- subtle to heavy tweaks to polybar, rofi, kitty, and others
-- scripts to install deb repos, applications, configurations, and theming
 - ffmpeg compiled with Nvidia/CUDA codecs and headers
 - avisynth & vapoursynth
+- install scripts for repos, applications, configurations, and theming
 - native reaper daw install (config backup/upload planned, with more audio-related stuff coming soon)
 
 ## Screenshots
