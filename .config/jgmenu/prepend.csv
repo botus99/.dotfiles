@@ -78,13 +78,17 @@ meter,"$HOME/.local/bin/Meter",plugins
 
 ^tag(gGaming)
 back,^back()
+nba-2k14,"$HOME/.local/bin/nba-2k14",sportstracker
+^sep()
 brutal-doom-bloodwolf,"$HOME/.config/uzdoom/brutal-doom.sh",freedoom1
+brutal-simpsons-doom,"$HOME/.config/uzdoom/brutal-simpsons-doom.sh",freedoom1
+^sep()
 brutal-doom-bloodwolf-2,"$HOME/.config/uzdoom/brutal-doom-2.sh",freedoom2
 brutal-doom-platinum-2,"$HOME/.config/uzdoom/brutal-doom-platinum.sh",freedoom2
-brutal-going-down,"$HOME/.config/uzdoom/brutal-going-down.sh",doom
-brutal-simpsons-doom,"$HOME/.config/uzdoom/brutal-simpsons-doom.sh",freedoom1
 brutal-simpsons-doom-2,"$HOME/.config/uzdoom/brutal-simpsons-doom-2.sh",freedoom2
 project-brutality-2,"$HOME/.config/uzdoom/project-brutality.sh",freedoom2
+^sep()
+brutal-going-down,"$HOME/.config/uzdoom/brutal-going-down.sh",doom
 
 ^tag(gPreferences)
 back,^back()
