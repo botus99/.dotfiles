@@ -201,7 +201,13 @@ vec4 window_shader() {
        differences instead of raw RGB distance, helping
        gradients look more natural
     -------------------------------------------------------*/
+    vec3 mid = 0.5 * (colors[best_index] + colors[second_index]);
 
+    /*   dot() approximates luminance   */
+    ratio += dot(c.rgb - mid, vec3(0.299,0.587,0.114)) * 0.25;
+
+    /*   keep ratio in valid range   */
+    ratio = clamp(ratio, 0.0, 1.0);
 
     /* ------------------------------------------------------
        reduce dithering in solid color regions
