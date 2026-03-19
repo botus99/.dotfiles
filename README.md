@@ -1,10 +1,9 @@
 # .dotfiles
 
+![](https://img.shields.io/badge/still%20needs-love-green?style=for-the-badge&color=cc241d&logoColor=ebdbb2&labelColor=282828)
 ![](https://img.shields.io/github/last-commit/botus99/.dotfiles?style=for-the-badge&logoColor=d79921&labelColor=282828&color=458588)
 ![](https://img.shields.io/github/stars/botus99/.dotfiles?style=for-the-badge&logo=andela&color=d79921&logoColor=ebdbb2&labelColor=282828)
 ![](https://img.shields.io/github/repo-size/botus99/.dotfiles?color=689d6a&label=SIZE&logo=googledrive&style=for-the-badge&logoColor=ebdbb2&labelColor=282828)
-
-![](https://img.shields.io/badge/still%20needs-love-green?style=for-the-badge&color=cc241d&logoColor=ebdbb2&labelColor=282828) 
 
 ### ｡*ﾟ.*.｡(っ ᐛ )っ HELLO!!!
 
