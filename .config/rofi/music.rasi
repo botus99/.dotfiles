@@ -7,7 +7,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font: "Mononoki Nerd Font Mono 24.5";
+    font: "Mononoki Nerd Font Mono 20.2";
     background: #1d2021;
     foreground: #ebdbb2;
     selected-normal-background: #282828;
