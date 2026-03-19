@@ -61,8 +61,8 @@ const float contrast_boost = 0.0;
 
    lower value = better match
 ---------------------------------------------------------- */
-float color_distance(vec3 c, vec3 p, float pl) {
-    return pl - 2.0 * dot(c, p);
+float color_distance(vec3 c, vec3 p, float p_len2) {
+    return p_len2 - 2.0 * dot(c, p);
 }
 
 /* ----------------------------------------------------------
@@ -119,6 +119,13 @@ vec4 window_shader() {
 
     /* ------------------------------------------------------
        precompute squared lengths
+       ------------------------------------------------------
+       calculates the color distance upfront instead of
+       repeating the same calculation for every palette color
+
+       helps shader performance by avoiding unnecessary
+       repeated math, especially since this code runs for
+       every pixel on the screen
     ------------------------------------------------------ */
     float palette_len2[16];
     for (int i = 0; i < 16; i++)
@@ -132,6 +139,7 @@ vec4 window_shader() {
     int best_index = 0;
 
     for (int i = 0; i < 16; i++) {
+        /*   compute distance from current pixel to palette color   */
         float dist = color_distance(color, colors[i], palette_len2[i]);
         if (dist < best_distance) {
             best_distance = dist;

@@ -112,6 +112,13 @@ vec4 window_shader() {
 
     /* ------------------------------------------------------
        precompute squared lengths
+       ------------------------------------------------------
+       calculates the color distance upfront instead of
+       repeating the same calculation for every palette color
+
+       helps shader performance by avoiding unnecessary
+       repeated math, especially since this code runs for
+       every pixel on the screen
     ------------------------------------------------------ */
     float palette_len2[8];
     for (int i = 0; i < 8; i++)

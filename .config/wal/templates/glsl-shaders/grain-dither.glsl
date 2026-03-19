@@ -72,8 +72,8 @@ vec3 gamma_correct(vec3 color, float g) {
 
    lower value = better match
 ---------------------------------------------------------- */
-float color_distance(vec3 c, vec3 p) {
-   return dot(p, p) - 2.0 * dot(c, p);
+float color_distance(vec3 c, vec3 p, float p_len2) {
+    return p_len2 - 2.0 * dot(c, p);
 }
 
 /* ----------------------------------------------------------
@@ -150,6 +150,21 @@ vec4 window_shader() {
     );
 
     /* ------------------------------------------------------
+       precompute squared lengths
+       ------------------------------------------------------
+       calculates the color distance upfront instead of
+       repeating the same calculation for every palette color
+
+       helps shader performance by avoiding unnecessary
+       repeated math, especially since this code runs for
+       every pixel on the screen
+    ------------------------------------------------------ */
+    float palette_len2[16];
+    for (int i = 0; i < 16; i++) {
+        palette_len2[i] = dot(colors[i], colors[i]);
+    }
+
+    /* ------------------------------------------------------
        find two closest colors in palette
        ------------------------------------------------------
        for each pixel, search the pywal color palette for...
@@ -167,7 +182,7 @@ vec4 window_shader() {
 
     for (int i = 0; i < 16; i++) {
         /*   compute distance from current pixel to palette color   */
-        float dist = color_distance(c.rgb, colors[i]);
+        float dist = color_distance(c.rgb, colors[i], palette_len2[i]);
         if (dist < best_distance) {
             /*   shift current best to second best   */
             second_distance = best_distance;
