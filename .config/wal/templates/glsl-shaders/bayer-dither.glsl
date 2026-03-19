@@ -114,6 +114,9 @@ vec4 window_shader() {
 
     /* ------------------------------------------------------
        pre-processing (brightness + gamma)
+       ------------------------------------------------------
+       adjust how colors are mapped to the palette
+       BEFORE color quantizing
     ------------------------------------------------------ */
     c.rgb = clamp(c.rgb * pre_gain, 0.0, 1.0);
     c.rgb = gamma_correct(c.rgb, gamma);
