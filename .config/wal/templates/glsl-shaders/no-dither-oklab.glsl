@@ -55,17 +55,6 @@ vec3 gamma_correct(vec3 color, float g) {
 const float contrast_boost = 0.0;
 
 /* ----------------------------------------------------------
-   color distance
-   ----------------------------------------------------------
-   compute how close a color is to a pywal color entry
-
-   lower value = better match
----------------------------------------------------------- */
-float color_distance(vec3 c, vec3 p) {
-    return dot(p, p) - 2.0 * dot(c, p);
-}
-
-/* ----------------------------------------------------------
    srgb -> linear rgb (default = 2.2)
    ----------------------------------------------------------
    convert display space (non-linear) to linear space
@@ -156,6 +145,27 @@ vec4 window_shader() {
     );
 
     /* ------------------------------------------------------
+       precompute palette in oklab space
+       ------------------------------------------------------
+       calculates the color distance upfront instead of
+       repeating the same calculation for every palette color
+   ------------------------------------------------------ */
+   vec3 palette_lab[16];
+   for (int i = 0; i < 16; i++) {
+      palette_lab[i] = rgb_to_oklab(colors[i]);
+   }
+
+    /* ------------------------------------------------------
+       precompute palette squared lengths (oklab)
+       ------------------------------------------------------
+       calculate dot(color, color) once for each pywal color
+    ------------------------------------------------------ */
+    float palette_len2[16];
+    for (int i = 0; i < 16; i++) {
+        palette_len2[i] = dot(palette_lab[i], palette_lab[i]);
+    }
+
+    /* ------------------------------------------------------
        find closest palette color
        ------------------------------------------------------
        convert pixel and palette colors into oklab
@@ -167,18 +177,17 @@ vec4 window_shader() {
     int best_index = 0;
 
     for (int i = 0; i < 16; i++) {
-        vec3 palette_lab = rgb_to_oklab(colors[i]);
-        float dist = color_distance(pixel_lab, palette_lab);
-
+        /*   compute distance from current pixel to palette color   */
+        float dist = palette_len2[i] - 2.0 * dot(pixel_lab, palette_lab[i]);
         if (dist < best_distance) {
             best_distance = dist;
             best_index = i;
         }
     }
 
-    /* ----------------------------------------------------------
-      final color blend
-    ---------------------------------------------------------- */
+    /* ------------------------------------------------------
+       final color blend
+    ------------------------------------------------------ */
     vec4 out_color = vec4(colors[best_index], c.a);
 
     vec3 finalRGB = c.rgb * (1.0 - color_opacity) + out_color.rgb * color_opacity;
@@ -187,9 +196,9 @@ vec4 window_shader() {
     if (invert_color)
         out_color.rgb = out_color.a - out_color.rgb;
 
-    /* ----------------------------------------------------------
-       output brightness (also clamps output to prevent clipping)
-    ---------------------------------------------------------- */
+    /* ------------------------------------------------------
+       output brightness (also clamps to prevent clipping)
+    ------------------------------------------------------ */
     out_color.rgb = clamp(out_color.rgb * post_gain, 0.0, 1.0);
 
     out_color *= opacity;
