@@ -221,7 +221,7 @@ vec4 window_shader() {
     vec3 mid = 0.5 * (colors[best_index] + colors[second_index]);
 
     /*   dot() approximates luminance   */
-    ratio += dot(c.rgb - mid, vec3(0.299,0.587,0.114)) * 0.25;
+    ratio += dot(out_color.rgb - mid, vec3(0.299,0.587,0.114)) * 0.25;
 
     /*   keep ratio in valid range   */
     ratio = clamp(ratio, 0.0, 1.0);
@@ -279,9 +279,9 @@ vec4 window_shader() {
        palette color a pixel becomes
     ------------------------------------------------------ */
     if (randomness > ratio)
-        c.rgb = colors[best_index];
+        out_color.rgb = colors[best_index];
     else
-        c.rgb = colors[second_index];
+        out_color.rgb = colors[second_index];
 
     /* ------------------------------------------------------
        final color blend
@@ -290,17 +290,17 @@ vec4 window_shader() {
        between the two palette colors, reducing harsh
        grain and flickering edges
     ------------------------------------------------------ */
-    c.rgb = mix(mix(colors[best_index], colors[second_index], ratio), c.rgb, dither_opacity);
+    out_color.rgb = mix(mix(colors[best_index], colors[second_index], ratio), out_color.rgb, dither_opacity);
 
     /* ----------------------------------------------------------
        output brightness (also clamps output to prevent clipping)
     ---------------------------------------------------------- */
-    c.rgb = clamp(c.rgb * post_gain, 0.0, 1.0);
+    out_color.rgb = clamp(out_color.rgb * post_gain, 0.0, 1.0);
 
     if (invert_color)
-        c = vec4(vec3(c.a) - c.rgb, c.a);
+        c = vec4(vec3(out_color.a) - out_color.rgb, out_color.a);
 
-    c *= opacity;
+    out_color *= opacity;
 
-    return default_post_processing(c);
+    return default_post_processing(out_color);
 }
