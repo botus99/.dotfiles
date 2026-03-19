@@ -18,7 +18,7 @@ configuration {
 @import "~/.cache/wal/colors-rofi-dark.rasi"
 
 window {
-    padding: 0.5em;
+    padding: 0.333em;
     border: 0.15em;
     border-color: @selected-active-background;
     border-radius: 0.333em;
@@ -26,19 +26,25 @@ window {
 }
 
 mainbox {
-    spacing: 0.5em;
+    spacing: 10.0em;
+    margin: 0.333em 0.333em 0.333em 0.333em;
+    padding: 1.0em 0.0em 1.0em 0.0em;
+    background-image: url("/run/user/1000/ncmpcpp/current_cover.jpg", width);
+    background-position: center;
 }
 
 listview {
-    columns: 8;
+    columns: 7;
     lines: 1;
-    spacing: 0.5em;
+    spacing: 0.333em 0.333em 0.333em 0.333em;
+    background-color: transparent;
+    padding: 1.0em 1.0em 1.0em 1.0em;
 }
 
 element {
-    padding: 1em;
+    padding: 1.0em 1.0em 1.0em 1.0em;
     border-radius: 0.333em;
-    background-color: @selected-active-background;
+    background-color: transparent;
 }
 
 element-text {
@@ -52,20 +58,20 @@ element.selected.normal {
 
 inputbar {
     enabled: false;
-    margin: 0 0 0em 0;
-    border: 0.1em;
-    border-color: @foreground;
-    border-radius: 0.5em;
 }
 
 message {
     enabled: true;
-    margin: 0.5em;
+    margin: 0.0em;
     text-color: @foreground;
-    padding: 0.25em 0em 0.25em 0em;
+    padding: 0.0em 0.0em 0.0em 0.0em;
+    background-color: transparent;
 }
 
 textbox {
     horizontal-align: 0.5;
     text-color: @foreground;
+    margin: 0.0em 0.0em 0.0em 0.0em ;
+    padding: 0.5em;
+    background-color: @selected-active-background;
 }
