@@ -31,18 +31,21 @@ mainbox {
     padding: 1.0em 0.0em 1.0em 0.0em;
     background-image: url("/run/user/1000/ncmpcpp/current_cover.jpg", width);
     background-position: center;
+    border-radius: 0.333em;
 }
 
 listview {
-    columns: 7;
-    lines: 1;
-    spacing: 0.333em 0.333em 0.333em 0.333em;
+    columns: 4;
+    lines: 2;
+    spacing: 0.0em 0.25em 0.0em 0.25em;
     background-color: transparent;
-    padding: 1.0em 1.0em 1.0em 1.0em;
+    border-color: transparent;
+    padding: 0.0em 2.5em 0.5em 2.5em;
+    scrollbar: false;
 }
 
 element {
-    padding: 1.0em 1.0em 1.0em 1.0em;
+    padding: 1.0em 0.667em 1.0em 0.667em;
     border-radius: 0.333em;
     background-color: transparent;
 }
@@ -62,6 +65,9 @@ inputbar {
 
 message {
     enabled: true;
+    border: 1.0em 2.5em 0em 2.5em;
+    border-color: transparent;
+    border-radius: 0.333em;
     margin: 0.0em;
     text-color: @foreground;
     padding: 0.0em 0.0em 0.0em 0.0em;
@@ -74,4 +80,5 @@ textbox {
     margin: 0.0em 0.0em 0.0em 0.0em ;
     padding: 0.5em;
     background-color: @selected-active-background;
+    border-radius: 0.333em;
 }
