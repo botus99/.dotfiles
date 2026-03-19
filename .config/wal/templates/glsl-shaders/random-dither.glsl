@@ -113,6 +113,9 @@ vec4 window_shader() {
 
     /* ------------------------------------------------------
        pre-processing (brightness + gamma)
+       ------------------------------------------------------
+       adjust how colors are mapped to the palette
+       BEFORE color quantizing
     ------------------------------------------------------ */
     out_color.rgb = clamp(out_color.rgb * pre_gain, 0.0, 1.0);
     out_color.rgb = gamma_correct(out_color.rgb, gamma);
@@ -120,8 +123,8 @@ vec4 window_shader() {
     /* ------------------------------------------------------
        contrast push
     ------------------------------------------------------ */
-	float l = dot(out_color.rgb, vec3(0.299,0.587,0.114));
-	out_color.rgb += (out_color.rgb - l) * contrast_boost;
+    float l = dot(out_color.rgb, vec3(0.299,0.587,0.114));
+    out_color.rgb += (out_color.rgb - l) * contrast_boost;
 
     /* ------------------------------------------------------
        pywal-colors
