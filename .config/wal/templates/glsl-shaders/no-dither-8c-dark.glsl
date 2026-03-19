@@ -113,8 +113,8 @@ vec4 window_shader() {
     /* ------------------------------------------------------
        precompute squared lengths
     ------------------------------------------------------ */
-    float palette_len2[16];
-    for (int i = 0; i < 16; i++)
+    float palette_len2[8];
+    for (int i = 0; i < 8; i++)
         palette_len2[i] = dot(colors[i], colors[i]);
 
     /* ------------------------------------------------------
