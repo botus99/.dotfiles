@@ -180,7 +180,7 @@ vec4 window_shader() {
 
     for (int i = 0; i < 16; i++) {
         /*   compute distance from current pixel to palette color   */
-        float dist = color_distance(color, colors[i], palette_len2[i]);
+        float dist = color_distance(out_color.rgb, colors[i], palette_len2[i]);
         if (dist < best_distance) {
             /*   shift current best to second best   */
             second_distance = best_distance;
