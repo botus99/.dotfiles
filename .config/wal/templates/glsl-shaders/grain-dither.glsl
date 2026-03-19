@@ -101,20 +101,28 @@ float random(float seed_change) {
    main shader
 ---------------------------------------------------------- */
 vec4 window_shader() {
-    ivec2 texsize = textureSize(tex, 0);
-    vec4 c = texture(tex, texcoord / vec2(texsize));
 
     /* ------------------------------------------------------
-       brightness + gamma pre-quantization
+       sample input texture
+       ------------------------------------------------------
+       use texture size to scale and to get proper
+       sampling coordinates (texcoord is normalized 0–1)
     ------------------------------------------------------ */
-    c.rgb = clamp(c.rgb * pre_gain, 0.0, 1.0);
-    c.rgb = gamma_correct(c.rgb, gamma);
+    ivec2 texsize = textureSize(tex, 0);
+    vec4 c = texture(tex, texcoord / vec2(texsize));
+    vec4 out_color = c;
+
+    /* ------------------------------------------------------
+       pre-processing (brightness + gamma)
+    ------------------------------------------------------ */
+    out_color.rgb = clamp(out_color.rgb * pre_gain, 0.0, 1.0);
+    out_color.rgb = gamma_correct(out_color.rgb, gamma);
 
     /* ------------------------------------------------------
        contrast push
     ------------------------------------------------------ */
-	float l = dot(c.rgb, vec3(0.299,0.587,0.114));
-	c.rgb += (c.rgb - l) * contrast_boost;
+	float l = dot(out_color.rgb, vec3(0.299,0.587,0.114));
+	out_color.rgb += (out_color.rgb - l) * contrast_boost;
 
     /* ------------------------------------------------------
        pywal colors
@@ -149,8 +157,6 @@ vec4 window_shader() {
        dithering works by alternating between the available
        colors to simulate colors beyond the pywal colors
     ------------------------------------------------------ */
-    vec3 color = c.rgb;
-
     float best_distance = 1e20;
     float second_distance = 1e20;
     int best_index = 0;

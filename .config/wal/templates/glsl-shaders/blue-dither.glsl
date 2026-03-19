@@ -33,14 +33,14 @@ const float post_gain  = 1.0;
 const float color_opacity = 1.0;
 
 /* ----------------------------------------------------------
-   dither pattern opacity (default = 0.25)
+   dither pattern opacity (default = 0.5)
    ----------------------------------------------------------
    control how visible the dithering pattern is
 
    0.0 → smooth gradient (no pattern)
    1.0 → full dithering (pixelated look)
 ---------------------------------------------------------- */
-const float dither_opacity = 0.25;
+const float dither_opacity = 0.5;
 
 /* ----------------------------------------------------------
    contrast boost pre-dithering (default = 0.0)
@@ -120,6 +120,12 @@ vec4 window_shader() {
     ------------------------------------------------------ */
     c.rgb = clamp(c.rgb * pre_gain, 0.0, 1.0);
     c.rgb = gamma_correct(c.rgb, gamma);
+
+    /* ------------------------------------------------------
+       contrast push
+    ------------------------------------------------------ */
+    float l = dot(c.rgb, vec3(0.299,0.587,0.114));
+    c.rgb += (c.rgb - l) * contrast_boost;
 
     /* ------------------------------------------------------
        pywal colors

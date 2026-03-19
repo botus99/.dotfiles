@@ -148,6 +148,14 @@ vec4 window_shader() {
 
     /* ------------------------------------------------------
        find two closest colors in palette
+       ------------------------------------------------------
+       for each pixel, search the pywal color palette for...
+       best_index   → closest color match
+       second_index → second closest match
+
+       we use the two closest pywal colors to dither
+       dithering works by alternating between the available
+       colors to simulate colors beyond the pywal colors
     ------------------------------------------------------ */
     float best_distance = 1e20;
     float second_distance = 1e20;
