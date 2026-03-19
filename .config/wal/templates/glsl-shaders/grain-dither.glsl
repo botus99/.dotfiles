@@ -34,14 +34,14 @@ const float post_gain  = 1.0;
 const float color_opacity = 1.0;
 
 /* ----------------------------------------------------------
-   dither pattern opacity (default = 0.25)
+   dither pattern opacity (default = 0.5)
    ----------------------------------------------------------
    control how visible the dithering pattern is
 
    0.0 → smooth gradient (no pattern)
    1.0 → full dithering (pixelated look)
 ---------------------------------------------------------- */
-const float dither_opacity = 0.25;
+const float dither_opacity = 0.5;
 
 /* ----------------------------------------------------------
    contrast boost pre-dithering (default = 0.0)

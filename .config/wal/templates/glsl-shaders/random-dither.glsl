@@ -33,14 +33,14 @@ const float post_gain  = 1.0;
 const float color_opacity = 1.0;
 
 /* ----------------------------------------------------------
-   dither pattern opacity (default = 0.25)
+   dither pattern opacity (default = 0.5)
    ----------------------------------------------------------
    control how visible the dithering pattern is
 
    0.0 → smooth gradient (no pattern)
    1.0 → full dithering (pixelated look)
 ---------------------------------------------------------- */
-const float dither_opacity = 0.25;
+const float dither_opacity = 0.5;
 
 /* ----------------------------------------------------------
    contrast boost pre-dithering (default = 0.0)
@@ -201,13 +201,7 @@ vec4 window_shader() {
        differences instead of raw RGB distance, helping
        gradients look more natural
     -------------------------------------------------------*/
-    vec3 mid = 0.5 * (colors[best_index] + colors[second_index]);
 
-    /*   dot() approximates luminance   */
-    ratio += dot(c.rgb - mid, vec3(0.299,0.587,0.114)) * 0.25;
-
-    /*   keep ratio in valid range   */
-    ratio = clamp(ratio, 0.0, 1.0);
 
     /* ------------------------------------------------------
        reduce dithering in solid color regions
