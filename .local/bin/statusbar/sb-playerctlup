@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# updates the statusbar whenever any playerctl-controlled player (including
+# any mpris-compatible player) has a change in play/pause/metadata state
+
+playerctl --all-players metadata --follow 2>/dev/null | while read -r _; do
+    kill -RTMIN+11 "$(pidof "${STATUSBAR:-dwmblocks}")"
+done
