@@ -7,23 +7,23 @@
 @search,,24,13,87,24,2,left,top,auto,#ebddb2 0,…
 
 # main hub
-^sep(apps)
+^sep()
 launcher,"$HOME/.config/rofi/launcher.sh",app-launcher
 all apps,^checkout(apps),tux
 terminals,^checkout(terminals),utilities-terminal
 browsers,^checkout(browsers),web-browser
 music,^checkout(music),apple-music
-^sep(files)
+^sep()
 audio,^checkout(gAudio),audio-recorder-on
 music,^checkout(gMusic),deepin-music
 video,^checkout(gVideo),deepin-movie
 gaming,^checkout(gGaming),applications-games
 file manager,thunar,system-file-manager
 text editor,st -e micro,text-editor
-^sep(tools)
+^sep()
 scripts,^checkout(scripts),applications-utilities
 appkiller,xkill,gtk-close
-^sep(system)
+^sep()
 prefs,^checkout(gPreferences),preferences-system
 system,^checkout(gSystem),applications-system
 lock,slock,gnome-lockscreen
@@ -52,26 +52,26 @@ helium,helium.appimage,chromium
 ^tag(gVideo)
 back,^back()
 jellyfin,flatpak run com.github.iwalton3.jellyfin-media-player,jellyfin
-invidtui,kitty -e inviditui,terminal
-termv,kitty -e termv,terminal
-mlmf (simpsons),kitty -e mlmf,terminal
-mlmf (king of the hill),kitty -e mlmf "/media/george/tv-shows/TV SHOWS/King of the Hill (1997) [TVDB=73903] [IMDB=tt0118375]/",terminal
-mlmf (futurama),kitty -e mlmf "/media/george/tv-shows/TV SHOWS/Futurama (1999) [TVDB=73871] [IMDB=tt0149460]/",terminal
-mlmf (movies),kitty -e mlmf "/media/george/movies/MOVIES/",terminal
+invidtui,st -e inviditui,terminal
+termv,st -e termv,terminal
+mlmf (simpsons),st -e mlmf,terminal
+mlmf (king of the hill),st -e mlmf "/media/george/tv-shows/TV SHOWS/King of the Hill (1997) [TVDB=73903] [IMDB=tt0118375]/",terminal
+mlmf (futurama),st -e mlmf "/media/george/tv-shows/TV SHOWS/Futurama (1999) [TVDB=73871] [IMDB=tt0149460]/",terminal
+mlmf (movies),st -e mlmf "/media/george/movies/MOVIES/",terminal
 
 ^tag(gMusic)
 back,^back()
 spotiflac,$HOME/AppImages/spotiflac.appimage,spotify
 ncmpcpp,$HOME/.config/autostart/ncmpcpp.sh,multimedia-audio-player
-code-radio,kitty -e code-radio-cli,library-internet-radio
-musicforprogrammers,kitty -e mfp,library-internet-radio
-tunein,kitty -e tunein-cli,library-internet-radio
-somafm,kitty -e soma-player,library-internet-radio
+code-radio,st -e code-radio-cli,library-internet-radio
+musicforprogrammers,st -e mfp,library-internet-radio
+tunein,st -e tunein-cli,library-internet-radio
+somafm,st -e soma-player,library-internet-radio
 
 ^tag(gAudio)
 back,^back()
-disable smt,~/Documents/GitHub/.my-scripts/audio/disable-smt.sh,cpufreq-icon
-enable smt,~/Documents/GitHub/.my-scripts/audio/enable-smt.sh,cpufreq-icon
+disable smt,$HOME/Documents/GitHub/.my-scripts/audio/disable-smt.sh,cpufreq-icon
+enable smt,$HOME/Documents/GitHub/.my-scripts/audio/enable-smt.sh,cpufreq-icon
 ^sep()
 reaper,"$HOME/.reaper/REAPER/reaper",cockos-reaper
 meter,"$HOME/.local/bin/Meter",plugins
@@ -101,23 +101,24 @@ rofi,^checkout(rofiConfig),rofi
 ^sep()
 appearance (wayland),nwg-look,preferences-desktop-theme
 appearance (x11),lxappearance,preferences-desktop-theme
-font config,flatpak run dev.zed.Zed ~/.config/fontconfig/fonts.conf,preferences-desktop-font
-keyboard shortcuts,~/.config/suckless/scripts/help,keyboard
-notifications config,flatpak run dev.zed.Zed ~/.config/suckless/dunst/dunstrc,notifyconf
-wallpaper,~/.config/rofi/wallpaper.sh,preferences-desktop-wallpaper,wallpaper
+notifications config,st -e micro $HOME/.config/suckless/dunst/dunstrc,notifyconf
 
 ^tag(picom)
 back,^back()
-edit picom.conf, kitty -e micro ~/.config/suckless/picom/picom.conf,picom
+edit picom.conf, st -e micro $HOME/.config/suckless/picom/picom.conf,picom
 
 ^tag(scripts)
 back,^back()
 take fullscreen screenshot,flameshot full --path "$HOME/Screenshots/",camera-photo
 take area screenshot,flameshot gui --path "$HOME/Screenshots/",gtk-select-all
 emoji,"$HOME/.config/rofi/emoji.sh",face-smile
+kaomoji,"$HOME/.config/rofi/kaomoji.sh",org.gnome.gitlab.Cowsay
+keyboard shortcuts,$HOME/.config/suckless/scripts/help,keyboard
+timer,"$HOME/.config/rofi/timer.sh",alarm-timer
 theme selector,"$HOME/.config/rofi/themes.sh",gtk-theme-config
+wallpaper,$HOME/.config/rofi/wallpaper.sh,preferences-desktop-wallpaper,wallpaper
 ^sep(tui)
-nfl-tui,kitty -e nfl-tui,games-highscores
+nfl-tui,st -e nfl-tui,games-highscores
 ^sep(backup)
 backup music,st -e rsync --archive --delete --update --verbose --human-readable --progress "/media/george/movies/MUSIC" "/media/george/22-Tantalizing-TBs/"; notify-send -i folder-gruvbox-original-red-backup -t 5000 '🎵 music backup complete 🎵',deepin-music
 backup movies,st -e rsync --archive --delete --update --verbose --human-readable --progress "/media/george/movies/MOVIES" "/media/george/22-Tantalizing-TBs/"; notify-send -i folder-gruvbox-original-red-backup -t 5000 '🎥 movies backup complete 🎥',video-player
@@ -126,39 +127,36 @@ backup wrasslin',st -e rsync --archive --delete --update --verbose --human-reada
 
 dwm,^tag(dwmConfig),dwm
 back,^back()
-edit autostart,st -e micro ~/.config/suckless/scripts/autostart.sh
-edit config.h,flatpak run dev.zed.Zed ~/.git-stuff/dwm-flexipatch-6.6-dev/config.h
-edit config.mk,flatpak run dev.zed.Zed ~/.git-stuff/dwm-flexipatch-6.6-dev/config.mk
-edit patches.h,flatpak run dev.zed.Zed ~/.git-stuff/dwm-flexipatch-6.6-dev/patches.h
+edit autostart,st -e micro $HOME/.config/suckless/scripts/autostart.sh
+edit config.h,st -e micro $HOME/.git-stuff/dwm-flexipatch-6.6-dev/config.h
+edit config.mk,st -e micro $HOME/.git-stuff/dwm-flexipatch-6.6-dev/config.mk
+edit patches.h,st -e micro $HOME/.git-stuff/dwm-flexipatch-6.6-dev/patches.h
 edit environment,pkexec st -e micro /etc/environment
 ^sep()
 restart,xdotool key super+Ctrl+Shift+q
 
 jgmenu,^tag(jgmenuConfig)
 back,^back()
-edit menu content,flatpak run dev.zed.Zed ~/.config/jgmenu/prepend.csv
-edit menu settings,flatpak run dev.zed.Zed ~/.config/jgmenu/jgmenurc
+edit menu content,st -e micro $HOME/.config/jgmenu/prepend.csv
+edit menu settings,st -e micro $HOME/.config/jgmenu/jgmenurc
 
 keybinds,^tag(keybinds)
 back,^back()
-edit sxhkdrc,flatpak run dev.zed.Zed ~/.config/suckless/sxhkd/sxhkdrc
+edit sxhkdrc,st -e micro $HOME/.config/suckless/sxhkd/sxhkdrc
 restart sxhkd,sh -c "pkill -x sxhkdrc; pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Configuration reloaded'"
 ^sep()
-# Next entry requires tk
-#Show Keybinds,xbindkeys_show
-^sep(help)
-man page,x-terminal-emulator -T 'man xbindkeys' -e man xbindkeys,deepin-manual
+man page,st -T 'man sxhkd' -e man sxhkd,deepin-manual
 
 rofi,^tag(rofiConfig)
 back,^back()
-edit start-up script,flatpak run dev.zed.Zed ~/.config/rofi/config.rasi
-^sep(help)
-man page,x-terminal-emulator -T 'man dmenu' -e man dmenu,deepin-manual
+edit main rofi config,st -e micro $HOME/.config/rofi/config.rasi
+^sep()
+man page,st -T 'man rofi' -e man rofi,deepin-manual
 
 Display,^tag(DisplaySettings)
 back,^back()
 ARandR Screen Layout Editor,arandr
-^sep(Help)
+^sep()
 man xrandr,st -T 'man xrandr' -e man xrandr,deepin-manual
 man arandr,st -T 'man arandr' -e man arandr,deepin-manual
 
@@ -167,7 +165,7 @@ back,^back()
 task manager (btop),st -e btop,btop
 gnome software,pkexec gnome-software,gnome-software
 bazaar,flatpak run io.github.kolunmi.Bazaar,software-store
-login settings,pkexec flatpak run dev.zed.Zed /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf,lightdm-settings
+login settings,pkexec st -e micro /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf,lightdm-settings
 login interface,lightdm-gtk-greeter-settings-pkexec,lightdm-settings
 partition manager,pkexec gparted,gparted
 power management,xfce4-power-manager-settings,xfce4-power-manager-settings
