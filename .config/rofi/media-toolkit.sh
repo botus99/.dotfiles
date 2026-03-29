@@ -39,7 +39,7 @@ detect_encoder() {
 # Rofi Helpers
 #################################
 
-rofi_menu() { rofi -dmenu -p "$1"; }
+rofi_menu() { rofi -dmenu -theme "~/.config/rofi/media-toolkit.rasi" -p "$1"; }
 notify() { notify-send "Media Toolkit" "$1"; }
 
 #################################
