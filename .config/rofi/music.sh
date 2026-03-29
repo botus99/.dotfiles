@@ -30,7 +30,7 @@ $random_icon
 $repeat_icon"
 
 # ---- Header ----
-header="$("$HOME/Documents/GitHub/.my-scripts/audio/mpc-np")"
+header="$("$HOME/Documents/GitHub/.my-scripts/system/mpc-np")"
 #header="$("$HOME/.local/bin/statusbar/sb-music")"
 
 choice=$(printf "%s\n" "$options" \
