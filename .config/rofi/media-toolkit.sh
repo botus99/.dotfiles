@@ -7,7 +7,6 @@ set -euo pipefail
 #################################
 
 DEFAULT_DIR="${HOME}/Videos"
-JOBS="${JOBS:-$(nproc)}"
 NORMALIZE_AUDIO_BATCH=""
 
 #################################
@@ -49,16 +48,18 @@ notify() { notify-send "Media Toolkit" "$1"; }
 collect_files() {
     mapfile -d '' FILES < <(
         find "$1" -type f \( \
-            -iname "*.wmv" -o \
             -iname "*.avi" -o \
+            -iname "*.flv" -o \
+            -iname "*.m2ts" -o \
+            -iname "*.m4v" -o \
+            -iname "*.mkv" -o \
+            -iname "*.mov" -o \
+            -iname "*.mp4" -o \
             -iname "*.mpg" -o \
             -iname "*.mpeg" -o \
-            -iname "*.mkv" -o \
-            -iname "*.mp4" -o \
-            -iname "*.m4v" -o \
-            -iname "*.flv" -o \
-            -iname "*.mov" -o \
-            -iname "*.webm" \
+            -iname "*.ts" -o \
+            -iname "*.webm" -o \
+            -iname "*.wmv" \
         \) -print0
     )
 }
@@ -108,7 +109,6 @@ convert_container() {
         -i "$file" \
         -map 0 \
         -map_metadata 0 \
-        -speed veryslow \
         -c copy \
         -avoid_negative_ts make_zero \
         -movflags +faststart \
@@ -126,10 +126,8 @@ normalize_audio() {
         -i "$file" \
         -map 0 \
         -map_metadata 0 \
-        -speed veryslow \
         -c:v copy \
-        -tune:v hq \
-        -af loudnorm \
+        -af loudnorm=I=-16:TP=-1.5:LRA=11 \
         -c:a "$AUDIO_CODEC" \
         -movflags +faststart \
         "$output"
@@ -145,6 +143,8 @@ reencode_auto() {
     if [[ "$encoder" == "hevc_vaapi" ]]; then
         ffmpeg -hide_banner -loglevel error \
             -fflags +genpts \
+		    -hwaccel vaapi \
+		    -hwaccel_output_format vaapi \
             -vaapi_device /dev/dri/renderD128 \
             -i "$file" \
             -map 0 \
@@ -152,7 +152,6 @@ reencode_auto() {
             -vf 'format=nv12,hwupload' \
             -speed veryslow \
             -c:v hevc_vaapi -qp 27 \
-            -tune:v hq \
             -c:a "$AUDIO_CODEC" \
             -movflags +faststart \
             "$output"
@@ -212,7 +211,6 @@ choose_deinterlace_mode() {
 }
 
 build_video_filter() {
-
     local filters=()
 
     case "$DEINT_MODE" in
@@ -258,17 +256,33 @@ reencode_fps() {
         AUDIO_FILTER="anull"
     fi
 
+	if [[ "$ENCODER" == "hevc_vaapi" ]]; then
+	    EXTRA_HW="-hwaccel vaapi -hwaccel_output_format vaapi -vaapi_device /dev/dri/renderD128"
+	    VIDEO_FILTER="format=nv12,hwupload,$VIDEO_FILTER"
+	else
+	    EXTRA_HW=""
+	fi
+
+	if [[ "$ENCODER" == "hevc_nvenc" ]]; then
+	    VIDEO_OPTS="-preset p7 -cq 27 -pix_fmt p010le -profile:v main10 -gpu any"
+	elif [[ "$ENCODER" == "hevc_vaapi" ]]; then
+	    VIDEO_OPTS="-qp 24"
+	else
+	    VIDEO_OPTS="-preset veryslow -crf 27"
+	fi
+
     local VIDEO_FILTER
     VIDEO_FILTER=$(build_video_filter)
 
     ffmpeg -hide_banner -loglevel error \
         -fflags +genpts \
+		$EXTRA_HW \
         -i "$file" \
         -map 0 \
         -map_metadata 0 \
         -c:a "$AUDIO_CODEC" \
         -af "$AUDIO_FILTER" \
-        -c:v hevc_nvenc -preset p7 -cq 27 \
+        -c:v "$ENCODER" $VIDEO_OPTS \
         -pix_fmt p010le \
         -profile:v main10 \
         -gpu any \
@@ -308,7 +322,6 @@ main() {
     	"Re-encode → H.265 (Auto Hardware, no FPS change)" \
     	"Re-encode → H.265 + FPS Convert + Deinterlace / IVTC / Dejudder" \
 	    | rofi_menu "Media Toolkit")
-
 
     [[ -z "$ACTION" ]] && exit 0
 
@@ -351,9 +364,17 @@ main() {
     		[[ -z "$TARGET_FPS" ]] && exit 0
     		choose_deinterlace_mode
     		choose_audio_normalization
+			ENCODER=$(detect_encoder)
     		ACTION=reencode_fps
     		;;
     esac
+
+	# Set parallel jobs based on encoder
+	if [[ "$ENCODER" == *vaapi* || "$ENCODER" == *nvenc* ]]; then
+	    JOBS=2
+	else
+	    JOBS=$(nproc)
+	fi
 
     notify "Processing ${#FILES[@]} file(s)..."
     run_parallel
