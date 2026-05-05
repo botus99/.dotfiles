@@ -69,7 +69,11 @@ vec3 srgb_to_linear(vec3 c) {
 /* ----------------------------------------------------------
    rgb -> oklab
    ----------------------------------------------------------
-   oklab is a perceptual color space
+   oklab is a perceptual color space for image processing
+   it can predict perceived lightness, chroma and hue well
+   it is simple, well-behaved numerically, and easy to adopt
+
+   more info: (https://bottosson.github.io/posts/oklab)
 ---------------------------------------------------------- */
 vec3 rgb_to_oklab(vec3 c) {
     /* step 1: convert to linear rgb */
