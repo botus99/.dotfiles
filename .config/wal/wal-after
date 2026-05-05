@@ -106,7 +106,7 @@ replace_hex "$MPVCONF" sub-color "$color15"
 JGMENURC="$HOME/.config/jgmenu/jgmenurc"
 replace_hex "$JGMENURC" color_menu_bg "$color0"
 replace_hex "$JGMENURC" color_menu_border "$color1"
-replace_hex "$JGMENURC" color_norm_bg "$color9"
+replace_hex "$JGMENURC" color_norm_bg "$color0"
 replace_hex "$JGMENURC" color_norm_fg "$color15"
 replace_hex "$JGMENURC" color_sel_bg "$color1"
 replace_hex "$JGMENURC" color_sel_border "$color1"
@@ -131,6 +131,8 @@ replace_hex "$HOME/.config/suckless/picom/picom.conf" shadow-color "$color0"
 # stuff for later...#
 #####################
 # gtk stuff
+#bash "$HOME/make-gtk-theme.sh" || true
+
 # pywalfox
 #pidof pywalfox >/dev/null && pywalfox update || pywalfox start
 
