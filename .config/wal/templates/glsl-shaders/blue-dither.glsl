@@ -241,7 +241,7 @@ vec4 window_shader() {
     ratio += dot(err, vec3(0.299, 0.587, 0.114));
 
     /*   reduce noise in solid, flat color areas   */
-    ratio = smoothstep(0.0, 1.0, ratio);
+    // ratio = smoothstep(0.0, 1.0, ratio);
 
     /* ------------------------------------------------------
        jitter / offest
@@ -255,7 +255,7 @@ vec4 window_shader() {
 
        ratio changes per pixel based on color distance
     ------------------------------------------------------ */
-    vec2 jitter = vec2(ratio, 1.0 - ratio);
+   //  vec2 jitter = vec2(ratio, 1.0 - ratio);
 
     /* ------------------------------------------------------
        blue-noise dither
@@ -266,7 +266,8 @@ vec4 window_shader() {
        the multiplier (17.0) scales the dither grid offset to
        make the effect noticeable without being chaotic.
     ------------------------------------------------------ */
-    float threshold = blue_noise(gl_FragCoord.xy + jitter * 17.0);
+   //  float threshold = blue_noise(gl_FragCoord.xy + jitter * 17.0);
+    float threshold = blue_noise(gl_FragCoord.xy * 17.0);
 
     /* ------------------------------------------------------
        final color selection

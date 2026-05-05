@@ -41,7 +41,7 @@ const float color_opacity = 1.0;
    0.0 → smooth gradient (no pattern)
    1.0 → full dithering (pixelated look)
 ---------------------------------------------------------- */
-const float dither_opacity = 0.5;
+const float dither_opacity = 0.667;
 
 /* ----------------------------------------------------------
    contrast boost pre-dithering (default = 0.0)
@@ -86,16 +86,46 @@ float color_distance(vec3 c, vec3 p, float p_len2) {
    fragment coordinates... creating dither noise that looks
    random, but does not flicker every frame
 ---------------------------------------------------------- */
+// float random(float seed_change) {
+//     /*   create a seed based on pixel position   */
+//     vec2 seed = gl_FragCoord.xy + sin(seed_change);
+//     /*   scramble the seed using trig + division   */
+//     float scrambled = sin(mod(seed.x / cos(seed.y), 5.0) * 10000.0);
+//     /*   dot product mixes values into a single float   */
+//     float mixed = dot(vec2(scrambled), vec2(1.1, 12.2));
+//     /*   fract keeps only the decimal part → 0.0 to 1.0   */
+//     return fract(mixed);
+// }
+
 float random(float seed_change) {
-    /*   create a seed based on pixel position   */
-    vec2 seed = gl_FragCoord.xy + sin(seed_change);
-    /*   scramble the seed using trig + division   */
-    float scrambled = sin(mod(seed.x / cos(seed.y), 5.0) * 10000.0);
-    /*   dot product mixes values into a single float   */
-    float mixed = dot(vec2(scrambled), vec2(1.1, 12.2));
-    /*   fract keeps only the decimal part → 0.0 to 1.0   */
-    return fract(mixed);
+    vec2 p = gl_FragCoord.xy;
+
+    /* animated warp */
+    p += vec2(
+        sin(seed_change * 0.7) * 2.0,
+        cos(seed_change * 0.9) * 2.0
+    );
+
+    /* mild nonlinear distortion */
+    p += sin(p.yx * 0.05);
+
+    float n = dot(p, vec2(12.9898, 78.233));
+
+    return fract(sin(n) * 43758.5453);
 }
+
+// float random(float seed_change) {
+//     vec2 p = gl_FragCoord.xy;
+
+//     p += vec2(
+//         sin(seed_change * 1.3),
+//         cos(seed_change * 1.7)
+//     );
+
+//     float n = dot(p, vec2(12.9898, 78.233));
+
+//     return fract(sin(n) * 43758.5453);
+// }
 
 /* ----------------------------------------------------------
    main shader
@@ -182,7 +212,7 @@ vec4 window_shader() {
 
     for (int i = 0; i < 16; i++) {
         /*   compute distance from current pixel to palette color   */
-        float dist = color_distance(c.rgb, colors[i], palette_len2[i]);
+        float dist = color_distance(out_color.rgb, colors[i], palette_len2[i]);
         if (dist < best_distance) {
             /*   shift current best to second best   */
             second_distance = best_distance;
@@ -227,7 +257,7 @@ vec4 window_shader() {
     ratio = mix(0.5, ratio, palette_proximity);
 
     /*   smooth transitions to avoid harsh artifacts   */
-    ratio = smoothstep(0.0, 1.0, ratio);
+    // ratio = smoothstep(0.0, 1.0, ratio);
 
     /* ------------------------------------------------------
        film grain dither
@@ -235,7 +265,20 @@ vec4 window_shader() {
        basically a modified version of the random dither
        that updates the seed (dither noise) with time
     ------------------------------------------------------ */
-    float randomness = random(time) * ratio;
+    float luminance = dot(out_color.rgb, vec3(0.299,0.587,0.114));
+    // float dark_weight = pow(1.0 - luminance, 1.5);
+    float dark_weight = mix(0.2, 1.0, pow(1.0 - luminance, 1.5));
+
+    // /* stronger bias toward darks */
+    dark_weight = pow(dark_weight, 1.5);
+
+    ratio = mix(0.5, ratio, dark_weight);
+   //  float randomness = random(time * 0.24) * ratio * dark_weight;
+   //  float randomness = random(dot(gl_FragCoord.xy, vec2(1.0)) + time * 0.1) * ratio * dark_weight;
+   //  float randomness = random(dot(gl_FragCoord.xy, vec2(1.0)) + time * 0.1) * dark_weight;
+
+    float t = floor(time * 1.0) / 12.0; // 24 FPS grain updates
+    float randomness = random(t) * dark_weight;
 
     /* ------------------------------------------------------
        ratio-biased noise / threshold warping
@@ -252,9 +295,11 @@ vec4 window_shader() {
        this line has MUCH potential
        this line has values that are totally arbitrary
        "3.33 + 0.33" for a noisy, but tasteful alternative
+       "4.00 + 0.48" for a happy medium
        "5.00 + 0.45" for a tamer, less noisy version
     ------------------------------------------------------ */
-    randomness = randomness * 5 + 0.45;
+    randomness = randomness * 3 + 0.33;
+    // randomness = mix(randomness, randomness * 2.0, 0.5);
 
     /* ------------------------------------------------------
        final color selection
@@ -263,9 +308,9 @@ vec4 window_shader() {
        palette color a pixel becomes
     ------------------------------------------------------ */
     if (randomness > ratio)
-        c.rgb = colors[best_index];
+        out_color.rgb = colors[best_index];
     else
-        c.rgb = colors[second_index];
+        out_color.rgb = colors[second_index];
 
     /* ------------------------------------------------------
        final color blend
@@ -274,17 +319,17 @@ vec4 window_shader() {
        between the two palette colors, reducing harsh
        grain and flickering edges
     ------------------------------------------------------ */
-    c.rgb = mix(mix(colors[best_index], colors[second_index], ratio), c.rgb, dither_opacity);
+    out_color.rgb = mix(mix(colors[best_index], colors[second_index], ratio), out_color.rgb, dither_opacity);
 
     /* ------------------------------------------------------
        output brightness (also clamps output to prevent clipping)
     ------------------------------------------------------ */
-    c.rgb = clamp(c.rgb * post_gain, 0.0, 1.0);
+    out_color.rgb = clamp(out_color.rgb * post_gain, 0.0, 1.0);
 
     if (invert_color)
-        c = vec4(vec3(c.a) - c.rgb, c.a);
+        out_color = vec4(vec3(out_color.a) - out_color.rgb, out_color.a);
 
-    c *= opacity;
+    out_color *= opacity;
 
-    return default_post_processing(c);
+    return default_post_processing(out_color);
 }

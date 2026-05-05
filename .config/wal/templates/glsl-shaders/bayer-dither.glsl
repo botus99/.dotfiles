@@ -240,7 +240,7 @@ vec4 window_shader() {
        - near 0 → far from palette → allow dithering
        - near 1 → very close → suppress dithering
     ------------------------------------------------------ */
-    float palette_proximity = smoothstep(0.0, 0.02, best_distance);
+    float palette_proximity = smoothstep(0.0, 0.1, best_distance);
 
     /*   bias toward "unity" ratio (0.5) when very close   */
     ratio = mix(0.5, ratio, palette_proximity);
