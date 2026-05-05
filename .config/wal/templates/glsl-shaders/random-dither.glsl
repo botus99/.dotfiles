@@ -85,9 +85,9 @@ float color_distance(vec3 c, vec3 p, float p_len2) {
    fragment coordinates... creating dither noise that looks
    random, but does not flicker every frame
 ---------------------------------------------------------- */
-float random(float seedChange) {
+float random(float seed_change) {
     /*   create a seed based on pixel position   */
-    vec2 seed = gl_FragCoord.xy + sin(seedChange);
+    vec2 seed = gl_FragCoord.xy + sin(seed_change);
     /*   scramble the seed using trig + division   */
     float scrambled = sin(mod(seed.x / cos(seed.y), 5.0) * 10000.0);
     /*   dot product mixes values into a single float   */
@@ -242,7 +242,7 @@ vec4 window_shader() {
     ratio = mix(0.5, ratio, palette_proximity);
 
     /*   smooth transitions to avoid harsh artifacts   */
-    ratio = smoothstep(0.0, 1.0, ratio);
+   //  ratio = smoothstep(0.0, 1.0, ratio);
 
     /* ------------------------------------------------------
        stochastic (random) dither
@@ -270,7 +270,7 @@ vec4 window_shader() {
        "3.33 + 0.33" for a noisy, but tasteful alternative
        "5.00 + 0.45" for a tamer, less noisy version
     ------------------------------------------------------ */
-    randomness = randomness * 5 + 0.45;
+    randomness = randomness * 3 + 0.33;
 
     /* ------------------------------------------------------
        final color selection
