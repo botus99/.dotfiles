@@ -70,8 +70,8 @@ somafm,st -e soma-player,library-internet-radio
 
 ^tag(gAudio)
 back,^back()
-disable smt,$HOME/Documents/GitHub/.my-scripts/audio/disable-smt.sh,cpufreq-icon
-enable smt,$HOME/Documents/GitHub/.my-scripts/audio/enable-smt.sh,cpufreq-icon
+disable smt,$HOME/Documents/GitHub/.my-scripts/system/cpu-tweaks/disable-smt.sh,cpufreq-icon
+enable smt,$HOME/Documents/GitHub/.my-scripts/system/cpu-tweaks/enable-smt.sh,cpufreq-icon
 ^sep()
 reaper,"$HOME/.reaper/REAPER/reaper",cockos-reaper
 meter,"$HOME/.local/bin/Meter",plugins
@@ -79,6 +79,8 @@ meter,"$HOME/.local/bin/Meter",plugins
 ^tag(gGaming)
 back,^back()
 nba-2k14,"$HOME/.local/bin/nba-2k14",sportstracker
+medal-of-honor-retro-remake,"$HOME/.local/bin/moh",sportstracker
+medal-oh-honor-allied-assault,"/usr/games/mohaa",sportstracker
 ^sep()
 brutal-doom-bloodwolf,"$HOME/.config/uzdoom/brutal-doom.sh",freedoom1
 brutal-simpsons-doom,"$HOME/.config/uzdoom/brutal-simpsons-doom.sh",freedoom1
@@ -88,7 +90,9 @@ brutal-doom-platinum-2,"$HOME/.config/uzdoom/brutal-doom-platinum.sh",freedoom2
 brutal-simpsons-doom-2,"$HOME/.config/uzdoom/brutal-simpsons-doom-2.sh",freedoom2
 project-brutality-2,"$HOME/.config/uzdoom/project-brutality.sh",freedoom2
 ^sep()
+goldeneye-doom,"$HOME/.config/uzdoom/goldeneye.sh",doom
 brutal-going-down,"$HOME/.config/uzdoom/brutal-going-down.sh",doom
+myhouse,"$HOME/.config/uzdoom/myhouse.sh",doom
 
 ^tag(gPreferences)
 back,^back()
