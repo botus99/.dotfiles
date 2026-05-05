@@ -99,7 +99,7 @@ entry {
     enabled: true;
     expand: false;
     width: 12em;
-    padding: 0.5em 1em 0.5em 1em;
+    padding: 1.0em 1em 1.0em 1em;
     background-color: @background;
     text-color: inherit;
     cursor: text;
