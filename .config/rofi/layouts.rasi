@@ -96,8 +96,10 @@ listview {
 }
 
 inputbar {
+	enabled: false;
     padding: 0em 0em 0em 0em;
     margin: 0em 0em 0em 0em;
+	border: 0.15em;
 }
 
 entry {
@@ -114,7 +116,6 @@ prompt {
     margin: 0em 0em 0em 0em;
 }
 
-/***---remove colon after prompt---***/
 textbox-prompt-colon {
     content: "";
     text-color: @background;
