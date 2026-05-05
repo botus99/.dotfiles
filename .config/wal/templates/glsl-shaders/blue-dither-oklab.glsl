@@ -1,0 +1,307 @@
+#version 330 core
+
+uniform float opacity;
+uniform bool invert_color;
+uniform sampler2D tex;
+
+in vec2 texcoord;
+
+vec4 default_post_processing(vec4 c);
+
+/* ----------------------------------------------------------
+   brightness (default = 1.0)
+   ----------------------------------------------------------
+   pre_gain  → applied BEFORE palette quantization
+               affects how colors are chosen
+   post_gain → applied AFTER everything
+               final brightness (clamped to avoid clipping)
+---------------------------------------------------------- */
+const float pre_gain  = 1.0;
+const float post_gain  = 1.0;
+
+/* ----------------------------------------------------------
+   pywal color opacity (default = 1.0)
+   ----------------------------------------------------------
+   control the strength of the pywal colors
+   replacing the original image
+
+   0.0 → original image
+   0.5 → blended / tinted
+   1.0 → fully quantized palette
+   >1  → oversaturated stylized look
+---------------------------------------------------------- */
+const float color_opacity = 1.0;
+
+/* ----------------------------------------------------------
+   dither pattern opacity (default = 0.5)
+   ----------------------------------------------------------
+   control how visible the dithering pattern is
+
+   0.0 → smooth gradient (no pattern)
+   1.0 → full dithering (pixelated look)
+---------------------------------------------------------- */
+const float dither_opacity = 0.5;
+
+/* ----------------------------------------------------------
+   gamma correction (default = 1.0 for dark / 2.2 for light)
+   ----------------------------------------------------------
+   works after pre_gain brightness to adjust color quantization
+
+   1.0 → neutral dark
+   2.2 → gamma boosted
+---------------------------------------------------------- */
+const float gamma = 1.0;
+
+vec3 gamma_correct(vec3 color, float g) {
+    return pow(color, vec3(1.0 / g));
+}
+
+/* ----------------------------------------------------------
+   contrast boost (default = 0.0)
+   ----------------------------------------------------------
+   push colors toward their nearest palette color
+   BEFORE color quantization happens
+---------------------------------------------------------- */
+const float contrast_boost = 0.0;
+
+/* ----------------------------------------------------------
+   srgb -> linear rgb (default = 2.2)
+   ----------------------------------------------------------
+   convert display space (non-linear) to linear space
+
+   most color math assumes linear light, so this improves
+   the accuracy of color conversions
+---------------------------------------------------------- */
+vec3 srgb_to_linear(vec3 c) {
+    return pow(c, vec3(2.2));
+}
+
+/* ----------------------------------------------------------
+   rgb -> oklab
+   ----------------------------------------------------------
+   oklab is a perceptual color space for image processing
+   it can predict perceived lightness, chroma and hue well
+   it is simple, well-behaved numerically, and easy to adopt
+
+   more info: (https://bottosson.github.io/posts/oklab)
+---------------------------------------------------------- */
+vec3 rgb_to_oklab(vec3 c) {
+    /* step 1: convert to linear rgb */
+    vec3 lrgb = srgb_to_linear(c);
+
+    /* step 2: convert to lms space */
+    float l = 0.4122214708 * lrgb.r + 0.5363325363 * lrgb.g + 0.0514459929 * lrgb.b;
+    float m = 0.2119034982 * lrgb.r + 0.6806995451 * lrgb.g + 0.1073969566 * lrgb.b;
+    float s = 0.0883024619 * lrgb.r + 0.2817188376 * lrgb.g + 0.6299787005 * lrgb.b;
+
+    /* step 3: apply cube root */
+    l = pow(l, 1.0/3.0);
+    m = pow(m, 1.0/3.0);
+    s = pow(s, 1.0/3.0);
+
+    /* step 4: convert to oklab */
+    return vec3(
+        0.2104542553*l + 0.7936177850*m - 0.0040720468*s,
+        1.9779984951*l - 2.4285922050*m + 0.4505937099*s,
+        0.0259040371*l + 0.7827717662*m - 0.8086757660*s
+    );
+}
+
+/* ----------------------------------------------------------
+   blue-noise style hash (stable per pixel)
+---------------------------------------------------------- */
+// float blue_noise(vec2 p) {
+//     return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453);
+// }
+
+float blue_noise(vec2 p) {
+    /* dot() mixes x/y into a single value */
+    float d = dot(p, vec2(0.06711056, 0.00583715));
+    /* fract breaks up large patterns */
+    float scrambled = fract(d);
+    /* multiply and fract again to spread values into 0–1 */
+    return fract(52.9829189 * scrambled);
+}
+
+/* ----------------------------------------------------------
+   main shader
+---------------------------------------------------------- */
+vec4 window_shader() {
+
+    /* ------------------------------------------------------
+       sample input texture
+       ------------------------------------------------------
+       use texture size to scale and to get proper
+       sampling coordinates (texcoord is normalized 0–1)
+    ------------------------------------------------------ */
+    ivec2 texsize = textureSize(tex, 0);
+    vec4 c = texture(tex, texcoord / vec2(texsize));
+    vec4 out_color = c;
+
+    /* ------------------------------------------------------
+       pre-processing (brightness + gamma)
+       ------------------------------------------------------
+       adjust how colors are mapped to the palette
+       BEFORE color quantizing
+    ------------------------------------------------------ */
+    out_color.rgb = clamp(out_color.rgb * pre_gain, 0.0, 1.0);
+    out_color.rgb = gamma_correct(out_color.rgb, gamma);
+
+    /* ------------------------------------------------------
+       contrast push
+    ------------------------------------------------------ */
+	float l = dot(out_color.rgb, vec3(0.299,0.587,0.114));
+	out_color.rgb += (out_color.rgb - l) * contrast_boost;
+
+    /* ------------------------------------------------------
+       pywal colors
+    ------------------------------------------------------ */
+    vec3 colors[16] = vec3[16](
+        vec3({color0.red},{color0.green},{color0.blue}),
+        vec3({color1.red},{color1.green},{color1.blue}),
+        vec3({color2.red},{color2.green},{color2.blue}),
+        vec3({color3.red},{color3.green},{color3.blue}),
+        vec3({color4.red},{color4.green},{color4.blue}),
+        vec3({color5.red},{color5.green},{color5.blue}),
+        vec3({color6.red},{color6.green},{color6.blue}),
+        vec3({color7.red},{color7.green},{color7.blue}),
+        vec3({color8.red},{color8.green},{color8.blue}),
+        vec3({color9.red},{color9.green},{color9.blue}),
+        vec3({color10.red},{color10.green},{color10.blue}),
+        vec3({color11.red},{color11.green},{color11.blue}),
+        vec3({color12.red},{color12.green},{color12.blue}),
+        vec3({color13.red},{color13.green},{color13.blue}),
+        vec3({color14.red},{color14.green},{color14.blue}),
+        vec3({color15.red},{color15.green},{color15.blue})
+    );
+
+    /* ------------------------------------------------------
+       precompute palette in oklab space
+       ------------------------------------------------------
+       calculates the color distance upfront instead of
+       repeating the same calculation for every palette color
+   ------------------------------------------------------ */
+   vec3 palette_lab[16];
+   for (int i = 0; i < 16; i++) {
+      palette_lab[i] = rgb_to_oklab(colors[i]);
+   }
+
+    /* ------------------------------------------------------
+       precompute palette squared lengths (oklab)
+       ------------------------------------------------------
+       calculate dot(color, color) once for each pywal color
+    ------------------------------------------------------ */
+    float palette_len2[16];
+    for (int i = 0; i < 16; i++) {
+        palette_len2[i] = dot(palette_lab[i], palette_lab[i]);
+    }
+
+    /* ------------------------------------------------------
+       find two closest palette colors (oklab)
+    ------------------------------------------------------ */
+    vec3 pixel_lab = rgb_to_oklab(out_color.rgb);
+
+    float best_distance = 1e20;
+    float second_distance = 1e20;
+    int best_index = 0;
+    int second_index = 0;
+
+    for (int i = 0; i < 16; i++) {
+        float dist = palette_len2[i] - 2.0 * dot(pixel_lab, palette_lab[i]);
+
+        if (dist < best_distance) {
+            second_distance = best_distance;
+            second_index = best_index;
+
+            best_distance = dist;
+            best_index = i;
+        }
+        else if (dist < second_distance) {
+            second_distance = dist;
+            second_index = i;
+        }
+    }
+
+    /* ------------------------------------------------------
+       dither ratio (oklab distance-based)
+    ------------------------------------------------------ */
+    float ratio = best_distance / (best_distance + second_distance + 1e-6);
+    ratio = clamp(ratio, 0.0, 1.0);
+
+    /* ------------------------------------------------------
+    luminance-aware dithering weight
+    ------------------------------------------------------
+    reduce dithering in darker regions
+    ------------------------------------------------------ */
+    float luminance = dot(out_color.rgb, vec3(0.299, 0.587, 0.114));
+
+    /* 0 = very dark → less dithering
+    1 = bright → full dithering */
+    float dark_weight = pow(clamp(luminance, 0.0, 1.0), 1.5);
+
+    /* optional floor so blacks aren't completely flat */
+    // dark_weight = mix(0.15, 1.0, dark_weight);
+    // dark_weight = mix(0.02, 1.0, dark_weight);
+
+    ratio = mix(0.5, ratio, dark_weight);
+
+    /* remove dither noise from really dark stuff */
+    if (luminance < 0.025) ratio = 0.0;
+
+    /* ------------------------------------------------------
+       blue-noise dithering
+    ------------------------------------------------------ */
+    float noise = blue_noise(gl_FragCoord.xy);
+
+    // /* bias noise slightly for nicer distribution */
+    // noise = noise * 0.75 + 0.125;
+
+    /* tighten distribution in dark areas */
+    noise = mix(0.5, noise, dark_weight);
+
+    /* keep your existing shaping */
+    noise = noise * 0.75 + 0.125;
+
+    /* pick between the two closest colors */
+    // dark → wide (0.15), bright → tight (0.02)
+    float width = mix(0.15, 0.01, dark_weight); 
+
+    float threshold = smoothstep(ratio - width,
+                                ratio + width,
+                                noise);
+
+    vec3 dithered = mix(
+        colors[second_index],
+        colors[best_index],
+        threshold
+    );
+
+    /* smooth gradient fallback */
+    vec3 blended =
+        mix(colors[best_index], colors[second_index], ratio);
+
+    /* mix between smooth + dithered */
+    vec3 quantized =
+        mix(blended, dithered, dither_opacity);
+
+    /* ------------------------------------------------------
+       final color blend
+    ------------------------------------------------------ */
+    vec3 finalRGB =
+        out_color.rgb * (1.0 - color_opacity) +
+        quantized * color_opacity;
+
+    out_color.rgb = finalRGB;
+
+    if (invert_color)
+        out_color.rgb = out_color.a - out_color.rgb;
+
+    /* ------------------------------------------------------
+       output brightness (also clamps to prevent clipping)
+    ------------------------------------------------------ */
+    out_color.rgb = clamp(out_color.rgb * post_gain, 0.0, 1.0);
+
+    out_color *= opacity;
+
+    return default_post_processing(out_color);
+}
