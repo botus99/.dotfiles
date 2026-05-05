@@ -24,7 +24,7 @@
 # =============================================================
 
 # Set some variables
-wall_dir="${HOME}/.wallpapers/mountains"
+wall_dir="${HOME}/.wallpapers/trees"
 cache_dir="${HOME}/.cache/wp"
 
 # Create cache dir if not exists

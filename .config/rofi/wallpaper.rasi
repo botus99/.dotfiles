@@ -5,7 +5,7 @@ configuration {
     show-icons:                  true;
     drun-display-format:         "{name}";
     font:                        "Mononoki Nerd Font 10.1";
-    
+
     //hover-select:				 true;
 	//me-select-entry:			 "";
 	//me-accept-entry:			 "MousePrimary";
@@ -21,6 +21,10 @@ selected-active-foreground: #282828;
 }
 
 @import "~/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    spacing: 0;
+}
 
 //----- Main Window -----//
 
@@ -43,7 +47,7 @@ window {
 
 mainbox {
     enabled:                     true;
-    padding:                     2em 1em 0em 1em;
+    padding:                     1em 1em 1em 1em;
     children:                    [ "listview" ];
     background-color:            @background;
 }
@@ -54,8 +58,8 @@ listview {
     enabled:                     true;
     columns:                     7;
     lines:                       5;
-    spacing:                     0.5em 0.5em 0.5em 0.5em;
-    padding:                     0em 1em 0em 1em;
+    spacing:                     0.1em 0.1em 0.1em 0.1em;
+    padding:                     0em 0em 0em 0em;
     cycle:                       true;
     dynamic:                     false;
     scrollbar:                   false;
@@ -73,10 +77,10 @@ listview {
 
 element {
     enabled:                     true;
-    orientation:                 vertical;
-    spacing:                     0em;
-    padding:                     0em;
-    border-radius:               1em;
+/*    orientation:                 horizontal; */
+    spacing:                     0em 0em 0em 0em;
+    padding:                     0em 0em 0.5em 0em;
+    border-radius:               0.666em;
     cursor:                      pointer;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -102,10 +106,9 @@ element-icon {
 }
 
 element-text {
-    vertical-align:              0.5;
     horizontal-align:            0.5;
     padding:                     0em 0em 0em 0em;
-    width:                       1em;
+    /* width:                       1em; */
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
